@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunrise India Public School | General Education School in Delhi</title>
+  <meta name="description" content="Sunrise India Public School — a nurturing general education school in West Vinod Nagar, Mandawali, Delhi. Admissions open." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <a href="mailto:info@sunriseindiapublicschool.edu.in"><i class="fa-solid fa-envelope"></i> info@sunriseindiapublicschool.edu.in</a>
+        <a href="tel:+919213278158"><i class="fa-solid fa-phone"></i> 092132 78158</a>
+      </div>
+      <div class="topbar-right">
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="#home" class="logo">
+        <span class="logo-mark">
+          <i class="fa-solid fa-sun"></i>
+        </span>
+        <span class="logo-text">
+          <strong>Sunrise India</strong>
+          <small>Public School</small>
+        </span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#activities">Activities</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#staff">Staff</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#contact" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero slider -->
+  <section class="hero" id="home">
+    <div class="hero-slider" id="heroSlider">
+      <article class="hero-slide is-active" style="--slide-accent: #ff6b35">
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1920&q=80')"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <p class="hero-eyebrow">Welcome to learning</p>
+          <h1>Sunrise India<br />Public School</h1>
+          <p class="hero-desc">A warm, vibrant general education school in Delhi where every child grows with confidence and curiosity.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Enquire Now</a>
+            <a href="#about" class="btn btn-outline">Discover More</a>
+          </div>
+        </div>
+      </article>
+      <article class="hero-slide" style="--slide-accent: #2ec4b6">
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1920&q=80')"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <p class="hero-eyebrow">Play as you learn</p>
+          <h1>Where Fun Meets<br />Foundation</h1>
+          <p class="hero-desc">From academics to arts and sports — balanced programs that nurture mind, body, and character.</p>
+          <div class="hero-actions">
+            <a href="#programs" class="btn btn-primary">Our Programs</a>
+            <a href="#gallery" class="btn btn-outline">See Campus Life</a>
+          </div>
+        </div>
+      </article>
+      <article class="hero-slide" style="--slide-accent: #ff9f1c">
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1920&q=80')"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <p class="hero-eyebrow">Admissions open</p>
+          <h1>Join Our<br />Sunrise Family</h1>
+          <p class="hero-desc">Located in West Vinod Nagar, Mandawali — open weekdays from 8:00 AM for visits and enquiries.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Visit Us</a>
+            <a href="tel:+919213278158" class="btn btn-outline">Call School</a>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="hero-controls">
+      <button class="hero-prev" id="heroPrev" aria-label="Previous slide"><i class="fa-solid fa-chevron-left"></i></button>
+      <div class="hero-dots" id="heroDots"></div>
+      <button class="hero-next" id="heroNext" aria-label="Next slide"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <div class="hero-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="currentColor"/></svg>
+    </div>
+  </section>
+
+  <!-- Feature strip -->
+  <section class="features">
+    <div class="container features-grid">
+      <div class="feature-item" style="--c:#ff6b35">
+        <div class="feature-icon"><i class="fa-solid fa-book-open"></i></div>
+        <h3>Strong Academics</h3>
+        <p>Age-appropriate curriculum with focus on literacy, numeracy, and values.</p>
+      </div>
+      <div class="feature-item" style="--c:#2ec4b6">
+        <div class="feature-icon"><i class="fa-solid fa-palette"></i></div>
+        <h3>Creative Arts</h3>
+        <p>Music, drawing, and performance that help children express themselves.</p>
+      </div>
+      <div class="feature-item" style="--c:#ff9f1c">
+        <div class="feature-icon"><i class="fa-solid fa-futbol"></i></div>
+        <h3>Active Play</h3>
+        <p>Sports and outdoor time for healthy bodies and happy minds.</p>
+      </div>
+      <div class="feature-item" style="--c:#e85d75">
+        <div class="feature-icon"><i class="fa-solid fa-heart"></i></div>
+        <h3>Caring Mentors</h3>
+        <p>Dedicated teachers who guide every child with patience and care.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about section" id="about">
+    <div class="container about-grid">
+      <div class="about-media">
+        <div class="about-img-main">
+          <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=900&q=80" alt="Students learning in classroom" />
+        </div>
+        <div class="about-badge">
+          <span class="about-badge-num">8</span>
+          <span class="about-badge-txt">AM<br />Opens</span>
+        </div>
+        <div class="about-img-float">
+          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=500&q=80" alt="Children reading together" />
+        </div>
+      </div>
+      <div class="about-copy">
+        <p class="section-eyebrow">About our school</p>
+        <h2>Nurturing Young Minds in the Heart of Delhi</h2>
+        <p>Sunrise India Public School is a general education school in West Vinod Nagar, Mandawali. We believe learning should feel bright, safe, and joyful — just like a sunrise.</p>
+        <ul class="about-list">
+          <li><i class="fa-solid fa-circle-check"></i> Holistic development — academics, arts &amp; sports</li>
+          <li><i class="fa-solid fa-circle-check"></i> Safe, colourful classrooms and play areas</li>
+          <li><i class="fa-solid fa-circle-check"></i> Parent partnership and transparent communication</li>
+          <li><i class="fa-solid fa-circle-check"></i> Convenient Mandawali / West Vinod Nagar location</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Schedule a Visit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section class="programs section section-alt" id="programs">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">What we offer</p>
+        <h2>Learning Programs</h2>
+        <p>Engaging classes designed for growing minds — from core subjects to creative pursuits.</p>
+      </div>
+      <div class="programs-grid">
+        <article class="program-card" style="--accent:#ff6b35">
+          <div class="program-img">
+            <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=700&q=80" alt="Music class" />
+            <span class="program-icon"><i class="fa-solid fa-music"></i></span>
+          </div>
+          <div class="program-body">
+            <h3>Music Class</h3>
+            <p>Rhythm, song, and instrument play that build confidence and listening skills.</p>
+            <a href="#contact" class="link-more">Enquire <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="program-card" style="--accent:#2ec4b6">
+          <div class="program-img">
+            <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=700&q=80" alt="Active learning" />
+            <span class="program-icon"><i class="fa-solid fa-lightbulb"></i></span>
+          </div>
+          <div class="program-body">
+            <h3>Active Learning</h3>
+            <p>Hands-on lessons in language, maths, and science that spark curiosity every day.</p>
+            <a href="#contact" class="link-more">Enquire <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="program-card" style="--accent:#ff9f1c">
+          <div class="program-img">
+            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=700&q=80" alt="Yoga and wellness" />
+            <span class="program-icon"><i class="fa-solid fa-spa"></i></span>
+          </div>
+          <div class="program-body">
+            <h3>Yoga &amp; Wellness</h3>
+            <p>Gentle movement and mindfulness to help children stay calm, focused, and strong.</p>
+            <a href="#contact" class="link-more">Enquire <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="program-card" style="--accent:#e85d75">
+          <div class="program-img">
+            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=700&q=80" alt="Sports and martial arts" />
+            <span class="program-icon"><i class="fa-solid fa-person-running"></i></span>
+          </div>
+          <div class="program-body">
+            <h3>Sports &amp; Fitness</h3>
+            <p>Games, drills, and teamwork activities that build stamina and sportsmanship.</p>
+            <a href="#contact" class="link-more">Enquire <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities -->
+  <section class="activities section" id="activities">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">Beyond the classroom</p>
+        <h2>Play As You Learn</h2>
+        <p>Clubs and camps that turn learning into adventure.</p>
+      </div>
+      <div class="activities-grid">
+        <div class="activity-item" style="--c:#ff6b35"><i class="fa-solid fa-language"></i><h4>English Camp</h4><p>Storytime, speaking games, and creative writing fun.</p></div>
+        <div class="activity-item" style="--c:#2ec4b6"><i class="fa-solid fa-medal"></i><h4>Sports Camp</h4><p>Team sports, relays, and outdoor challenges.</p></div>
+        <div class="activity-item" style="--c:#ff9f1c"><i class="fa-solid fa-paintbrush"></i><h4>Art Studio</h4><p>Drawing, painting, and craft projects.</p></div>
+        <div class="activity-item" style="--c:#3d8bfd"><i class="fa-solid fa-puzzle-piece"></i><h4>Skill Builders</h4><p>Personalising learning with puzzles &amp; projects.</p></div>
+        <div class="activity-item" style="--c:#00a8e8"><i class="fa-solid fa-person-swimming"></i><h4>Swim Prep</h4><p>Water confidence and basic swimming skills.</p></div>
+        <div class="activity-item" style="--c:#e85d75"><i class="fa-solid fa-microphone"></i><h4>Sing &amp; Dance</h4><p>Performance clubs for rhythm and stage presence.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parallax CTA -->
+  <section class="cta-banner">
+    <div class="cta-banner-bg"></div>
+    <div class="container cta-banner-inner">
+      <h2>Ready to begin your child’s journey?</h2>
+      <p>Call us or visit our Mandawali campus — we would love to meet your family.</p>
+      <div class="hero-actions">
+        <a href="tel:+919213278158" class="btn btn-primary">092132 78158</a>
+        <a href="#contact" class="btn btn-outline">Get Directions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery section" id="gallery">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">Campus moments</p>
+        <h2>Our Portfolio</h2>
+        <p>Glimpses of everyday joy at Sunrise India Public School.</p>
+      </div>
+      <div class="gallery-grid">
+        <a href="#" class="gallery-item" data-title="Leisure Time">
+          <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=600&q=80" alt="Leisure Time" />
+          <span><strong>Leisure Time</strong></span>
+        </a>
+        <a href="#" class="gallery-item" data-title="With Friends">
+          <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=600&q=80" alt="With Friends" />
+          <span><strong>With Friends</strong></span>
+        </a>
+        <a href="#" class="gallery-item" data-title="Classroom Care">
+          <img src="https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?auto=format&fit=crop&w=600&q=80" alt="Classroom Care" />
+          <span><strong>Classroom Care</strong></span>
+        </a>
+        <a href="#" class="gallery-item" data-title="Get Together">
+          <img src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?auto=format&fit=crop&w=600&q=80" alt="Get Together" />
+          <span><strong>Get Together</strong></span>
+        </a>
+        <a href="#" class="gallery-item" data-title="Park Games">
+          <img src="https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&w=600&q=80" alt="Park Games" />
+          <span><strong>Park Games</strong></span>
+        </a>
+        <a href="#" class="gallery-item" data-title="Music Time">
+          <img src="https://images.unsplash.com/photo-1514320291840-3095421e7d6e?auto=format&fit=crop&w=600&q=80" alt="Music Time" />
+          <span><strong>Music Time</strong></span>
+        </a>
+        <a href="#" class="gallery-item gallery-wide" data-title="My Creation">
+          <img src="https://images.unsplash.com/photo-1502781252888-9143ba7f074e?auto=format&fit=crop&w=900&q=80" alt="My Creation" />
+          <span><strong>My Creation</strong></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <img src="" alt="" id="lightboxImg" />
+    <p id="lightboxTitle"></p>
+  </div>
+
+  <!-- Staff -->
+  <section class="staff section section-alt" id="staff">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">Meet the team</p>
+        <h2>Our Staff</h2>
+        <p>Experienced educators committed to every child’s growth.</p>
+      </div>
+      <div class="staff-grid">
+        <article class="staff-card">
+          <div class="staff-photo">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80" alt="Priya Sharma" />
+            <div class="staff-social">
+              <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <h3>Priya Sharma</h3>
+          <p class="staff-role">Principal</p>
+          <p>Leading with vision and care to build a joyful learning culture.</p>
+        </article>
+        <article class="staff-card">
+          <div class="staff-photo">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80" alt="Rahul Mehta" />
+            <div class="staff-social">
+              <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <h3>Rahul Mehta</h3>
+          <p class="staff-role">Senior Teacher</p>
+          <p>Specialises in active learning and foundational maths &amp; science.</p>
+        </article>
+        <article class="staff-card">
+          <div class="staff-photo">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80" alt="Ananya Gupta" />
+            <div class="staff-social">
+              <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <h3>Ananya Gupta</h3>
+          <p class="staff-role">Arts &amp; Music</p>
+          <p>Helps children discover creativity through colour, song, and craft.</p>
+        </article>
+        <article class="staff-card">
+          <div class="staff-photo">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=500&q=80" alt="Vikram Singh" />
+            <div class="staff-social">
+              <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <h3>Vikram Singh</h3>
+          <p class="staff-role">Sports Coach</p>
+          <p>Builds teamwork, fitness, and fair play on and off the field.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section class="news section" id="news">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">From the school</p>
+        <h2>Recent Updates</h2>
+        <p>News and notes for parents and students.</p>
+      </div>
+      <div class="news-grid">
+        <article class="news-card">
+          <div class="news-img">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80" alt="Activities improve mind" />
+            <div class="news-date"><span>12</span>Aug</div>
+          </div>
+          <div class="news-body">
+            <p class="news-cat">School Life</p>
+            <h3>Activities That Improve Young Minds</h3>
+            <p>How play-based learning and clubs support focus, memory, and social skills.</p>
+            <a href="#contact" class="link-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="news-img">
+            <img src="https://images.unsplash.com/photo-1456513080800-b6bbe6b70802?auto=format&fit=crop&w=800&q=80" alt="Weekly reader zone" />
+            <div class="news-date"><span>05</span>Aug</div>
+          </div>
+          <div class="news-body">
+            <p class="news-cat">Academics</p>
+            <h3>Weekly Reader Zone</h3>
+            <p>Our reading corner tips for building a love of books at home and school.</p>
+            <a href="#contact" class="link-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="news-img">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80" alt="Admissions open" />
+            <div class="news-date"><span>01</span>Aug</div>
+          </div>
+          <div class="news-body">
+            <p class="news-cat">Admissions</p>
+            <h3>Admissions Open for New Session</h3>
+            <p>Visit our West Vinod Nagar campus from 8:00 AM on school days to enrol.</p>
+            <a href="#contact" class="link-more">Enquire <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact section section-alt" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">Get in touch</p>
+        <h2>Visit Sunrise India Public School</h2>
+        <p>We welcome parent visits and enrolment enquiries.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-block">
+            <div class="contact-ico" style="--c:#ff6b35"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <h4>Address</h4>
+              <p>F-68, Street Number 3, West Vinod Nagar,<br />F Block, Mandawali, Delhi, 110092</p>
+            </div>
+          </div>
+          <div class="contact-block">
+            <div class="contact-ico" style="--c:#2ec4b6"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <h4>Phone</h4>
+              <p><a href="tel:+919213278158">092132 78158</a></p>
+            </div>
+          </div>
+          <div class="contact-block">
+            <div class="contact-ico" style="--c:#ff9f1c"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <h4>Hours</h4>
+              <p id="hoursStatus">Opens 8:00 AM on school days</p>
+              <p class="hours-note">Monday – Saturday · Closed Sunday</p>
+            </div>
+          </div>
+          <div class="map-wrap">
+            <iframe
+              title="Sunrise India Public School map"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=F-68,+Street+Number+3,+West+Vinod+Nagar,+Mandawali,+Delhi+110092&output=embed">
+            </iframe>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <h3>Send an Enquiry</h3>
+          <div class="form-row">
+            <label>
+              Parent / Guardian Name
+              <input type="text" name="name" required placeholder="Your full name" />
+            </label>
+            <label>
+              Phone
+              <input type="tel" name="phone" required placeholder="Your phone number" />
+            </label>
+          </div>
+          <label>
+            Email
+            <input type="email" name="email" required placeholder="you@email.com" />
+          </label>
+          <label>
+            Child’s Age / Class Interest
+            <input type="text" name="class" placeholder="e.g. Class 3 / Age 8" />
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="4" placeholder="Tell us how we can help…"></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">Submit Enquiry</button>
+          <p class="form-success" id="formSuccess" hidden>Thank you! We’ll get back to you shortly.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo">
+          <span class="logo-mark"><i class="fa-solid fa-sun"></i></span>
+          <span class="logo-text">
+            <strong>Sunrise India</strong>
+            <small>Public School</small>
+          </span>
+        </a>
+        <p>A colourful, caring general education school in Mandawali, Delhi — where every sunrise brings a new chance to learn.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#activities">Activities</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Parents</h4>
+        <ul>
+          <li><a href="#news">News</a></li>
+          <li><a href="#staff">Staff</a></li>
+          <li><a href="#contact">Admissions</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-phone"></i> 092132 78158</li>
+          <li><i class="fa-solid fa-location-dot"></i> West Vinod Nagar, Mandawali, Delhi 110092</li>
+          <li><i class="fa-solid fa-clock"></i> Opens 8:00 AM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="year"></span> Sunrise India Public School. Demo website for presentation.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
