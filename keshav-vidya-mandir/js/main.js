@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // If local school photos exist in /images, prefer them over stock
+  document.querySelectorAll('img[data-local]').forEach(img => {
+    const local = img.dataset.local;
+    if (!local) return;
+    const probe = new Image();
+    probe.onload = () => { img.src = local; };
+    probe.src = local;
+  });
+
   // Mobile menu
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.nav-menu');
