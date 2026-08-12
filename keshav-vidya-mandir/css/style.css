@@ -64,8 +64,8 @@ ul{list-style:none}
 .nav-menu ul{display:flex;gap:4px;align-items:center}
 .nav-menu a{padding:10px 14px;border-radius:30px;font-weight:700;font-size:.92rem;color:var(--ink)}
 .nav-menu a:hover,.nav-menu a.active{background:rgba(26,188,156,.12);color:var(--teal)}
-.header-cta{background:var(--pink);color:#fff;padding:12px 22px;border-radius:40px;font-weight:800;font-size:.9rem;white-space:nowrap}
-.header-cta:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(231,76,139,.35)}
+.header-cta{background:#1a3a8c;color:#fff;padding:12px 22px;border-radius:40px;font-weight:800;font-size:.9rem;white-space:nowrap}
+.header-cta:hover{background:#142c6b;transform:translateY(-2px);box-shadow:0 8px 20px rgba(26,58,140,.4)}
 .menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
 .menu-toggle span{width:24px;height:2px;background:var(--ink);transition:.3s}
 
