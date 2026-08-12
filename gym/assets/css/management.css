@@ -1,0 +1,280 @@
+/* Gym management system */
+body.mgmt {
+  background: #e9e5dc;
+  min-height: 100vh;
+}
+
+.mgmt-shell {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: calc(100vh - 44px);
+}
+
+.mgmt-side {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.mgmt-side .logo {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  color: var(--gold);
+  padding: 0.25rem 0.75rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 1rem;
+}
+
+.mgmt-side .logo small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(239, 236, 230, 0.55);
+  margin-top: 0.15rem;
+}
+
+.mgmt-side button {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  color: rgba(239, 236, 230, 0.7);
+  padding: 0.7rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.mgmt-side button:hover,
+.mgmt-side button.active {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+}
+
+.mgmt-side button.active {
+  color: var(--gold);
+}
+
+.mgmt-main {
+  padding: 1.5rem;
+  overflow: auto;
+}
+
+.mgmt-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mgmt-top h1 {
+  font-size: 2.4rem;
+}
+
+.mgmt-top .sub {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin: 0.2rem 0 0;
+}
+
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.kpi {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 1.15rem 1.25rem;
+}
+
+.kpi .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.kpi .value {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  margin-top: 0.25rem;
+}
+
+.kpi .delta {
+  font-size: 0.8rem;
+  color: var(--ok);
+  margin-top: 0.2rem;
+}
+
+.panel {
+  background: var(--white);
+  border: 1px solid var(--line);
+  margin-bottom: 1.25rem;
+}
+
+.panel-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.panel-head h2 {
+  font-size: 1.55rem;
+}
+
+.panel-body {
+  padding: 1rem 1.25rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+table.data th,
+table.data td {
+  text-align: left;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+table.data th {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+table.data tr:last-child td {
+  border-bottom: 0;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.25rem;
+}
+
+.fee-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.fee-form label {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.fee-form input,
+.fee-form select {
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--paper);
+}
+
+.view {
+  display: none;
+  animation: fadeUp 0.4s var(--ease) forwards;
+}
+
+.view.active {
+  display: block;
+}
+
+.bar-chart {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  align-items: end;
+  height: 160px;
+  margin-top: 1rem;
+}
+
+.bar-chart .bar {
+  background: linear-gradient(180deg, var(--accent), var(--accent-deep));
+  border-radius: 3px 3px 0 0;
+  min-height: 8px;
+  position: relative;
+  transition: height 0.6s var(--ease);
+}
+
+.bar-chart .bar span {
+  position: absolute;
+  bottom: -1.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.toast {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.85rem 1.1rem;
+  border-radius: 6px;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: 0.35s var(--ease);
+  z-index: 50;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media (max-width: 960px) {
+  .mgmt-shell {
+    grid-template-columns: 1fr;
+  }
+  .mgmt-side {
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-x: auto;
+  }
+  .mgmt-side .logo {
+    width: 100%;
+  }
+  .kpi-row,
+  .two-col {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .kpi-row,
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}

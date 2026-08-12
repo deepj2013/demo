@@ -1,0 +1,68 @@
+{
+    "client_id": "full-atelier",
+    "setup_complete": true,
+    "app_name": "BoutiqueOS",
+    "business_name": "Atelier Boutique",
+    "tagline": "Crafted fashion, managed with clarity",
+    "currency": "INR",
+    "currency_symbol": "₹",
+    "timezone": "Asia/Kolkata",
+    "locale": "en-IN",
+    "branding": {
+        "logo": "",
+        "favicon": "assets/icons/icon-192.png",
+        "login_hint": true
+    },
+    "theme": {
+        "primary": "#0b1220",
+        "accent": "#c4a574",
+        "surface": "#f7f4ef",
+        "ink": "#1A1A1A",
+        "muted": "#6B7280"
+    },
+    "database": {
+        "host": "127.0.0.1",
+        "name": "boutique_os",
+        "user": "root",
+        "pass": "",
+        "charset": "utf8mb4"
+    },
+    "modules": {
+        "inventory": true,
+        "items": true,
+        "racks": true,
+        "costing": true,
+        "vendors": true,
+        "crm": true,
+        "reports": true,
+        "ecommerce": true,
+        "website": true
+    },
+    "features": {
+        "product_images": true,
+        "rack_management": true,
+        "bom_costing": true,
+        "wage_tracking": true,
+        "low_stock_alerts": true,
+        "pwa": true
+    },
+    "contact": {
+        "email": "hello@atelierboutique.local",
+        "phone": "+91 98765 43210",
+        "address": "12 Fashion Lane, Mumbai",
+        "whatsapp": "",
+        "instagram": "",
+        "website_url": ""
+    },
+    "ecommerce": {
+        "enable_cart": true,
+        "enable_checkout": true,
+        "tax_percent": 5,
+        "shipping_flat": 50,
+        "currency_note": "Prices in INR"
+    },
+    "admin": {
+        "default_email": "admin@boutique.local",
+        "show_demo_hint": true
+    }
+}

@@ -1,0 +1,68 @@
+{
+  "client_id": "inventory-shop-only",
+  "setup_complete": true,
+  "app_name": "BoutiqueOS",
+  "business_name": "Style House",
+  "tagline": "Stock clear. Sell online.",
+  "currency": "INR",
+  "currency_symbol": "₹",
+  "timezone": "Asia/Kolkata",
+  "locale": "en-IN",
+  "branding": {
+    "logo": "",
+    "favicon": "assets/icons/icon-192.png",
+    "login_hint": false
+  },
+  "theme": {
+    "primary": "#1C1917",
+    "accent": "#A8A29E",
+    "surface": "#FAFAF9",
+    "ink": "#1C1917",
+    "muted": "#78716C"
+  },
+  "database": {
+    "host": "127.0.0.1",
+    "name": "boutique_stylehouse",
+    "user": "root",
+    "pass": "",
+    "charset": "utf8mb4"
+  },
+  "modules": {
+    "inventory": true,
+    "items": true,
+    "racks": true,
+    "costing": false,
+    "vendors": false,
+    "crm": false,
+    "reports": true,
+    "ecommerce": true,
+    "website": true
+  },
+  "features": {
+    "product_images": true,
+    "rack_management": true,
+    "bom_costing": false,
+    "wage_tracking": false,
+    "low_stock_alerts": true,
+    "pwa": true
+  },
+  "contact": {
+    "email": "hello@stylehouse.local",
+    "phone": "+91 98000 11111",
+    "address": "Shop 4, Fashion Street",
+    "whatsapp": "",
+    "instagram": "",
+    "website_url": ""
+  },
+  "ecommerce": {
+    "enable_cart": true,
+    "enable_checkout": true,
+    "tax_percent": 5,
+    "shipping_flat": 40,
+    "currency_note": "Prices in INR"
+  },
+  "admin": {
+    "default_email": "admin@stylehouse.local",
+    "show_demo_hint": false
+  }
+}

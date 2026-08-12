@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adiyogi Nutrition Store</title>
+  <link rel="stylesheet" href="../assets/css/shared.css" />
+  <link rel="stylesheet" href="../assets/css/ecommerce.css" />
+</head>
+<body class="shop">
+  <div class="demo-bar">
+    <div class="brand-mini">ADIYOGI · STORE DEMO</div>
+    <nav>
+      <a href="../index.html">Overview</a>
+      <a href="../website/index.html">Website</a>
+      <a href="../management/index.html">Management</a>
+      <a href="../member-app/index.html">Member App</a>
+      <a class="active" href="index.html">Store</a>
+    </nav>
+  </div>
+
+  <div class="container">
+    <nav class="shop-nav">
+      <div class="logo">
+        ADIYOGI STORE
+        <span>Nutrition & Gear · Khargone</span>
+      </div>
+      <div class="actions">
+        <button class="btn btn-ghost cart-btn" id="openCart">
+          Cart
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </nav>
+
+    <header class="shop-hero">
+      <div>
+        <div class="brand-title fade-up">ADIYOGI</div>
+        <p class="tagline fade-up fade-up-delay-1">Fuel the work. Recover stronger.</p>
+        <p class="sub fade-up fade-up-delay-2">
+          Official nutrition & product store for Adiyogi members — whey, creatine, vitamins, and training gear with member pricing.
+        </p>
+        <a class="btn btn-primary fade-up fade-up-delay-3" href="#products">Shop products</a>
+      </div>
+      <div class="shop-hero-visual fade-up fade-up-delay-2">
+        <img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=1200&q=80" alt="Nutrition supplements" />
+      </div>
+    </header>
+
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Protein">Protein</button>
+      <button class="filter-btn" data-filter="Performance">Performance</button>
+      <button class="filter-btn" data-filter="Health">Health</button>
+      <button class="filter-btn" data-filter="Gear">Gear</button>
+    </div>
+
+    <section class="product-grid" id="products"></section>
+
+    <footer class="shop-footer">
+      Adiyogi Fitness Studio · Nutrition Store Demo · Pickup at Bistan Rd, Raj Nagar, Khargone · 093407 49039
+    </footer>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <header>
+      <h2>Your cart</h2>
+      <button class="btn btn-ghost" id="closeCart">Close</button>
+    </header>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="total">
+        <span>Total</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      <button class="btn btn-primary" id="checkoutBtn" style="width:100%">Checkout · Pay on pickup / UPI</button>
+    </div>
+  </aside>
+
+  <script src="../assets/js/ecommerce.js"></script>
+</body>
+</html>

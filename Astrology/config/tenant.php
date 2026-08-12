@@ -1,0 +1,56 @@
+<?php
+/**
+ * Multi-tenant ready config.
+ * Swap this file (or load by domain / TENANT_ID) to white-label another astrologer.
+ */
+return [
+    'id'            => 'jyoti-mandir',
+    'slug'          => 'jyoti-mandir',
+    'brand'         => 'Jyoti Mandir',
+    'brand_hi'      => 'ज्योति मंदिर',
+    'tagline'       => 'Vedic Astrology · Kundli · Muhurat · Panchang',
+    'tagline_hi'    => 'वैदिक ज्योतिष · कुंडली · मुहूर्त · पंचांग',
+    'astrologer'    => 'Pandit Shree Ram Sharma',
+    'astrologer_hi' => 'पंडित श्री राम शर्मा',
+    'experience'    => '18+ years',
+    'city'          => 'Indore, Madhya Pradesh',
+    'city_hi'       => 'इंदौर, मध्य प्रदेश',
+    'phone'         => '+91 98765 43210',
+    'whatsapp'      => '919876543210',
+    'email'         => 'consult@jyotimandir.com',
+    'address'       => '12, Temple Road, near Rajwada, Indore 452001',
+    'hours'         => '9:00 AM – 8:00 PM',
+    'languages'     => ['English', 'Hindi', 'Tamil', 'Telugu', 'Marathi', 'Bengali', 'Gujarati'],
+    'charges' => [
+        'region' => 'Madhya Pradesh',
+        'currency' => 'INR',
+        'kundli' => '501',
+        'matching' => '1100',
+        'consultation' => '2100',
+        'show_on_pdf' => true,
+        'note' => 'Regional Jyotish fee — editable per astrologer account',
+    ],
+    'theme' => [
+        'primary'    => '#7A1F1F',
+        'primary_dark' => '#4E1212',
+        'accent'     => '#C8962E',
+        'accent_soft'=> '#E8C56A',
+        'ink'        => '#1C1410',
+        'muted'      => '#6B5B4F',
+        'paper'      => '#FBF6EE',
+        'surface'    => '#FFFDF8',
+        'line'       => '#E6D7C3',
+        'success'    => '#2F6B3A',
+        'warn'       => '#A65D1A',
+        'danger'     => '#8B1E1E',
+    ],
+    'modules' => [
+        'kundli'    => true,
+        'matching'  => true,
+        'rashi'     => true,
+        'panchang'  => true,
+        'muhurat'   => true,
+        'remedies'  => true,
+        'clients'   => true,
+    ],
+];

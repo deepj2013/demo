@@ -1,0 +1,17 @@
+# BoutiqueOS — Apache
+Options -Indexes
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+</IfModule>
+
+# Protect config
+<FilesMatch "^(settings\.json|composer\.(json|lock))$">
+  <IfModule mod_authz_core.c>
+    Require all granted
+  </IfModule>
+</FilesMatch>
+
+# Deny direct access to includes
+RedirectMatch 403 /includes/.*
+RedirectMatch 403 /config/.*
+RedirectMatch 403 /database/.*

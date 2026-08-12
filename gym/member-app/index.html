@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adiyogi Member App Demo</title>
+  <link rel="stylesheet" href="../assets/css/shared.css" />
+  <link rel="stylesheet" href="../assets/css/member-app.css" />
+</head>
+<body class="member">
+  <div class="demo-bar">
+    <div class="brand-mini">ADIYOGI · MEMBER APP DEMO</div>
+    <nav>
+      <a href="../index.html">Overview</a>
+      <a href="../website/index.html">Website</a>
+      <a href="../management/index.html">Management</a>
+      <a class="active" href="index.html">Member App</a>
+      <a href="../ecommerce/index.html">Store</a>
+    </nav>
+  </div>
+
+  <div class="member-layout">
+    <aside class="member-aside">
+      <h2>Member Fitness App</h2>
+      <p>
+        A mobile experience for every Adiyogi member — log workouts, track weekly goals,
+        see fee status, and pay membership from the phone.
+      </p>
+      <ul class="feature-list">
+        <li>Personal workout logging (sets, reps, weight)</li>
+        <li>Weekly goal ring & streak tracking</li>
+        <li>Membership fee due alerts + UPI pay</li>
+        <li>Payment history / digital receipts</li>
+        <li>Linked to gym management backend</li>
+      </ul>
+      <p style="margin-top:1.25rem;font-size:0.9rem;color:var(--muted)">
+        Demo stack: HTML / CSS / JS (App UI). Production can ship as PWA or native app.
+      </p>
+    </aside>
+
+    <div class="phone-frame">
+      <div class="phone-status">
+        <span>9:41</span>
+        <span>Adiyogi · 5G</span>
+      </div>
+
+      <header class="app-header">
+        <div class="hello">Namaste,</div>
+        <h1>Rahul Patel</h1>
+        <div class="plan">
+          <div>
+            <div style="opacity:0.75;font-size:0.75rem">Membership</div>
+            <strong>Monthly · Active</strong>
+          </div>
+          <span class="chip chip-ok" style="background:rgba(255,255,255,0.15);color:#fff">ADY-101</span>
+        </div>
+      </header>
+
+      <div class="app-body">
+        <!-- Home -->
+        <section class="app-screen active" id="screen-home">
+          <div class="quick-stats">
+            <div><strong id="statWorkouts">12</strong><span>Workouts</span></div>
+            <div><strong id="statStreak">5</strong><span>Day streak</span></div>
+            <div><strong id="statMinutes">340</strong><span>Minutes</span></div>
+          </div>
+
+          <div class="progress-ring-wrap">
+            <div class="progress-ring" id="weekRing" style="--pct:68">
+              <div style="text-align:center">
+                <strong>68%</strong>
+                <div><span>Week goal</span></div>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="font-size:1.4rem;margin:0 0 0.65rem">Today’s plan</h3>
+          <article class="workout-card">
+            <h3>Push Day · Upper</h3>
+            <p>Bench · Overhead press · Triceps finishers</p>
+            <div class="workout-meta">
+              <span>45–60 min</span>
+              <span>Coach Arjun</span>
+              <span>Floor A</span>
+            </div>
+            <button class="btn btn-forest" style="width:100%" data-go="log">Start & log workout</button>
+          </article>
+        </section>
+
+        <!-- Log -->
+        <section class="app-screen" id="screen-log">
+          <h3 style="font-size:1.5rem;margin:0 0 0.85rem">Log workout</h3>
+          <form class="log-form" id="workoutForm">
+            <label>Exercise
+              <select id="exName">
+                <option>Bench Press</option>
+                <option>Squat</option>
+                <option>Deadlift</option>
+                <option>Overhead Press</option>
+                <option>Lat Pulldown</option>
+                <option>Treadmill</option>
+              </select>
+            </label>
+            <label>Sets
+              <input type="number" id="exSets" value="4" min="1" />
+            </label>
+            <label>Reps
+              <input type="number" id="exReps" value="10" min="1" />
+            </label>
+            <label>Weight (kg)
+              <input type="number" id="exWeight" value="60" min="0" step="0.5" />
+            </label>
+            <label>Notes
+              <textarea id="exNotes" rows="2" placeholder="Felt strong today…"></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit" style="width:100%">Save set</button>
+          </form>
+          <div id="logList" style="margin-top:1rem"></div>
+        </section>
+
+        <!-- Fees -->
+        <section class="app-screen" id="screen-fees">
+          <div class="fee-banner">
+            <h3>Fee due in 8 days</h3>
+            <p>Monthly plan renews on 12 Aug 2026 · ₹1,500</p>
+            <button class="btn btn-dark" id="payNowBtn" style="width:100%">Pay with UPI</button>
+          </div>
+          <h3 style="font-size:1.35rem;margin:0 0 0.65rem">Payment history</h3>
+          <div id="receiptList"></div>
+        </section>
+
+        <!-- Profile -->
+        <section class="app-screen" id="screen-profile">
+          <article class="workout-card">
+            <h3>Rahul Patel</h3>
+            <p>Member since Jan 2025 · Khargone</p>
+            <div class="workout-meta">
+              <span>98260 11223</span>
+              <span>Monthly</span>
+            </div>
+          </article>
+          <article class="workout-card">
+            <h3>Goals</h3>
+            <p>Build strength · 4 gym days / week · Track body weight weekly</p>
+          </article>
+          <article class="workout-card">
+            <h3>Home gym</h3>
+            <p>Adiyogi Fitness Studio<br />Bistan Rd, Raj Nagar, Khargone</p>
+          </article>
+        </section>
+      </div>
+
+      <nav class="app-tabbar">
+        <button class="active" data-screen="home"><span class="ico"></span>Home</button>
+        <button data-screen="log"><span class="ico"></span>Log</button>
+        <button data-screen="fees"><span class="ico"></span>Fees</button>
+        <button data-screen="profile"><span class="ico"></span>Profile</button>
+      </nav>
+    </div>
+  </div>
+
+  <script src="../assets/js/member-app.js"></script>
+</body>
+</html>

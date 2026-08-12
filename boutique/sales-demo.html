@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BoutiqueOS — Why boutiques choose us</title>
+<meta name="description" content="The complete boutique operating system: real garment costing, rack inventory, vendors, CRM, ecommerce — modular and white-label.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B1220; --accent:#C4A574; --surface:#F7F4EF; --muted:#6B7280; --white:#fff;
+  --line:rgba(11,18,32,.1); --ok:#067647; --bad:#B42318;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:var(--surface);color:var(--ink);line-height:1.55}
+h1,h2,h3,.display{font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{width:min(1100px,92vw);margin:0 auto}
+.btn{display:inline-flex;align-items:center;gap:.45rem;padding:.75rem 1.25rem;border-radius:999px;font-weight:600;font-size:.9rem;border:0;cursor:pointer;transition:.15s}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{filter:brightness(1.1)}
+.btn-accent{background:var(--accent);color:var(--ink)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff}
+.btn-outline{background:transparent;border:1px solid var(--line);color:var(--ink)}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(247,244,239,.88);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;gap:1rem}
+.logo{font-family:Fraunces,serif;font-size:1.35rem}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:1.25rem;align-items:center;font-size:.88rem;font-weight:500}
+.nav-links a:not(.btn){color:var(--muted)}
+.nav-links a:not(.btn):hover{color:var(--ink)}
+.menu-btn{display:none;background:none;border:0;font-size:1.4rem}
+
+/* Hero */
+.hero{min-height:88dvh;display:grid;align-items:end;padding:3rem 0 4rem;position:relative;overflow:hidden;color:#fff;
+  background:
+    linear-gradient(180deg,transparent 30%,rgba(11,18,32,.88)),
+    linear-gradient(115deg,rgba(11,18,32,.55),rgba(11,18,32,.2)),
+    radial-gradient(ellipse at 75% 25%,rgba(196,165,116,.45),transparent 45%),
+    var(--ink)}
+.hero::before{content:"";position:absolute;inset:0;opacity:.35;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C4A574' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-inner{position:relative;z-index:1;max-width:720px;animation:rise .7s ease}
+.eyebrow{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.hero h1{font-size:clamp(2.6rem,7vw,4.6rem);line-height:.95;margin-bottom:1rem}
+.hero p{font-size:1.1rem;opacity:.85;max-width:40ch;margin-bottom:1.75rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem}
+.hero-proof{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.12);font-size:.85rem}
+.hero-proof strong{display:block;font-family:Fraunces,serif;font-size:1.5rem;color:var(--accent)}
+
+section{padding:4.5rem 0}
+.sec-head{max-width:560px;margin-bottom:2.5rem}
+.sec-head h2{font-size:clamp(1.7rem,3.5vw,2.4rem);margin-bottom:.5rem}
+.sec-head p{color:var(--muted)}
+
+/* Pain */
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.pain{background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.35rem;animation:rise .5s ease both}
+.pain:nth-child(2){animation-delay:.08s}.pain:nth-child(3){animation-delay:.16s}
+.pain .tag{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--bad);margin-bottom:.5rem}
+.pain h3{font-size:1.15rem;margin-bottom:.4rem}
+.pain p{font-size:.9rem;color:var(--muted)}
+
+/* Features */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.feat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.35rem;transition:transform .2s,box-shadow .2s}
+.feat:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(11,18,32,.08)}
+.feat-ico{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,rgba(196,165,116,.35),rgba(11,18,32,.06));display:grid;place-items:center;margin-bottom:.85rem;font-size:1.1rem}
+.feat h3{font-size:1.05rem;margin-bottom:.35rem}
+.feat p{font-size:.88rem;color:var(--muted)}
+.feat ul{margin-top:.75rem;padding-left:1.1rem;font-size:.82rem;color:var(--muted)}
+.feat li{margin:.25rem 0}
+
+/* Compare */
+.compare-wrap{overflow:auto;border-radius:18px;border:1px solid var(--line);background:#fff}
+table.compare{width:100%;border-collapse:collapse;font-size:.88rem;min-width:640px}
+table.compare th,table.compare td{padding:.85rem 1rem;text-align:left;border-bottom:1px solid var(--line)}
+table.compare th{background:var(--ink);color:#fff;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em}
+table.compare th:nth-child(2){background:#1a2438;color:var(--accent)}
+table.compare tr:hover td{background:rgba(196,165,116,.06)}
+.yes{color:var(--ok);font-weight:700}.no{color:var(--muted)}
+
+/* Flow */
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem;position:relative}
+.flow-step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.1rem;text-align:center;position:relative}
+.flow-step .n{width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;margin:0 auto .65rem;font-size:.75rem;font-weight:700}
+.flow-step h3{font-size:.95rem;margin-bottom:.3rem}
+.flow-step p{font-size:.78rem;color:var(--muted)}
+
+/* USP */
+.usp-band{background:var(--ink);color:#fff;border-radius:24px;padding:2.5rem;display:grid;grid-template-columns:1.1fr 1fr;gap:2rem;align-items:center}
+.usp-band h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:.75rem}
+.usp-band p{opacity:.8;margin-bottom:1.25rem}
+.usp-list{display:grid;gap:.75rem}
+.usp-list li{list-style:none;display:flex;gap:.75rem;align-items:flex-start;font-size:.9rem;background:rgba(255,255,255,.05);padding:.85rem 1rem;border-radius:12px}
+.usp-list li::before{content:"✦";color:var(--accent);flex-shrink:0}
+
+/* Demo tabs */
+.demo{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.demo-tabs{display:flex;flex-wrap:wrap;gap:.35rem;padding:1rem;border-bottom:1px solid var(--line);background:rgba(11,18,32,.02)}
+.demo-tabs button{border:0;background:transparent;padding:.55rem .9rem;border-radius:999px;font-weight:600;font-size:.82rem;cursor:pointer;color:var(--muted)}
+.demo-tabs button.active{background:var(--ink);color:#fff}
+.demo-panel{display:none;padding:1.5rem}
+.demo-panel.active{display:block;animation:rise .35s ease}
+.demo-mock{border-radius:14px;background:linear-gradient(160deg,#0B1220,#1a2438);color:#E8E4DC;padding:1.25rem;min-height:220px}
+.demo-mock .bar{display:flex;gap:.5rem;margin-bottom:1rem}
+.demo-mock .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.2)}
+.demo-mock .row{display:flex;justify-content:space-between;padding:.55rem .75rem;background:rgba(255,255,255,.05);border-radius:10px;margin-bottom:.4rem;font-size:.85rem}
+.demo-mock .accent{color:var(--accent)}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin-top:1rem}
+.stat-row div{background:rgba(196,165,116,.12);border-radius:12px;padding:.75rem;text-align:center}
+.stat-row strong{display:block;font-family:Fraunces,serif;font-size:1.25rem;color:var(--accent)}
+.stat-row span{font-size:.7rem;opacity:.7}
+
+/* Modules */
+.mod-toggle{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.25rem}
+.chip{padding:.45rem .85rem;border-radius:999px;font-size:.78rem;font-weight:600;border:1px solid var(--line);background:#fff;cursor:pointer;user-select:none}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.mod-preview{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.25rem;font-size:.9rem}
+.mod-preview code{background:rgba(11,18,32,.06);padding:.15rem .4rem;border-radius:6px;font-size:.8rem}
+
+/* Pricing feel */
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.pack{background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.5rem;display:flex;flex-direction:column}
+.pack.popular{border-color:var(--accent);box-shadow:0 0 0 3px rgba(196,165,116,.25)}
+.pack .badge{align-self:flex-start;font-size:.7rem;font-weight:700;background:rgba(196,165,116,.25);color:var(--ink);padding:.25rem .55rem;border-radius:999px;margin-bottom:.75rem}
+.pack h3{font-size:1.25rem;margin-bottom:.35rem}
+.pack .price{font-family:Fraunces,serif;font-size:1.8rem;margin:.5rem 0 1rem}
+.pack ul{list-style:none;flex:1;margin-bottom:1.25rem}
+.pack li{padding:.35rem 0;font-size:.88rem;color:var(--muted);padding-left:1.2rem;position:relative}
+.pack li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:700}
+
+/* CTA */
+.cta{text-align:center;padding:4rem 1.5rem;background:
+  radial-gradient(600px 300px at 50% 0%,rgba(196,165,116,.25),transparent),
+  var(--ink);color:#fff;border-radius:24px;margin-bottom:3rem}
+.cta h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:.75rem}
+.cta p{opacity:.8;max-width:42ch;margin:0 auto 1.5rem}
+
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.82rem;text-align:center;border-top:1px solid var(--line)}
+
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+@media(max-width:900px){
+  .pain-grid,.feat-grid,.packs,.flow{grid-template-columns:1fr 1fr}
+  .usp-band{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .nav-links{display:none}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--surface);padding:1rem;border-bottom:1px solid var(--line)}
+  .menu-btn{display:block}
+  .pain-grid,.feat-grid,.packs,.flow,.stat-row{grid-template-columns:1fr}
+  .hero{min-height:auto;padding:4rem 0 3rem}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top">Boutique<span>OS</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#pain">Problem</a>
+      <a href="#features">Features</a>
+      <a href="#compare">vs Others</a>
+      <a href="#flow">Flow</a>
+      <a href="#demo">Demo</a>
+      <a href="#packs">Packages</a>
+      <a class="btn btn-primary" href="http://127.0.0.1:8080/admin/login.php" target="_blank" rel="noopener">Live admin</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Built for fashion boutiques & ateliers</div>
+    <h1>Know your real cost. Run stock. Sell online.</h1>
+    <p>One modular system for item master, rack inventory, BOM costing with wages, vendors, CRM, reports, and ecommerce — plug only what each client needs.</p>
+    <div class="hero-cta">
+      <a class="btn btn-accent" href="http://127.0.0.1:8080/shop/" target="_blank" rel="noopener">Open live shop demo</a>
+      <a class="btn btn-ghost" href="#demo">See product walkthrough</a>
+    </div>
+    <div class="hero-proof">
+      <div><strong>9</strong> plug-and-play modules</div>
+      <div><strong>1</strong> settings.json per client</div>
+      <div><strong>PWA</strong> works like an app on mobile</div>
+      <div><strong>PHP + MySQL</strong> runs on shared hosting</div>
+    </div>
+  </div>
+</section>
+
+<section id="pain">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>What boutique owners struggle with today</h2>
+      <p>Excel, WhatsApp, and generic retail software were never made for design → stitch → stock → sell.</p>
+    </div>
+    <div class="pain-grid">
+      <article class="pain">
+        <div class="tag">Hidden losses</div>
+        <h3>No real garment cost</h3>
+        <p>Fabric, thread, buttons, waste, and tailor wages live in different notebooks. Selling price is a guess — margin disappears.</p>
+      </article>
+      <article class="pain">
+        <div class="tag">Chaos</div>
+        <h3>Stock without locations</h3>
+        <p>“Where is that burgundy silk?” No rack map, no photos, no in/out trail. Reorders happen too late or too early.</p>
+      </article>
+      <article class="pain">
+        <div class="tag">Disconnected</div>
+        <h3>Shop, CRM & store siloed</h3>
+        <p>Online orders, walk-in clients, and vendors don’t talk. Reports are rebuilt every month by hand.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="features" style="background:rgba(11,18,32,.03)">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>What we give them</h2>
+      <p>A complete boutique operating system — not just another inventory spreadsheet.</p>
+    </div>
+    <div class="feat-grid">
+      <article class="feat"><div class="feat-ico">📦</div><h3>Item Master + Photos</h3><p>Raw materials, accessories, finished garments with SKU, colour, size, and images.</p><ul><li>Sellable flag for ecommerce</li><li>Min stock alerts</li></ul></article>
+      <article class="feat"><div class="feat-ico">🗂️</div><h3>Rack Inventory</h3><p>Know exactly which zone, aisle, and shelf holds what — with stock in / out / adjust.</p><ul><li>Batch movements log</li><li>Low-stock dashboard</li></ul></article>
+      <article class="feat"><div class="feat-ico">🧮</div><h3>True Cost BOM</h3><p>Bill of materials + waste % + labour hours + overhead + markup = real cost & suggested price.</p><ul><li>Wage entries per worker</li><li>Syncs finished item cost</li></ul></article>
+      <article class="feat"><div class="feat-ico">🚚</div><h3>Vendors & Reorder</h3><p>Supplier directory, linked items, lead times, purchase orders, receive into racks.</p><ul><li>Reorder suggestions</li><li>PO receive → stock</li></ul></article>
+      <article class="feat"><div class="feat-ico">💛</div><h3>CRM</h3><p>Customers, tags (bridal, VIP), notes, lifetime value, order history.</p><ul><li>360° customer view</li><li>Follow-up notes</li></ul></article>
+      <article class="feat"><div class="feat-ico">🛍️</div><h3>Ecommerce + Website</h3><p>Public shop with bag & checkout, plus CMS for hero / about / footer.</p><ul><li>Orders land in admin</li><li>Mobile-first PWA</li></ul></article>
+      <article class="feat"><div class="feat-ico">📊</div><h3>Organisation Reports</h3><p>Inventory value, sales, wages, purchases, low stock — one glance.</p></article>
+      <article class="feat"><div class="feat-ico">🔌</div><h3>Plug & Play Modules</h3><p>Only inventory + shop? Turn the rest off in settings.json. Same codebase, different clients.</p></article>
+      <article class="feat"><div class="feat-ico">🎨</div><h3>White-label Ready</h3><p>Name, colours, logo, currency, DB — `/install` wizard or one JSON file. Hand off in minutes.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="compare">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Why select us — not the usual tools</h2>
+      <p>Generic ERP / Excel / Instagram shop tools miss the atelier reality.</p>
+    </div>
+    <div class="compare-wrap">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th>BoutiqueOS</th>
+            <th>Excel / Sheets</th>
+            <th>Generic retail POS</th>
+            <th>Only Shopify-like</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Garment BOM + wages → true cost</td><td class="yes">Yes</td><td class="no">Manual mess</td><td class="no">Rare / none</td><td class="no">No</td></tr>
+          <tr><td>Rack / zone / shelf inventory</td><td class="yes">Yes</td><td class="no">No</td><td class="yes">Sometimes</td><td class="no">Warehouse SKUs only</td></tr>
+          <tr><td>Material + finished goods in one system</td><td class="yes">Yes</td><td class="no">Split files</td><td class="no">Usually finished only</td><td class="no">Finished only</td></tr>
+          <tr><td>Vendor reorder + PO receive</td><td class="yes">Yes</td><td class="no">No</td><td class="yes">Heavy ERP</td><td class="no">Apps / extra cost</td></tr>
+          <tr><td>CRM for bridal / VIP clients</td><td class="yes">Yes</td><td class="no">No</td><td class="yes">Basic</td><td class="yes">Basic</td></tr>
+          <tr><td>Ecommerce linked to same stock</td><td class="yes">Yes</td><td class="no">No</td><td class="no">Often separate</td><td class="yes">Yes (but no BOM)</td></tr>
+          <tr><td>Module on/off per client (JSON)</td><td class="yes">Yes</td><td class="no">—</td><td class="no">All-or-nothing license</td><td class="no">Plans / apps</td></tr>
+          <tr><td>White-label + own hosting (PHP/MySQL)</td><td class="yes">Yes</td><td class="no">—</td><td class="no">SaaS lock-in</td><td class="no">SaaS lock-in</td></tr>
+          <tr><td>Mobile app-like (PWA)</td><td class="yes">Yes</td><td class="no">No</td><td class="yes">Varies</td><td class="yes">Yes</td></tr>
+          <tr><td>Works on cheap shared hosting</td><td class="yes">Yes</td><td class="yes">—</td><td class="no">Cloud fees</td><td class="no">Monthly fees</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="usp" style="padding-top:0">
+  <div class="wrap">
+    <div class="usp-band">
+      <div>
+        <h2>Our USP in one line</h2>
+        <p>We are the only lightweight stack that connects <strong>true stitching cost</strong> → <strong>rack stock</strong> → <strong>vendors</strong> → <strong>CRM</strong> → <strong>online sales</strong>, and lets you sell the same product to many boutiques by flipping modules.</p>
+        <a class="btn btn-accent" href="#packs">See packages you can sell</a>
+      </div>
+      <ul class="usp-list">
+        <li><div><strong>Atelier-native costing</strong><br>Materials + waste + human wages + overhead — not just purchase price.</div></li>
+        <li><div><strong>Plug-and-play licensing</strong><br>Sell “Inventory + Shop” or “Full Atelier OS” from one codebase.</div></li>
+        <li><div><strong>You own the deployment</strong><br>PHP + MySQL on their hosting. No per-month SaaS tax unless you choose it.</div></li>
+        <li><div><strong>Sales-ready white label</strong><br>Install wizard + settings.json = new client in minutes.</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="flow" style="background:rgba(11,18,32,.03)">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Product flow (how a boutique runs on it)</h2>
+      <p>From fabric on the rack to money in the till — one path.</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step"><div class="n">1</div><h3>Item Master</h3><p>Add fabric, thread, buttons, finished designs with photos.</p></div>
+      <div class="flow-step"><div class="n">2</div><h3>Stock on racks</h3><p>Receive material into zone / aisle / shelf. Track in & out.</p></div>
+      <div class="flow-step"><div class="n">3</div><h3>BOM + wages</h3><p>Build recipe for a dress. Add tailor hours. Get true cost & price.</p></div>
+      <div class="flow-step"><div class="n">4</div><h3>Vendors / CRM</h3><p>Reorder low stock. Know bridal clients & preferences.</p></div>
+      <div class="flow-step"><div class="n">5</div><h3>Sell & report</h3><p>Shop online or counter. Orders, payments, org reports.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Interactive demonstration</h2>
+      <p>Click through the story you can show a client in a sales meeting.</p>
+    </div>
+    <div class="demo">
+      <div class="demo-tabs" role="tablist">
+        <button type="button" class="active" data-tab="t1">1. Cost clarity</button>
+        <button type="button" data-tab="t2">2. Rack stock</button>
+        <button type="button" data-tab="t3">3. Sell online</button>
+        <button type="button" data-tab="t4">4. Plug modules</button>
+      </div>
+      <div class="demo-panel active" id="t1">
+        <div class="demo-mock">
+          <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div style="margin-bottom:.75rem;font-family:Fraunces,serif;font-size:1.2rem">Ivory Evening Dress — BOM</div>
+          <div class="row"><span>Cotton 3.5m + 5% waste</span><span>₹441</span></div>
+          <div class="row"><span>Thread + buttons + zipper</span><span>₹149</span></div>
+          <div class="row"><span>Labour 8h × ₹150</span><span>₹1,200</span></div>
+          <div class="row"><span>Overhead 10%</span><span>₹179</span></div>
+          <div class="stat-row">
+            <div><strong>₹1,969</strong><span>True cost</span></div>
+            <div><strong>₹2,757</strong><span>Suggested (40% markup)</span></div>
+            <div><strong>₹4,999</strong><span>Your sell price</span></div>
+          </div>
+        </div>
+        <p style="margin-top:1rem;color:var(--muted);font-size:.9rem">Pitch line: <em>“Before BoutiqueOS they priced on feeling. Now they see ₹1,969 real cost — and healthy margin above it.”</em></p>
+      </div>
+      <div class="demo-panel" id="t2">
+        <div class="demo-mock">
+          <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div style="margin-bottom:.75rem;font-family:Fraunces,serif;font-size:1.2rem">Where is what?</div>
+          <div class="row"><span>FAB-LIN-001 Linen Sand</span><span class="accent">R-A2 · 60m</span></div>
+          <div class="row"><span>THR-SIL-001 Silk Thread</span><span style="color:#F97066">R-B1 · 6 (low!)</span></div>
+          <div class="row"><span>GAR-SET-001 Co-ord</span><span class="accent">Showroom C1 · 5</span></div>
+          <div class="stat-row">
+            <div><strong>7</strong><span>Active racks</span></div>
+            <div><strong>Alert</strong><span>Silk thread below min</span></div>
+            <div><strong>PO</strong><span>Reorder from ThreadWorks</span></div>
+          </div>
+        </div>
+        <p style="margin-top:1rem;color:var(--muted);font-size:.9rem">Pitch line: <em>“Staff find material by rack code — and the system already suggests which vendor to call.”</em></p>
+      </div>
+      <div class="demo-panel" id="t3">
+        <div class="demo-mock">
+          <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div style="margin-bottom:.75rem;font-family:Fraunces,serif;font-size:1.2rem">Same stock → online bag</div>
+          <div class="row"><span>Sand Linen Co-ord</span><span>₹3,499</span></div>
+          <div class="row"><span>Blush Chiffon Kurta</span><span>₹2,599</span></div>
+          <div class="row"><span>Order ON260803-0002</span><span class="accent">Paid · Bengaluru</span></div>
+          <div class="stat-row">
+            <div><strong>CRM</strong><span>Kavya tagged repeat</span></div>
+            <div><strong>Admin</strong><span>Confirm & deduct stock</span></div>
+            <div><strong>Report</strong><span>Sales last 14 days</span></div>
+          </div>
+        </div>
+        <p style="margin-top:1rem;color:var(--muted);font-size:.9rem">Pitch line: <em>“Not a separate website — finished goods marked sellable appear in the shop with live stock.”</em></p>
+      </div>
+      <div class="demo-panel" id="t4">
+        <div class="mod-toggle" id="modToggle">
+          <span class="chip on" data-m="items">Items</span>
+          <span class="chip on" data-m="inventory">Inventory</span>
+          <span class="chip on" data-m="racks">Racks</span>
+          <span class="chip" data-m="costing">Costing</span>
+          <span class="chip" data-m="vendors">Vendors</span>
+          <span class="chip" data-m="crm">CRM</span>
+          <span class="chip on" data-m="ecommerce">Ecommerce</span>
+          <span class="chip on" data-m="website">Website</span>
+          <span class="chip on" data-m="reports">Reports</span>
+        </div>
+        <div class="mod-preview">
+          <p style="margin-bottom:.75rem"><strong>Client package preview</strong> — toggle chips like you would in a sales call:</p>
+          <pre id="modJson" style="background:var(--ink);color:#E8E4DC;padding:1rem;border-radius:12px;overflow:auto;font-size:.78rem"></pre>
+          <p style="margin-top:.75rem;color:var(--muted);font-size:.85rem">You sell exactly what they need. Enable more modules later as an upsell.</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:.75rem">
+      <a class="btn btn-primary" href="http://127.0.0.1:8080/admin/login.php" target="_blank" rel="noopener">Open admin (admin@boutique.local / admin123)</a>
+      <a class="btn btn-outline" href="http://127.0.0.1:8080/shop/" target="_blank" rel="noopener">Open shop</a>
+      <a class="btn btn-outline" href="http://127.0.0.1:8080/install/" target="_blank" rel="noopener">Client install wizard</a>
+    </div>
+  </div>
+</section>
+
+<section id="packs" style="background:rgba(11,18,32,.03)">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Packages you can sell</h2>
+      <p>Same product. Different scope. Easy upsell path.</p>
+    </div>
+    <div class="packs">
+      <article class="pack">
+        <h3>Stock & Sell</h3>
+        <div class="price">Starter</div>
+        <ul>
+          <li>Item master + photos</li>
+          <li>Rack inventory in/out</li>
+          <li>Ecommerce shop</li>
+          <li>Public website</li>
+          <li>Basic reports</li>
+        </ul>
+        <a class="btn btn-outline" href="#demo">Show module demo</a>
+      </article>
+      <article class="pack popular">
+        <div class="badge">Most sold</div>
+        <h3>Atelier Pro</h3>
+        <div class="price">Growth</div>
+        <ul>
+          <li>Everything in Starter</li>
+          <li>BOM true costing</li>
+          <li>Wage tracking</li>
+          <li>Vendors + purchase orders</li>
+          <li>CRM + tags + notes</li>
+        </ul>
+        <a class="btn btn-primary" href="http://127.0.0.1:8080/admin/login.php" target="_blank" rel="noopener">Demo this pack</a>
+      </article>
+      <article class="pack">
+        <h3>White-label OS</h3>
+        <div class="price">Agency</div>
+        <ul>
+          <li>Full module suite</li>
+          <li>Install wizard per client</li>
+          <li>Brand colours + logo</li>
+          <li>Your hosting / their hosting</li>
+          <li>Preset JSON packages</li>
+        </ul>
+        <a class="btn btn-outline" href="http://127.0.0.1:8080/install/" target="_blank" rel="noopener">Open setup wizard</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <h2>Stop guessing margins. Start running the boutique.</h2>
+      <p>Live demo is running locally — walk a client from fabric rack to online order in under 10 minutes.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center">
+        <a class="btn btn-accent" href="http://127.0.0.1:8080/admin/login.php" target="_blank" rel="noopener">Launch admin demo</a>
+        <a class="btn btn-ghost" href="#features">Back to features</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    BoutiqueOS sales sheet · Single-file HTML for pitches · Demo links point to local server <code>127.0.0.1:8080</code>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const menuBtn=document.getElementById('menuBtn');
+  const nav=document.getElementById('navLinks');
+  menuBtn?.addEventListener('click',()=>nav.classList.toggle('open'));
+
+  document.querySelectorAll('.demo-tabs button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.demo-tabs button').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.demo-panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  const chips=[...document.querySelectorAll('#modToggle .chip')];
+  const out=document.getElementById('modJson');
+  function renderMods(){
+    const modules={};
+    chips.forEach(c=>modules[c.dataset.m]=c.classList.contains('on'));
+    out.textContent=JSON.stringify({modules},null,2);
+  }
+  chips.forEach(c=>c.addEventListener('click',()=>{c.classList.toggle('on');renderMods();}));
+  renderMods();
+})();
+</script>
+</body>
+</html>

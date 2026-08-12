@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Website Demos — Select School & Theme</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared/css/main.css">
+  <style>
+    :root{--primary:#4f46e5;--primary-dark:#3730a3}
+    body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#312e81 100%);min-height:100vh;color:#fff}
+    .hero{text-align:center;padding:60px 20px 40px}
+    .hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;margin-bottom:12px;background:linear-gradient(135deg,#fff,#a5b4fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero p{font-size:1.1rem;color:#94a3b8;max-width:700px;margin:0 auto 8px}
+    .hero .badge{display:inline-block;background:rgba(99,102,241,.2);border:1px solid rgba(99,102,241,.4);padding:8px 20px;border-radius:50px;font-size:.85rem;margin-top:16px}
+    .erp-link{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:12px 24px;background:linear-gradient(135deg,#10b981,#059669);border-radius:50px;color:#fff;font-weight:600;transition:.3s}
+    .erp-link:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(16,185,129,.4)}
+    .steps{display:flex;justify-content:center;gap:40px;margin:40px 0;flex-wrap:wrap}
+    .step{display:flex;align-items:center;gap:12px;color:#94a3b8}
+    .step-num{width:36px;height:36px;border-radius:50%;background:rgba(99,102,241,.3);display:flex;align-items:center;justify-content:center;font-weight:700;color:#a5b4fc}
+    .step.active{color:#fff}.step.active .step-num{background:var(--primary)}
+    .schools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;max-width:900px;margin:0 auto 50px;padding:0 20px}
+    .school-card{background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.1);border-radius:20px;padding:32px;cursor:pointer;transition:.3s;backdrop-filter:blur(10px)}
+    .school-card:hover,.school-card.selected{border-color:var(--primary);background:rgba(99,102,241,.15);transform:translateY(-4px)}
+    .school-card h3{font-size:1.3rem;margin-bottom:4px}
+    .school-card .hindi{font-family:'Noto Sans Devanagari',sans-serif;color:#a5b4fc;font-size:1rem;margin-bottom:12px}
+    .school-card .type{display:inline-block;background:rgba(16,185,129,.2);color:#6ee7b7;padding:4px 12px;border-radius:20px;font-size:.75rem;font-weight:600;margin-bottom:12px}
+    .school-card p{font-size:.9rem;color:#94a3b8;line-height:1.5}
+    .school-card .info{margin-top:16px;font-size:.85rem;color:#64748b}
+    .themes-section{max-width:1200px;margin:0 auto;padding:0 20px 80px;display:none}
+    .themes-section.visible{display:block;animation:fadeUp .5s ease}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .themes-header{text-align:center;margin-bottom:40px}
+    .themes-header h2{font-size:1.8rem;margin-bottom:8px}
+    .themes-header p{color:#94a3b8}
+    .selected-school-badge{display:inline-block;background:rgba(99,102,241,.3);padding:8px 20px;border-radius:50px;margin-bottom:20px;font-size:.9rem}
+    .themes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+    .theme-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;transition:.3s;cursor:pointer}
+    .theme-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.3);border-color:rgba(255,255,255,.2)}
+    .theme-preview{height:140px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;position:relative;overflow:hidden}
+    .theme-preview::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.6))}
+    .theme-info{padding:16px}
+    .theme-info h4{font-size:1rem;margin-bottom:4px}
+    .theme-info span{font-size:.8rem;color:#94a3b8}
+    .theme-info .demo-btn{display:block;margin-top:12px;padding:8px;text-align:center;background:rgba(99,102,241,.3);border-radius:8px;font-size:.85rem;font-weight:600;color:#a5b4fc;transition:.3s}
+    .theme-card:hover .demo-btn{background:var(--primary);color:#fff}
+    .back-btn{display:inline-flex;align-items:center;gap:8px;color:#94a3b8;margin-bottom:20px;cursor:pointer;transition:.3s;background:none;border:none;font-size:.95rem}
+    .back-btn:hover{color:#fff}
+    footer{text-align:center;padding:30px;color:#64748b;font-size:.85rem;border-top:1px solid rgba(255,255,255,.05)}
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>School Website Demo Portal</h1>
+    <p>Interactive demos for Indian schools — 15 premium themes × 2 real schools</p>
+    <p style="font-size:.9rem;margin-top:4px">HTML · CSS · JavaScript — Fully responsive with animations</p>
+    <span class="badge">15 Themes · 2 Schools · Full Pages</span>
+    <br>
+    <a href="erp/index.html" class="erp-link">📊 View School ERP & Dashboard Features →</a>
+  </div>
+
+  <div class="steps" id="steps">
+    <div class="step active" id="step1"><span class="step-num">1</span> Select School</div>
+    <div class="step" id="step2"><span class="step-num">2</span> Choose Theme</div>
+    <div class="step" id="step3"><span class="step-num">3</span> View Demo</div>
+  </div>
+
+  <div class="schools-grid" id="schoolsGrid">
+    <div class="school-card" data-school="keshav">
+      <span class="type">CBSE School</span>
+      <h3>Keshav Vidya Mandir Model School</h3>
+      <p class="hindi">केशव विद्या मंदिर मॉडल स्कूल</p>
+      <p>Nursery to Class XII · Mandawali, East Delhi</p>
+      <div class="info">📍 Vinod Nagar W, Delhi 110092 · ☎ 011 2247 2248</div>
+    </div>
+    <div class="school-card" data-school="sunrise">
+      <span class="type">General Education</span>
+      <h3>Sunrise India Public School</h3>
+      <p class="hindi">सनराइज इंडिया पब्लिक स्कूल</p>
+      <p>Nursery to Class XII · West Vinod Nagar, Delhi</p>
+      <div class="info">📍 F-68, Street No. 3, Delhi 110092 · ☎ 092132 78158</div>
+    </div>
+  </div>
+
+  <div class="themes-section" id="themesSection">
+    <button class="back-btn" id="backBtn">← Back to Schools</button>
+    <div class="themes-header">
+      <div class="selected-school-badge" id="selectedBadge"></div>
+      <h2>Choose a Website Theme</h2>
+      <p>Each theme includes Home, About, Courses, Teachers, Events, Gallery, Blog & Contact pages</p>
+    </div>
+    <div class="themes-grid" id="themesGrid"></div>
+  </div>
+
+  <footer>© 2026 School Demo Portal · Built for Keshav Vidya Mandir & Sunrise India Public School Developed by <a href="https://savoka.in" target="_blank" rel="noopener noreferrer">savoka.in</a></footer>
+
+  <script src="shared/js/school-data.js"></script>
+  <script>
+    const themes = [
+      {id:'kadu',name:'Kadu',style:'Online Education',icon:'🎓',gradient:'linear-gradient(135deg,#6c5ce7,#a29bfe)'},
+      {id:'bornomala',name:'Bornomala',style:'Kindergarten',icon:'🌈',gradient:'linear-gradient(135deg,#fd79a8,#e84393)'},
+      {id:'eduvision',name:'EduVision',style:'Multipurpose',icon:'📚',gradient:'linear-gradient(135deg,#0984e3,#74b9ff)'},
+      {id:'ischool',name:'iSchool',style:'University Style',icon:'🏛️',gradient:'linear-gradient(135deg,#00b894,#55efc4)'},
+      {id:'edusion',name:'Edusion',style:'Modern Learning',icon:'💡',gradient:'linear-gradient(135deg,#e17055,#fab1a0)'},
+      {id:'eduall',name:'EduAll',style:'LMS Platform',icon:'📖',gradient:'linear-gradient(135deg,#6c5ce7,#fd79a8)'},
+      {id:'kidso',name:'Kidso',style:'Childcare',icon:'👶',gradient:'linear-gradient(135deg,#fdcb6e,#f39c12)'},
+      {id:'eginary',name:'Eginary',style:'Smart Learning',icon:'🧠',gradient:'linear-gradient(135deg,#00cec9,#81ecec)'},
+      {id:'wellearn',name:'WellLearn',style:'Education Hub',icon:'🎯',gradient:'linear-gradient(135deg,#a29bfe,#6c5ce7)'},
+      {id:'edrio',name:'Edrio',style:'Kindergarten',icon:'🎨',gradient:'linear-gradient(135deg,#ff7675,#fd79a8)'},
+      {id:'los-ninos',name:'Los Niños',style:'Playful Learning',icon:'🎪',gradient:'linear-gradient(135deg,#55efc4,#00b894)'},
+      {id:'kidscholl',name:'Kidscholl',style:'Preschool',icon:'🏫',gradient:'linear-gradient(135deg,#74b9ff,#0984e3)'},
+      {id:'ascen',name:'Ascen',style:'Kids School',icon:'⭐',gradient:'linear-gradient(135deg,#fab1a0,#e17055)'},
+      {id:'cutie',name:'Cutie',style:'Creative Edu',icon:'🎁',gradient:'linear-gradient(135deg,#ffeaa7,#fdcb6e)'},
+      {id:'kiddoz',name:'Kiddoz',style:'School Theme',icon:'🌟',gradient:'linear-gradient(135deg,#81ecec,#00cec9)'}
+    ];
+    let selectedSchool = null;
+    const schoolNames = {keshav:'Keshav Vidya Mandir Model School',sunrise:'Sunrise India Public School'};
+
+    document.querySelectorAll('.school-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.school-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        selectedSchool = card.dataset.school;
+        showThemes();
+      });
+    });
+
+    function showThemes() {
+      document.getElementById('schoolsGrid').style.display = 'none';
+      document.getElementById('themesSection').classList.add('visible');
+      document.getElementById('selectedBadge').textContent = '🏫 ' + schoolNames[selectedSchool];
+      document.getElementById('step1').classList.remove('active');
+      document.getElementById('step2').classList.add('active');
+      const grid = document.getElementById('themesGrid');
+      grid.innerHTML = themes.map(t => `
+        <a class="theme-card" href="schools/${selectedSchool}/${t.id}/index.html">
+          <div class="theme-preview" style="background:${t.gradient}">${t.icon}</div>
+          <div class="theme-info">
+            <h4>${t.name}</h4>
+            <span>${t.style}</span>
+            <span class="demo-btn">View Live Demo →</span>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    document.getElementById('backBtn').addEventListener('click', () => {
+      document.getElementById('schoolsGrid').style.display = 'grid';
+      document.getElementById('themesSection').classList.remove('visible');
+      document.querySelectorAll('.school-card').forEach(c => c.classList.remove('selected'));
+      document.getElementById('step2').classList.remove('active');
+      document.getElementById('step1').classList.add('active');
+      selectedSchool = null;
+    });
+  </script>
+</body>
+</html>

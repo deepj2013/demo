@@ -1,0 +1,189 @@
+body.site {
+  background: #1a0f0c;
+  color: #f8f0e4;
+}
+
+.site-nav {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 0;
+}
+.site-nav .logo {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  letter-spacing: 0.02em;
+}
+.site-nav .logo small {
+  display: block;
+  font-family: var(--font-hi);
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+.site-nav .links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 0.92rem;
+}
+.site-nav .links a { opacity: 0.88; }
+.site-nav .links a:hover { opacity: 1; color: var(--accent-soft); }
+.site-nav .lang-toggle {
+  background: rgba(255, 248, 239, 0.08);
+  border-color: rgba(255, 248, 239, 0.25);
+}
+.site-nav .lang-toggle button { color: #fff8ef; }
+.site-nav .lang-toggle button.active {
+  background: rgba(232, 197, 106, 0.35);
+  color: #1c1410;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(26, 15, 12, 0.25) 0%, rgba(26, 15, 12, 0.55) 45%, rgba(26, 15, 12, 0.92) 100%),
+    radial-gradient(ellipse 70% 60% at 70% 30%, rgba(200, 150, 46, 0.28), transparent 60%),
+    url("../img/hero-pattern.svg"),
+    linear-gradient(135deg, #3b1512 0%, #1a0f0c 55%, #2a1810 100%);
+  background-size: cover, cover, 420px, cover;
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  padding: 7rem 0 3.5rem;
+  max-width: 38rem;
+}
+.hero .eyebrow {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-soft);
+  margin-bottom: 1rem;
+}
+.hero h1 {
+  font-size: clamp(3rem, 9vw, 5.2rem);
+  color: #fff8ef;
+  margin-bottom: 0.2rem;
+}
+.hero .hi-title {
+  font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+  color: var(--accent-soft);
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.08rem;
+  color: rgba(248, 240, 228, 0.82);
+  max-width: 34rem;
+}
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.section {
+  background: var(--paper);
+  color: var(--ink);
+  padding: 4.5rem 0;
+}
+.section.alt {
+  background:
+    linear-gradient(180deg, #f3e8d6 0%, var(--paper) 100%);
+}
+.section-head {
+  max-width: 36rem;
+  margin-bottom: 2rem;
+}
+.section-head h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+}
+.section-head p { color: var(--muted); }
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.service {
+  padding: 1.4rem 1.2rem 1.5rem;
+  border-top: 2px solid var(--accent);
+  background: transparent;
+}
+.service h3 { font-size: 1.35rem; }
+.service p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: center;
+}
+.about-panel {
+  min-height: 320px;
+  border-radius: 24px;
+  background:
+    linear-gradient(160deg, rgba(122, 31, 31, 0.92), rgba(78, 18, 18, 0.88)),
+    radial-gradient(circle at 30% 20%, rgba(232, 197, 106, 0.35), transparent 50%);
+  color: #fff8ef;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.about-panel .years {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--accent-soft);
+}
+.about-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0;
+}
+.about-list li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.about-list span { color: var(--muted); }
+
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.contact-box {
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.contact-box h3 { margin-bottom: 0.8rem; }
+.contact-box p { margin: 0.35rem 0; color: var(--muted); }
+
+.site-footer {
+  background: #140c0a;
+  color: rgba(248, 240, 228, 0.7);
+  padding: 2rem 0;
+  font-size: 0.9rem;
+}
+.site-footer strong { color: #fff8ef; }
+
+@media (max-width: 860px) {
+  .site-nav .links a:not(.btn) { display: none; }
+  .services, .about-grid, .contact-wrap { grid-template-columns: 1fr; }
+  .hero-inner { padding-top: 6rem; }
+}

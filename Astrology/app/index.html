@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#7A1F1F" />
+  <title>Jyoti Mandir — Jyotish App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/shared.css" />
+  <link rel="stylesheet" href="../assets/css/app.css" />
+</head>
+<body class="app">
+  <div class="app-shell">
+    <!-- Login gate -->
+    <section id="login-screen" class="login-screen">
+      <div class="login-hero">
+        <div class="login-mark">ज्यो</div>
+        <h1>Jyoti Mandir</h1>
+        <p class="hi">ज्योति मंदिर</p>
+        <p class="login-tag" data-en="Personal Jyotish workspace" data-hi="आपका व्यक्तिगत ज्योतिष कार्यक्षेत्र">Personal Jyotish workspace</p>
+      </div>
+      <form id="form-login" class="login-form panel">
+        <div class="field">
+          <label data-en="Mobile number" data-hi="मोबाइल नंबर">Mobile number</label>
+          <input name="phone" type="tel" inputmode="numeric" autocomplete="tel" required
+                 placeholder="9876543210" maxlength="14" />
+        </div>
+        <div class="field">
+          <label data-en="Your name" data-hi="आपका नाम">Your name</label>
+          <input name="name" type="text" autocomplete="name" placeholder="Optional on first login" />
+        </div>
+        <div class="field">
+          <label data-en="Password" data-hi="पासवर्ड">Password</label>
+          <input name="password" type="password" autocomplete="current-password" required
+                 placeholder="••••••" value="543210" />
+        </div>
+        <button class="btn btn-block" type="submit" data-en="Enter dashboard" data-hi="डैशबोर्ड खोलें">Enter dashboard</button>
+        <p class="login-hint muted" data-en="Any valid Indian mobile number. Password: 543210" data-hi="कोई भी वैध भारतीय मोबाइल नंबर। पासवर्ड: 543210">Any valid Indian mobile number. Password: 543210</p>
+        <div class="lang-toggle login-lang" aria-label="Language">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="hi">हिं</button>
+          <button type="button" data-lang="ta">TA</button>
+          <button type="button" data-lang="te">TE</button>
+          <button type="button" data-lang="mr">MR</button>
+          <button type="button" data-lang="bn">BN</button>
+          <button type="button" data-lang="gu">GU</button>
+        </div>
+      </form>
+    </section>
+
+    <div id="app-main" class="app-main hidden">
+      <nav class="app-tabbar" aria-label="Primary">
+        <button type="button" data-view="dashboard" data-i18n="dash" class="active">
+          <span class="glyph">⌂</span><span class="label">Dashboard</span>
+        </button>
+        <button type="button" data-view="kundli" data-i18n="kundli">
+          <span class="glyph">कु</span><span class="label">Kundli</span>
+        </button>
+        <button type="button" data-view="match" data-i18n="match">
+          <span class="glyph">मि</span><span class="label">Matching</span>
+        </button>
+        <button type="button" data-view="panchang" data-i18n="panchang">
+          <span class="glyph">पं</span><span class="label">Panchang</span>
+        </button>
+        <button type="button" data-view="more" data-i18n="more">
+          <span class="glyph">⋯</span><span class="label">More</span>
+        </button>
+      </nav>
+
+      <div class="app-stage">
+      <header class="app-top">
+        <div class="row">
+          <div class="brand">
+            Jyoti Mandir
+            <small id="user-phone-label">Workspace</small>
+          </div>
+          <div style="display:flex;gap:0.5rem;align-items:center">
+            <button type="button" class="chip chip-btn" id="btn-theme" title="Theme">◐</button>
+            <select id="lang-select" class="lang-select" aria-label="Language">
+              <option value="en">EN</option>
+              <option value="hi">हिं</option>
+              <option value="ta">TA</option>
+              <option value="te">TE</option>
+              <option value="mr">MR</option>
+              <option value="bn">BN</option>
+              <option value="gu">GU</option>
+            </select>
+            <button type="button" class="chip chip-btn" id="btn-logout" data-en="Logout" data-hi="लॉग आउट">Logout</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="app-content">
+        <!-- Dashboard -->
+        <section class="view active" id="view-dashboard">
+          <div class="view-title">
+            <div>
+              <h1 id="dash-greeting" data-en="Namaste" data-hi="नमस्ते">Namaste</h1>
+              <p id="dash-sub" data-en="Your personal Jyotish desk" data-hi="आपका व्यक्तिगत ज्योतिष डेस्क">Your personal Jyotish desk</p>
+            </div>
+          </div>
+          <div class="stat-row" id="dash-stats">
+            <div class="stat"><b id="stat-kundlis">0</b><span data-en="Saved Kundlis" data-hi="सहेजी कुंडलियाँ">Saved Kundlis</span></div>
+            <div class="stat"><b id="stat-matches">0</b><span data-en="Matches" data-hi="मिलान">Matches</span></div>
+            <div class="stat"><b id="stat-phone">—</b><span data-en="Account" data-hi="अकाउंट">Account</span></div>
+          </div>
+          <div class="panel">
+            <h3 data-en="Today’s Panchang" data-hi="आज का पंचांग">Today’s Panchang</h3>
+            <p id="today-panchang" class="muted">Loading…</p>
+            <button class="btn btn-ghost" style="margin-top:0.75rem" type="button" data-view="panchang" data-en="Open Panchang" data-hi="पंचांग खोलें">Open Panchang</button>
+          </div>
+          <div class="panel" id="dash-recent">
+            <h3 data-en="Your recent charts" data-hi="आपकी हाल की कुंडलियाँ">Your recent charts</h3>
+            <div id="dash-recent-list"><p class="muted">—</p></div>
+          </div>
+          <div class="dash-grid">
+            <button class="dash-tile" type="button" data-view="kundli">
+              <div class="icon">कु</div>
+              <strong data-en="Kundli" data-hi="कुंडली">Kundli</strong>
+              <span data-en="Birth chart" data-hi="जन्म कुंडली">Birth chart</span>
+            </button>
+            <button class="dash-tile" type="button" data-view="match">
+              <div class="icon">मि</div>
+              <strong data-en="Matching" data-hi="मिलान">Matching</strong>
+              <span data-en="36 Guna Milan" data-hi="३६ गुण मिलान">36 Guna Milan</span>
+            </button>
+            <button class="dash-tile" type="button" data-view="rashi">
+              <div class="icon">रा</div>
+              <strong data-en="Rashi" data-hi="राशि">Rashi</strong>
+              <span data-en="Moon sign guide" data-hi="चंद्र राशि">Moon sign guide</span>
+            </button>
+            <button class="dash-tile" type="button" data-view="muhurat">
+              <div class="icon">मु</div>
+              <strong data-en="Muhurat" data-hi="मुहूर्त">Muhurat</strong>
+              <span data-en="Auspicious timing" data-hi="शुभ समय">Auspicious timing</span>
+            </button>
+            <button class="dash-tile" type="button" data-view="remedies">
+              <div class="icon">उ</div>
+              <strong data-en="Remedies" data-hi="उपाय">Remedies</strong>
+              <span data-en="Mantra & gems" data-hi="मंत्र व रत्न">Mantra & gems</span>
+            </button>
+            <button class="dash-tile" type="button" data-view="clients">
+              <div class="icon">क्</div>
+              <strong data-en="My Charts" data-hi="मेरी कुंडलियाँ">My Charts</strong>
+              <span data-en="Saved on your account" data-hi="आपके अकाउंट पर सहेजा">Saved on your account</span>
+            </button>
+            <button class="dash-tile" type="button" data-view="matches">
+              <div class="icon">जो</div>
+              <strong data-en="My Matches" data-hi="मेरे मिलान">My Matches</strong>
+              <span data-en="Saved guna milan" data-hi="सहेजे गुण मिलान">Saved guna milan</span>
+            </button>
+            <button class="dash-tile" type="button" data-view="profile">
+              <div class="icon">प्रो</div>
+              <strong data-en="Profile" data-hi="प्रोफ़ाइल">Profile</strong>
+              <span data-en="Name &amp; city" data-hi="नाम व शहर">Name &amp; city</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Kundli -->
+        <section class="view" id="view-kundli">
+          <div class="view-title">
+            <div>
+              <h1 data-en="Kundli" data-hi="कुंडली">Kundli</h1>
+              <p data-en="Generate Vedic birth chart" data-hi="वैदिक जन्म कुंडली बनाएँ">Generate Vedic birth chart</p>
+            </div>
+          </div>
+          <div class="panel">
+            <form id="form-kundli" class="form-stack">
+              <div class="field">
+                <label data-en="Name" data-hi="नाम">Name</label>
+                <input name="name" required placeholder="Rahul Sharma" />
+              </div>
+              <div class="grid-2">
+                <div class="field">
+                  <label data-en="Date of birth" data-hi="जन्म तिथि">Date of birth</label>
+                  <input type="date" name="date" required value="1990-05-12" />
+                </div>
+                <div class="field">
+                  <label data-en="Time" data-hi="समय">Time</label>
+                  <input type="time" name="time" required value="10:30" />
+                </div>
+              </div>
+              <div class="grid-2">
+                <div class="field">
+                  <label data-en="Place" data-hi="स्थान">Place</label>
+                  <select name="place" data-cities>
+                    <option value="Indore" data-lat="22.7196" data-lon="75.8577">Indore</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label data-en="Gender" data-hi="लिंग">Gender</label>
+                  <select name="gender">
+                    <option value="male" data-en="Male" data-hi="पुरुष">Male</option>
+                    <option value="female" data-en="Female" data-hi="महिला">Female</option>
+                    <option value="other" data-en="Other" data-hi="अन्य">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="grid-2">
+                <div class="field">
+                  <label data-en="Ayanamsa" data-hi="अयनांश">Ayanamsa</label>
+                  <select name="ayanamsa">
+                    <option value="lahiri">Lahiri</option>
+                    <option value="raman">Raman</option>
+                    <option value="kp">KP</option>
+                    <option value="fagan">Fagan-Bradley</option>
+                    <option value="tropical">Tropical</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label data-en="House system" data-hi="भाव पद्धति">House system</label>
+                  <select name="house_system">
+                    <option value="whole_sign" data-en="Whole Sign" data-hi="पूर्ण राशि">Whole Sign</option>
+                    <option value="equal" data-en="Equal" data-hi="समान भाव">Equal</option>
+                    <option value="sripati" data-en="Sripati" data-hi="श्रीपति">Sripati</option>
+                    <option value="placidus" data-en="Placidus" data-hi="प्लैसिडस">Placidus</option>
+                    <option value="koch" data-en="Koch" data-hi="कोच">Koch</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label data-en="Chart style" data-hi="कुंडली शैली">Chart style</label>
+                <select name="chart_style">
+                  <option value="south" data-en="South Indian" data-hi="दक्षिण भारतीय">South Indian</option>
+                  <option value="north" data-en="North Indian" data-hi="उत्तर भारतीय">North Indian</option>
+                  <option value="western" data-en="Western Wheel" data-hi="पाश्चात्य चक्र">Western Wheel</option>
+                </select>
+              </div>
+              <button class="btn btn-block" type="submit" data-en="Generate Kundli" data-hi="कुंडली बनाएँ">Generate Kundli</button>
+            </form>
+            <div id="kundli-result" class="result-box hidden"></div>
+          </div>
+        </section>
+
+        <!-- Matching -->
+        <section class="view" id="view-match">
+          <div class="view-title">
+            <div>
+              <h1 data-en="Kundli Matching" data-hi="कुंडली मिलान">Kundli Matching</h1>
+              <p data-en="Ashtakoot Guna Milan" data-hi="अष्टकूट गुण मिलान">Ashtakoot Guna Milan</p>
+            </div>
+          </div>
+          <div class="panel">
+            <form id="form-match" class="form-stack">
+              <h3 data-en="Boy / Groom" data-hi="वर">Boy / Groom</h3>
+              <div class="field">
+                <label data-en="Name" data-hi="नाम">Name</label>
+                <input name="boy_name" required value="Aarav Mehta" />
+              </div>
+              <div class="grid-2">
+                <div class="field">
+                  <label data-en="DOB" data-hi="जन्म तिथि">DOB</label>
+                  <input type="date" name="boy_date" required value="1990-05-12" />
+                </div>
+                <div class="field">
+                  <label data-en="Time" data-hi="समय">Time</label>
+                  <input type="time" name="boy_time" required value="09:15" />
+                </div>
+              </div>
+              <div class="field">
+                <label data-en="Place" data-hi="स्थान">Place</label>
+                <select name="boy_place" data-cities></select>
+              </div>
+
+              <h3 data-en="Girl / Bride" data-hi="वधू">Girl / Bride</h3>
+              <div class="field">
+                <label data-en="Name" data-hi="नाम">Name</label>
+                <input name="girl_name" required value="Ananya Sharma" />
+              </div>
+              <div class="grid-2">
+                <div class="field">
+                  <label data-en="DOB" data-hi="जन्म तिथि">DOB</label>
+                  <input type="date" name="girl_date" required value="1992-08-21" />
+                </div>
+                <div class="field">
+                  <label data-en="Time" data-hi="समय">Time</label>
+                  <input type="time" name="girl_time" required value="16:40" />
+                </div>
+              </div>
+              <div class="field">
+                <label data-en="Place" data-hi="स्थान">Place</label>
+                <select name="girl_place" data-cities></select>
+              </div>
+              <button class="btn btn-block" type="submit" data-en="Match Gunas" data-hi="गुण मिलान करें">Match Gunas</button>
+            </form>
+            <div id="match-result" class="result-box hidden"></div>
+          </div>
+        </section>
+
+        <!-- Panchang -->
+        <section class="view" id="view-panchang">
+          <div class="view-title">
+            <div>
+              <h1 data-en="Panchang" data-hi="पंचांग">Panchang</h1>
+              <p data-en="Tithi · Nakshatra · Yoga · Karana" data-hi="तिथि · नक्षत्र · योग · करण">Tithi · Nakshatra · Yoga · Karana</p>
+            </div>
+          </div>
+          <div class="panel">
+            <form id="form-panchang" class="form-stack">
+              <div class="grid-2">
+                <div class="field">
+                  <label data-en="Date" data-hi="तिथि">Date</label>
+                  <input type="date" name="date" required />
+                </div>
+                <div class="field">
+                  <label data-en="City" data-hi="शहर">City</label>
+                  <select name="place" data-cities></select>
+                </div>
+              </div>
+              <button class="btn btn-block" type="submit" data-en="Show Panchang" data-hi="पंचांग देखें">Show Panchang</button>
+            </form>
+            <div id="panchang-result" class="result-box hidden"></div>
+          </div>
+        </section>
+
+        <!-- More hub -->
+        <section class="view" id="view-more">
+          <div class="view-title">
+            <div>
+              <h1 data-en="More tools" data-hi="अन्य उपकरण">More tools</h1>
+              <p data-en="Rashi, Muhurat, Remedies, Charts, Matches" data-hi="राशि, मुहूर्त, उपाय, कुंडली, मिलान">Rashi, Muhurat, Remedies, Charts, Matches</p>
+            </div>
+          </div>
+          <div class="dash-grid">
+            <button class="dash-tile" type="button" data-view="rashi">
+              <div class="icon">रा</div>
+              <strong data-en="Rashi" data-hi="राशि">Rashi</strong>
+              <span data-en="Moon sign" data-hi="चंद्र राशि">Moon sign</span>
+            </button>
+            <button class="dash-tile" type="button" data-view="muhurat">
+              <div class="icon">मु</div>
+              <strong data-en="Muhurat" data-hi="मुहूर्त">Muhurat</strong>
+              <span data-en="Timing" data-hi="समय">Timing</span>
+            </button>
+            <button class="dash-tile" type="button" data-view="remedies">
+              <div class="icon">उ</div>
+              <strong data-en="Remedies" data-hi="उपाय">Remedies</strong>
+              <span data-en="Upay" data-hi="उपाय">Upay</span>
+            </button>
+            <button class="dash-tile" type="button" data-view="clients">
+              <div class="icon">क्</div>
+              <strong data-en="My Charts" data-hi="मेरी कुंडलियाँ">My Charts</strong>
+              <span data-en="Saved" data-hi="सहेजा">Saved</span>
+            </button>
+            <button class="dash-tile" type="button" data-view="matches">
+              <div class="icon">जो</div>
+              <strong data-en="My Matches" data-hi="मेरे मिलान">My Matches</strong>
+              <span data-en="Saved" data-hi="सहेजा">Saved</span>
+            </button>
+            <button class="dash-tile" type="button" data-view="profile">
+              <div class="icon">प्रो</div>
+              <strong data-en="Profile" data-hi="प्रोफ़ाइल">Profile</strong>
+              <span data-en="Account" data-hi="अकाउंट">Account</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Rashi -->
+        <section class="view" id="view-rashi">
+          <div class="view-title">
+            <div>
+              <h1 data-en="Rashi" data-hi="राशि">Rashi</h1>
+              <p data-en="Explore signs or find moon rashi from DOB" data-hi="राशि देखें या जन्म से चंद्र राशि जानें">Explore signs or find moon rashi from DOB</p>
+            </div>
+          </div>
+          <div class="panel">
+            <form id="form-dob-rashi" class="form-stack">
+              <div class="grid-2">
+                <div class="field">
+                  <label data-en="DOB" data-hi="जन्म तिथि">DOB</label>
+                  <input type="date" name="date" required value="1990-05-12" />
+                </div>
+                <div class="field">
+                  <label data-en="Time" data-hi="समय">Time</label>
+                  <input type="time" name="time" value="12:00" />
+                </div>
+              </div>
+              <button class="btn btn-block" type="submit" data-en="Find Moon Rashi" data-hi="चंद्र राशि खोजें">Find Moon Rashi</button>
+            </form>
+          </div>
+          <div class="panel">
+            <h3 data-en="All Rashis" data-hi="सभी राशियाँ">All Rashis</h3>
+            <div id="rashi-grid" class="rashi-grid"></div>
+            <div id="rashi-result" class="result-box hidden"></div>
+          </div>
+        </section>
+
+        <!-- Muhurat -->
+        <section class="view" id="view-muhurat">
+          <div class="view-title">
+            <div>
+              <h1 data-en="Muhurat" data-hi="मुहूर्त">Muhurat</h1>
+              <p data-en="Find shubh timing windows" data-hi="शुभ समय खिड़कियाँ खोजें">Find shubh timing windows</p>
+            </div>
+          </div>
+          <div class="panel">
+            <form id="form-muhurat" class="form-stack">
+              <div class="field">
+                <label data-en="Date" data-hi="दिनांक">Date</label>
+                <input type="date" name="date" required />
+              </div>
+              <div class="field">
+                <label data-en="Purpose" data-hi="उद्देश्य">Purpose</label>
+                <select name="purpose">
+                  <option value="general" data-en="General" data-hi="सामान्य">General</option>
+                  <option value="marriage" data-en="Marriage" data-hi="विवाह">Marriage</option>
+                  <option value="business" data-en="Business" data-hi="व्यवसाय">Business</option>
+                  <option value="travel" data-en="Travel" data-hi="यात्रा">Travel</option>
+                  <option value="griha" data-en="Griha Pravesh" data-hi="गृह प्रवेश">Griha Pravesh</option>
+                  <option value="naming" data-en="Namkaran" data-hi="नामकरण">Namkaran</option>
+                </select>
+              </div>
+              <button class="btn btn-block" type="submit" data-en="Find Muhurat" data-hi="मुहूर्त खोजें">Find Muhurat</button>
+            </form>
+            <div id="muhurat-result" class="result-box hidden"></div>
+          </div>
+        </section>
+
+        <!-- Remedies -->
+        <section class="view" id="view-remedies">
+          <div class="view-title">
+            <div>
+              <h1 data-en="Remedies" data-hi="उपाय">Remedies</h1>
+              <p data-en="Traditional upay by rashi lord" data-hi="राशि स्वामी अनुसार पारंपरिक उपाय">Traditional upay by rashi lord</p>
+            </div>
+          </div>
+          <div class="panel">
+            <p class="muted" data-en="Open Rashi module and tap a sign to see gem, mantra, weekday and daan suggestions." data-hi="राशि मॉड्यूल खोलें और रत्न, मंत्र, वार व दान सुझाव देखें।">
+              Open Rashi module and tap a sign to see gem, mantra, weekday and daan suggestions.
+            </p>
+            <button class="btn" type="button" data-view="rashi" data-en="Go to Rashi" data-hi="राशि पर जाएँ">Go to Rashi</button>
+            <div style="margin-top:1rem">
+              <h3 data-en="Common spiritual practices" data-hi="सामान्य आध्यात्मिक अभ्यास">Common spiritual practices</h3>
+              <div class="slot"><div><strong>Mahamrityunjaya</strong><div class="muted">Harmony &amp; health</div></div><span>108×</span></div>
+              <div class="slot"><div><strong>Ganesh Puja</strong><div class="muted">Before muhurat / new work</div></div><span>Shubh</span></div>
+              <div class="slot"><div><strong>Navagraha Stotra</strong><div class="muted">Planetary peace</div></div><span>Daily</span></div>
+              <div class="slot"><div><strong>Hanuman Chalisa</strong><div class="muted">Courage &amp; protection</div></div><span>Tue/Sat</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Clients / My Charts -->
+        <section class="view" id="view-clients">
+          <div class="view-title">
+            <div>
+              <h1 data-en="My Charts" data-hi="मेरी कुंडलियाँ">My Charts</h1>
+              <p data-en="Kundlis saved to your account" data-hi="आपके अकाउंट पर सहेजी कुंडलियाँ">Kundlis saved to your account</p>
+            </div>
+          </div>
+          <div class="panel" id="client-list"></div>
+        </section>
+
+        <!-- Saved Matches -->
+        <section class="view" id="view-matches">
+          <div class="view-title">
+            <div>
+              <h1 data-en="My Matches" data-hi="मेरे मिलान">My Matches</h1>
+              <p data-en="Guna milan saved to your account" data-hi="आपके अकाउंट पर सहेजे मिलान">Guna milan saved to your account</p>
+            </div>
+          </div>
+          <div class="panel" id="match-list"></div>
+        </section>
+
+        <!-- Profile -->
+        <section class="view" id="view-profile">
+          <div class="view-title">
+            <div>
+              <h1 data-en="Profile" data-hi="प्रोफ़ाइल">Profile</h1>
+              <p data-en="Your account details" data-hi="आपके अकाउंट का विवरण">Your account details</p>
+            </div>
+          </div>
+          <div class="panel">
+            <form id="form-profile" class="form-stack">
+              <div class="field">
+                <label data-en="Mobile" data-hi="मोबाइल">Mobile</label>
+                <input id="profile-phone" type="text" disabled />
+              </div>
+              <div class="field">
+                <label data-en="Name" data-hi="नाम">Name</label>
+                <input name="name" id="profile-name" required />
+              </div>
+              <div class="field">
+                <label data-en="City" data-hi="शहर">City</label>
+                <input name="city" id="profile-city" placeholder="Indore" />
+              </div>
+              <div class="field">
+                <label data-en="Preferred language" data-hi="पसंदीदा भाषा">Preferred language</label>
+                <select name="preferred_lang" id="profile-lang">
+                  <option value="en">English</option>
+                  <option value="hi">हिन्दी</option>
+                  <option value="ta">தமிழ்</option>
+                  <option value="te">తెలుగు</option>
+                  <option value="mr">मराठी</option>
+                  <option value="bn">বাংলা</option>
+                  <option value="gu">ગુજરાતી</option>
+                </select>
+              </div>
+              <h3 data-en="Regional Jyotish charges" data-hi="क्षेत्रीय ज्योतिष शुल्क">Regional Jyotish charges</h3>
+              <div class="field">
+                <label data-en="Region / State" data-hi="क्षेत्र / राज्य">Region / State</label>
+                <input name="charge_region" id="charge-region" placeholder="Madhya Pradesh" />
+              </div>
+              <div class="grid-2">
+                <div class="field">
+                  <label data-en="Kundli fee (INR)" data-hi="कुंडली शुल्क">Kundli fee (INR)</label>
+                  <input name="charge_kundli" id="charge-kundli" type="number" min="0" step="1" value="501" />
+                </div>
+                <div class="field">
+                  <label data-en="Matching fee" data-hi="मिलान शुल्क">Matching fee</label>
+                  <input name="charge_matching" id="charge-matching" type="number" min="0" step="1" value="1100" />
+                </div>
+              </div>
+              <div class="grid-2">
+                <div class="field">
+                  <label data-en="Consultation fee" data-hi="परामर्श शुल्क">Consultation fee</label>
+                  <input name="charge_consult" id="charge-consult" type="number" min="0" step="1" value="2100" />
+                </div>
+                <div class="field">
+                  <label data-en="Show charges on PDF" data-hi="PDF पर शुल्क दिखाएँ">Show charges on PDF</label>
+                  <select name="charge_show_pdf" id="charge-show-pdf">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-block" type="submit" data-en="Save profile" data-hi="प्रोफ़ाइल सहेजें">Save profile</button>
+            </form>
+          </div>
+        </section>
+      </main>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

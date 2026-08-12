@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Keshav • kadu • Index</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="../../../shared/js/school-data.js"></script>
+  <script src="../../../shared/js/theme-utils.js"></script>
+</head>
+<body class="theme theme-kadu">
+  <header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="./index.html" aria-label="School Home">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="brand-text">
+        <span class="brand-title" id="school-name">School Name</span>
+        <span class="brand-sub" id="school-name-hindi">Hindi Name</span>
+      </span>
+    </a>
+
+    <button class="menu-toggle" aria-label="Toggle navigation" type="button">☰</button>
+
+    <nav class="nav" aria-label="Primary">
+      <ul class="nav-menu">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./courses.html">Courses</a></li>
+        <li><a href="./teachers.html">Teachers</a></li>
+        <li><a href="./events.html">Events</a></li>
+        <li><a href="./gallery.html">Gallery</a></li>
+        <li><a href="./blog.html">Blog</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+  <main class="site-main">
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="slider" aria-label="Hero slider">
+      <div class="hero-slide active">
+        <div class="hero-bg" data-bg="hero"></div>
+        <div class="hero-content fade-in">
+          <div class="kicker">Purple Modern Learning • CBSE</div>
+          <h1>Grow Confident with <span class="accent">360°</span> Learning</h1>
+          <p>Admissions for Nursery to Class XII. Discipline, projects and joyful co-curriculars in Hindi + English.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="./courses.html">Explore Courses</a>
+            <a class="btn" href="./events.html">Upcoming Events</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slide">
+        <div class="hero-bg" data-bg="classroom"></div>
+        <div class="hero-content fade-in">
+          <div class="kicker">Labs • Sports • Creative Corners</div>
+          <h1>From Science Labs to <span class="accent">Sports</span></h1>
+          <p>Hands-on learning supported by experienced teachers and strong classroom routines.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="./gallery.html">View Gallery</a>
+            <a class="btn" href="./teachers.html">Meet Teachers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="side">
+      <div class="panel fade-in"><h3>Students • Teachers</h3><p><span data-count="2500" class="count">0</span> Students</p><p><span data-count="120" class="count">0</span> Teachers</p></div>
+      <div class="panel fade-in"><h3>School Board</h3><p>CBSE aligned curriculum from Nursery to Class XII.</p><a class="btn primary full" href="./contact.html">Request a Call</a></div>
+    </aside>
+  </div>
+</section>
+
+<section class="section"><div class="container"><div class="section-head"><h2>Featured Courses</h2><p>Sample course catalog.</p></div><div id="course-grid" class="grid3"></div></div></section>
+<section class="section"><div class="container"><div class="section-head"><h2>Testimonials</h2><p>Parent experiences.</p></div><div class="testimonials"><article class="quote-card fade-in"><p>My child improved in confidence with friendly teacher support.</p><b>Asha Sharma</b></article><article class="quote-card fade-in"><p>Great co-curricular activities and regular progress updates.</p><b>Rakesh Verma</b></article><article class="quote-card fade-in"><p>CBSE preparation is strong and learning stays practical.</p><b>Neha Gupta</b></article></div></div></section>
+  </main>
+  <footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-title" id="school-name-footer">School Name</div>
+      <div class="footer-sub" id="school-name-hindi-footer">Hindi Name</div>
+      <p class="footer-tagline" id="school-tagline">Tagline</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./courses.html">Courses</a>
+      <a href="./events.html">Events</a>
+      <a href="./contact.html">Contact</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p><strong>Phone:</strong> <span id="school-phone">011 2247 2248</span></p>
+      <p><strong>Address:</strong> <span id="school-address">Address</span></p>
+      <p><strong>Email:</strong> <span id="school-email">info@school.edu.in</span></p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year">2026</span> <span id="school-name-copy">School</span>. All rights reserved.</span>
+    <span id="school-grades">Grades</span>
+  </div>
+</footer>
+  <script src="./js/main.js" defer></script>
+
+  <script>
+    (function(){
+      const file = window.location.pathname.split('/').pop();
+      const map = {
+        'index.html':'Home',
+        'about.html':'About',
+        'courses.html':'Courses',
+        'teachers.html':'Teachers',
+        'events.html':'Events',
+        'gallery.html':'Gallery',
+        'blog.html':'Blog',
+        'contact.html':'Contact'
+      };
+      const current = map[file] || 'Home';
+      document.querySelectorAll('.nav-menu a').forEach(a=>{
+        a.classList.toggle('active', a.textContent.trim()===current);
+      });
+    })();
+  </script>
+</body>
+</html>

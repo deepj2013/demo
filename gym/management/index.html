@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adiyogi Gym Management System</title>
+  <link rel="stylesheet" href="../assets/css/shared.css" />
+  <link rel="stylesheet" href="../assets/css/management.css" />
+</head>
+<body class="mgmt">
+  <div class="demo-bar">
+    <div class="brand-mini">ADIYOGI · MANAGEMENT DEMO</div>
+    <nav>
+      <a href="../index.html">Overview</a>
+      <a href="../website/index.html">Website</a>
+      <a class="active" href="index.html">Management</a>
+      <a href="../member-app/index.html">Member App</a>
+      <a href="../ecommerce/index.html">Store</a>
+    </nav>
+  </div>
+
+  <div class="mgmt-shell">
+    <aside class="mgmt-side">
+      <div class="logo">
+        ADIYOGI
+        <small>Gym Management</small>
+      </div>
+      <button class="active" data-view="dashboard">Dashboard</button>
+      <button data-view="members">Members</button>
+      <button data-view="fees">Fee Collection</button>
+      <button data-view="attendance">Attendance</button>
+      <button data-view="trainers">Trainers</button>
+    </aside>
+
+    <main class="mgmt-main">
+      <!-- Dashboard -->
+      <section class="view active" id="view-dashboard">
+        <div class="mgmt-top">
+          <div>
+            <h1>Dashboard</h1>
+            <p class="sub">Adiyogi Fitness Studio · Live demo data for Khargone branch</p>
+          </div>
+          <button class="btn btn-primary" id="refreshDemo">Refresh demo data</button>
+        </div>
+
+        <div class="kpi-row">
+          <div class="kpi">
+            <div class="label">Active members</div>
+            <div class="value" id="kpiMembers">186</div>
+            <div class="delta">+12 this month</div>
+          </div>
+          <div class="kpi">
+            <div class="label">Today’s collection</div>
+            <div class="value" id="kpiToday">₹18,400</div>
+            <div class="delta">8 payments</div>
+          </div>
+          <div class="kpi">
+            <div class="label">Due / overdue</div>
+            <div class="value" id="kpiDue">₹42,700</div>
+            <div class="delta" style="color:var(--warn)">14 members</div>
+          </div>
+          <div class="kpi">
+            <div class="label">Check-ins today</div>
+            <div class="value" id="kpiCheckins">67</div>
+            <div class="delta">Peak 7–9 pm</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="panel">
+            <div class="panel-head"><h2>Weekly footfall</h2></div>
+            <div class="panel-body">
+              <div class="bar-chart" id="footfallChart"></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h2>Recent payments</h2></div>
+            <div class="panel-body table-wrap">
+              <table class="data" id="recentPayments">
+                <thead>
+                  <tr><th>Member</th><th>Plan</th><th>Amount</th><th>Mode</th></tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Members -->
+      <section class="view" id="view-members">
+        <div class="mgmt-top">
+          <div>
+            <h1>Members</h1>
+            <p class="sub">Search, filter, and manage Adiyogi memberships</p>
+          </div>
+          <button class="btn btn-dark" id="addMemberBtn">+ Add member</button>
+        </div>
+        <div class="panel">
+          <div class="panel-head">
+            <h2>All members</h2>
+            <input type="search" id="memberSearch" placeholder="Search name / phone…" style="padding:0.55rem 0.75rem;border:1px solid var(--line);border-radius:4px;min-width:220px" />
+          </div>
+          <div class="panel-body table-wrap">
+            <table class="data" id="membersTable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Phone</th>
+                  <th>Plan</th>
+                  <th>Expiry</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fees -->
+      <section class="view" id="view-fees">
+        <div class="mgmt-top">
+          <div>
+            <h1>Fee Collection</h1>
+            <p class="sub">Collect monthly / quarterly / yearly fees with receipt</p>
+          </div>
+        </div>
+        <div class="two-col">
+          <div class="panel">
+            <div class="panel-head"><h2>Collect payment</h2></div>
+            <div class="panel-body">
+              <form class="fee-form" id="feeForm">
+                <label>Member
+                  <select id="feeMember" required></select>
+                </label>
+                <label>Plan
+                  <select id="feePlan">
+                    <option value="1500">Monthly — ₹1,500</option>
+                    <option value="4000">Quarterly — ₹4,000</option>
+                    <option value="7500">Half-yearly — ₹7,500</option>
+                    <option value="12000">Yearly — ₹12,000</option>
+                  </select>
+                </label>
+                <label>Payment mode
+                  <select id="feeMode">
+                    <option>UPI</option>
+                    <option>Cash</option>
+                    <option>Card</option>
+                  </select>
+                </label>
+                <label>Notes
+                  <input type="text" id="feeNote" placeholder="Optional note" />
+                </label>
+                <button class="btn btn-primary" type="submit">Collect & generate receipt</button>
+              </form>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h2>Today’s ledger</h2></div>
+            <div class="panel-body table-wrap">
+              <table class="data" id="feeLedger">
+                <thead>
+                  <tr><th>Time</th><th>Member</th><th>Amount</th><th>Mode</th></tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Attendance -->
+      <section class="view" id="view-attendance">
+        <div class="mgmt-top">
+          <div>
+            <h1>Attendance</h1>
+            <p class="sub">Mark check-in for members on the floor</p>
+          </div>
+          <button class="btn btn-forest" id="checkInBtn">Quick check-in</button>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h2>Today’s check-ins</h2></div>
+          <div class="panel-body table-wrap">
+            <table class="data" id="attendanceTable">
+              <thead>
+                <tr><th>Time</th><th>Member</th><th>Trainer</th><th>Area</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trainers -->
+      <section class="view" id="view-trainers">
+        <div class="mgmt-top">
+          <div>
+            <h1>Trainers</h1>
+            <p class="sub">Staff roster for Adiyogi Fitness Studio</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-body table-wrap">
+            <table class="data" id="trainersTable">
+              <thead>
+                <tr><th>Name</th><th>Specialty</th><th>Shift</th><th>Members</th><th>Status</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="../assets/js/management.js"></script>
+</body>
+</html>

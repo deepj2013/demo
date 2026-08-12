@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sunrise • ischool • Events</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="../../../shared/js/school-data.js"></script>
+  <script src="../../../shared/js/theme-utils.js"></script>
+</head>
+<body class="theme theme-ischool">
+  <header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="./index.html" aria-label="School Home">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="brand-text">
+        <span class="brand-title" id="school-name">School Name</span>
+        <span class="brand-sub" id="school-name-hindi">Hindi Name</span>
+      </span>
+    </a>
+
+    <button class="menu-toggle" aria-label="Toggle navigation" type="button">☰</button>
+
+    <nav class="nav" aria-label="Primary">
+      <ul class="nav-menu">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./courses.html">Courses</a></li>
+        <li><a href="./teachers.html">Teachers</a></li>
+        <li><a href="./events.html">Events</a></li>
+        <li><a href="./gallery.html">Gallery</a></li>
+        <li><a href="./blog.html">Blog</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+  <main class="site-main">
+<section class="section"><div class="container"><div class="section-head"><h2>Events</h2><p>Cards with times and locations.</p></div><div id="event-grid" class="events"></div></div></section>
+  </main>
+  <footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-title" id="school-name-footer">School Name</div>
+      <div class="footer-sub" id="school-name-hindi-footer">Hindi Name</div>
+      <p class="footer-tagline" id="school-tagline">Tagline</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./courses.html">Courses</a>
+      <a href="./events.html">Events</a>
+      <a href="./contact.html">Contact</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p><strong>Phone:</strong> <span id="school-phone">011 2247 2248</span></p>
+      <p><strong>Address:</strong> <span id="school-address">Address</span></p>
+      <p><strong>Email:</strong> <span id="school-email">info@school.edu.in</span></p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year">2026</span> <span id="school-name-copy">School</span>. All rights reserved.</span>
+    <span id="school-grades">Grades</span>
+  </div>
+</footer>
+  <script src="./js/main.js" defer></script>
+
+  <script>
+    (function(){
+      const file = window.location.pathname.split('/').pop();
+      const map = {
+        'index.html':'Home',
+        'about.html':'About',
+        'courses.html':'Courses',
+        'teachers.html':'Teachers',
+        'events.html':'Events',
+        'gallery.html':'Gallery',
+        'blog.html':'Blog',
+        'contact.html':'Contact'
+      };
+      const current = map[file] || 'Home';
+      document.querySelectorAll('.nav-menu a').forEach(a=>{
+        a.classList.toggle('active', a.textContent.trim()===current);
+      });
+    })();
+  </script>
+</body>
+</html>
