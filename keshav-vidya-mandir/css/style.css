@@ -230,12 +230,30 @@ ul{list-style:none}
 .fade-up{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
 .fade-up.visible{opacity:1;transform:none}
 
+/* Key stats & facilities (About) */
+.stats-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.stat-card{background:#fff;border-radius:var(--radius);padding:24px 16px;text-align:center;box-shadow:var(--shadow);border-bottom:4px solid var(--teal)}
+.stat-card strong{display:block;font-family:var(--display);font-size:1.35rem;color:var(--teal);margin-bottom:6px}
+.stat-card span{font-size:.85rem;color:var(--muted);font-weight:700}
+.facilities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.facility-card{background:#fff;border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.facility-card h3{font-family:var(--display);font-size:1.1rem;margin-bottom:12px;color:var(--teal)}
+.facility-card li{padding:6px 0 6px 18px;position:relative;font-size:.92rem;color:var(--muted)}
+.facility-card li::before{content:'•';position:absolute;left:0;color:var(--pink);font-weight:900}
+.docs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.doc-card{background:#fff;border-radius:var(--radius);padding:22px 14px;text-align:center;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;gap:10px}
+.doc-card i{width:48px;height:48px;border-radius:50%;background:rgba(26,188,156,.12);color:var(--teal);display:grid;place-items:center;font-size:1.1rem}
+.doc-card span{font-weight:700;font-size:.88rem}
+.form-note{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+
 /* Responsive */
 @media(max-width:1024px){
   .services-grid,.staff-grid,.products-grid{grid-template-columns:repeat(2,1fr)}
   .camps-grid,.portfolio-grid{grid-template-columns:repeat(2,1fr)}
   .footer-grid{grid-template-columns:1fr 1fr}
   .blog-home-grid.three{grid-template-columns:1fr 1fr}
+  .stats-cards,.facilities-grid{grid-template-columns:repeat(2,1fr)}
+  .docs-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:768px){
   .menu-toggle{display:flex}
@@ -245,7 +263,7 @@ ul{list-style:none}
   .header-cta{display:none}
   .main-header-inner{position:relative;flex-wrap:wrap}
   .services{margin-top:0;padding-top:60px}
-  .services-grid,.camps-grid,.portfolio-grid,.staff-grid,.products-grid,.about-layout,.mission-row,.contact-layout,.blog-home-grid,.blog-home-grid.three,.footer-grid{grid-template-columns:1fr}
+  .services-grid,.camps-grid,.portfolio-grid,.staff-grid,.products-grid,.about-layout,.mission-row,.contact-layout,.blog-home-grid,.blog-home-grid.three,.footer-grid,.stats-cards,.facilities-grid,.docs-grid{grid-template-columns:1fr}
   .blog-home-card{grid-template-columns:1fr}
   .event-row{flex-wrap:wrap}
   .event-row .btn{margin-left:0}
