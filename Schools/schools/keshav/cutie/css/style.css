@@ -1,0 +1,127 @@
+/* Cutie Theme - Keshav Vidya Mandir Model School */
+:root{--primary:#1a5276;--secondary:#f39c12;--accent:#ffeaa7;--font:'Comfortaa',sans-serif;--radius:24px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);line-height:1.6;color:#333}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.hindi{font-family:'Noto Sans Devanagari',sans-serif}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit;transition:.3s}
+/* Header */
+.top-bar{background:var(--primary);color:#fff;padding:8px 0;font-size:.85rem}
+.top-bar .container{display:flex;gap:24px;flex-wrap:wrap}
+.site-header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.main-nav .container{display:flex;align-items:center;justify-content:space-between;padding:16px 20px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-icon{font-size:2rem}
+.logo strong{display:block;font-size:1rem;color:var(--primary)}
+.logo small{font-size:.75rem;color:#666}
+.nav-menu{display:flex;gap:8px}
+.nav-menu a{padding:8px 16px;border-radius:50px;font-weight:500;font-size:.9rem}
+.nav-menu a:hover,.nav-menu a.active{background:var(--primary);color:#fff}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.menu-toggle span{width:24px;height:2px;background:#333;transition:.3s}
+/* Hero */
+.hero{min-height:85vh;display:flex;align-items:center;color:#fff;position:relative}
+.hero-content{max-width:700px;padding:60px 0}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.2);padding:6px 16px;border-radius:50px;font-size:.85rem;margin-bottom:16px}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.2;margin-bottom:12px}
+.hero h1 span{color:var(--secondary)}
+.hero-hindi{font-size:1.2rem;opacity:.9;margin-bottom:12px}
+.hero p{font-size:1.1rem;opacity:.85;margin-bottom:24px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;padding:12px 28px;border-radius:50px;font-weight:600;border:none;cursor:pointer;transition:.3s}
+.btn-primary{background:var(--secondary);color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.btn-outline{border:2px solid #fff;color:#fff;background:transparent}
+.btn-outline:hover{background:#fff;color:var(--primary)}
+.btn-white{background:#fff;color:var(--primary)}
+.btn-sm{padding:8px 20px;font-size:.85rem}
+/* Stats */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat span{display:block;font-size:2.5rem;font-weight:800;color:var(--primary)}
+.stat p{color:#666;font-weight:500}
+/* Sections */
+.section{padding:80px 0}
+.section-tag{display:inline-block;background:rgba(0,0,0,.05);padding:6px 16px;border-radius:50px;font-size:.8rem;font-weight:600;color:var(--primary);margin-bottom:12px}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title h2{font-size:2rem;font-weight:700;margin-bottom:8px}
+.section-title p{color:#666}
+.page-hero{padding:80px 0;text-align:center;color:#fff}
+.page-hero h1{font-size:2.5rem;font-weight:800}
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about-img img{border-radius:var(--radius);box-shadow:0 20px 60px rgba(0,0,0,.15)}
+.about-grid h2{font-size:2rem;margin-bottom:16px;color:var(--primary)}
+.feature-list{margin:20px 0;list-style:none}
+.feature-list li{padding:8px 0;font-weight:500}
+.mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.mission-card{background:#fff;padding:32px;border-radius:var(--radius);box-shadow:0 4px 24px rgba(0,0,0,.06)}
+.mission-card h3{margin-bottom:12px;font-size:1.2rem}
+/* Courses */
+.courses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+.course-card{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:0 4px 24px rgba(0,0,0,.06);transition:.3s}
+.course-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.course-icon{font-size:2.5rem;margin-bottom:12px}
+.course-card h3{margin-bottom:8px;color:var(--primary)}
+.course-card.full{overflow:hidden;padding:0}
+.course-img{height:180px;overflow:hidden}
+.course-img img{width:100%;height:100%;object-fit:cover}
+.course-body{padding:20px}
+.badge{display:inline-block;background:var(--accent);color:#fff;padding:4px 12px;border-radius:20px;font-size:.75rem;margin-bottom:8px}
+/* Teachers */
+.teachers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
+.teacher-card{background:#fff;border-radius:var(--radius);padding:28px;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,.06);transition:.3s}
+.teacher-card:hover{transform:translateY(-4px)}
+.teacher-avatar,.teacher-img{font-size:3rem;margin-bottom:12px}
+.teacher-card h3{font-size:1rem;margin-bottom:4px}
+.teacher-card p{font-size:.85rem;color:#666;margin-bottom:8px}
+.teacher-card .subject{display:inline-block;background:rgba(0,0,0,.05);padding:4px 12px;border-radius:20px;font-size:.8rem}
+/* Events */
+.events-list{display:flex;flex-direction:column;gap:16px}
+.event-card{display:flex;gap:24px;background:#fff;padding:24px;border-radius:var(--radius);box-shadow:0 4px 16px rgba(0,0,0,.06);align-items:center}
+.event-date{background:var(--primary);color:#fff;padding:16px 20px;border-radius:var(--radius);font-weight:700;text-align:center;min-width:120px}
+/* Gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.gallery-item{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;cursor:pointer}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:.3s}
+.gallery-item:hover img{transform:scale(1.1)}
+.gallery-overlay{position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;opacity:0;transition:.3s}
+.gallery-item:hover .gallery-overlay{opacity:1}
+/* Blog */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+.blog-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.06)}
+.blog-card img{height:200px;width:100%;object-fit:cover}
+.blog-body{padding:24px}
+.blog-body h3{margin:8px 0;font-size:1.1rem}
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.info-item{display:flex;gap:16px;margin-bottom:24px;font-size:1.5rem}
+.info-item strong{display:block;font-size:1rem;color:var(--primary)}
+.info-item p{font-size:.9rem;color:#666}
+.contact-form{background:#fff;padding:32px;border-radius:var(--radius);box-shadow:0 4px 24px rgba(0,0,0,.06)}
+.contact-form h2{margin-bottom:20px}
+.contact-form input,.contact-form select,.contact-form textarea{width:100%;padding:12px 16px;margin-bottom:12px;border:1px solid #ddd;border-radius:8px;font-family:inherit;font-size:.95rem}
+/* CTA */
+.cta{text-align:center;color:#fff;padding:80px 0}
+.cta h2{font-size:2rem;margin-bottom:12px}
+.cta p{margin-bottom:24px;opacity:.9}
+/* Footer */
+.site-footer{background:#1a1a2e;color:#ccc;padding:60px 0 20px}
+.footer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-bottom:40px}
+.footer-grid h3,.footer-grid h4{color:#fff;margin-bottom:12px}
+.footer-grid a{display:block;padding:4px 0;font-size:.9rem}
+.footer-grid a:hover{color:var(--secondary)}
+.footer-bottom{text-align:center;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:.85rem}
+/* Animations */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+/* Responsive */
+@media(max-width:768px){
+.nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:20px;box-shadow:0 8px 24px rgba(0,0,0,.1)}
+.nav-menu.active{display:flex}
+.menu-toggle{display:flex}
+.about-grid,.mission-grid,.contact-grid,.stats-grid{grid-template-columns:1fr}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.footer-grid{grid-template-columns:1fr}
+.hero h1{font-size:1.8rem}
+}
