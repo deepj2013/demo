@@ -51,22 +51,23 @@ ul{list-style:none}
 .top-social a{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.15);display:grid;place-items:center;font-size:.75rem}
 .top-social a:hover{background:#fff;color:var(--teal)}
 .main-header{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 4px 24px rgba(0,0,0,.06)}
-.main-header-inner{display:flex;align-items:center;gap:20px;padding:14px 0}
-.logo{display:flex;align-items:center;gap:12px}
-.logo-img{width:58px;height:58px;border-radius:50%;object-fit:cover;background:#fff;box-shadow:0 4px 14px rgba(26,58,140,.25);flex-shrink:0}
+.main-header-inner{display:flex;align-items:center;gap:16px;padding:12px 0;flex-wrap:nowrap}
+.logo{display:flex;align-items:center;gap:12px;flex-shrink:0;min-width:0;max-width:280px;z-index:2}
+.logo-img{width:58px;height:58px;border-radius:50%;object-fit:cover;object-position:center;background:#fff;box-shadow:0 4px 14px rgba(26,58,140,.25);flex-shrink:0;overflow:hidden}
 .logo-mark{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--blue));color:#fff;display:grid;place-items:center;font-size:1.4rem;box-shadow:0 8px 20px rgba(26,188,156,.35)}
-.logo-text strong{display:block;font-family:var(--display);font-size:1.15rem;color:#1a3a8c;line-height:1.15}
-.logo-text small{display:block;font-size:.72rem;color:var(--muted);font-weight:700}
+.logo-text{min-width:0}
+.logo-text strong{display:block;font-family:var(--display);font-size:1.05rem;color:#1a3a8c;line-height:1.15;white-space:nowrap}
+.logo-text small{display:block;font-size:.7rem;color:var(--muted);font-weight:700;white-space:nowrap}
 .logo.light .logo-img{box-shadow:0 4px 14px rgba(0,0,0,.35)}
 .logo.light .logo-text strong{color:#fff}
 .logo.light .logo-text small{color:rgba(255,255,255,.7)}
-.nav-menu{margin-left:auto}
-.nav-menu ul{display:flex;gap:4px;align-items:center}
-.nav-menu a{padding:10px 14px;border-radius:30px;font-weight:700;font-size:.92rem;color:var(--ink)}
+.nav-menu{margin-left:auto;flex:1 1 auto;min-width:0;display:flex;justify-content:flex-end}
+.nav-menu ul{display:flex;gap:2px;align-items:center;flex-wrap:nowrap;justify-content:flex-end}
+.nav-menu a{padding:8px 10px;border-radius:30px;font-weight:700;font-size:.82rem;color:var(--ink);white-space:nowrap}
 .nav-menu a:hover,.nav-menu a.active{background:rgba(26,188,156,.12);color:var(--teal)}
-.header-cta{background:var(--pink);color:#fff;padding:12px 22px;border-radius:40px;font-weight:800;font-size:.9rem;white-space:nowrap}
-.header-cta:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(231,76,139,.35)}
-.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
+.header-cta{background:#1a3a8c;color:#fff;padding:10px 18px;border-radius:40px;font-weight:800;font-size:.85rem;white-space:nowrap;flex-shrink:0}
+.header-cta:hover{background:#142c6b;transform:translateY(-2px);box-shadow:0 8px 20px rgba(26,58,140,.4)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto;flex-shrink:0}
 .menu-toggle span{width:24px;height:2px;background:var(--ink);transition:.3s}
 
 /* Hero Slider */
@@ -267,13 +268,21 @@ ul{list-style:none}
   .stats-cards,.facilities-grid{grid-template-columns:repeat(2,1fr)}
   .docs-grid{grid-template-columns:repeat(3,1fr)}
 }
-@media(max-width:768px){
+@media(max-width:1100px){
+  .nav-menu a{padding:8px 8px;font-size:.78rem}
+  .logo-text strong{font-size:.95rem}
+}
+@media(max-width:980px){
   .menu-toggle{display:flex}
-  .nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;padding:16px;box-shadow:0 12px 30px rgba(0,0,0,.1)}
+  .nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;padding:16px;box-shadow:0 12px 30px rgba(0,0,0,.1);justify-content:stretch;margin-left:0;flex:none;width:100%}
   .nav-menu.open{display:block}
   .nav-menu ul{flex-direction:column;align-items:stretch}
+  .nav-menu a{font-size:.92rem;padding:10px 14px}
   .header-cta{display:none}
   .main-header-inner{position:relative;flex-wrap:wrap}
+  .logo{max-width:none}
+}
+@media(max-width:768px){
   .services{margin-top:0;padding-top:60px}
   .services-grid,.camps-grid,.portfolio-grid,.staff-grid,.products-grid,.about-layout,.mission-row,.contact-layout,.blog-home-grid,.blog-home-grid.three,.footer-grid,.stats-cards,.facilities-grid,.docs-grid{grid-template-columns:1fr}
   .blog-home-card{grid-template-columns:1fr}
