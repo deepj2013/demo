@@ -69,22 +69,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && verify_csrf($_POST['csrf'] ?? null)
     redirect('admin/items.php');
 }
 
+$typeFilter = $_GET['type'] ?? 'all';
+$q = trim($_GET['q'] ?? '');
 $cats = $pdo->query('SELECT * FROM categories WHERE is_active=1 ORDER BY name')->fetchAll();
-$items = $pdo->query("
+
+$sql = "
   SELECT i.*, c.name AS category_name,
          COALESCE((SELECT SUM(qty) FROM inventory WHERE item_id=i.id),0) AS stock_qty
   FROM items i
   LEFT JOIN categories c ON c.id=i.category_id
   WHERE i.is_active=1
-  ORDER BY i.updated_at DESC
-")->fetchAll();
+";
+$params = [];
+if ($typeFilter === 'raw') {
+    $sql .= " AND i.item_type IN ('raw','accessory','consumable')";
+} elseif ($typeFilter === 'finished') {
+    $sql .= " AND i.item_type='finished'";
+} elseif (in_array($typeFilter, ['accessory','consumable'], true)) {
+    $sql .= " AND i.item_type=?";
+    $params[] = $typeFilter;
+}
+if ($q !== '') {
+    $sql .= " AND (i.name LIKE ? OR i.sku LIKE ? OR i.color LIKE ? OR c.name LIKE ?)";
+    $like = '%' . $q . '%';
+    array_push($params, $like, $like, $like, $like);
+}
+$sql .= " ORDER BY i.updated_at DESC";
+$st = $pdo->prepare($sql);
+$st->execute($params);
+$items = $st->fetchAll();
+
+$counts = [
+    'all' => (int)$pdo->query("SELECT COUNT(*) FROM items WHERE is_active=1")->fetchColumn(),
+    'raw' => (int)$pdo->query("SELECT COUNT(*) FROM items WHERE is_active=1 AND item_type IN ('raw','accessory','consumable')")->fetchColumn(),
+    'finished' => (int)$pdo->query("SELECT COUNT(*) FROM items WHERE is_active=1 AND item_type='finished'")->fetchColumn(),
+];
 
 require ROOT_PATH . '/includes/admin_header.php';
 ?>
+<div class="type-tabs">
+  <a href="?type=all" class="<?= $typeFilter==='all'?'active':'' ?>">All (<?= $counts['all'] ?>)</a>
+  <a href="?type=raw" class="<?= $typeFilter==='raw'?'active':'' ?>">Raw & materials (<?= $counts['raw'] ?>)</a>
+  <a href="?type=finished" class="<?= $typeFilter==='finished'?'active':'' ?>">Finished products (<?= $counts['finished'] ?>)</a>
+</div>
 <div class="toolbar">
-  <input type="search" id="tableSearch" placeholder="Search items…" style="border:1px solid var(--line);border-radius:999px;padding:.55rem 1rem;min-width:220px;background:#fff">
+  <form method="get" style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;flex:1">
+    <input type="hidden" name="type" value="<?= e($typeFilter) ?>">
+    <input type="search" name="q" id="tableSearch" class="filter-input" value="<?= e($q) ?>" placeholder="Search SKU, name, colour…" style="border-radius:999px;min-width:220px">
+    <button class="btn btn-outline btn-sm" type="submit">Search</button>
+  </form>
   <div class="spacer"></div>
-  <button class="btn btn-primary" type="button" onclick="openModal('itemModal');document.getElementById('itemForm').reset();document.getElementById('itemId').value='';document.getElementById('modalTitle').textContent='New item'">+ Add item</button>
+  <button class="btn btn-outline" type="button" onclick="openModal('itemModal');document.getElementById('itemForm').reset();document.getElementById('itemId').value='';document.getElementById('f_item_type').value='raw';document.getElementById('modalTitle').textContent='New raw / material item';document.getElementById('f_is_sellable').checked=false">+ Raw item</button>
+  <button class="btn btn-primary" type="button" onclick="openModal('itemModal');document.getElementById('itemForm').reset();document.getElementById('itemId').value='';document.getElementById('f_item_type').value='finished';document.getElementById('modalTitle').textContent='New finished product';document.getElementById('f_is_sellable').checked=true">+ Finished product</button>
 </div>
 
 <div class="panel">

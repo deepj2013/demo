@@ -21,16 +21,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $setupOk = isset($_GET['setup']);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="<?= e($cfg['theme']['primary'] ?? '#0B1220') ?>">
+  <meta name="theme-color" content="#2563EB">
   <title>Sign in · <?= e($cfg['business_name']) ?></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="<?= e(asset('css/app.css')) ?>">
-  <style>:root{--primary:<?= e($cfg['theme']['primary'] ?? '#0B1220') ?>;--accent:<?= e($cfg['theme']['accent'] ?? '#C4A574') ?>;--surface:<?= e($cfg['theme']['surface'] ?? '#F7F4EF') ?>}</style>
 </head>
 <body class="auth-page">
   <div class="auth-card">

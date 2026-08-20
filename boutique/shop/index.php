@@ -95,18 +95,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && module_enabled('ecommerce') && veri
   <meta name="theme-color" content="<?= e($cfg['theme']['primary']) ?>">
   <title><?= e($cfg['business_name']) ?> · Shop</title>
   <link rel="manifest" href="<?= e(url('manifest.php')) ?>">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="<?= e(asset('css/app.css')) ?>">
-  <style>:root{--primary:<?= e($cfg['theme']['primary']) ?>;--accent:<?= e($cfg['theme']['accent']) ?>;--surface:<?= e($cfg['theme']['surface']) ?>;--ink:<?= e($cfg['theme']['ink']) ?>;--muted:<?= e($cfg['theme']['muted']) ?>}</style>
 </head>
 <body class="store-body">
   <nav class="store-nav">
     <a class="logo" href="<?= e(url('shop/')) ?>" style="display:flex;align-items:center;gap:.55rem">
-      <?php if ($logo = brand_logo_url()): ?><img src="<?= e($logo) ?>" alt="" style="height:32px;width:32px;object-fit:cover;border-radius:8px"><?php endif; ?>
+      <?php if ($logo = brand_logo_url()): ?><img src="<?= e($logo) ?>" alt="" style="height:32px;width:32px;object-fit:cover"><?php endif; ?>
       <?= e($cfg['business_name']) ?>
     </a>
     <div class="links">
-      <a href="#collection">Collection</a>
+      <a href="#collection">Shop</a>
+      <a href="#categories">Categories</a>
       <a href="#about">About</a>
       <?php if (module_enabled('ecommerce')): ?>
         <a href="#cart" class="btn btn-primary btn-sm">Bag <span id="cartCount" hidden>0</span></a>
@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && module_enabled('ecommerce') && veri
       <div class="brand-hero" id="heroTitle"><?= e($slides[0]['title'] ?? ($sections['hero']['title'] ?? $cfg['business_name'])) ?></div>
       <p id="heroSub"><?= e($slides[0]['subtitle'] ?? ($sections['hero']['body'] ?? $cfg['tagline'] ?? '')) ?></p>
       <div class="hero-actions">
-        <a class="btn btn-accent" id="heroCta" href="<?= e($slides[0]['cta_link'] ?? '#collection') ?>"><?= e($slides[0]['cta'] ?? 'Shop the collection') ?></a>
+        <a class="btn btn-primary" id="heroCta" href="<?= e($slides[0]['cta_link'] ?? '#collection') ?>"><?= e($slides[0]['cta'] ?? 'Shop the collection') ?></a>
         <a class="btn btn-ghost-light" href="#about">Our atelier</a>
       </div>
     </div>
@@ -142,6 +142,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && module_enabled('ecommerce') && veri
     <?php endif; ?>
   </header>
 
+  <div class="trust-strip">
+    <div><strong>Free shipping</strong>On orders above ₹2,999</div>
+    <div><strong>Easy returns</strong>7-day exchange window</div>
+    <div><strong>Handcrafted</strong>Stitched in our atelier</div>
+    <div><strong>Secure checkout</strong>COD &amp; UPI on delivery</div>
+  </div>
+
   <?php if ($checkoutMsg): ?>
     <div class="section" style="padding-top:1.5rem;padding-bottom:0">
       <div class="flash <?= str_starts_with($checkoutMsg,'Error')?'flash-error':'flash-success' ?>" style="margin:0"><?= e($checkoutMsg) ?></div>
@@ -150,9 +157,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && module_enabled('ecommerce') && veri
   <?php endif; ?>
 
   <?php if (module_enabled('ecommerce')): ?>
+  <section class="section" id="categories" style="padding-bottom:0">
+    <h2>Shop by mood</h2>
+    <p class="lead">Explore finished looks curated for everyday and occasion wear.</p>
+    <div class="cat-row">
+      <a class="cat-tile" href="#collection"><span>Evening</span></a>
+      <a class="cat-tile" href="#collection"><span>Ready-to-wear</span></a>
+      <a class="cat-tile" href="#collection"><span>Co-ords</span></a>
+      <a class="cat-tile" href="#collection"><span>Kurtas</span></a>
+    </div>
+  </section>
+
   <section class="section" id="collection">
-    <h2>Collection</h2>
-    <p class="lead">Finished pieces with photos — open any look for full detail, then add to bag.</p>
+    <h2>New arrivals</h2>
+    <p class="lead">Finished pieces priced in INR — open any look, then add to bag.</p>
     <div class="product-grid">
       <?php foreach ($products as $p): ?>
         <article class="product-card">
@@ -166,7 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && module_enabled('ecommerce') && veri
             </div>
             <div class="meta">
               <h3><?= e($p['name']) ?></h3>
-              <div style="font-size:.8rem;color:var(--muted)"><?= e($p['color'] ?: '') ?> <?= $p['size'] ? '· '.e($p['size']) : '' ?></div>
+              <div style="font-size:.8rem;color:#8A857C"><?= e($p['color'] ?: '') ?> <?= $p['size'] ? '· '.e($p['size']) : '' ?></div>
               <div class="meta-actions">
                 <span class="price"><?= e(money($p['sell_price'])) ?></span>
                 <?php if ((float)$p['stock'] <= 0): ?><span class="badge badge-warn">Sold out</span><?php endif; ?>
@@ -174,10 +192,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && module_enabled('ecommerce') && veri
             </div>
           </a>
           <?php if ((float)$p['stock'] > 0): ?>
-            <div style="padding:0 1rem 1rem">
-              <button type="button" class="btn btn-primary btn-sm" style="width:100%"
-                onclick='addToCart(<?= json_encode(["id"=>(int)$p["id"],"name"=>$p["name"],"price"=>(float)$p["sell_price"],"qty"=>1], JSON_HEX_TAG|JSON_HEX_APOS) ?>)'>Add to bag</button>
-            </div>
+            <button type="button" class="btn btn-primary btn-sm" style="width:100%"
+              onclick='addToCart(<?= json_encode(["id"=>(int)$p["id"],"name"=>$p["name"],"price"=>(float)$p["sell_price"],"qty"=>1], JSON_HEX_TAG|JSON_HEX_APOS) ?>)'>Add to bag</button>
           <?php endif; ?>
         </article>
       <?php endforeach; ?>
@@ -221,10 +237,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && module_enabled('ecommerce') && veri
     <p class="lead"><?= e($sections['about']['body'] ?? '') ?></p>
   </section>
 
-  <footer class="section" style="padding-top:0;border-top:1px solid var(--line);margin-top:2rem">
-    <h2 style="font-size:1.25rem"><?= e($sections['footer']['title'] ?? 'Visit Us') ?></h2>
-    <p class="lead"><?= e($sections['footer']['body'] ?? '') ?></p>
-    <p style="color:var(--muted);font-size:.85rem"><?= e($cfg['contact']['phone'] ?? '') ?> · <?= e($cfg['contact']['email'] ?? '') ?></p>
+  <footer class="store-footer">
+    <strong><?= e($cfg['business_name']) ?></strong>
+    <p><?= e($sections['footer']['body'] ?? ($cfg['tagline'] ?? '')) ?></p>
+    <p style="margin-top:1rem;font-size:.85rem"><?= e($cfg['contact']['address'] ?? '') ?><br><?= e($cfg['contact']['phone'] ?? '') ?> · <?= e($cfg['contact']['email'] ?? '') ?></p>
   </footer>
 
   <script src="<?= e(asset('js/app.js')) ?>"></script>
@@ -265,9 +281,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && module_enabled('ecommerce') && veri
     let sub=0;
     cart.forEach((c,idx)=>{
       sub+=c.price*c.qty;
-      html+=`<tr><td>${c.name}</td><td><input type="number" min="1" value="${c.qty}" style="width:64px;padding:.35rem;border:1px solid var(--line);border-radius:8px" onchange="chgQty(${idx},this.value)"></td><td>${c.price*c.qty}</td><td><button type="button" class="btn btn-outline btn-sm" onclick="rm(${idx})">Remove</button></td></tr>`;
+      html+=`<tr><td>${c.name}</td><td><input type="number" min="1" value="${c.qty}" style="width:64px;padding:.35rem;border:1px solid #ddd" onchange="chgQty(${idx},this.value)"></td><td>${formatINR(c.price*c.qty)}</td><td><button type="button" class="btn btn-outline btn-sm" onclick="rm(${idx})">Remove</button></td></tr>`;
     });
-    html+=`</tbody></table><p style="margin-top:.75rem;text-align:right"><strong>Subtotal ≈ ${sub.toFixed(2)}</strong> + tax & shipping at checkout</p>`;
+    html+=`</tbody></table><p style="margin-top:.75rem;text-align:right"><strong>Subtotal ${formatINR(sub)}</strong> + tax & shipping at checkout (INR)</p>`;
     list.innerHTML=html;
     updateCartBadge();
   }

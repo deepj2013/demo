@@ -1,7 +1,7 @@
 <?php declare(strict_types=1); ?>
       </main>
       <footer class="app-footer">
-        <span><?= e(settings()['app_name'] ?? 'BoutiqueOS') ?> · Modular boutique ecosystem</span>
+        <span><?= e(settings()['app_name'] ?? 'Savoka') ?> · Ecommerce + Inventory · INR</span>
       </footer>
     </div>
   </div>

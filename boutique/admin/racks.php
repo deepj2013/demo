@@ -2,7 +2,7 @@
 require_once dirname(__DIR__) . '/config/bootstrap.php';
 require_login();
 require_module('racks');
-$pageTitle = 'Rack Management';
+$pageTitle = 'Rack Master';
 $activeNav = 'racks';
 $pdo = db();
 

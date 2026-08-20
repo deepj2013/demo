@@ -1,53 +1,45 @@
-# BoutiqueOS
+# Savoka Host
 
-Complete boutique ecosystem: Item Master, Inventory + Racks, BOM Costing, Vendors, CRM, Reports, Ecommerce, and Public website.
+Multi-tenant boutique platform by **Savoka**: each client enrolls with their data, gets an **isolated MySQL database**, and runs on **`{slug}.yourdomain.com`**.
 
-**White-label:** same code for every client — configure via `settings.json` or `/install/` wizard. See **CLIENT-HANDOFF.md**.
+**Feature map:** [`FEATURES.md`](FEATURES.md) · **Deploy:** [`DEPLOY.md`](DEPLOY.md) · **Client handoff:** [`CLIENT-HANDOFF.md`](CLIENT-HANDOFF.md)
 
-## Requirements
+## Local run (working now)
 
-- PHP 8.0+ (PDO MySQL, fileinfo, json)
-- MySQL 5.7+ / MariaDB (phpMyAdmin OK)
-
-## Quick setup (first client)
-
-1. Import `database/schema.sql` in phpMyAdmin
-2. Open `/install/` — set brand, modules, DB credentials — Save
-3. Login: `admin@boutique.local` / `admin123` (turn off demo hint for real clients)
+```bash
+./bin/local-setup.sh
+# or: PORT=8080 ./bin/local-setup.sh
+```
 
 | URL | Purpose |
 |-----|---------|
-| `/install/` | Client / brand setup wizard |
-| `/admin/login.php` | Admin panel |
-| `/shop/` | Public ecommerce |
-| `/public/` | Marketing site (if ecommerce off) |
+| http://localhost:8080/ | Host landing + live boutiques |
+| http://localhost:8080/enroll/ | **Enroll client** (brand, modules, admin, subdomain) |
+| http://localhost:8080/platform/ | Platform console (`platform@savoka.local` / `platform123`) |
+| http://atelier.localhost:8080/admin/login.php | Default demo admin (`admin@boutique.local` / `admin123`) |
+| http://atelier.localhost:8080/shop/ | Default shopfront |
+| http://minivibe.localhost:8080/ | Example second enrolled client |
 
-## Give to another boutique
+`*.localhost` resolves to 127.0.0.1 on modern macOS/browsers — no `/etc/hosts` needed.
 
-1. Copy folder to new host
-2. Open `/install/` — load preset or edit names / colours / modules / DB
-3. Import SQL into that client’s database
-4. Done
+## What enrollment creates
 
-Details: **CLIENT-HANDOFF.md** · Presets in **clients/**
+1. Subdomain slug (e.g. `minivibe` → `minivibe.localhost:8080`)
+2. Private DB `boutique_{slug}` + schema (+ optional demo seed)
+3. Admin user for that boutique
+4. Settings file `clients/tenants/{slug}.settings.json`
+5. Registry row in `boutique_platform.tenants`
 
-## Plug & play modules
+Themes (Light/Dark/Warm) and INR formatting work inside each tenant admin.
 
-```json
-"modules": {
-  "inventory": true,
-  "items": true,
-  "racks": true,
-  "costing": false,
-  "vendors": false,
-  "crm": false,
-  "reports": true,
-  "ecommerce": true,
-  "website": true
-}
-```
+## Requirements
 
-Disabled modules hide from nav and block direct access.
+- PHP 8.0+ (pdo_mysql, fileinfo, json; intl recommended)
+- MySQL 5.7+ / MariaDB running locally (`root` with no password by default — edit `platform.json`)
+
+## Production subdomain tip
+
+Point `*.yourdomain.com` to the same app. Set `platform.json` → `base_domain` to `yourdomain.com` and use HTTPS + a real DB user.
 
 ## Folder map
 

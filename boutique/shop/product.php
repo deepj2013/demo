@@ -27,15 +27,14 @@ if (!$p) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= e($p['name']) ?> · <?= e($cfg['business_name']) ?></title>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="<?= e(asset('css/app.css')) ?>">
-  <style>:root{--primary:<?= e($cfg['theme']['primary']) ?>;--accent:<?= e($cfg['theme']['accent']) ?>;--surface:<?= e($cfg['theme']['surface']) ?>;--ink:<?= e($cfg['theme']['ink']) ?>;--muted:<?= e($cfg['theme']['muted']) ?>}</style>
 </head>
 <body class="store-body">
   <nav class="store-nav">
     <a class="logo" href="<?= e(url('shop/')) ?>"><?= e($cfg['business_name']) ?></a>
     <div class="links">
-      <a href="<?= e(url('shop/#collection')) ?>">Collection</a>
+      <a href="<?= e(url('shop/#collection')) ?>">Shop</a>
       <a href="<?= e(url('shop/#cart')) ?>" class="btn btn-primary btn-sm">Bag <span id="cartCount" hidden>0</span></a>
     </div>
   </nav>

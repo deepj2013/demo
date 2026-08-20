@@ -185,3 +185,60 @@ JOIN (
   FROM orders WHERE customer_id IS NOT NULL GROUP BY customer_id
 ) o ON o.customer_id = c.id
 SET c.total_orders = o.cnt, c.total_spent = o.spent, c.last_order_at = o.last_at;
+
+-- Extra multi-month orders for dashboard charts (idempotent)
+INSERT INTO orders (order_number, customer_id, source, status, payment_status, payment_method, subtotal, tax, shipping, total, shipping_address, created_at)
+SELECT 'ON260101-D001', c.id, 'online', 'delivered', 'paid', 'upi', 2899, 144.95, 50, 3093.95, 'Pune', DATE_FORMAT(CURDATE(), '%Y-01-15 11:00:00')
+FROM customers c WHERE c.email='neha@email.com'
+AND NOT EXISTS (SELECT 1 FROM orders WHERE order_number='ON260101-D001');
+
+INSERT INTO order_items (order_id, item_id, qty, unit_price, line_total)
+SELECT o.id, i.id, 1, 2899, 2899 FROM orders o JOIN items i ON i.sku='GAR-BLZ-001'
+WHERE o.order_number='ON260101-D001' AND NOT EXISTS (SELECT 1 FROM order_items oi WHERE oi.order_id=o.id);
+
+INSERT INTO orders (order_number, customer_id, source, status, payment_status, payment_method, subtotal, tax, shipping, total, shipping_address, created_at)
+SELECT 'ON260303-D002', c.id, 'online', 'delivered', 'paid', 'cod', 4999, 249.95, 50, 5298.95, 'Mumbai', DATE_FORMAT(CURDATE(), '%Y-03-10 14:00:00')
+FROM customers c WHERE c.email='priya@email.com'
+AND NOT EXISTS (SELECT 1 FROM orders WHERE order_number='ON260303-D002');
+
+INSERT INTO order_items (order_id, item_id, qty, unit_price, line_total)
+SELECT o.id, i.id, 1, 4999, 4999 FROM orders o JOIN items i ON i.sku='GAR-DRS-001'
+WHERE o.order_number='ON260303-D002' AND NOT EXISTS (SELECT 1 FROM order_items oi WHERE oi.order_id=o.id);
+
+INSERT INTO orders (order_number, customer_id, source, status, payment_status, payment_method, subtotal, tax, shipping, total, shipping_address, created_at)
+SELECT 'ON260505-D003', c.id, 'counter', 'delivered', 'paid', 'cod', 6098, 304.9, 0, 6402.9, 'Store', DATE_FORMAT(CURDATE(), '%Y-05-20 16:00:00')
+FROM customers c WHERE c.email='ananya@email.com'
+AND NOT EXISTS (SELECT 1 FROM orders WHERE order_number='ON260505-D003');
+
+INSERT INTO order_items (order_id, item_id, qty, unit_price, line_total)
+SELECT o.id, i.id, 1, 3499, 3499 FROM orders o JOIN items i ON i.sku='GAR-SET-001'
+WHERE o.order_number='ON260505-D003' AND NOT EXISTS (SELECT 1 FROM order_items oi WHERE oi.order_id=o.id AND oi.item_id=i.id);
+
+INSERT INTO order_items (order_id, item_id, qty, unit_price, line_total)
+SELECT o.id, i.id, 1, 2599, 2599 FROM orders o JOIN items i ON i.sku='GAR-KUR-001'
+WHERE o.order_number='ON260505-D003' AND NOT EXISTS (SELECT 1 FROM order_items oi WHERE oi.order_id=o.id AND oi.item_id=i.id);
+
+INSERT INTO orders (order_number, customer_id, source, status, payment_status, payment_method, subtotal, tax, shipping, total, shipping_address, created_at)
+SELECT 'ON260707-D004', c.id, 'online', 'delivered', 'paid', 'upi', 9998, 499.9, 50, 10547.9, 'Hyderabad', DATE_FORMAT(CURDATE(), '%Y-07-12 12:30:00')
+FROM customers c WHERE c.email='meera.k@email.com'
+AND NOT EXISTS (SELECT 1 FROM orders WHERE order_number='ON260707-D004');
+
+INSERT INTO order_items (order_id, item_id, qty, unit_price, line_total)
+SELECT o.id, i.id, 2, 4999, 9998 FROM orders o JOIN items i ON i.sku='GAR-DRS-001'
+WHERE o.order_number='ON260707-D004' AND NOT EXISTS (SELECT 1 FROM order_items oi WHERE oi.order_id=o.id);
+
+INSERT INTO orders (order_number, customer_id, source, status, payment_status, payment_method, subtotal, tax, shipping, total, shipping_address, created_at)
+SELECT 'ON260808-D005', c.id, 'online', 'processing', 'paid', 'upi', 3499, 174.95, 50, 3723.95, 'Bengaluru', DATE_FORMAT(CURDATE(), '%Y-08-05 10:00:00')
+FROM customers c WHERE c.email='kavya@email.com'
+AND NOT EXISTS (SELECT 1 FROM orders WHERE order_number='ON260808-D005');
+
+INSERT INTO order_items (order_id, item_id, qty, unit_price, line_total)
+SELECT o.id, i.id, 1, 3499, 3499 FROM orders o JOIN items i ON i.sku='GAR-SET-001'
+WHERE o.order_number='ON260808-D005' AND NOT EXISTS (SELECT 1 FROM order_items oi WHERE oi.order_id=o.id);
+
+UPDATE customers c
+JOIN (
+  SELECT customer_id, COUNT(*) AS cnt, SUM(total) AS spent, MAX(created_at) AS last_at
+  FROM orders WHERE customer_id IS NOT NULL GROUP BY customer_id
+) o ON o.customer_id = c.id
+SET c.total_orders = o.cnt, c.total_spent = o.spent, c.last_order_at = o.last_at;

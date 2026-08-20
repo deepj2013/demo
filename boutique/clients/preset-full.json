@@ -1,24 +1,25 @@
 {
   "client_id": "full-atelier",
   "setup_complete": true,
-  "app_name": "BoutiqueOS",
+  "app_name": "Savoka",
   "business_name": "Atelier Boutique",
   "tagline": "Crafted fashion, managed with clarity",
   "currency": "INR",
   "currency_symbol": "₹",
   "timezone": "Asia/Kolkata",
-  "locale": "en-IN",
+  "locale": "en_IN",
+  "appearance": "light",
   "branding": {
     "logo": "",
     "favicon": "assets/icons/icon-192.png",
     "login_hint": true
   },
   "theme": {
-    "primary": "#0B1220",
-    "accent": "#C4A574",
-    "surface": "#F7F4EF",
-    "ink": "#1A1A1A",
-    "muted": "#6B7280"
+    "primary": "#2563EB",
+    "accent": "#2563EB",
+    "surface": "#F4F6FB",
+    "ink": "#0F172A",
+    "muted": "#64748B"
   },
   "database": {
     "host": "127.0.0.1",
@@ -59,7 +60,8 @@
     "enable_checkout": true,
     "tax_percent": 5,
     "shipping_flat": 50,
-    "currency_note": "Prices in INR"
+    "currency_note": "Prices in INR",
+    "sales_target": 200000
   },
   "admin": {
     "default_email": "admin@boutique.local",

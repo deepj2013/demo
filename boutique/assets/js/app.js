@@ -1,6 +1,33 @@
-/* BoutiqueOS front-end behaviours */
+/* BoutiqueOS / Savoka front-end behaviours */
 (function () {
   'use strict';
+
+  // Theme: light | dark | warm
+  function setTheme(mode) {
+    const allowed = ['light', 'dark', 'warm'];
+    if (!allowed.includes(mode)) mode = 'light';
+    document.documentElement.setAttribute('data-theme', mode);
+    document.cookie = 'boutique_theme=' + mode + ';path=/;max-age=31536000;SameSite=Lax';
+    try { localStorage.setItem('boutique_theme', mode); } catch (_) {}
+    document.querySelectorAll('[data-theme-set]').forEach((btn) => {
+      btn.classList.toggle('active', btn.getAttribute('data-theme-set') === mode);
+    });
+  }
+  const savedTheme = (() => {
+    try { return localStorage.getItem('boutique_theme'); } catch (_) { return null; }
+  })();
+  if (savedTheme) setTheme(savedTheme);
+  document.querySelectorAll('[data-theme-set]').forEach((btn) => {
+    btn.addEventListener('click', () => setTheme(btn.getAttribute('data-theme-set')));
+  });
+
+  // ⌘K / Ctrl+K focuses top search
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      const inp = document.querySelector('.top-search input');
+      if (inp) { e.preventDefault(); inp.focus(); }
+    }
+  });
 
   const sidebar = document.getElementById('sidebar');
   const toggle = document.getElementById('menuToggle');
@@ -13,6 +40,15 @@
       sidebar.classList.remove('open');
     });
   }
+
+  window.formatINR = function (amount) {
+    const n = Number(amount) || 0;
+    try {
+      return '₹' + new Intl.NumberFormat('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
+    } catch (_) {
+      return '₹' + n.toFixed(2);
+    }
+  };
 
   // Modal helpers
   window.openModal = function (id) {

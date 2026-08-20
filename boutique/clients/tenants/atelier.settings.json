@@ -66,5 +66,10 @@
     "admin": {
         "default_email": "admin@boutique.local",
         "show_demo_hint": true
+    },
+    "tenant": {
+        "slug": "atelier",
+        "subdomain": "atelier",
+        "enrolled_at": "2026-08-12T18:17:47+00:00"
     }
 }

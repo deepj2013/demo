@@ -1,0 +1,33 @@
+{
+    "platform_name": "Savoka Host",
+    "base_domain": "localhost",
+    "local_port": 8080,
+    "database": {
+        "host": "127.0.0.1",
+        "name": "boutique_platform",
+        "user": "root",
+        "pass": "",
+        "charset": "utf8mb4"
+    },
+    "defaults": {
+        "currency": "INR",
+        "currency_symbol": "\u20b9",
+        "timezone": "Asia/Kolkata",
+        "locale": "en_IN",
+        "appearance": "light",
+        "tax_percent": 5,
+        "shipping_flat": 50,
+        "sales_target": 200000
+    },
+    "reserved_slugs": [
+        "www",
+        "api",
+        "admin",
+        "platform",
+        "enroll",
+        "mail",
+        "ftp",
+        "static",
+        "assets"
+    ]
+}

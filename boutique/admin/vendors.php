@@ -2,7 +2,7 @@
 require_once dirname(__DIR__) . '/config/bootstrap.php';
 require_login();
 require_module('vendors');
-$pageTitle = 'Vendors';
+$pageTitle = 'Vendor Master';
 $activeNav = 'vendors';
 $pdo = db();
 

@@ -1,9 +1,9 @@
 {
-    "client_id": "atelier",
+    "client_id": "demo",
     "setup_complete": true,
     "app_name": "Savoka",
-    "business_name": "Atelier Boutique",
-    "tagline": "Crafted fashion, managed with clarity",
+    "business_name": "Demo Boutique",
+    "tagline": "Your boutique, ready to manage",
     "currency": "INR",
     "currency_symbol": "₹",
     "timezone": "Asia/Kolkata",
@@ -23,7 +23,7 @@
     },
     "database": {
         "host": "127.0.0.1",
-        "name": "boutique_os",
+        "name": "boutique_demo",
         "user": "root",
         "pass": "",
         "charset": "utf8mb4"
@@ -48,12 +48,12 @@
         "pwa": true
     },
     "contact": {
-        "email": "hello@atelierboutique.local",
+        "email": "hello@demo.local",
         "phone": "+91 98765 43210",
         "address": "12 Fashion Lane, Mumbai",
-        "whatsapp": "",
-        "instagram": "",
-        "website_url": ""
+        "whatsapp": "+91 98765 43210",
+        "instagram": "@demoboutique",
+        "website_url": "http://demo.localhost:8080/shop/"
     },
     "ecommerce": {
         "enable_cart": true,
@@ -64,7 +64,12 @@
         "sales_target": 200000
     },
     "admin": {
-        "default_email": "admin@boutique.local",
+        "default_email": "owner@demo.local",
         "show_demo_hint": true
+    },
+    "tenant": {
+        "slug": "demo",
+        "subdomain": "demo",
+        "enrolled_at": "2026-08-12T18:39:31+00:00"
     }
 }
