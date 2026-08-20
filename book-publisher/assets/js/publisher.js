@@ -19,8 +19,22 @@ const PublisherDash = {
     document.querySelectorAll('.dash-nav-item').forEach(item => {
       item.onclick = () => this.navigate(item.dataset.view);
     });
-    document.querySelector('.sidebar-toggle')?.addEventListener('click', () => {
-      document.querySelector('.dash-sidebar')?.classList.toggle('open');
+    this.sidebar = IB.mobile.setupSidebar({
+      sidebar: '.dash-sidebar',
+      overlay: '#sidebarOverlay',
+      toggle: '.sidebar-toggle',
+      navItems: '.dash-nav-item'
+    });
+    IB.mobile.setupBottomNav('.mobile-tabbar', null, (item) => {
+      const view = item.dataset.view;
+      if (view === 'menu') {
+        this.sidebar?.open();
+        document.querySelectorAll('.mobile-tabbar .tab-item').forEach(t => {
+          t.classList.toggle('active', t.dataset.view === this.view);
+        });
+        return;
+      }
+      if (view) this.navigate(view);
     });
   },
 
@@ -28,6 +42,10 @@ const PublisherDash = {
     this.view = view;
     document.querySelectorAll('.dash-nav-item').forEach(i => i.classList.toggle('active', i.dataset.view === view));
     document.querySelectorAll('.dash-view').forEach(v => v.classList.toggle('active', v.id === 'view-' + view));
+    document.querySelectorAll('.mobile-tabbar .tab-item').forEach(t => {
+      t.classList.toggle('active', t.dataset.view === view);
+    });
+    this.sidebar?.close();
     const titles = {
       overview: 'Dashboard Overview', authors: 'Authors', manuscripts: 'Manuscript Pipeline',
       isbn: 'ISBN Registration', orders: 'Unified Orders', integrations: 'Integrations',
@@ -60,6 +78,25 @@ const PublisherDash = {
   },
 
   renderOverview() {
+    const b = INKBRIDGE.brand;
+    const banner = document.getElementById('liveWebsiteBanner');
+    if (banner) {
+      banner.innerHTML = `
+        <div class="live-site-card">
+          <div>
+            <span class="badge badge-ok" style="margin-bottom:0.5rem">Live · Connected</span>
+            <h3><i class="fa-solid fa-globe"></i> Your Public Website — bookspotonline.com</h3>
+            <p>${b.liveWebsiteNote || 'Your existing public website syncs catalog, orders & customers to this dashboard.'}</p>
+            <a class="live-url" href="${b.shopUrl}" target="_blank" rel="noopener"><i class="fa-solid fa-external-link"></i> bookspotonline.com</a>
+          </div>
+          <div class="live-actions">
+            <a href="${b.shopUrl}" target="_blank" rel="noopener" class="btn btn-gold btn-sm"><i class="fa-solid fa-store"></i> Open Live Site</a>
+            <a href="../public/index.html" target="_blank" class="btn btn-white btn-sm"><i class="fa-solid fa-mobile-screen"></i> Modern Demo Store</a>
+            <button class="btn btn-ghost btn-sm" style="border-color:rgba(255,255,255,.25);color:#fff" onclick="PublisherDash.navigate('integrations')"><i class="fa-solid fa-plug"></i> Integrations</button>
+          </div>
+        </div>`;
+    }
+
     const s = INKBRIDGE.publisherStats;
     const revCh = IB.pctChange(s.revenueMonth, s.revenuePrev);
     const ordCh = IB.pctChange(s.ordersMonth, s.ordersPrev);
@@ -350,18 +387,20 @@ const PublisherDash = {
     const el = document.getElementById('integGrid');
     if (!el) return;
     el.innerHTML = INKBRIDGE.integrations.map(i => `
-      <div class="integ-card">
+      <div class="integ-card"${i.id === 'website' ? ' style="border-color:var(--gold);box-shadow:0 0 0 1px rgba(201,162,39,0.2)"' : ''}>
         <div class="integ-card-header">
           <span class="icon">${i.icon}</span>
-          <h3>${i.name}</h3>
+          <h3>${i.name}${i.id === 'website' ? ' <span class="text-xs" style="color:var(--muted);font-weight:500">(your existing site)</span>' : ''}</h3>
           ${IB.statusBadge(i.status)}
         </div>
+        ${i.desc ? `<p class="text-sm text-muted" style="margin-bottom:0.75rem">${i.desc}</p>` : ''}
         ${i.status === 'connected' ? `
           <div class="integ-stat"><span>Last Sync</span><span>${i.lastSync}</span></div>
           <div class="integ-stat"><span>Orders Today</span><span>${i.ordersToday}</span></div>
           <div class="integ-stat"><span>Revenue Today</span><span>${IB.fmt(i.revenue)}</span></div>
           <div class="integ-stat"><span>API Key</span><span>${i.apiKey}</span></div>
-          <div style="margin-top:1rem;display:flex;gap:0.5rem">
+          <div style="margin-top:1rem;display:flex;gap:0.5rem;flex-wrap:wrap">
+            ${i.url ? `<a href="${i.url}" target="_blank" rel="noopener" class="btn btn-gold btn-sm"><i class="fa-solid fa-external-link"></i> Open Site</a>` : ''}
             <button class="btn btn-ghost btn-sm" onclick="PublisherDash.syncInteg('${i.id}')"><i class="fa-solid fa-rotate"></i> Sync Now</button>
             <button class="btn btn-ghost btn-sm" onclick="IB.toast('Settings opened','ok')">Settings</button>
           </div>` : `

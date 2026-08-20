@@ -67,9 +67,39 @@
 .sales-ch .val { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; }
 .sales-ch .lbl { font-size: 0.72rem; color: var(--muted); }
 
+.sidebar-toggle {
+  display: none; background: none; border: none; font-size: 1.2rem;
+  min-width: var(--touch-min); min-height: var(--touch-min);
+  border-radius: var(--radius-sm); color: var(--ink);
+}
+
 @media (max-width: 768px) {
-  .author-sidebar { transform: translateX(-100%); }
+  .author-sidebar {
+    transform: translateX(-100%); width: min(280px, 88vw);
+    padding-top: var(--safe-top); box-shadow: var(--shadow-lg); z-index: 60;
+  }
   .author-sidebar.open { transform: translateX(0); }
   .author-main { margin-left: 0; }
   .sales-breakdown { grid-template-columns: 1fr 1fr; }
+
+  .sidebar-toggle { display: grid; place-items: center; }
+  .author-topbar {
+    padding: 0.65rem 1rem; padding-top: calc(0.65rem + var(--safe-top));
+    flex-wrap: wrap; gap: 0.5rem;
+  }
+  .author-topbar h1 { font-size: 1.1rem !important; }
+  .author-topbar > .flex:last-child { width: 100%; justify-content: stretch; }
+  .author-topbar > .flex:last-child .btn { flex: 1; justify-content: center; }
+  .author-content { padding: 1rem; }
+
+  .stage-track { padding-bottom: 0.5rem; }
+  .stage-step { min-width: 88px; }
+  .upload-zone { padding: 1.75rem 1rem; }
+
+  #myBooksGrid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 480px) {
+  .sales-breakdown { grid-template-columns: 1fr; }
+  .author-topbar > .flex:last-child .btn-ghost { display: none; }
 }

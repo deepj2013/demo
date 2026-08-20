@@ -146,6 +146,89 @@ const IB = {
     if (btn && nav) {
       btn.onclick = () => nav.classList.toggle('open');
     }
+  },
+
+  mobile: {
+    lockScroll(on) {
+      document.body.classList.toggle('no-scroll', !!on);
+    },
+
+    setupSidebar(opts = {}) {
+      const sidebar = document.querySelector(opts.sidebar);
+      const overlay = document.querySelector(opts.overlay);
+      const toggle = document.querySelector(opts.toggle);
+      if (!sidebar) return { close() {}, open() {} };
+
+      const close = () => {
+        sidebar.classList.remove('open');
+        overlay?.classList.remove('open');
+        IB.mobile.lockScroll(false);
+      };
+      const open = () => {
+        sidebar.classList.add('open');
+        overlay?.classList.add('open');
+        IB.mobile.lockScroll(true);
+      };
+
+      toggle?.addEventListener('click', () => {
+        sidebar.classList.contains('open') ? close() : open();
+      });
+      overlay?.addEventListener('click', close);
+
+      if (opts.navItems) {
+        document.querySelectorAll(opts.navItems).forEach(item => {
+          item.addEventListener('click', () => {
+            if (window.innerWidth <= 768) close();
+          });
+        });
+      }
+      return { close, open };
+    },
+
+    setupBottomNav(tabbarSel, activeClass, onTab) {
+      const bar = document.querySelector(tabbarSel);
+      if (!bar) return;
+      bar.querySelectorAll('.tab-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+          const href = item.getAttribute('href');
+          if (href?.startsWith('#')) {
+            e.preventDefault();
+            const id = href.slice(1);
+            const target = document.getElementById(id);
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+          }
+          bar.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+          item.classList.add('active');
+          onTab?.(item, e);
+        });
+      });
+    },
+
+    setupScrollSpy(sections, tabbarSel) {
+      const bar = document.querySelector(tabbarSel);
+      if (!bar || !sections.length) return;
+      const map = {};
+      sections.forEach(s => {
+        const el = document.getElementById(s.id);
+        if (el) map[s.id] = s.tab;
+      });
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const tab = map[entry.target.id];
+            if (tab) {
+              bar.querySelectorAll('.tab-item').forEach(t => {
+                t.classList.toggle('active', t.dataset.tab === tab);
+              });
+            }
+          }
+        });
+      }, { rootMargin: '-40% 0px -45% 0px', threshold: 0.1 });
+      Object.keys(map).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    }
   }
 };
 

@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0F1729">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Publisher Dashboard — Bookspot Publishers</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -10,8 +13,9 @@
 <link rel="stylesheet" href="../assets/css/shared.css">
 <link rel="stylesheet" href="../assets/css/publisher.css">
 </head>
-<body>
+<body class="has-tabbar">
 
+<div class="nav-overlay" id="sidebarOverlay"></div>
 <div class="dash-layout">
   <aside class="dash-sidebar">
     <div class="dash-sidebar-brand">Book<span>spot</span><small>Publisher Command Center</small></div>
@@ -41,7 +45,8 @@
         <div class="avatar">RP</div>
         <div><strong style="font-size:0.85rem">Rajesh Patel</strong><br><span style="font-size:0.72rem;opacity:0.6">Publisher Admin</span></div>
       </div>
-      <a href="../index.html" class="btn btn-ghost btn-sm" style="width:100%;margin-top:0.75rem;color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.15)"><i class="fa-solid fa-arrow-left"></i> Back to Pitch</a>
+      <a href="../pitch/index.html" class="btn btn-ghost btn-sm" style="width:100%;margin-top:0.5rem;color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.15)"><i class="fa-solid fa-person-chalkboard"></i> Client Pitch Slides</a>
+      <a href="../index.html" class="btn btn-ghost btn-sm" style="width:100%;margin-top:0.5rem;color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.15)"><i class="fa-solid fa-arrow-left"></i> Back to Pitch</a>
       <p class="powered-by light" style="justify-content:center;margin-top:0.85rem;font-size:0.7rem">
         Powered by <a href="https://savoka.in" target="_blank" rel="noopener">Savoka</a>
       </p>
@@ -55,14 +60,16 @@
         <h1 id="pageTitle">Dashboard Overview</h1>
       </div>
       <div class="dash-topbar-actions">
-        <a href="../public/index.html" class="btn btn-ghost btn-sm" target="_blank"><i class="fa-solid fa-store"></i> View Store</a>
-        <button class="btn btn-primary btn-sm" onclick="IB.toast('Syncing all channels…','ok');setTimeout(()=>IB.toast('847 orders synced from Amazon, Flipkart, Website','ok'),1500)"><i class="fa-solid fa-rotate"></i> Sync All</button>
+        <a href="https://www.bookspotonline.com/middle.php?file=home" class="btn btn-gold btn-sm" target="_blank" rel="noopener" title="Your live public website"><i class="fa-solid fa-globe"></i> Live Website</a>
+        <a href="../public/index.html" class="btn btn-ghost btn-sm" target="_blank" title="Modern storefront demo"><i class="fa-solid fa-store"></i> Demo Store</a>
+        <button class="btn btn-primary btn-sm" onclick="IB.toast('Syncing all channels…','ok');setTimeout(()=>IB.toast('847 orders synced from bookspotonline.com, Amazon, Flipkart','ok'),1500)"><i class="fa-solid fa-rotate"></i> Sync All</button>
       </div>
     </header>
 
     <div class="dash-content">
       <!-- Overview -->
       <div class="dash-view active" id="view-overview">
+        <div id="liveWebsiteBanner"></div>
         <div class="stat-grid" id="overviewStats"></div>
         <div class="card mt-2">
           <h3 style="margin-bottom:1rem">Channel Sales (Last 6 Months)</h3>
@@ -115,7 +122,7 @@
 
       <!-- Integrations -->
       <div class="dash-view" id="view-integrations">
-        <p class="text-muted mb-2">Connect marketplaces, WhatsApp Business API, Meta Business Suite — sync automatically</p>
+        <p class="text-muted mb-2"><strong>Your live public website</strong> (<a href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener">bookspotonline.com</a>) is the first connected channel — plus Amazon, Flipkart, Kindle, WhatsApp &amp; payments. All orders appear in Unified Orders.</p>
         <div class="integ-grid" id="integGrid"></div>
       </div>
 
@@ -235,6 +242,14 @@
     </div>
   </main>
 </div>
+
+<nav class="mobile-tabbar dark" aria-label="Mobile navigation">
+  <button type="button" class="tab-item active" data-view="overview"><i class="fa-solid fa-gauge-high"></i><span>Home</span></button>
+  <button type="button" class="tab-item" data-view="orders"><i class="fa-solid fa-box"></i><span>Orders</span></button>
+  <button type="button" class="tab-item" data-view="whatsapp"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></button>
+  <button type="button" class="tab-item" data-view="authors"><i class="fa-solid fa-users"></i><span>Authors</span></button>
+  <button type="button" class="tab-item" data-view="menu"><i class="fa-solid fa-bars"></i><span>Menu</span></button>
+</nav>
 
 <script src="../assets/js/data.js"></script>
 <script src="../assets/js/shared.js"></script>

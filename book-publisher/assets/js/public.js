@@ -33,7 +33,36 @@ const PublicSite = {
     document.getElementById('cartOverlay')?.addEventListener('click', () => this.toggleCart(false));
     document.getElementById('checkoutBtn')?.addEventListener('click', () => this.checkout());
     document.getElementById('authorForm')?.addEventListener('submit', (e) => { e.preventDefault(); this.submitAuthorForm(); });
-    document.querySelector('.menu-btn')?.addEventListener('click', () => document.querySelector('.site-nav')?.classList.toggle('open'));
+    document.getElementById('mobileCartBtn')?.addEventListener('click', () => this.toggleCart(true));
+
+    const nav = document.querySelector('.site-nav');
+    const overlay = document.getElementById('navOverlay');
+    const closeNav = () => {
+      nav?.classList.remove('open');
+      overlay?.classList.remove('open');
+      IB.mobile.lockScroll(false);
+    };
+    const openNav = () => {
+      nav?.classList.add('open');
+      overlay?.classList.add('open');
+      IB.mobile.lockScroll(true);
+    };
+    document.querySelector('.menu-btn')?.addEventListener('click', () => {
+      nav?.classList.contains('open') ? closeNav() : openNav();
+    });
+    document.getElementById('mobileMenuBtn')?.addEventListener('click', () => {
+      nav?.classList.contains('open') ? closeNav() : openNav();
+    });
+    overlay?.addEventListener('click', closeNav);
+    nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+
+    IB.mobile.setupBottomNav('.mobile-tabbar');
+    IB.mobile.setupScrollSpy([
+      { id: 'publish-offer', tab: 'offer' },
+      { id: 'shop', tab: 'shop' },
+      { id: 'presence', tab: 'presence' }
+    ], '.mobile-tabbar');
+
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', (e) => {
         const id = a.getAttribute('href').slice(1);
@@ -235,6 +264,7 @@ const PublicSite = {
   toggleCart(open) {
     document.getElementById('cartSidebar')?.classList.toggle('open', open);
     document.getElementById('cartOverlay')?.classList.toggle('open', open);
+    IB.mobile.lockScroll(!!open);
     if (open) this.renderCart();
   },
 

@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0F1729">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Bookspot Publishers Platform — Complete Demo & Pitch</title>
 <meta name="description" content="All-in-one publishing platform for Bookspot Publishers: dashboard, author portal, WhatsApp marketing, social media, SOPs, automations, Amazon/Flipkart integration.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -153,21 +156,58 @@ table.compare tr:hover td { background: rgba(201, 162, 39, 0.05); }
 .demo-link:hover { background: rgba(255,255,255,0.12); }
 .demo-link i { color: var(--gold); width: 20px; text-align: center; }
 
+.live-site-band {
+  background: white; border: 1px solid var(--line); border-radius: var(--radius-lg);
+  padding: 2rem; display: grid; grid-template-columns: 1.2fr auto; gap: 1.5rem; align-items: center;
+  box-shadow: var(--shadow);
+}
+.live-site-band h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin-bottom: 0.5rem; }
+.live-site-band p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem; }
+.live-site-band .band-links { display: flex; flex-wrap: wrap; gap: 0.65rem; justify-content: flex-end; }
+.live-site-band .band-tag {
+  display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.06em; color: var(--ok); background: #ECFDF3;
+  padding: 0.3rem 0.65rem; border-radius: 999px; margin-bottom: 0.65rem;
+}
+
 footer { background: var(--ink); color: rgba(255,255,255,0.6); padding: 2rem 0; font-size: 0.82rem; text-align: center; }
 footer strong { color: var(--gold); }
 
 @media (max-width: 960px) {
   .demo-grid, .pillars, .usp-grid { grid-template-columns: 1fr; }
   .flow { grid-template-columns: repeat(3, 1fr); }
-  .cta-band { grid-template-columns: 1fr; }
-  .pitch-nav-links { display: none; }
-  .pitch-nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 1rem; border-bottom: 1px solid var(--line); }
-  .menu-toggle { display: block; }
+  .cta-band { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+  .pitch-nav-links {
+    display: none;
+  }
+  .pitch-nav-links.open {
+    display: flex; flex-direction: column; position: fixed;
+    top: calc(56px + var(--safe-top)); left: 0; right: 0; bottom: 0;
+    background: var(--cream); padding: 1rem 1.25rem; border-bottom: 1px solid var(--line);
+    z-index: 60; overflow-y: auto; gap: 0.25rem;
+  }
+  .pitch-nav-links.open a:not(.btn) {
+    padding: 0.85rem 0.5rem; font-size: 1rem; font-weight: 600;
+    border-bottom: 1px solid var(--line); min-height: var(--touch-min);
+    display: flex; align-items: center;
+  }
+  .menu-toggle { display: grid; place-items: center; min-width: var(--touch-min); min-height: var(--touch-min); }
   .pitch-nav-inner { position: relative; }
+  .pitch-nav { padding-top: var(--safe-top); }
+  .hero-inner { padding: 2.5rem 0; }
+  .hero h1 { max-width: none; }
+  .hero-cta .btn { flex: 1 1 auto; min-width: 140px; justify-content: center; }
+  .hero-stats { gap: 1.25rem; }
+  .live-site-band { grid-template-columns: 1fr; }
+  .live-site-band .band-links { justify-content: flex-start; }
 }
 @media (max-width: 600px) {
   .flow { grid-template-columns: 1fr 1fr; }
-  section { padding: 3.5rem 0; }
+  section { padding: 3rem 0; }
+  .hero-sub { font-size: 1rem; }
+  .pillar { padding: 1.5rem; }
+  .usp-card { padding: 1.5rem; }
+  .compare-wrap { margin: 0 -3vw; border-radius: 0; border-left: none; border-right: none; }
 }
 </style>
 </head>
@@ -180,9 +220,12 @@ footer strong { color: var(--gold); }
     <div class="pitch-nav-links">
       <a href="#why">Why</a>
       <a href="#usp">Digital Presence</a>
-      <a href="#demos">Live Demos</a>
+      <a href="#live-website">Live Website</a>
+      <a href="#demos">Platform Demo</a>
+      <a href="pitch/index.html"><i class="fa-solid fa-person-chalkboard" style="margin-right:0.25rem"></i> Pitch Slides</a>
       <a href="#usp-audiences">For Everyone</a>
       <a href="#flow">How It Works</a>
+      <a href="pitch/index.html" class="btn btn-burgundy btn-sm"><i class="fa-solid fa-person-chalkboard"></i> Pitch Slides</a>
       <a href="public/index.html" class="btn btn-gold btn-sm">Open Public Site</a>
     </div>
   </div>
@@ -194,17 +237,40 @@ footer strong { color: var(--gold); }
   <div class="wrap hero-inner animate-rise">
     <div class="hero-eyebrow"><i class="fa-solid fa-sparkles"></i> Bookspot Publishers — Complete Platform Demo · Powered by <a href="https://savoka.in" target="_blank" rel="noopener" style="color:var(--gold)">Savoka</a></div>
     <h1>Publish. <em>Promote.</em> Prosper.</h1>
-    <p class="hero-sub">A fully automated publishing ecosystem for Bookspot Publishers — unified orders from website, Amazon, Flipkart & Kindle, author self-service portal, bulk WhatsApp marketing, social media management, standard business SOPs, and 90%+ task automation. Built for Indian publishers who welcome independent authors.</p>
+    <p class="hero-sub">A fully automated publishing ecosystem for Bookspot — your existing public website <strong style="color:var(--gold)">bookspotonline.com</strong> connected to a unified Publisher Dashboard, Author Portal, modern mobile storefront demo, WhatsApp marketing, social media, SOPs &amp; 90%+ automation.</p>
     <div class="hero-cta">
-      <a href="#demos" class="btn btn-gold btn-lg"><i class="fa-solid fa-play"></i> Explore Live Demos</a>
-      <a href="publisher/index.html" class="btn btn-white btn-lg"><i class="fa-solid fa-gauge-high"></i> Publisher Dashboard</a>
-      <a href="author/index.html" class="btn btn-ghost btn-lg" style="border-color:rgba(255,255,255,.3);color:#fff"><i class="fa-solid fa-pen-nib"></i> Author Portal</a>
+      <a href="pitch/index.html" class="btn btn-gold btn-lg"><i class="fa-solid fa-person-chalkboard"></i> Client Pitch Slides</a>
+      <a href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener" class="btn btn-white btn-lg"><i class="fa-solid fa-globe"></i> Open Live Website</a>
+      <a href="publisher/index.html" class="btn btn-ghost btn-lg" style="border-color:rgba(255,255,255,.3);color:#fff"><i class="fa-solid fa-gauge-high"></i> Publisher Dashboard</a>
     </div>
     <div class="hero-stats">
       <div class="hero-stat"><strong>6</strong><span>Integrated Portals</span></div>
       <div class="hero-stat"><strong>28K+</strong><span>WhatsApp Subscribers</span></div>
       <div class="hero-stat"><strong>12</strong><span>Active Automations</span></div>
       <div class="hero-stat"><strong>90%+</strong><span>Tasks Automated</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="live-website" style="background:var(--cream-dark);padding:3rem 0">
+  <div class="wrap">
+    <div class="live-site-band">
+      <div>
+        <div class="band-tag"><i class="fa-solid fa-link"></i> Included in demo</div>
+        <h2>Your existing public website + new dashboard</h2>
+        <p><strong>bookspotonline.com</strong> is Bookspot's live public store (since 2004, Maadi, Cairo). This demo shows how that website connects to the Publisher Dashboard — unified orders, catalog sync, author portal, and a modern mobile storefront built from your real book data.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem">
+          <span class="badge badge-ok">Live website connected</span>
+          <span class="badge badge-info">36 books from live catalog</span>
+          <span class="badge badge-gold">Dashboard sync demo</span>
+        </div>
+      </div>
+      <div class="band-links">
+        <a href="pitch/index.html" class="btn btn-burgundy"><i class="fa-solid fa-person-chalkboard"></i> Client Pitch Slides</a>
+        <a href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener" class="btn btn-gold"><i class="fa-solid fa-globe"></i> bookspotonline.com</a>
+        <a href="public/index.html" class="btn btn-primary"><i class="fa-solid fa-mobile-screen"></i> Modern Store Demo</a>
+        <a href="publisher/index.html" class="btn btn-ghost"><i class="fa-solid fa-gauge-high"></i> Publisher Dashboard</a>
+      </div>
     </div>
   </div>
 </section>
@@ -239,7 +305,7 @@ footer strong { color: var(--gold); }
         <ul>
           <li>Publisher Command Center — full business control</li>
           <li>Author Self-Service Portal — register, upload, track</li>
-          <li>Public Bookstore Website — shop, discover, submit manuscript</li>
+          <li>Public Bookstore Website — <strong>bookspotonline.com</strong> + modern demo store linked to dashboard</li>
           <li>Bulk WhatsApp Marketing — boost sales & attract authors</li>
           <li>Social Media Management — Instagram, Facebook, LinkedIn</li>
           <li>Standard Business SOPs — 5 pre-built operational workflows</li>
@@ -298,12 +364,15 @@ footer strong { color: var(--gold); }
       <div class="demo-card">
         <div class="demo-preview site">🛒</div>
         <div class="demo-card-body">
-          <h3>Public Website & Shop</h3>
-          <p>Beautiful bookstore for readers — browse catalog, read synopses, add to cart, checkout, discover authors, learn about publishing services, submit manuscript.</p>
+          <h3>Your Live Website + Modern Store Demo</h3>
+          <p><strong>bookspotonline.com</strong> is your real public website. This demo adds a modern mobile storefront (real catalog data) connected to the Publisher Dashboard — shop, cart, services & author funnel.</p>
           <div class="demo-features">
-            <span>Book Catalog</span><span>Online Shop</span><span>Author Pages</span><span>Services</span><span>Become an Author</span><span>Contact</span>
+            <span>bookspotonline.com</span><span>Live Catalog Sync</span><span>Demo Shop</span><span>Dashboard Link</span><span>Author Pages</span><span>Services</span>
           </div>
-          <a href="public/index.html" class="btn btn-gold" style="color:var(--ink)"><i class="fa-solid fa-arrow-right"></i> Open Bookstore</a>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem">
+            <a href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener" class="btn btn-gold" style="color:var(--ink)"><i class="fa-solid fa-globe"></i> Live Website</a>
+            <a href="public/index.html" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i> Demo Store</a>
+          </div>
         </div>
       </div>
       <div class="demo-card">
@@ -496,7 +565,8 @@ footer strong { color: var(--gold); }
           <tr><td>Author sees their orders</td><td class="yes">✓ Real-time</td><td class="no">✗ On request</td><td class="no">✗ No</td></tr>
           <tr><td>Amazon + Flipkart sync</td><td class="yes">✓ API integration</td><td class="no">✗ Manual export</td><td class="no">✗ No</td></tr>
           <tr><td>Auto royalty calculation</td><td class="yes">✓ Per sale</td><td class="no">✗ Quarterly Excel</td><td class="no">✗ No</td></tr>
-          <tr><td>Public online bookstore</td><td class="yes">✓ Integrated</td><td class="no">✗ Separate project</td><td class="yes">Partial</td></tr>
+          <tr><td>Existing website connected to dashboard</td><td class="yes">✓ bookspotonline.com</td><td class="no">✗ Separate systems</td><td class="no">✗ No backend</td></tr>
+          <tr><td>Public online bookstore</td><td class="yes">✓ Live site + modern demo</td><td class="no">✗ Separate project</td><td class="yes">Partial</td></tr>
           <tr><td>Google Maps / Business Profile</td><td class="yes">✓ Verified + managed</td><td class="no">✗ Incomplete / ignored</td><td class="no">✗ No</td></tr>
           <tr><td>Local SEO (Maadi / Cairo)</td><td class="yes">✓ Built-in</td><td class="no">✗ Agency only</td><td class="no">✗ Basic</td></tr>
           <tr><td>Reviews & reputation management</td><td class="yes">✓ Automated replies</td><td class="no">✗ Manual</td><td class="no">✗ No</td></tr>
@@ -516,13 +586,16 @@ footer strong { color: var(--gold); }
     <div class="cta-band">
       <div>
         <h2>Ready to demo Bookspot Publishers platform?</h2>
-        <p>Walk your client through publishing, WhatsApp marketing, social media, standard SOPs, and automations — from author registration to unified order management. Every screen has working buttons and Bookspot-branded mock data.</p>
-        <a href="PITCH.txt" download class="btn btn-gold"><i class="fa-solid fa-download"></i> Download Pitch Script</a>
+        <p>Start with their <strong>existing website</strong> (bookspotonline.com), then show the Publisher Dashboard, modern store demo, author portal, WhatsApp, social media, SOPs &amp; automations — unified orders from website + marketplaces.</p>
+        <a href="pitch/index.html" class="btn btn-gold"><i class="fa-solid fa-person-chalkboard"></i> Client Pitch Slides</a>
+        <a href="../index.html" class="btn btn-ghost">Full Demo Hub</a>
       </div>
       <div class="demo-links">
+        <a href="pitch/index.html" class="demo-link"><i class="fa-solid fa-person-chalkboard"></i> Client Pitch Slides →</a>
+        <a href="https://www.bookspotonline.com/middle.php?file=home" class="demo-link" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i> Live Website (bookspotonline.com) →</a>
+        <a href="public/index.html" class="demo-link"><i class="fa-solid fa-store"></i> Modern Store Demo →</a>
         <a href="publisher/index.html" class="demo-link"><i class="fa-solid fa-gauge-high"></i> Publisher Dashboard →</a>
         <a href="author/index.html" class="demo-link"><i class="fa-solid fa-pen-nib"></i> Author Portal →</a>
-        <a href="public/index.html" class="demo-link"><i class="fa-solid fa-store"></i> Public Bookstore →</a>
         <a href="public/index.html#publish-offer" class="demo-link"><i class="fa-solid fa-tags"></i> ₹999 Offer + Registration →</a>
         <a href="author/index.html#salesdash" class="demo-link"><i class="fa-solid fa-chart-line"></i> Author Live Sales Dashboard →</a>
         <a href="publisher/index.html#registrations" class="demo-link"><i class="fa-solid fa-file-signature"></i> Offer Registrations (Publisher) →</a>
@@ -546,9 +619,24 @@ footer strong { color: var(--gold); }
 </footer>
 
 <script>
+const pitchNav = document.querySelector('.pitch-nav-links');
+const pitchOverlay = document.createElement('div');
+pitchOverlay.className = 'nav-overlay';
+pitchOverlay.id = 'pitchNavOverlay';
+document.body.appendChild(pitchOverlay);
+const closePitchNav = () => {
+  pitchNav?.classList.remove('open');
+  pitchOverlay.classList.remove('open');
+  document.body.classList.remove('no-scroll');
+};
 document.querySelector('.menu-toggle')?.addEventListener('click', () => {
-  document.querySelector('.pitch-nav-links').classList.toggle('open');
+  const open = !pitchNav?.classList.contains('open');
+  pitchNav?.classList.toggle('open', open);
+  pitchOverlay.classList.toggle('open', open);
+  document.body.classList.toggle('no-scroll', open);
 });
+pitchOverlay.addEventListener('click', closePitchNav);
+pitchNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', closePitchNav));
 </script>
 </body>
 </html>

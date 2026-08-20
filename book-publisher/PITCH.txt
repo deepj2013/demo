@@ -1,5 +1,9 @@
 Powered by Savoka — https://savoka.in
 
+▶ INTERACTIVE PITCH SLIDES (use this for client demo):
+   book-publisher/pitch/index.html
+   → Full-screen slider · 15 slides · keyboard/swipe navigation · demo links on each slide
+
 ═══════════════════════════════════════════════════════════════
 BOOKSPOT PUBLISHERS PLATFORM — CLIENT PITCH SCRIPT
 For Book Publishers · Hindi + English · Copy & Customize
@@ -48,11 +52,14 @@ marketing से book sales बढ़ाएं, social media manage करें
    → Royalty dashboard
    → Demo: author/index.html
 
-3️⃣ PUBLIC BOOKSTORE + ONLINE SHOP
-   → Book catalog, cart, checkout
-   → "Publish With Us" author funnel
-   → 12 services including WhatsApp & social media
-   → Demo: public/index.html
+3️⃣ YOUR LIVE PUBLIC WEBSITE + MODERN STORE DEMO 🌐
+   → **bookspotonline.com** — your existing public website (live since 2004, Maadi, Cairo)
+   → Demo includes real catalog data pulled from your live site (36 titles, LE prices)
+   → Modern mobile storefront demo + cart — connected to Publisher Dashboard
+   → Orders from website + Amazon + Flipkart appear in Unified Orders
+   → Live site: https://www.bookspotonline.com/middle.php?file=home
+   → Demo store: public/index.html
+   → Dashboard: publisher/index.html → Overview shows "Your Public Website" banner
 
 4️⃣ BULK WHATSAPP MARKETING 💬
    → 28,400+ subscriber contact lists
@@ -132,7 +139,8 @@ FOR READERS:
 🔄 DEMO WALKTHROUGH (20 minutes)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-MIN 1-3: Public Website — shop, services, author signup
+MIN 0-1: **Their existing website** — open bookspotonline.com, then show how same orders appear in Publisher Dashboard → Integrations → "Bookspot Live Website"
+MIN 1-3: Public Website demo — modern store built from live catalog + dashboard connection
 MIN 4-6: Publisher Dashboard — overview, authors, orders
 MIN 7-9: WhatsApp Marketing — campaigns, lists, send demo
 MIN 10-12: Social Media — calendar, schedule post, stats

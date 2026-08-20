@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0F1729">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>The BookSpot — New & Used Books | Maadi, Cairo</title>
 <meta name="description" content="The BookSpot — English bookstore in Maadi, Cairo. Shop new & used books online. Delivery across Egypt. Live catalog from bookspotonline.com.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +14,7 @@
 <link rel="stylesheet" href="../assets/css/shared.css">
 <link rel="stylesheet" href="../assets/css/public.css">
 </head>
-<body>
+<body class="has-tabbar">
 
 <header class="site-header">
   <div class="wrap header-inner">
@@ -33,16 +36,27 @@
   </div>
 </header>
 
+<div class="live-site-notice">
+  <div class="wrap live-site-notice-inner">
+    <p><strong>Your live public website is included in this demo.</strong> Catalog data comes from <a href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener" style="color:var(--burgundy);font-weight:600">bookspotonline.com</a> — orders sync to the <a href="../publisher/index.html" style="color:var(--burgundy);font-weight:600">Publisher Dashboard</a>.</p>
+    <div class="notice-actions">
+      <a href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener" class="btn btn-gold btn-sm"><i class="fa-solid fa-external-link"></i> Open Live Website</a>
+      <a href="../pitch/index.html" class="btn btn-ghost btn-sm"><i class="fa-solid fa-person-chalkboard"></i> Pitch</a>
+      <a href="../publisher/index.html" class="btn btn-ghost btn-sm"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+    </div>
+  </div>
+</div>
+
 <section class="pub-hero">
   <div class="pub-hero-bg"></div>
   <div class="wrap pub-hero-inner">
     <div class="animate-rise">
       <h1>The Book<span style="color:var(--gold)">Spot</span></h1>
-      <p>New &amp; used English books since 2004 — Maadi, Cairo. Be found on Google Maps, shop online, grow with WhatsApp &amp; social — a complete modern digital presence for your bookstore.</p>
+      <p>New &amp; used English books since 2004 — Maadi, Cairo. <strong style="color:var(--gold-light)">bookspotonline.com</strong> is your live public website; this demo shows a modern storefront + dashboard connected to it.</p>
       <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
-        <a href="#publish-offer" class="btn btn-gold btn-lg"><i class="fa-solid fa-pen-nib"></i> ₹999 Publishing Offer</a>
-        <a href="#shop" class="btn btn-ghost btn-lg" style="border-color:rgba(255,255,255,.3);color:#fff"><i class="fa-solid fa-bag-shopping"></i> Shop Catalog</a>
-        <a href="#presence" class="btn btn-ghost btn-lg" style="border-color:rgba(255,255,255,.3);color:#fff"><i class="fa-solid fa-map-location-dot"></i> Digital Presence</a>
+        <a href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener" class="btn btn-gold btn-lg"><i class="fa-solid fa-store"></i> Open Live Website</a>
+        <a href="#shop" class="btn btn-ghost btn-lg" style="border-color:rgba(255,255,255,.3);color:#fff"><i class="fa-solid fa-bag-shopping"></i> Demo Shop Catalog</a>
+        <a href="../publisher/index.html" class="btn btn-ghost btn-lg" style="border-color:rgba(255,255,255,.3);color:#fff"><i class="fa-solid fa-gauge-high"></i> Publisher Dashboard</a>
       </div>
       <div class="hero-proof">
         <div><strong>Since 2004</strong><span>Maadi, Cairo</span></div>
@@ -288,6 +302,7 @@
       <div class="footer-col"><h4>Authors</h4><a href="#become-author">Publish With Us</a><a href="../author/index.html">Author Portal</a><a href="#services">Services</a></div>
       <div class="footer-col"><h4>Contact</h4>
         <a href="../index.html">Platform Demo</a>
+        <a href="../pitch/index.html">Client Pitch Slides</a>
         <a href="../publisher/index.html">Publisher Dashboard</a>
         <a href="mailto:bookspotonline@gmail.com">bookspotonline@gmail.com</a>
         <a href="https://www.bookspotonline.com/middle.php?file=screen&screenid=1" target="_blank" rel="noopener">About Us</a>
@@ -302,6 +317,7 @@
   </div>
 </footer>
 
+<div class="nav-overlay" id="navOverlay"></div>
 <div class="cart-overlay" id="cartOverlay"></div>
 <aside class="cart-sidebar" id="cartSidebar">
   <div class="cart-header"><h3>Your Cart</h3><button class="modal-close" id="cartClose">&times;</button></div>
@@ -312,6 +328,14 @@
     <a href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%;margin-top:0.5rem"><i class="fa-solid fa-external-link"></i> Or buy on Live Shop</a>
   </div>
 </aside>
+
+<nav class="mobile-tabbar" aria-label="Mobile navigation">
+  <a href="#publish-offer" class="tab-item active" data-tab="offer"><i class="fa-solid fa-pen-nib"></i><span>Offer</span></a>
+  <a href="#shop" class="tab-item" data-tab="shop"><i class="fa-solid fa-bag-shopping"></i><span>Shop</span></a>
+  <a href="#presence" class="tab-item" data-tab="presence"><i class="fa-solid fa-map-location-dot"></i><span>Maps</span></a>
+  <button type="button" class="tab-item" id="mobileCartBtn" data-tab="cart"><i class="fa-solid fa-shopping-cart"></i><span>Cart</span></button>
+  <button type="button" class="tab-item" id="mobileMenuBtn" data-tab="menu"><i class="fa-solid fa-bars"></i><span>Menu</span></button>
+</nav>
 
 <script src="../assets/js/data.js"></script>
 <script src="../assets/js/shared.js"></script>

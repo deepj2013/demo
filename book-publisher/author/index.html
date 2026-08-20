@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#7C2D3E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Author Portal — Bookspot Publishers</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -10,8 +13,9 @@
 <link rel="stylesheet" href="../assets/css/shared.css">
 <link rel="stylesheet" href="../assets/css/author.css">
 </head>
-<body>
+<body class="has-tabbar">
 
+<div class="nav-overlay" id="sidebarOverlay"></div>
 <div class="dash-layout">
   <aside class="author-sidebar">
     <div class="author-sidebar-brand">Book<span>spot</span><small>Author Portal · Live Sales</small></div>
@@ -33,6 +37,7 @@
         <div><strong style="font-size:0.85rem">Ananya Sharma</strong><br><span style="font-size:0.72rem;opacity:0.6">₹999 Package · Live</span></div>
       </div>
       <a href="../public/index.html#publish-offer" class="btn btn-ghost btn-sm" style="width:100%;margin-top:0.75rem;color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.15)">View Offer</a>
+      <a href="../pitch/index.html" class="btn btn-ghost btn-sm" style="width:100%;margin-top:0.5rem;color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.15)"><i class="fa-solid fa-person-chalkboard"></i> Pitch Slides</a>
       <a href="../index.html" class="btn btn-ghost btn-sm" style="width:100%;margin-top:0.5rem;color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.15)"><i class="fa-solid fa-arrow-left"></i> Pitch</a>
       <p class="powered-by light" style="justify-content:center;margin-top:0.85rem;font-size:0.7rem">
         Powered by <a href="https://savoka.in" target="_blank" rel="noopener">Savoka</a>
@@ -188,6 +193,14 @@
     </div>
   </main>
 </div>
+
+<nav class="mobile-tabbar dark" aria-label="Mobile navigation">
+  <button type="button" class="tab-item active" data-view="overview"><i class="fa-solid fa-house"></i><span>Home</span></button>
+  <button type="button" class="tab-item" data-view="journey"><i class="fa-solid fa-route"></i><span>Journey</span></button>
+  <button type="button" class="tab-item" data-view="salesdash"><i class="fa-solid fa-chart-line"></i><span>Sales</span></button>
+  <button type="button" class="tab-item" data-view="withdraw"><i class="fa-solid fa-wallet"></i><span>Wallet</span></button>
+  <button type="button" class="tab-item" data-view="menu"><i class="fa-solid fa-bars"></i><span>Menu</span></button>
+</nav>
 
 <script src="../assets/js/data.js"></script>
 <script src="../assets/js/shared.js"></script>

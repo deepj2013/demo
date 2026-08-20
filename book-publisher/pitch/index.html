@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0F1729">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Bookspot Platform — Client Pitch Slides</title>
+<meta name="description" content="Interactive slide presentation for Bookspot Publishers platform demo — dashboard, live website, WhatsApp, social media, automations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/shared.css">
+<link rel="stylesheet" href="../assets/css/pitch.css">
+</head>
+<body class="pitch-deck">
+
+<header class="pitch-toolbar">
+  <a href="../index.html" class="pitch-toolbar-brand"><i class="fa-solid fa-book-open"></i> Book<span>spot</span></a>
+  <div class="pitch-toolbar-mid">
+    <div class="pitch-progress"><div class="pitch-progress-bar" id="pitchProgressBar" style="width:6%"></div></div>
+    <span class="pitch-counter" id="pitchCounter">1 / 14</span>
+  </div>
+  <div class="pitch-toolbar-actions">
+    <button type="button" class="btn btn-ghost btn-sm" id="pitchFullscreen" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.15)"><i class="fa-solid fa-expand"></i> <span>Fullscreen</span></button>
+    <a href="../index.html" class="btn btn-ghost btn-sm" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.15)"><i class="fa-solid fa-grid-2"></i> <span>Demo Hub</span></a>
+  </div>
+</header>
+
+<div class="pitch-stage-wrap">
+  <div class="pitch-stage" id="pitchStage">
+
+    <!-- 1 Welcome -->
+    <section class="pitch-slide slide-bg-1">
+      <div class="pitch-slide-inner">
+        <div class="slide-tag"><i class="fa-solid fa-sparkles"></i> Client Presentation</div>
+        <h1>Bookspot <em>Platform</em></h1>
+        <p class="lead lead-wide">Complete digital ecosystem for The BookSpot — your existing public website <strong>bookspotonline.com</strong>, unified Publisher Dashboard, Author Portal, WhatsApp marketing, social media, SOPs &amp; automation.</p>
+        <p style="font-size:0.85rem;opacity:0.6;margin-bottom:1.25rem">Powered by <a href="https://savoka.in" target="_blank" rel="noopener" style="color:var(--gold)">Savoka</a> · Use ← → keys or swipe to navigate</p>
+        <div class="slide-demo-links">
+          <a href="../index.html" class="primary"><i class="fa-solid fa-play"></i> Open Demo Hub</a>
+          <a href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i> Live Website</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 One-line pitch -->
+    <section class="pitch-slide slide-bg-2">
+      <div class="pitch-slide-inner">
+        <div class="slide-tag">30-Second Pitch</div>
+        <h2>One platform. Every channel.</h2>
+        <div class="slide-quote">"Authors register &amp; upload manuscripts themselves — orders from <strong>bookspotonline.com</strong>, Amazon &amp; Flipkart land in one dashboard — plus bulk WhatsApp to boost sales, social media on autopilot, standard SOPs, and 90%+ tasks automated."</div>
+        <p class="lead" style="opacity:0.75;font-size:0.95rem">हिंदी: Authors खुद register करें, manuscript upload करें — website + Amazon + Flipkart orders एक dashboard पर — WhatsApp marketing, social media, SOPs और 90%+ automation।</p>
+      </div>
+    </section>
+
+    <!-- 3 Live website -->
+    <section class="pitch-slide slide-bg-3">
+      <div class="pitch-slide-inner">
+        <div class="slide-tag"><i class="fa-solid fa-globe"></i> Your Existing Website</div>
+        <h2>bookspotonline.com — already live since 2004</h2>
+        <p class="lead lead-wide">We're not replacing your store. This demo shows how your <strong>existing public website</strong> connects to a modern Publisher Dashboard — catalog sync, unified orders, and a refreshed mobile storefront built from your real book data.</p>
+        <div class="slide-grid-2">
+          <div class="slide-card">
+            <div class="ico">🌐</div>
+            <h3>Live Public Website</h3>
+            <p>Maadi, Cairo · New &amp; used English books · Delivery across Egypt</p>
+          </div>
+          <div class="slide-card">
+            <div class="ico">📊</div>
+            <h3>Connected Dashboard</h3>
+            <p>Website orders sync to Publisher Dashboard alongside Amazon, Flipkart &amp; Kindle</p>
+          </div>
+        </div>
+        <div class="slide-demo-links">
+          <a href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener" class="primary"><i class="fa-solid fa-store"></i> Open Live Website</a>
+          <a href="../publisher/index.html"><i class="fa-solid fa-gauge-high"></i> Publisher Dashboard</a>
+          <a href="../public/index.html"><i class="fa-solid fa-mobile-screen"></i> Modern Store Demo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 What we built -->
+    <section class="pitch-slide slide-bg-1">
+      <div class="pitch-slide-inner">
+        <div class="slide-tag">Overview</div>
+        <h2>7 connected systems — one ecosystem</h2>
+        <div class="slide-grid-3">
+          <div class="slide-card"><div class="ico">📊</div><h3>Publisher Dashboard</h3><p>Authors, orders, ISBN, royalties, reports</p></div>
+          <div class="slide-card"><div class="ico">✍️</div><h3>Author Portal</h3><p>Upload, journey tracking, live sales, withdrawal</p></div>
+          <div class="slide-card"><div class="ico">🛒</div><h3>Public Website</h3><p>Live site + modern demo store with real catalog</p></div>
+          <div class="slide-card"><div class="ico">💬</div><h3>WhatsApp Marketing</h3><p>28K+ subscribers, bulk campaigns, conversions</p></div>
+          <div class="slide-card"><div class="ico">📱</div><h3>Social Media</h3><p>Calendar, auto-post, Instagram &amp; Facebook</p></div>
+          <div class="slide-card"><div class="ico">⚡</div><h3>SOPs + Automation</h3><p>5 processes, 12 automations, 90%+ auto</p></div>
+        </div>
+        <p style="margin-top:1rem;font-size:0.88rem;opacity:0.7">+ ₹999 Publishing Offer automation · Google Maps &amp; digital presence</p>
+      </div>
+    </section>
+
+    <!-- 5 Publisher Dashboard -->
+    <section class="pitch-slide slide-bg-2">
+      <div class="pitch-slide-inner">
+        <div class="slide-tag">Demo 1</div>
+        <h2>Publisher Command Center</h2>
+        <p class="lead">Run the entire business from one screen — authors, manuscripts, ISBN pipeline, unified orders from all channels, royalties, WhatsApp, social &amp; automations.</p>
+        <ul class="slide-list">
+          <li><span class="ok">✓</span> Unified orders: website + Amazon + Flipkart + Kindle</li>
+          <li><span class="ok">✓</span> Author onboarding &amp; manuscript pipeline</li>
+          <li><span class="ok">✓</span> ₹999 offer registrations with stage tracking</li>
+          <li><span class="ok">✓</span> Live website banner on Overview — bookspotonline.com connected</li>
+        </ul>
+        <div class="slide-demo-links">
+          <a href="../publisher/index.html" class="primary"><i class="fa-solid fa-arrow-right"></i> Open Dashboard</a>
+          <a href="../publisher/index.html#integrations"><i class="fa-solid fa-plug"></i> Integrations</a>
+          <a href="../publisher/index.html#orders"><i class="fa-solid fa-box"></i> Unified Orders</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 Author Portal -->
+    <section class="pitch-slide slide-bg-3">
+      <div class="pitch-slide-inner">
+        <div class="slide-tag">Demo 2</div>
+        <h2>Author Self-Service Portal</h2>
+        <p class="lead">Transparency builds trust. Authors see their publishing journey, upload manuscripts, calculate royalties, track live sales &amp; withdraw earnings — without calling you daily.</p>
+        <ul class="slide-list">
+          <li><span class="ok">✓</span> Publishing journey board (9 automated steps)</li>
+          <li><span class="ok">✓</span> In-portal royalty calculator</li>
+          <li><span class="ok">✓</span> Live sales dashboard (monthly updates on 20th)</li>
+          <li><span class="ok">✓</span> Wallet &amp; withdrawal (min ₹1,000)</li>
+        </ul>
+        <div class="slide-demo-links">
+          <a href="../author/index.html" class="primary"><i class="fa-solid fa-pen-nib"></i> Open Author Portal</a>
+          <a href="../author/index.html#salesdash"><i class="fa-solid fa-chart-line"></i> Live Sales</a>
+          <a href="../author/index.html#journey"><i class="fa-solid fa-route"></i> Journey Board</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 Public website -->
+    <section class="pitch-slide slide-bg-1">
+      <div class="pitch-slide-inner">
+        <div class="slide-tag">Demo 3</div>
+        <h2>Public Website + Online Shop</h2>
+        <p class="lead lead-wide">36 titles with real LE prices from bookspotonline.com. Demo cart &amp; checkout, digital presence section, ₹999 publishing offer, services &amp; author registration — all mobile-app ready.</p>
+        <div class="slide-demo-links">
+          <a href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener" class="primary"><i class="fa-solid fa-globe"></i> Live Website</a>
+          <a href="../public/index.html#shop"><i class="fa-solid fa-bag-shopping"></i> Demo Shop</a>
+          <a href="../public/index.html#publish-offer"><i class="fa-solid fa-tags"></i> ₹999 Offer</a>
+          <a href="../public/index.html#presence"><i class="fa-solid fa-map-location-dot"></i> Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 WhatsApp -->
+    <section class="pitch-slide slide-bg-2">
+      <div class="pitch-slide-inner">
+        <div class="slide-tag">Demo 4</div>
+        <h2>Bulk WhatsApp Marketing</h2>
+        <p class="lead">Boost book sales &amp; attract new authors with targeted bulk campaigns — templates, contact lists, scheduling &amp; conversion tracking built in.</p>
+        <div class="slide-grid-2">
+          <div class="slide-card"><h3>28,400+ subscribers</h3><p>Readers, authors &amp; aspiring writers segmented</p></div>
+          <div class="slide-card"><h3>Diwali campaign demo</h3><p>18,400 sent → 287 orders tracked</p></div>
+        </div>
+        <div class="slide-demo-links">
+          <a href="../publisher/index.html#whatsapp" class="primary"><i class="fa-brands fa-whatsapp"></i> WhatsApp Hub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 Social -->
+    <section class="pitch-slide slide-bg-3">
+      <div class="pitch-slide-inner">
+        <div class="slide-tag">Demo 5</div>
+        <h2>Social Media Management</h2>
+        <p class="lead">Instagram, Facebook, LinkedIn &amp; Twitter — content calendar, scheduled posts, auto-publishing via Meta Business Suite, engagement analytics.</p>
+        <div class="slide-grid-3">
+          <div class="slide-card"><h3>45,600+</h3><p>Combined followers managed</p></div>
+          <div class="slide-card"><h3>Auto-post</h3><p>Book launches, reels, author spotlights</p></div>
+          <div class="slide-card"><h3>Calendar</h3><p>Plan a month of content in one view</p></div>
+        </div>
+        <div class="slide-demo-links">
+          <a href="../publisher/index.html#social" class="primary"><i class="fa-solid fa-share-nodes"></i> Social Hub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 SOPs + Automation -->
+    <section class="pitch-slide slide-bg-1">
+      <div class="pitch-slide-inner">
+        <div class="slide-tag">Demo 6</div>
+        <h2>Business SOPs + 12 Automations</h2>
+        <p class="lead">Every book follows the same quality process. 90%+ of repetitive tasks run on autopilot.</p>
+        <div class="slide-grid-2">
+          <div class="slide-card">
+            <h3>5 Standard SOPs</h3>
+            <ul>
+              <li>Author Onboarding (48hr SLA)</li>
+              <li>Manuscript → Publication (60–90 days)</li>
+              <li>Order Fulfillment (24hr SLA)</li>
+              <li>Monthly Royalty Payout</li>
+              <li>Book Launch Marketing</li>
+            </ul>
+          </div>
+          <div class="slide-card">
+            <h3>Key Automations</h3>
+            <ul>
+              <li>Marketplace sync every 15 min</li>
+              <li>Auto royalty per sale</li>
+              <li>Launch → WhatsApp + social trigger</li>
+              <li>Abandoned cart recovery</li>
+              <li>ISBN status tracker</li>
+            </ul>
+          </div>
+        </div>
+        <div class="slide-demo-links">
+          <a href="../publisher/index.html#operations" class="primary"><i class="fa-solid fa-list-check"></i> Business SOPs</a>
+          <a href="../publisher/index.html#automations"><i class="fa-solid fa-bolt"></i> Automations</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 ₹999 Offer -->
+    <section class="pitch-slide slide-bg-2">
+      <div class="pitch-slide-inner">
+        <div class="slide-tag">Demo 7</div>
+        <h2>₹999 Publishing Offer Automation</h2>
+        <p class="lead">Replaces Instagram DMs + Google Forms + external payment links. Packages, online registration, payment, 9-step journey, royalty calc &amp; live sales — end to end.</p>
+        <ul class="slide-list">
+          <li><span class="ok">✓</span> Packages: ≤150 pages ₹999+GST · 150–300 ₹1,999 · 300–500 ₹2,999</li>
+          <li><span class="ok">✓</span> Publisher board to advance authors through pipeline</li>
+          <li><span class="ok">✓</span> Author portal: journey, sales dashboard, withdrawal</li>
+        </ul>
+        <div class="slide-demo-links">
+          <a href="../public/index.html#publish-offer" class="primary"><i class="fa-solid fa-pen-nib"></i> Public Offer Flow</a>
+          <a href="../publisher/index.html#registrations"><i class="fa-solid fa-file-signature"></i> Registrations Board</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 Problems -->
+    <section class="pitch-slide slide-bg-3">
+      <div class="pitch-slide-inner">
+        <div class="slide-tag">Why</div>
+        <h2>Problems we solve</h2>
+        <ul class="slide-list">
+          <li><span class="bad">✗</span> Orders scattered across website, Amazon, Flipkart, Excel <span style="opacity:0.5;margin:0 0.35rem">→</span> <span class="ok">✓</span> One unified dashboard</li>
+          <li><span class="bad">✗</span> Manual WhatsApp for every book promo <span style="opacity:0.5;margin:0 0.35rem">→</span> <span class="ok">✓</span> Bulk campaigns with tracking</li>
+          <li><span class="bad">✗</span> Social media via agency or ad-hoc <span style="opacity:0.5;margin:0 0.35rem">→</span> <span class="ok">✓</span> Built-in calendar + auto-post</li>
+          <li><span class="bad">✗</span> Every book handled differently <span style="opacity:0.5;margin:0 0.35rem">→</span> <span class="ok">✓</span> 5 standard SOPs</li>
+          <li><span class="bad">✗</span> Authors call daily for sales updates <span style="opacity:0.5;margin:0 0.35rem">→</span> <span class="ok">✓</span> Real-time author portal</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 13 USP -->
+    <section class="pitch-slide slide-bg-1">
+      <div class="pitch-slide-inner">
+        <div class="slide-tag">USP</div>
+        <h2>Built for three audiences</h2>
+        <div class="slide-grid-3">
+          <div class="slide-card">
+            <h3><i class="fa-solid fa-building" style="color:var(--gold)"></i> Publisher (Owner)</h3>
+            <ul>
+              <li>Publish + Promote + Operate in one place</li>
+              <li>Live website connected to dashboard</li>
+              <li>90%+ automation, white-label ready</li>
+            </ul>
+          </div>
+          <div class="slide-card">
+            <h3><i class="fa-solid fa-pen-fancy" style="color:var(--gold)"></i> Authors</h3>
+            <ul>
+              <li>Self-service transparency</li>
+              <li>Live sales &amp; royalty dashboard</li>
+              <li>Publishing journey tracking</li>
+            </ul>
+          </div>
+          <div class="slide-card">
+            <h3><i class="fa-solid fa-book-open-reader" style="color:var(--gold)"></i> Readers</h3>
+            <ul>
+              <li>Professional mobile storefront</li>
+              <li>Shop on live site or demo store</li>
+              <li>Discover via Google Maps &amp; social</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14 Walkthrough -->
+    <section class="pitch-slide slide-bg-2">
+      <div class="pitch-slide-inner">
+        <div class="slide-tag">20-Minute Demo Flow</div>
+        <h2>Suggested walkthrough</h2>
+        <div class="slide-timeline">
+          <div class="slide-timeline-item"><strong>Min 0–1</strong><span>Open bookspotonline.com → show Integrations in Dashboard</span></div>
+          <div class="slide-timeline-item"><strong>Min 1–3</strong><span>Modern store demo — real catalog, cart, services</span></div>
+          <div class="slide-timeline-item"><strong>Min 4–6</strong><span>Publisher Dashboard — overview, authors, orders</span></div>
+          <div class="slide-timeline-item"><strong>Min 7–9</strong><span>WhatsApp Marketing — campaigns &amp; lists</span></div>
+          <div class="slide-timeline-item"><strong>Min 10–12</strong><span>Social Media — calendar &amp; schedule post</span></div>
+          <div class="slide-timeline-item"><strong>Min 13–15</strong><span>SOPs &amp; Automations — pause/enable demo</span></div>
+          <div class="slide-timeline-item"><strong>Min 16–18</strong><span>Author Portal — journey, sales, withdrawal</span></div>
+          <div class="slide-timeline-item"><strong>Min 19–20</strong><span>Wrap up — pricing, customization, timeline</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 15 CTA -->
+    <section class="pitch-slide slide-bg-3">
+      <div class="pitch-slide-inner">
+        <div class="slide-tag">Next Steps</div>
+        <h1>Ready to <em>go live?</em></h1>
+        <p class="lead lead-wide">Every screen in this demo has working buttons and Bookspot-branded mock data. Start the live walkthrough or share this presentation link with your team.</p>
+        <div class="slide-demo-links">
+          <a href="../index.html" class="primary"><i class="fa-solid fa-play"></i> Open Full Demo Hub</a>
+          <a href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i> Live Website</a>
+          <a href="../publisher/index.html"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+          <a href="../author/index.html"><i class="fa-solid fa-pen-nib"></i> Author Portal</a>
+          <a href="../public/index.html"><i class="fa-solid fa-store"></i> Store Demo</a>
+        </div>
+        <p style="margin-top:1.5rem;font-size:0.82rem;opacity:0.55" class="powered-by light">Powered by <a href="https://savoka.in" target="_blank" rel="noopener">Savoka</a></p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<footer class="pitch-nav-bar">
+  <button type="button" class="pitch-nav-btn" id="pitchPrev" aria-label="Previous slide"><i class="fa-solid fa-chevron-left"></i></button>
+  <div class="pitch-dots" id="pitchDots"></div>
+  <button type="button" class="pitch-nav-btn" id="pitchNext" aria-label="Next slide"><i class="fa-solid fa-chevron-right"></i></button>
+</footer>
+
+<script src="../assets/js/pitch.js"></script>
+</body>
+</html>

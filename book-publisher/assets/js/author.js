@@ -15,8 +15,22 @@ const AuthorPortal = {
     document.querySelectorAll('.author-nav-item').forEach(item => {
       item.onclick = () => this.navigate(item.dataset.view);
     });
-    document.querySelector('.sidebar-toggle')?.addEventListener('click', () => {
-      document.querySelector('.author-sidebar')?.classList.toggle('open');
+    this.sidebar = IB.mobile.setupSidebar({
+      sidebar: '.author-sidebar',
+      overlay: '#sidebarOverlay',
+      toggle: '.sidebar-toggle',
+      navItems: '.author-nav-item'
+    });
+    IB.mobile.setupBottomNav('.mobile-tabbar', null, (item) => {
+      const view = item.dataset.view;
+      if (view === 'menu') {
+        this.sidebar?.open();
+        document.querySelectorAll('.mobile-tabbar .tab-item').forEach(t => {
+          t.classList.toggle('active', t.dataset.view === this.view);
+        });
+        return;
+      }
+      if (view) this.navigate(view);
     });
   },
 
@@ -24,6 +38,10 @@ const AuthorPortal = {
     this.view = view;
     document.querySelectorAll('.author-nav-item').forEach(i => i.classList.toggle('active', i.dataset.view === view));
     document.querySelectorAll('.author-view').forEach(v => v.classList.toggle('active', v.id === 'aview-' + view));
+    document.querySelectorAll('.mobile-tabbar .tab-item').forEach(t => {
+      t.classList.toggle('active', t.dataset.view === view);
+    });
+    this.sidebar?.close();
     const titles = {
       overview: 'My Dashboard', books: 'My Books', upload: 'Upload Manuscript',
       journey: 'Publishing Journey', royaltycalc: 'Royalty Calculator', salesdash: 'Live Sales Dashboard',

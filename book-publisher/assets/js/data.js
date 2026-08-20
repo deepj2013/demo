@@ -8,6 +8,7 @@ window.BOOKSPOT = {
     address: '70 Road 9 (First Floor), Maadi, Cairo, Egypt',
     website: 'https://www.bookspotonline.com/',
     shopUrl: 'https://www.bookspotonline.com/middle.php?file=home',
+    liveWebsiteNote: 'Your existing public website — live since 2004. Catalog, orders & customers sync to the Publisher Dashboard in this demo.',
     poweredBy: { name: 'Savoka', url: 'https://savoka.in' },
     founded: 2004,
     authors: 847,
@@ -95,6 +96,7 @@ window.BOOKSPOT = {
   ],
 
   integrations: [
+    { id: 'website', name: 'Bookspot Live Website', icon: '🌐', status: 'connected', lastSync: '2025-11-19 09:18', ordersToday: 34, revenue: 67800, apiKey: '****-WEB-LIVE', url: 'https://www.bookspotonline.com/middle.php?file=home', desc: 'bookspotonline.com — your existing public store' },
     { id: 'amazon', name: 'Amazon India', icon: '🛒', status: 'connected', lastSync: '2025-11-19 09:15', ordersToday: 23, revenue: 89400, apiKey: '****-AMZ-7823' },
     { id: 'flipkart', name: 'Flipkart', icon: '🛍️', status: 'connected', lastSync: '2025-11-19 09:12', ordersToday: 14, revenue: 45200, apiKey: '****-FK-9102' },
     { id: 'kindle', name: 'Kindle Direct Publishing', icon: '📱', status: 'connected', lastSync: '2025-11-19 08:45', ordersToday: 67, revenue: 23400, apiKey: '****-KDP-4456' },
