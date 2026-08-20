@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Author Portal — Bookspot Publishers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/shared.css">
+<link rel="stylesheet" href="../assets/css/author.css">
+</head>
+<body>
+
+<div class="dash-layout">
+  <aside class="author-sidebar">
+    <div class="author-sidebar-brand">Book<span>spot</span><small>Author Portal · Live Sales</small></div>
+    <nav class="author-nav">
+      <button class="author-nav-item active" data-view="overview"><i class="fa-solid fa-house"></i> Dashboard</button>
+      <button class="author-nav-item" data-view="journey"><i class="fa-solid fa-route"></i> Publishing Journey</button>
+      <button class="author-nav-item" data-view="upload"><i class="fa-solid fa-cloud-arrow-up"></i> Upload Manuscript</button>
+      <button class="author-nav-item" data-view="royaltycalc"><i class="fa-solid fa-calculator"></i> Royalty Calculator</button>
+      <button class="author-nav-item" data-view="salesdash"><i class="fa-solid fa-chart-line"></i> Sales Dashboard</button>
+      <button class="author-nav-item" data-view="withdraw"><i class="fa-solid fa-wallet"></i> Withdraw Royalty</button>
+      <button class="author-nav-item" data-view="books"><i class="fa-solid fa-book"></i> My Books</button>
+      <button class="author-nav-item" data-view="orders"><i class="fa-solid fa-box"></i> My Orders</button>
+      <button class="author-nav-item" data-view="notifications"><i class="fa-solid fa-bell"></i> Notifications</button>
+      <button class="author-nav-item" data-view="profile"><i class="fa-solid fa-user"></i> Profile</button>
+    </nav>
+    <div style="padding:1rem;border-top:1px solid rgba(255,255,255,0.1)">
+      <div class="dash-user">
+        <div class="avatar" style="background:var(--gold);color:var(--ink)">AS</div>
+        <div><strong style="font-size:0.85rem">Ananya Sharma</strong><br><span style="font-size:0.72rem;opacity:0.6">₹999 Package · Live</span></div>
+      </div>
+      <a href="../public/index.html#publish-offer" class="btn btn-ghost btn-sm" style="width:100%;margin-top:0.75rem;color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.15)">View Offer</a>
+      <a href="../index.html" class="btn btn-ghost btn-sm" style="width:100%;margin-top:0.5rem;color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.15)"><i class="fa-solid fa-arrow-left"></i> Pitch</a>
+      <p class="powered-by light" style="justify-content:center;margin-top:0.85rem;font-size:0.7rem">
+        Powered by <a href="https://savoka.in" target="_blank" rel="noopener">Savoka</a>
+      </p>
+    </div>
+  </aside>
+
+  <main class="author-main">
+    <header class="author-topbar">
+      <div class="flex gap-1" style="align-items:center">
+        <button class="sidebar-toggle"><i class="fa-solid fa-bars"></i></button>
+        <div><h1 id="authorPageTitle" style="font-size:1.35rem">My Dashboard</h1><p class="text-sm text-muted" id="authorWelcome">Welcome back</p></div>
+      </div>
+      <div class="flex gap-1">
+        <button class="btn btn-ghost btn-sm" onclick="AuthorPortal.navigate('royaltycalc')"><i class="fa-solid fa-calculator"></i> Royalty Calc</button>
+        <button class="btn btn-burgundy btn-sm" onclick="AuthorPortal.navigate('salesdash')"><i class="fa-solid fa-chart-line"></i> Sales Dashboard</button>
+      </div>
+    </header>
+
+    <div class="author-content">
+      <div class="author-view active" id="aview-overview">
+        <div class="stat-grid" id="authorStats"></div>
+        <div class="card mt-2" style="background:linear-gradient(135deg,rgba(124,45,62,0.08),rgba(201,162,39,0.1));border-color:rgba(201,162,39,0.3)">
+          <div class="flex-between" style="flex-wrap:wrap;gap:1rem">
+            <div>
+              <h3 id="liveBookTitle" style="margin-bottom:0.25rem">Your book is live</h3>
+              <p class="text-sm text-muted" id="liveBookMeta">Sales dashboard updates every month on the 20th</p>
+            </div>
+            <button class="btn btn-burgundy" onclick="AuthorPortal.navigate('salesdash')">Open Live Sales →</button>
+          </div>
+        </div>
+        <div class="detail-grid mt-2">
+          <div class="card">
+            <div class="flex-between mb-2"><h3>Journey Progress</h3><button class="btn btn-ghost btn-sm" onclick="AuthorPortal.navigate('journey')">Full board</button></div>
+            <div id="journeyMini"></div>
+          </div>
+          <div class="card">
+            <div class="flex-between mb-2"><h3>Notifications</h3><button class="btn btn-ghost btn-sm" onclick="AuthorPortal.navigate('notifications')">All</button></div>
+            <div class="notif-list" id="authorNotifPreview"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="author-view" id="aview-journey">
+        <p class="text-muted mb-2">Your publishing process — same steps as Bookspot emails, now automated with status tracking</p>
+        <div id="journeyBoard"></div>
+        <div class="card mt-2" id="journeyActions"></div>
+      </div>
+
+      <div class="author-view" id="aview-upload">
+        <div class="card" style="max-width:720px">
+          <h3 style="margin-bottom:0.5rem">Upload Manuscript</h3>
+          <p class="text-muted text-sm mb-2">Submit MS Word (.doc/.docx) — replaces emailing the file. Deadline: 6 months from registration.</p>
+          <form id="uploadForm">
+            <div class="upload-zone" id="uploadZone">
+              <div class="icon">📄</div>
+              <p><strong>Drag & drop manuscript</strong><br>or click to browse (.doc / .docx)</p>
+            </div>
+            <input type="file" id="fileInput" accept=".pdf,.docx,.doc" hidden>
+            <div class="form-row mt-2">
+              <div class="form-group"><label>Book Title</label><input required value="Whispers of the Monsoon"></div>
+              <div class="form-group"><label>Genre</label><select><option>Literary Fiction</option><option>Romance</option><option>Thriller</option><option>Self-Help</option><option>Poetry</option></select></div>
+            </div>
+            <div class="form-group"><label>Approx. page count</label><input type="number" value="128"></div>
+            <button type="submit" class="btn btn-burgundy"><i class="fa-solid fa-paper-plane"></i> Submit Manuscript</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="author-view" id="aview-royaltycalc">
+        <div class="card" style="max-width:640px">
+          <h3 style="margin-bottom:0.35rem">Royalty Calculator</h3>
+          <p class="text-sm text-muted mb-2">Replaces external royalty-calculator link. Enter exact final PDF page count.</p>
+          <div class="form-row">
+            <div class="form-group"><label>Final page count</label><input type="number" id="ac-pages" value="128"></div>
+            <div class="form-group"><label>MRP (₹)</label><input type="number" id="ac-mrp" value="199"></div>
+          </div>
+          <div class="form-group"><label>Print</label><select id="ac-print"><option>B/W Paperback</option><option>Color Interior</option></select></div>
+          <button class="btn btn-primary" onclick="AuthorPortal.runRoyaltyCalc()"><i class="fa-solid fa-calculator"></i> Calculate Royalty</button>
+          <div id="ac-result" class="mt-2"></div>
+          <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--line)">
+          <h3 style="margin-bottom:0.5rem">Book Details for Listing</h3>
+          <p class="text-sm text-muted mb-2">Replaces Google Form — used directly for Amazon / Flipkart listing</p>
+          <form id="bookDetailsForm">
+            <div class="form-group"><label>Book Title (exact)</label><input required value="Whispers of the Monsoon"></div>
+            <div class="form-row">
+              <div class="form-group"><label>Author name on cover</label><input value="Ananya Sharma"></div>
+              <div class="form-group"><label>Language</label><input value="English"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Exact pages (final PDF)</label><input type="number" value="128" required></div>
+              <div class="form-group"><label>MRP</label><input type="number" value="199" required></div>
+            </div>
+            <div class="form-group"><label>Blurb / description</label><textarea rows="3">A lyrical novel of memory and monsoon rains…</textarea></div>
+            <button type="submit" class="btn btn-burgundy">Submit for Listing</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="author-view" id="aview-salesdash">
+        <p class="text-muted mb-2" id="salesUpdateNote">Live sales dashboard — updates every month on the 20th (replaces System.io link)</p>
+        <div class="stat-grid" id="salesDashStats"></div>
+        <div class="detail-grid mt-2">
+          <div class="card">
+            <h3 style="margin-bottom:1rem">Channel Sales</h3>
+            <div id="salesChannels"></div>
+          </div>
+          <div class="card">
+            <h3 style="margin-bottom:1rem">Monthly History</h3>
+            <div id="salesMonthly"></div>
+          </div>
+        </div>
+        <div class="card mt-2">
+          <div class="flex-between mb-2">
+            <h3>Wallet</h3>
+            <button class="btn btn-gold btn-sm" onclick="AuthorPortal.navigate('withdraw')">Withdraw →</button>
+          </div>
+          <div id="salesWallet"></div>
+        </div>
+      </div>
+
+      <div class="author-view" id="aview-withdraw">
+        <div class="card" style="max-width:560px">
+          <h3 style="margin-bottom:0.5rem">Withdraw Royalty</h3>
+          <p class="text-sm text-muted mb-2">Minimum withdrawal: <strong>₹1,000</strong> — withdraw anytime once balance crosses the limit</p>
+          <div id="withdrawBox"></div>
+        </div>
+        <div class="card mt-2" style="max-width:560px">
+          <h3 style="margin-bottom:1rem">Withdrawal History</h3>
+          <div id="withdrawHistory"></div>
+        </div>
+      </div>
+
+      <div class="author-view" id="aview-books">
+        <h3 style="margin-bottom:1rem">Published Books</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem" id="myBooksGrid"></div>
+        <h3 style="margin:2rem 0 1rem">Manuscripts in Pipeline</h3>
+        <div id="myManuscripts"></div>
+      </div>
+
+      <div class="author-view" id="aview-orders">
+        <p class="text-muted mb-2">Orders containing your books</p>
+        <div id="authorOrdersTable"></div>
+      </div>
+
+      <div class="author-view" id="aview-notifications">
+        <div class="notif-list" id="notifList"></div>
+      </div>
+
+      <div class="author-view" id="aview-profile">
+        <div id="profileForm"></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/shared.js"></script>
+<script src="../assets/js/author.js"></script>
+</body>
+</html>

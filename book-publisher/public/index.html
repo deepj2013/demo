@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The BookSpot — New & Used Books | Maadi, Cairo</title>
+<meta name="description" content="The BookSpot — English bookstore in Maadi, Cairo. Shop new & used books online. Delivery across Egypt. Live catalog from bookspotonline.com.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/shared.css">
+<link rel="stylesheet" href="../assets/css/public.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="site-logo"><i class="fa-solid fa-book-open"></i> Book<span>spot</span></a>
+    <button class="menu-btn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    <nav class="site-nav">
+      <a href="#publish-offer" class="active">₹999 Offer</a>
+      <a href="#shop">Shop</a>
+      <a href="#presence">Google Maps</a>
+      <a href="#services">Services</a>
+      <a href="#become-author">Publish With Us</a>
+      <a href="../index.html">Platform Demo</a>
+    </nav>
+    <div class="header-actions">
+      <a href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener" class="btn btn-gold btn-sm"><i class="fa-solid fa-store"></i> Live Shop</a>
+      <a href="../author/index.html" class="btn btn-ghost btn-sm"><i class="fa-solid fa-pen-nib"></i> Author Login</a>
+      <button class="cart-btn" id="cartToggle" aria-label="Cart"><i class="fa-solid fa-shopping-cart"></i><span class="cart-count">0</span></button>
+    </div>
+  </div>
+</header>
+
+<section class="pub-hero">
+  <div class="pub-hero-bg"></div>
+  <div class="wrap pub-hero-inner">
+    <div class="animate-rise">
+      <h1>The Book<span style="color:var(--gold)">Spot</span></h1>
+      <p>New &amp; used English books since 2004 — Maadi, Cairo. Be found on Google Maps, shop online, grow with WhatsApp &amp; social — a complete modern digital presence for your bookstore.</p>
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+        <a href="#publish-offer" class="btn btn-gold btn-lg"><i class="fa-solid fa-pen-nib"></i> ₹999 Publishing Offer</a>
+        <a href="#shop" class="btn btn-ghost btn-lg" style="border-color:rgba(255,255,255,.3);color:#fff"><i class="fa-solid fa-bag-shopping"></i> Shop Catalog</a>
+        <a href="#presence" class="btn btn-ghost btn-lg" style="border-color:rgba(255,255,255,.3);color:#fff"><i class="fa-solid fa-map-location-dot"></i> Digital Presence</a>
+      </div>
+      <div class="hero-proof">
+        <div><strong>Since 2004</strong><span>Maadi, Cairo</span></div>
+        <div><strong>4.8★</strong><span>Google rating</span></div>
+        <div><strong>18K+</strong><span>Map views / mo</span></div>
+        <div><strong>EG</strong><span>Delivery nationwide</span></div>
+      </div>
+    </div>
+    <div class="pub-hero-books" id="heroBooks"></div>
+  </div>
+</section>
+
+<section class="pub-section" id="publish-offer" style="padding-top:2.5rem">
+  <div class="wrap">
+    <div class="offer-hero">
+      <div class="offer-hero-grid" style="display:grid;grid-template-columns:1.3fr 1fr;gap:2rem;position:relative;z-index:1">
+        <div>
+          <div class="offer-slots"><span class="hot">🔥 <span data-slots-left>12</span>/<span data-slots-total>25</span> slots left</span> · Book by this moment</div>
+          <h2 style="font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:0.5rem">Book Publishing Offer ✨</h2>
+          <p style="opacity:0.9;margin-bottom:1rem">India's Writers Community — publish your novel from <strong>₹999 + GST (₹1,180)</strong>. No hidden charges. Cover, formatting, proofreading, ISBN, copyright, Amazon &amp; Flipkart listing, social promotion + <strong>live sales dashboard</strong>.</p>
+          <div style="height:6px;background:rgba(255,255,255,0.15);border-radius:999px;overflow:hidden;max-width:280px;margin-bottom:0.5rem">
+            <div id="slotsBar" style="height:100%;width:52%;background:var(--gold);border-radius:999px"></div>
+          </div>
+          <p style="font-size:0.78rem;opacity:0.7">Content submission window: 6 months · Full process usually 20–30 days after approvals</p>
+        </div>
+        <div>
+          <ul class="offer-benefits" id="offerBenefits" style="color:rgba(255,255,255,0.95)"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-bottom:1rem">
+      <h2>Choose your package</h2>
+      <p>Same benefits across packages — page count decides the fee (replaces Instagram DM pricing)</p>
+    </div>
+    <div class="pkg-grid" id="offerPackages"></div>
+
+    <div class="section-head" style="margin:2.5rem auto 1.25rem">
+      <h2>Automated publishing journey</h2>
+      <p>Replaces Google Forms + email + System.io — every step tracked in Author &amp; Publisher dashboards</p>
+    </div>
+    <div class="offer-pipeline" id="offerPipeline"></div>
+
+    <div class="detail-grid" style="margin-top:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+      <form class="reg-card" id="regForm">
+        <h3 style="margin-bottom:0.35rem">Register &amp; Pay Online</h3>
+        <p class="text-sm text-muted mb-2">Replaces: forms.gle registration + manual payment confirmation</p>
+        <div class="form-group"><label>Full Name</label><input id="reg-name" required placeholder="Author name"></div>
+        <div class="form-row">
+          <div class="form-group"><label>Email</label><input type="email" id="reg-email" required placeholder="you@email.com"></div>
+          <div class="form-group"><label>Phone / WhatsApp</label><input id="reg-phone" required placeholder="+91 …"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Book Genre</label>
+            <select id="reg-genre"><option>Fiction</option><option>Romance</option><option>Thriller</option><option>Self-Help</option><option>Poetry</option><option>Children</option><option>Other</option></select>
+          </div>
+          <div class="form-group"><label>Approx. Page Count</label><input type="number" id="reg-pages" required min="40" max="500" value="120" placeholder="e.g. 120"></div>
+        </div>
+        <div class="form-group"><label>Manuscript status</label>
+          <select id="reg-ready"><option>Ready to submit</option><option>Still in progress (submit within 6 months)</option></select>
+        </div>
+        <div class="form-group"><label>Package</label><select id="reg-package"></select></div>
+        <div class="flex-between" style="background:var(--cream);padding:0.85rem 1rem;border-radius:var(--radius-sm);margin-bottom:1rem">
+          <span class="text-sm">Payable now (incl. GST)</span>
+          <strong id="payAmount" style="font-size:1.25rem">₹1,180</strong>
+        </div>
+        <button type="submit" class="btn btn-burgundy" style="width:100%"><i class="fa-solid fa-lock"></i> Confirm Registration &amp; Pay</button>
+        <p class="text-xs text-muted" style="margin-top:0.75rem;text-align:center">Agreement generated after payment · Demo payment is simulated</p>
+      </form>
+      <div>
+        <div class="card mb-2">
+          <h3 style="margin-bottom:0.75rem">Terms (from current offer)</h3>
+          <ul style="padding-left:1.1rem;font-size:0.88rem;color:var(--muted)">
+            <li style="margin:0.35rem 0">≤150 pages B/W in ₹999+GST package</li>
+            <li style="margin:0.35rem 0">150–300 → ₹1,999 · 300–500 → ₹2,999</li>
+            <li style="margin:0.35rem 0">Content submission deadline: 6 months</li>
+            <li style="margin:0.35rem 0">Agreement after registration</li>
+            <li style="margin:0.35rem 0">Author copies at production rates</li>
+            <li style="margin:0.35rem 0">Regional language &amp; Academic books not allowed</li>
+            <li style="margin:0.35rem 0">Top performing books → offline stores free</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:0.75rem">After you're live</h3>
+          <p class="text-sm text-muted mb-2">Replaces System.io sales link — authors get a real dashboard:</p>
+          <ul style="list-style:none;font-size:0.88rem">
+            <li style="padding:0.4rem 0">✓ Sales update every month on the <strong>20th</strong></li>
+            <li style="padding:0.4rem 0">✓ Amazon + Flipkart copies tracked</li>
+            <li style="padding:0.4rem 0">✓ Wallet + withdrawal (min ₹1,000)</li>
+            <li style="padding:0.4rem 0">✓ Royalty calculator inside portal</li>
+          </ul>
+          <a href="../author/index.html#salesdash" class="btn btn-primary btn-sm mt-1">Preview Author Sales Dashboard →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pub-section" style="padding-top:2.5rem;padding-bottom:0">
+  <div class="wrap">
+    <div class="visit-strip">
+      <div>
+        <h2>Visit us in Maadi — or find us online</h2>
+        <p>70 Road 9 (First Floor) · Tel 02-2378-1006 · bookspotonline@gmail.com</p>
+      </div>
+      <div class="visit-actions">
+        <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&query=The+BookSpot+Maadi+Cairo+Road+9" target="_blank" rel="noopener"><i class="fa-solid fa-map-location-dot"></i> Google Maps</a>
+        <a class="btn btn-white" href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener"><i class="fa-solid fa-store"></i> Live Shop</a>
+        <a class="btn btn-ghost" style="border-color:rgba(255,255,255,.25);color:#fff" href="tel:0223781006"><i class="fa-solid fa-phone"></i> Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pub-section" id="shop">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Shop — Live Catalog Picks</h2>
+      <p>36 titles pulled from <a href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener" style="color:var(--burgundy);font-weight:600">bookspotonline.com</a> with real LE prices. Add to cart here, or buy on the live store.</p>
+    </div>
+    <div style="display:flex;justify-content:center;gap:0.75rem;flex-wrap:wrap;margin-bottom:1.5rem">
+      <a href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener" class="btn btn-primary"><i class="fa-solid fa-store"></i> Shop on Bookspot Online</a>
+      <a href="https://www.bookspotonline.com/middle.php?file=categorylist&book_typeid=1&genreid=163" target="_blank" rel="noopener" class="btn btn-ghost"><i class="fa-solid fa-tags"></i> Summer Sale</a>
+      <a href="https://www.bookspotonline.com/middle.php?file=advanced_search" target="_blank" rel="noopener" class="btn btn-ghost"><i class="fa-solid fa-magnifying-glass"></i> Advanced Search</a>
+    </div>
+    <div class="search-bar"><i class="fa-solid fa-search"></i><input type="search" id="bookSearch" placeholder="Search by title, author, or genre…"></div>
+    <div class="book-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="fantasy">Fantasy</button>
+      <button class="filter-btn" data-filter="classics">Classics</button>
+      <button class="filter-btn" data-filter="romance">Romance</button>
+      <button class="filter-btn" data-filter="mystery">Mystery</button>
+      <button class="filter-btn" data-filter="literary">Literary</button>
+      <button class="filter-btn" data-filter="young">Young Adult</button>
+      <button class="filter-btn" data-filter="non-fiction">Non-Fiction</button>
+      <button class="filter-btn" data-filter="sci-fi">Sci-fi</button>
+      <button class="filter-btn" data-filter="children">Children</button>
+    </div>
+    <div class="book-grid" id="bookGrid"></div>
+  </div>
+</section>
+
+<section class="pub-section alt" id="presence">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Digital Presence for Modern Bookstores</h2>
+      <p>Google Maps, SEO, reviews, WhatsApp, social, ads — everything customers use today to discover and buy from Bookspot</p>
+    </div>
+    <div class="presence-band">
+      <div class="gbp-card" id="gbpCard"></div>
+      <div>
+        <h3 style="margin-bottom:1rem;font-size:1.15rem">Your channels — all connected</h3>
+        <div class="presence-channels" id="presenceChannels"></div>
+        <div class="card mt-2" style="margin-top:1rem">
+          <h3 style="margin-bottom:0.75rem;font-size:1.05rem">Presence checklist</h3>
+          <ul style="list-style:none" id="presenceChecklist"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pub-section" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Everything we can build for Bookspot</h2>
+      <p>From Google Maps to publishing automation — a full modern business stack</p>
+    </div>
+    <div class="svc-tabs">
+      <button class="svc-tab active" data-cat="all" onclick="PublicSite.filterServices('all')">All</button>
+      <button class="svc-tab" data-cat="presence" onclick="PublicSite.filterServices('presence')">Digital Presence</button>
+      <button class="svc-tab" data-cat="growth" onclick="PublicSite.filterServices('growth')">Growth & Marketing</button>
+      <button class="svc-tab" data-cat="publish" onclick="PublicSite.filterServices('publish')">Publishing</button>
+      <button class="svc-tab" data-cat="ops" onclick="PublicSite.filterServices('ops')">Operations</button>
+    </div>
+    <div class="services-grid" id="servicesGrid"></div>
+  </div>
+</section>
+
+<section class="pub-section" id="authors">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Featured Authors</h2>
+      <p>From our catalog and publishing partners</p>
+    </div>
+    <div class="authors-grid" id="authorsGrid"></div>
+  </div>
+</section>
+
+<section class="pub-section alt" id="become-author">
+  <div class="wrap">
+    <div class="become-section">
+      <div>
+        <h2>Publish With The BookSpot</h2>
+        <p>Open to authors. End-to-end publishing — manuscript upload, ISBN, distribution, WhatsApp &amp; social marketing, with transparent royalties.</p>
+        <ol class="become-steps">
+          <li><span>1</span> Register on our Author Portal</li>
+          <li><span>2</span> Upload your manuscript (PDF or DOCX)</li>
+          <li><span>3</span> Editorial review within 14 days</li>
+          <li><span>4</span> Editing, design, ISBN registration</li>
+          <li><span>5</span> Go live on website + marketplaces</li>
+          <li><span>6</span> Track sales & royalties in your dashboard</li>
+        </ol>
+        <a href="../author/index.html" class="btn btn-gold" style="margin-top:1rem"><i class="fa-solid fa-arrow-right"></i> Preview Author Portal</a>
+      </div>
+      <form class="become-form" id="authorForm">
+        <h3 style="margin-bottom:1rem;color:white">Start Your Application</h3>
+        <div class="form-group"><label>Full Name</label><input id="af-name" required placeholder="Your name"></div>
+        <div class="form-group"><label>Email</label><input type="email" required placeholder="author@email.com"></div>
+        <div class="form-group"><label>Phone</label><input required placeholder="+20 1xx xxx xxxx"></div>
+        <div class="form-group"><label>Genre</label>
+          <select><option>Fiction</option><option>Non-Fiction</option><option>Poetry</option><option>Children's</option><option>Academic</option><option>Other</option></select>
+        </div>
+        <div class="form-group"><label>About Your Book</label><textarea rows="3" placeholder="Brief description of your manuscript…"></textarea></div>
+        <button type="submit" class="btn btn-gold" style="width:100%"><i class="fa-solid fa-paper-plane"></i> Submit Application</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="pub-section">
+  <div class="wrap">
+    <div class="section-head"><h2>What Authors Say</h2></div>
+    <div class="testimonial-grid" id="testimonialGrid"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">The Book<span>spot</span></div>
+        <p style="font-size:0.85rem;margin-bottom:1rem">New &amp; used English books since 2004. Delivery anywhere in Egypt.</p>
+        <p style="font-size:0.82rem"><i class="fa-solid fa-location-dot"></i> 70 Road 9 (First Floor), Maadi, Cairo, Egypt</p>
+        <p style="font-size:0.82rem;margin-top:0.35rem"><i class="fa-solid fa-phone"></i> 02-2378-1006</p>
+      </div>
+      <div class="footer-col"><h4>Shop</h4>
+        <a href="#shop">Demo Catalog</a>
+        <a href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener">Live Store</a>
+        <a href="https://www.bookspotonline.com/middle.php?file=categorylist&book_typeid=1&genreid=163" target="_blank" rel="noopener">Special Offers</a>
+        <a href="https://www.bookspotonline.com/middle.php?file=advanced_search" target="_blank" rel="noopener">Advanced Search</a>
+      </div>
+      <div class="footer-col"><h4>Authors</h4><a href="#become-author">Publish With Us</a><a href="../author/index.html">Author Portal</a><a href="#services">Services</a></div>
+      <div class="footer-col"><h4>Contact</h4>
+        <a href="../index.html">Platform Demo</a>
+        <a href="../publisher/index.html">Publisher Dashboard</a>
+        <a href="mailto:bookspotonline@gmail.com">bookspotonline@gmail.com</a>
+        <a href="https://www.bookspotonline.com/middle.php?file=screen&screenid=1" target="_blank" rel="noopener">About Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 The BookSpot · Demo catalog from bookspotonline.com ·
+      <a href="../index.html" style="color:var(--gold)">Platform Pitch</a>
+      <span style="margin:0 0.5rem;opacity:0.4">·</span>
+      <span class="powered-by light">Powered by <a href="https://savoka.in" target="_blank" rel="noopener">Savoka</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header"><h3>Your Cart</h3><button class="modal-close" id="cartClose">&times;</button></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="cart-total"><span>Total</span><span id="cartTotal">LE 0</span></div>
+    <button class="btn btn-primary" style="width:100%" id="checkoutBtn"><i class="fa-solid fa-lock"></i> Checkout</button>
+    <a href="https://www.bookspotonline.com/middle.php?file=home" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%;margin-top:0.5rem"><i class="fa-solid fa-external-link"></i> Or buy on Live Shop</a>
+  </div>
+</aside>
+
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/shared.js"></script>
+<script src="../assets/js/public.js"></script>
+<script src="../assets/js/offer.js"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publisher Dashboard — Bookspot Publishers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/shared.css">
+<link rel="stylesheet" href="../assets/css/publisher.css">
+</head>
+<body>
+
+<div class="dash-layout">
+  <aside class="dash-sidebar">
+    <div class="dash-sidebar-brand">Book<span>spot</span><small>Publisher Command Center</small></div>
+    <nav class="dash-nav">
+      <div class="dash-nav-section">Main</div>
+      <button class="dash-nav-item active" data-view="overview"><i class="fa-solid fa-gauge-high"></i> Overview</button>
+      <button class="dash-nav-item" data-view="orders"><i class="fa-solid fa-box"></i> Unified Orders</button>
+      <div class="dash-nav-section">Content</div>
+      <button class="dash-nav-item" data-view="registrations"><i class="fa-solid fa-file-signature"></i> Offer Registrations</button>
+      <button class="dash-nav-item" data-view="authors"><i class="fa-solid fa-users"></i> Authors</button>
+      <button class="dash-nav-item" data-view="manuscripts"><i class="fa-solid fa-file-lines"></i> Manuscripts</button>
+      <button class="dash-nav-item" data-view="isbn"><i class="fa-solid fa-barcode"></i> ISBN Registry</button>
+      <div class="dash-nav-section">Marketing</div>
+      <button class="dash-nav-item" data-view="presence"><i class="fa-solid fa-map-location-dot"></i> Digital Presence</button>
+      <button class="dash-nav-item" data-view="whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp Marketing</button>
+      <button class="dash-nav-item" data-view="social"><i class="fa-solid fa-share-nodes"></i> Social Media</button>
+      <div class="dash-nav-section">Operations</div>
+      <button class="dash-nav-item" data-view="operations"><i class="fa-solid fa-list-check"></i> Business SOPs</button>
+      <button class="dash-nav-item" data-view="automations"><i class="fa-solid fa-bolt"></i> Automations</button>
+      <button class="dash-nav-item" data-view="integrations"><i class="fa-solid fa-plug"></i> Integrations</button>
+      <button class="dash-nav-item" data-view="royalties"><i class="fa-solid fa-indian-rupee-sign"></i> Royalties</button>
+      <button class="dash-nav-item" data-view="reports"><i class="fa-solid fa-chart-line"></i> Reports</button>
+      <button class="dash-nav-item" data-view="settings"><i class="fa-solid fa-gear"></i> Settings</button>
+    </nav>
+    <div class="dash-sidebar-footer">
+      <div class="dash-user">
+        <div class="avatar">RP</div>
+        <div><strong style="font-size:0.85rem">Rajesh Patel</strong><br><span style="font-size:0.72rem;opacity:0.6">Publisher Admin</span></div>
+      </div>
+      <a href="../index.html" class="btn btn-ghost btn-sm" style="width:100%;margin-top:0.75rem;color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.15)"><i class="fa-solid fa-arrow-left"></i> Back to Pitch</a>
+      <p class="powered-by light" style="justify-content:center;margin-top:0.85rem;font-size:0.7rem">
+        Powered by <a href="https://savoka.in" target="_blank" rel="noopener">Savoka</a>
+      </p>
+    </div>
+  </aside>
+
+  <main class="dash-main">
+    <header class="dash-topbar">
+      <div class="flex gap-1" style="align-items:center">
+        <button class="sidebar-toggle"><i class="fa-solid fa-bars"></i></button>
+        <h1 id="pageTitle">Dashboard Overview</h1>
+      </div>
+      <div class="dash-topbar-actions">
+        <a href="../public/index.html" class="btn btn-ghost btn-sm" target="_blank"><i class="fa-solid fa-store"></i> View Store</a>
+        <button class="btn btn-primary btn-sm" onclick="IB.toast('Syncing all channels…','ok');setTimeout(()=>IB.toast('847 orders synced from Amazon, Flipkart, Website','ok'),1500)"><i class="fa-solid fa-rotate"></i> Sync All</button>
+      </div>
+    </header>
+
+    <div class="dash-content">
+      <!-- Overview -->
+      <div class="dash-view active" id="view-overview">
+        <div class="stat-grid" id="overviewStats"></div>
+        <div class="card mt-2">
+          <h3 style="margin-bottom:1rem">Channel Sales (Last 6 Months)</h3>
+          <div id="salesChartOverview"></div>
+        </div>
+        <div class="recent-orders">
+          <div class="flex-between mb-2"><h3>Recent Orders</h3><button class="btn btn-ghost btn-sm" onclick="PublisherDash.navigate('orders')">View All →</button></div>
+          <div id="recentOrders"></div>
+        </div>
+      </div>
+
+      <!-- Offer Registrations -->
+      <div class="dash-view" id="view-registrations">
+        <div class="flex-between mb-2">
+          <p class="text-muted">₹999 publishing offer registrations — payment, manuscript, formatting → listing pipeline (automates Instagram + Google Forms flow)</p>
+          <a href="../public/index.html#publish-offer" class="btn btn-gold btn-sm" target="_blank"><i class="fa-solid fa-tags"></i> View Public Offer</a>
+        </div>
+        <div class="stat-grid mb-2" id="regStats"></div>
+        <div class="tabs" id="regTabs"></div>
+        <div id="regTable"></div>
+      </div>
+
+      <!-- Authors -->
+      <div class="dash-view" id="view-authors">
+        <div class="flex-between mb-2">
+          <p class="text-muted">Manage registered authors — approve, view details, set royalty rates</p>
+          <button class="btn btn-primary btn-sm" onclick="IB.toast('Invite link copied to clipboard','ok')"><i class="fa-solid fa-user-plus"></i> Invite Author</button>
+        </div>
+        <div id="authorsTable"></div>
+      </div>
+
+      <!-- Manuscripts -->
+      <div class="dash-view" id="view-manuscripts">
+        <p class="text-muted mb-2">Track manuscripts through the publishing pipeline — click any card to view details or advance stage</p>
+        <div class="pipeline" id="pipelineBoard"></div>
+      </div>
+
+      <!-- ISBN -->
+      <div class="dash-view" id="view-isbn">
+        <p class="text-muted mb-2">Track ISBN registration requests with Raja Rammohun Roy National Agency (RRRLF)</p>
+        <div id="isbnTable"></div>
+      </div>
+
+      <!-- Orders -->
+      <div class="dash-view" id="view-orders">
+        <p class="text-muted mb-2">All orders from Website, Amazon, Flipkart, and Kindle in one place — visible to relevant authors too</p>
+        <div class="tabs" id="orderTabs"></div>
+        <div id="ordersTable"></div>
+      </div>
+
+      <!-- Integrations -->
+      <div class="dash-view" id="view-integrations">
+        <p class="text-muted mb-2">Connect marketplaces, WhatsApp Business API, Meta Business Suite — sync automatically</p>
+        <div class="integ-grid" id="integGrid"></div>
+      </div>
+
+      <!-- Digital Presence -->
+      <div class="dash-view" id="view-presence">
+        <p class="text-muted mb-2">Google Maps / Business Profile, SEO, reviews & all digital channels — so customers find Bookspot in the modern era</p>
+        <div class="stat-grid mb-2" id="presenceStats"></div>
+        <div class="detail-grid">
+          <div class="card" id="presenceGbp"></div>
+          <div class="card">
+            <h3 style="margin-bottom:1rem">SEO Keywords (Cairo / Maadi)</h3>
+            <div id="presenceSeo"></div>
+          </div>
+        </div>
+        <div class="card mt-2">
+          <h3 style="margin-bottom:1rem">Channel Status</h3>
+          <div class="integ-grid" id="presenceChannelGrid"></div>
+        </div>
+        <div class="card mt-2">
+          <div class="flex-between mb-2"><h3>Presence Checklist</h3><button class="btn btn-gold btn-sm" onclick="IB.toast('Weekly presence report emailed','ok')"><i class="fa-solid fa-download"></i> Export Report</button></div>
+          <div id="presenceCheckDash"></div>
+        </div>
+      </div>
+
+      <!-- WhatsApp Marketing -->
+      <div class="dash-view" id="view-whatsapp">
+        <div class="flex-between mb-2">
+          <p class="text-muted">Bulk WhatsApp campaigns to boost book sales, attract authors & engage readers — 28,400+ subscribers</p>
+          <button class="btn btn-primary btn-sm" onclick="PublisherDash.newWhatsAppCampaign()"><i class="fa-brands fa-whatsapp"></i> New Campaign</button>
+        </div>
+        <div id="whatsappCampaigns"></div>
+        <h3 style="margin:2rem 0 1rem">Contact Lists</h3>
+        <div class="integ-grid" id="whatsappLists"></div>
+      </div>
+
+      <!-- Social Media -->
+      <div class="dash-view" id="view-social">
+        <div class="flex-between mb-2">
+          <p class="text-muted">Manage Instagram, Facebook, LinkedIn, Twitter — content calendar with auto-publishing</p>
+          <button class="btn btn-primary btn-sm" onclick="PublisherDash.newSocialPost()"><i class="fa-solid fa-plus"></i> Schedule Post</button>
+        </div>
+        <div class="stat-grid mb-2" id="socialStats"></div>
+        <div class="detail-grid">
+          <div class="card"><h3 style="margin-bottom:1rem">Content Calendar</h3><div id="socialCalendar"></div></div>
+          <div class="card">
+            <h3 style="margin-bottom:1rem">What We Manage</h3>
+            <ul style="list-style:none;font-size:0.88rem">
+              <li style="padding:0.5rem 0;border-bottom:1px solid var(--line)">📸 Instagram — reels, carousels, stories</li>
+              <li style="padding:0.5rem 0;border-bottom:1px solid var(--line)">👤 Facebook — book trailers, live sessions</li>
+              <li style="padding:0.5rem 0;border-bottom:1px solid var(--line)">💼 LinkedIn — articles, author spotlights</li>
+              <li style="padding:0.5rem 0;border-bottom:1px solid var(--line)">🐦 Twitter/X — threads, launch announcements</li>
+              <li style="padding:0.5rem 0">⚡ Auto-publish via Meta Business Suite</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Business SOPs -->
+      <div class="dash-view" id="view-operations">
+        <p class="text-muted mb-2">Standard business processes — pre-built SOPs with automated steps. Click any process to view full checklist.</p>
+        <div id="sopList"></div>
+      </div>
+
+      <!-- Automations -->
+      <div class="dash-view" id="view-automations">
+        <div class="flex-between mb-2">
+          <p class="text-muted">12 active automations handling 90%+ of repetitive tasks — orders, royalties, launches, notifications</p>
+          <button class="btn btn-gold btn-sm" onclick="IB.toast('Automation builder opened','ok')"><i class="fa-solid fa-plus"></i> New Automation</button>
+        </div>
+        <div id="automationList"></div>
+      </div>
+
+      <!-- Royalties -->
+      <div class="dash-view" id="view-royalties">
+        <p class="text-muted mb-2">Author royalty payouts — calculated automatically from all sales channels</p>
+        <div id="royaltyTable"></div>
+      </div>
+
+      <!-- Reports -->
+      <div class="dash-view" id="view-reports">
+        <div class="card"><h3 style="margin-bottom:1rem">Sales by Channel</h3><div id="salesChartReports"></div></div>
+        <div class="detail-grid mt-2">
+          <div class="card">
+            <h3 style="margin-bottom:1rem">Top Selling Books</h3>
+            <ul style="list-style:none;font-size:0.88rem">
+              <li class="flex-between" style="padding:0.5rem 0;border-bottom:1px solid var(--line)"><span>Spices of Malabar</span><strong>11,240</strong></li>
+              <li class="flex-between" style="padding:0.5rem 0;border-bottom:1px solid var(--line)"><span>Borders of Belonging</span><strong>13,770</strong></li>
+              <li class="flex-between" style="padding:0.5rem 0;border-bottom:1px solid var(--line)"><span>Code & Karma</span><strong>8,390</strong></li>
+              <li class="flex-between" style="padding:0.5rem 0"><span>The Midnight Library of Delhi</span><strong>6,890</strong></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 style="margin-bottom:1rem">Channel Revenue (Nov)</h3>
+            <ul style="list-style:none;font-size:0.88rem">
+              <li class="flex-between" style="padding:0.5rem 0;border-bottom:1px solid var(--line)"><span>🛒 Amazon</span><strong>₹5,67,000</strong></li>
+              <li class="flex-between" style="padding:0.5rem 0;border-bottom:1px solid var(--line)"><span>🛍️ Flipkart</span><strong>₹2,89,000</strong></li>
+              <li class="flex-between" style="padding:0.5rem 0;border-bottom:1px solid var(--line)"><span>🌐 Website</span><strong>₹2,67,000</strong></li>
+              <li class="flex-between" style="padding:0.5rem 0"><span>📱 Kindle</span><strong>₹1,24,000</strong></li>
+            </ul>
+            <button class="btn btn-ghost btn-sm mt-2" onclick="IB.toast('Report exported as PDF','ok')"><i class="fa-solid fa-download"></i> Export PDF</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings -->
+      <div class="dash-view" id="view-settings">
+        <div class="card" style="max-width:640px">
+          <h3 style="margin-bottom:1.25rem">Publisher Settings</h3>
+          <div class="form-group"><label>Publisher Name</label><input value="The BookSpot"></div>
+          <div class="form-group"><label>Contact Email</label><input value="bookspotonline@gmail.com"></div>
+          <div class="form-group"><label>Default Author Royalty (%)</label><input type="number" value="10"></div>
+          <div class="form-group"><label>Payout Schedule</label><select><option>Monthly (1st of month)</option><option>Quarterly</option></select></div>
+          <div class="form-group"><label>Domain</label><input value="www.bookspotonline.com"></div>
+          <button class="btn btn-primary" onclick="IB.toast('Settings saved','ok')"><i class="fa-solid fa-save"></i> Save Settings</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/shared.js"></script>
+<script src="../assets/js/publisher.js"></script>
+</body>
+</html>

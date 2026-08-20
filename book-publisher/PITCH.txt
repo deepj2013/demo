@@ -1,0 +1,188 @@
+Powered by Savoka — https://savoka.in
+
+═══════════════════════════════════════════════════════════════
+BOOKSPOT PUBLISHERS PLATFORM — CLIENT PITCH SCRIPT
+For Book Publishers · Hindi + English · Copy & Customize
+═══════════════════════════════════════════════════════════════
+
+नमस्ते Bookspot Publishers टीम 🙏
+
+मैंने आपके publishing business के लिए complete digital platform demo तैयार किया है — 
+Bookspot Publishers brand के नाम से, पूरी तरह customized।
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 ONE-LINE PITCH (30 seconds)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"Bookspot Publishers के लिए एक platform जहाँ authors खुद register करें, manuscript upload करें, 
+ISBN apply करें — Amazon, Flipkart, website से सभी orders एक dashboard पर — PLUS bulk WhatsApp 
+marketing से book sales बढ़ाएं, social media manage करें, standard business process follow हो 
+और 90%+ काम automatically हो।"
+
+8️⃣ ₹999 PUBLISHING OFFER AUTOMATION (replaces Instagram + Google Forms + System.io)
+   → Packages: ≤150 ₹999+GST · 150–300 ₹1999 · 300–500 ₹2999
+   → Online registration + payment (no Google Form)
+   → 9-step journey: payment → manuscript → format → cover → royalty calc → listing → live
+   → In-portal royalty calculator (replaces bolt.host link)
+   → Book details form for Amazon/Flipkart listing
+   → Live sales dashboard (updates every month on 20th)
+   → Wallet + withdrawal (min ₹1,000)
+   → Publisher: Offer Registrations board with Advance Stage
+   → Demo: public/index.html#publish-offer · author/index.html#salesdash
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📦 WHAT WE BUILT — 6 CONNECTED SYSTEMS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣ PUBLISHER DASHBOARD
+   → Authors, manuscripts, ISBN, unified orders
+   → WhatsApp Marketing hub — bulk campaigns
+   → Social Media management — Instagram, Facebook, LinkedIn
+   → Business SOPs — 5 standard operational processes
+   → 12 Automations — 90%+ tasks on autopilot
+   → Demo: publisher/index.html
+
+2️⃣ AUTHOR PORTAL
+   → Self-registration, manuscript upload, ISBN request
+   → Real-time sales from all channels
+   → Royalty dashboard
+   → Demo: author/index.html
+
+3️⃣ PUBLIC BOOKSTORE + ONLINE SHOP
+   → Book catalog, cart, checkout
+   → "Publish With Us" author funnel
+   → 12 services including WhatsApp & social media
+   → Demo: public/index.html
+
+4️⃣ BULK WHATSAPP MARKETING 💬
+   → 28,400+ subscriber contact lists
+   → Campaign types: book launch, flash sale, author acquisition
+   → Templates, scheduling, conversion tracking
+   → Diwali campaign demo: 18,400 sent → 287 orders
+   → Demo: publisher/index.html#whatsapp
+
+5️⃣ SOCIAL MEDIA MANAGEMENT 📱
+   → Content calendar for Instagram, Facebook, LinkedIn, Twitter
+   → Auto-publish via Meta Business Suite
+   → Book launch posts, reels, author spotlights
+   → 45,600+ combined followers managed
+   → Demo: publisher/index.html#social
+
+6️⃣ STANDARD SOPs + AUTOMATIONS ⚡
+   → 5 pre-built business processes:
+     • Author Onboarding (48hr SLA)
+     • Manuscript to Publication (60-90 days)
+     • Order Fulfillment (24hr SLA)
+     • Monthly Royalty Payout
+     • Book Launch Marketing
+   → 12 active automations:
+     • Marketplace order sync (every 15 min)
+     • Auto royalty calculation per sale
+     • Book launch → WhatsApp + social auto-trigger
+     • Abandoned cart WhatsApp recovery
+     • ISBN status tracker
+     • And more...
+   → Demo: publisher/index.html#automations
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💡 WHY — PROBLEMS WE SOLVE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ Amazon/Flipkart/website orders alag-alag Excel mein
+✅ Bookspot: Ek dashboard, sab channels
+
+❌ Book promote karne ke liye WhatsApp manually bhejna
+✅ Bookspot: Bulk WhatsApp campaigns with templates & tracking
+
+❌ Social media ke liye alag agency ya khud manage karna
+✅ Bookspot: Content calendar + auto-posting built-in
+
+❌ Har book ka process alag — koi standard nahi
+✅ Bookspot: 5 standard SOPs — har book same quality process
+
+❌ Royalties, orders, ISBN — sab manual
+✅ Bookspot: 12 automations — 90%+ kaam automatic
+
+❌ Authors roz phone karke sales puchte hain
+✅ Bookspot: Author portal mein real-time sales
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⭐ USP — UNIQUE SELLING POINTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FOR BOOKSPOT (OWNER):
+• Publish + Promote + Operate — sab ek platform
+• WhatsApp marketing se direct book sales boost
+• Social media bina agency ke manage
+• Standard SOPs = consistent quality har book ke liye
+• 90%+ automation = kam staff, zyada scale
+• White-label ready with Bookspot branding
+
+FOR AUTHORS:
+• Self-service portal — transparency
+• Apni book ki WhatsApp campaign results bhi dikhe
+• Real-time sales all channels se
+
+FOR READERS:
+• Professional bookstore
+• WhatsApp pe new release alerts
+• Social media pe discover karein
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔄 DEMO WALKTHROUGH (20 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+MIN 1-3: Public Website — shop, services, author signup
+MIN 4-6: Publisher Dashboard — overview, authors, orders
+MIN 7-9: WhatsApp Marketing — campaigns, lists, send demo
+MIN 10-12: Social Media — calendar, schedule post, stats
+MIN 13-15: SOPs & Automations — click SOP, pause/enable automation
+MIN 16-18: Author Portal — upload, sales, royalties
+MIN 19-20: Wrap up — pricing, customization, timeline
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📱 WHATSAPP MESSAGE (Copy & Send)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+नमस्ते Bookspot Publishers team 🙏
+
+आपके लिए complete platform demo तैयार है — Bookspot brand के साथ:
+
+✅ Publisher Dashboard — authors, orders, ISBN, royalties
+✅ Bulk WhatsApp Marketing — book sales + author acquisition
+✅ Social Media Management — Instagram, Facebook, LinkedIn
+✅ Standard Business SOPs + 12 Automations (90% auto)
+✅ Author Portal + Public Bookstore + Amazon/Flipkart sync
+
+Demo: book-publisher/index.html
+
+20 minute walkthrough kar sakta hoon — kab convenient ho?
+
+Powered by Savoka → https://savoka.in
+
+[Your Name] | [Phone]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🇬🇧 ENGLISH VERSION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Hi Bookspot Publishers team,
+
+I built your complete publishing platform demo:
+
+1) Publisher Dashboard — authors, orders, ISBN, royalties
+2) Bulk WhatsApp Marketing — boost sales, attract authors (28K+ subscribers)
+3) Social Media Management — content calendar, auto-posting
+4) Standard SOPs + 12 Automations (90%+ tasks automated)
+5) Author Portal + Public Bookstore + Amazon/Flipkart sync
+
+Everything is branded Bookspot Publishers. Every button works with mock data.
+
+Happy to walk you through in 20 minutes. When works for you?
+
+Powered by Savoka — https://savoka.in
+
+Thanks,
+[Your Name] | [Phone]
+
+═══════════════════════════════════════════════════════════════
