@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0C1F36" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Ujma" />
+  <title>Ujma Uniform — Complete Ecommerce Demo</title>
+  <meta name="description" content="Ujma Uniform demo: medical scrubs, lab coats, hospitality and school uniforms. A complete ecommerce experience that looks like an iPhone app." />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,500&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/app.css" />
+</head>
+<body>
+  <div class="demo-bar">
+    <div class="brand-mini">Ujma Uniform · Client Demo</div>
+    <nav>
+      <a class="active" href="index.html">App</a>
+      <a href="shop/index.html">Web store</a>
+      <a href="admin/index.html">Admin</a>
+      <button class="linkish" type="button" data-jump="shop">Shop</button>
+      <button class="linkish" type="button" data-jump="cart">Checkout</button>
+      <button class="linkish" type="button" data-jump="bulk">B2B</button>
+    </nav>
+  </div>
+
+  <div class="stage">
+    <aside class="pitch" id="features">
+      <div class="kicker">Demonstration · HTML / CSS / JS</div>
+      <h1>Ujma <em>Uniform</em></h1>
+      <p class="lead">
+        A complete ecommerce for professional uniforms — like Knya, built for your brand.
+      Medical scrubs, lab coats, hospitality, school and institutional wear.
+      On a phone it opens as an iPhone-style shopping app. The <a href="shop/index.html" style="color:var(--sand);font-weight:700">web store</a>
+      and <a href="admin/index.html" style="color:var(--sand);font-weight:700">admin console</a> share the same catalog, stock and orders.
+      </p>
+      <div class="proof">
+        <div><strong>16</strong><span>Live products</span></div>
+        <div><strong>8</strong><span>Feature modules</span></div>
+        <div><strong>₹</strong><span>INR · COD · EMI</span></div>
+        <div><strong>B2B</strong><span>Bulk + embroidery</span></div>
+      </div>
+
+      <h2>Complete ecommerce — tap a module to see it</h2>
+      <p class="hint">Each block jumps the iPhone to that flow. On a real phone, this page is the app itself.</p>
+      <div id="featureList"></div>
+    </aside>
+
+    <div class="device-col">
+      <div class="iphone">
+        <div class="iphone-screen" id="phone">
+          <div class="island"></div>
+          <div class="status-bar" id="statusBar">
+            <span id="clock">9:41</span>
+            <span class="status-icons">5G ●●●● 🔋</span>
+          </div>
+
+          <div class="app">
+            <div class="screens" id="screens"></div>
+            <nav class="tabbar" id="tabbar"></nav>
+          </div>
+
+          <div class="sheet-bg" id="sheetBg"></div>
+          <aside class="sheet" id="sheet"></aside>
+          <div class="toast" id="toast"></div>
+          <div class="home-bar"></div>
+        </div>
+      </div>
+      <p class="device-caption">iPhone 15 Pro frame · full-screen app on mobile</p>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

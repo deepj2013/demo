@@ -1,0 +1,9 @@
+{
+  "name": "Ujma Uniform",
+  "short_name": "Ujma",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0C1F36",
+  "theme_color": "#0C1F36",
+  "icons": []
+}

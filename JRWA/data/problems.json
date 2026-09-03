@@ -1,0 +1,65 @@
+[
+  {
+    "id":"school-authenticity","title_en":"School recognition & safety concerns","title_hi":"स्कूल की मान्यता और सुरक्षा पर सवाल","category":"Education","priority":"Verify facts","area":"School zone","icon":"🏫",
+    "summary_en":"Residents need clear, verified information about recognition, permissions, safety standards and fee practices—without spreading unverified allegations.","summary_hi":"निवासियों को मान्यता, अनुमति, सुरक्षा मानक और फीस संबंधी सत्यापित जानकारी चाहिए—बिना अपुष्ट आरोप फैलाए।",
+    "description_en":"Parents may be uncertain whether a nearby school has the required recognition, fire clearance, building safety, transport safeguards and transparent fee records. This page records the concern, not a conclusion of wrongdoing.","description_hi":"अभिभावकों को पास के स्कूल की मान्यता, अग्नि सुरक्षा, भवन सुरक्षा, परिवहन सुरक्षा और पारदर्शी फीस रिकॉर्ड को लेकर संदेह हो सकता है। यह पेज चिंता दर्ज करता है, किसी दोष का निष्कर्ष नहीं।",
+    "impact_en":"Children’s safety, education continuity and family finances may be affected if required standards are not met.","impact_hi":"आवश्यक मानक पूरे न होने पर बच्चों की सुरक्षा, पढ़ाई की निरंतरता और परिवार की आर्थिक स्थिति प्रभावित हो सकती है।",
+    "solution_en":"Create a factual checklist, request documents from the school respectfully, verify recognition on the competent education authority’s records, and document specific safety observations. Never publish children’s identities.","solution_hi":"तथ्यात्मक चेकलिस्ट बनाएँ, स्कूल से सम्मानपूर्वक दस्तावेज़ माँगें, सक्षम शिक्षा विभाग के रिकॉर्ड में मान्यता जाँचें और विशेष सुरक्षा टिप्पणियाँ दर्ज करें। बच्चों की पहचान प्रकाशित न करें।",
+    "authority_en":"Approach the relevant Basic/District Education authority for recognition; Fire Services and the local authority for specific safety/building issues. Submit one evidence-led representation signed by affected parents.","authority_hi":"मान्यता के लिए संबंधित बेसिक/जिला शिक्षा विभाग और विशेष अग्नि/भवन मुद्दों के लिए अग्निशमन सेवा व स्थानीय निकाय से संपर्क करें। प्रभावित अभिभावकों के हस्ताक्षर वाला प्रमाण-आधारित आवेदन दें।",
+    "lat":28.6721,"lng":77.4518,"image":""
+  },
+  {
+    "id":"park-misuse","title_en":"Improper activities and encroachment in the park","title_hi":"पार्क में अनुचित गतिविधियाँ और अतिक्रमण","category":"Safety","priority":"High","area":"Community park","icon":"🌳",
+    "summary_en":"A public park should remain safe and accessible. Unauthorised occupation, dumping, commercial activity or anti-social behaviour needs documented, lawful action.","summary_hi":"सार्वजनिक पार्क सुरक्षित और सबके लिए खुला रहना चाहिए। अनधिकृत कब्ज़ा, कचरा, व्यावसायिक गतिविधि या असामाजिक व्यवहार पर प्रमाण सहित वैधानिक कार्रवाई जरूरी है।",
+    "description_en":"Residents report that the park is not consistently available for children, walkers, women and senior citizens. Exact activities, dates and locations must be verified before a complaint is filed.","description_hi":"निवासियों के अनुसार पार्क बच्चों, टहलने वालों, महिलाओं और वरिष्ठ नागरिकों के लिए लगातार उपलब्ध नहीं रहता। शिकायत से पहले गतिविधि, तारीख और स्थान सत्यापित करना जरूरी है।",
+    "impact_en":"Reduced safe recreation, fear after dark, damage to public assets and loss of shared green space.","impact_hi":"सुरक्षित मनोरंजन में कमी, शाम के बाद डर, सार्वजनिक संपत्ति का नुकसान और साझा हरित स्थान की हानि।",
+    "solution_en":"Conduct a daylight park audit, photograph public conditions without targeting private individuals, confirm land ownership, request cleaning, lighting, boundary repair, timings and regular patrolling.","solution_hi":"दिन में पार्क ऑडिट करें, निजी व्यक्तियों को निशाना बनाए बिना सार्वजनिक स्थिति की फोटो लें, भूमि स्वामित्व जाँचें और सफाई, रोशनी, सीमा मरम्मत, समय व गश्त की मांग करें।",
+    "authority_en":"Local municipal/development authority for maintenance and encroachment; local police for specific illegal or threatening activity. Use emergency channels only for immediate danger.","authority_hi":"रखरखाव और अतिक्रमण के लिए नगर/विकास प्राधिकरण; विशेष गैरकानूनी या धमकी वाली गतिविधि के लिए स्थानीय पुलिस। तत्काल खतरे में ही आपातकालीन माध्यम प्रयोग करें।",
+    "lat":28.6689,"lng":77.4562,"image":""
+  },
+  {
+    "id":"liquor-shop","title_en":"Liquor outlet near homes and child-sensitive areas","title_hi":"घरों और बच्चों के क्षेत्र के पास शराब की दुकान","category":"Safety","priority":"Review licence","area":"Main market edge","icon":"⚠️",
+    "summary_en":"Residents want the licence, permitted location, opening practices and public-safety impact of a nearby liquor outlet reviewed by the competent authority.","summary_hi":"निवासी पास की शराब दुकान के लाइसेंस, स्वीकृत स्थान, संचालन और सार्वजनिक सुरक्षा प्रभाव की सक्षम विभाग से जाँच चाहते हैं।",
+    "description_en":"Proximity to homes, schools, places of worship or playgrounds may create concern, but applicable distance and licensing rules depend on the jurisdiction and current excise policy. The outlet should not be described as illegal until verified.","description_hi":"घरों, स्कूल, धार्मिक स्थल या खेल क्षेत्र की निकटता चिंता पैदा कर सकती है, पर दूरी और लाइसेंस नियम क्षेत्र व वर्तमान आबकारी नीति पर निर्भर करते हैं। सत्यापन से पहले दुकान को अवैध न कहें।",
+    "impact_en":"Possible crowding, litter, harassment, noise, unsafe traffic and discomfort for children and families—each should be recorded as a specific incident, not a general accusation.","impact_hi":"भीड़, कचरा, उत्पीड़न, शोर, असुरक्षित यातायात और बच्चों/परिवारों की असुविधा—हर बात को सामान्य आरोप नहीं, विशेष घटना के रूप में दर्ज करें।",
+    "solution_en":"Map exact distances, maintain an incident log, verify the licence and approved premises, and request inspection of sale timings, drinking outside the shop, litter, parking and public nuisance.","solution_hi":"सटीक दूरी मैप करें, घटना रजिस्टर रखें, लाइसेंस व स्वीकृत परिसर जाँचें और बिक्री समय, बाहर शराब पीने, कचरा, पार्किंग व सार्वजनिक उपद्रव की जाँच माँगें।",
+    "authority_en":"Submit a signed factual representation to the District Excise Officer; report specific public-order or safety incidents to local police. Seek legal advice before any litigation or public allegation.","authority_hi":"जिला आबकारी अधिकारी को हस्ताक्षर सहित तथ्यात्मक आवेदन दें; सार्वजनिक व्यवस्था या सुरक्षा की विशेष घटना स्थानीय पुलिस को दें। मुकदमे या सार्वजनिक आरोप से पहले कानूनी सलाह लें।",
+    "lat":28.6668,"lng":77.4529,"image":""
+  },
+  {
+    "id":"drainage","title_en":"Blocked drains and recurring waterlogging","title_hi":"बंद नालियाँ और बार-बार जलभराव","category":"Civic","priority":"Critical","area":"Blocks A–C","icon":"🌧️",
+    "summary_en":"Blocked local drains and missing links cause stagnant water, sewage overflow and difficult access after rainfall.","summary_hi":"स्थानीय नालियों में रुकावट और अधूरे जोड़ बारिश के बाद गंदा पानी, सीवर ओवरफ्लो और आवागमन की समस्या पैदा करते हैं।",
+    "description_en":"The area needs a drain-by-drain survey separating routine blockage from missing or undersized public infrastructure.","description_hi":"इलाके को नाली-दर-नाली सर्वे चाहिए जिससे सामान्य रुकावट और गायब/छोटी सार्वजनिक संरचना अलग पहचानी जा सके।",
+    "impact_en":"Mosquito breeding, contamination, property damage, falls, blocked access and health risk.","impact_hi":"मच्छर, दूषण, संपत्ति नुकसान, गिरने का खतरा, बंद रास्ता और स्वास्थ्य जोखिम।",
+    "solution_en":"Map flow direction and choke points; seek immediate desilting while submitting a measured proposal for main-drain repair or construction. Community funds should cover only agreed temporary/minor work.","solution_hi":"पानी की दिशा और रुकावट मैप करें; तुरंत सफाई की मांग के साथ मुख्य नाली मरम्मत/निर्माण का मापा प्रस्ताव दें। सामुदायिक धन केवल सहमत अस्थायी/छोटे काम में लगे।",
+    "authority_en":"Municipal body, development authority or sewerage agency depending on ownership. File one complaint with length, locations, photographs, affected-house count and rainfall dates.","authority_hi":"स्वामित्व के अनुसार नगर निकाय, विकास प्राधिकरण या सीवरेज एजेंसी। लंबाई, स्थान, फोटो, प्रभावित घर और बारिश की तारीख सहित एक शिकायत दें।",
+    "lat":28.6704,"lng":77.4491,"image":""
+  },
+  {
+    "id":"garbage","title_en":"Open dumping and irregular waste pickup","title_hi":"खुले में कचरा और अनियमित उठान","category":"Environment","priority":"High","area":"Vacant plot / market lane","icon":"🗑️",
+    "summary_en":"Recurring waste hotspots need reliable collection, enforcement and resident cooperation—not occasional clean-ups alone.","summary_hi":"बार-बार बनने वाले कचरा स्थलों के लिए नियमित उठान, नियम पालन और निवासी सहयोग चाहिए—केवल कभी-कभार सफाई नहीं।",
+    "description_en":"Mixed household and commercial waste is reportedly accumulating at common points and vacant land.","description_hi":"घरेलू और व्यावसायिक मिश्रित कचरा सार्वजनिक स्थानों व खाली जमीन पर जमा होने की सूचना है।",
+    "impact_en":"Odour, pests, blocked drains, smoke from burning and an unsafe walking environment.","impact_hi":"दुर्गंध, कीट, बंद नालियाँ, जलाने का धुआँ और असुरक्षित पैदल वातावरण।",
+    "solution_en":"Record pickup timing, identify repeat hotspots, request dependable door-to-door service and covered community points where permitted; run a local no-dumping pledge and report commercial violations.","solution_hi":"उठान समय दर्ज करें, बार-बार बनने वाले स्थान पहचानें, नियमित घर-घर सेवा व जहाँ अनुमति हो ढके बिंदु माँगें; कचरा न फेंकने का स्थानीय संकल्प लें।",
+    "authority_en":"Municipal sanitation department and authorised waste contractor. Ask for route, schedule, supervisor contact and complaint reference.","authority_hi":"नगर स्वच्छता विभाग और अधिकृत कचरा ठेकेदार। मार्ग, समय, सुपरवाइज़र संपर्क और शिकायत संख्या माँगें।",
+    "lat":28.674,"lng":77.455,"image":""
+  },
+  {
+    "id":"streetlights","title_en":"Dark streets and non-working lights","title_hi":"अंधेरी गलियाँ और खराब स्ट्रीट लाइट","category":"Safety","priority":"High","area":"Inner lanes","icon":"💡",
+    "summary_en":"Several dark points make walking difficult and reduce perceived safety after sunset.","summary_hi":"कई अंधेरे स्थान सूर्यास्त के बाद चलना कठिन बनाते हैं और सुरक्षा की भावना घटाते हैं।",
+    "description_en":"A numbered pole and dark-spot audit can distinguish failed fixtures from places where no public light exists.","description_hi":"नंबर वाले खंभों और अंधेरे स्थानों का ऑडिट खराब लाइट और जहाँ लाइट है ही नहीं, उनमें अंतर करेगा।",
+    "impact_en":"Higher risk of falls, traffic conflict, harassment and reduced movement for women, children and seniors.","impact_hi":"गिरने, यातायात टकराव, उत्पीड़न और महिलाओं, बच्चों व बुजुर्गों की आवाजाही घटने का जोखिम।",
+    "solution_en":"Photograph each spot after dark from a safe position, record pole/asset numbers, report failed lights in one list and propose new-light points separately.","solution_hi":"सुरक्षित स्थान से रात में फोटो लें, खंभा/संपत्ति नंबर दर्ज करें, खराब लाइट की एक सूची और नई लाइट के प्रस्ताव अलग दें।",
+    "authority_en":"Municipal electricity/streetlight cell or development authority. Obtain one reference per cluster and verify after repair.","authority_hi":"नगर स्ट्रीट लाइट प्रकोष्ठ या विकास प्राधिकरण। हर समूह की संदर्भ संख्या लें और मरम्मत के बाद सत्यापन करें।",
+    "lat":28.6715,"lng":77.458,"image":""
+  },
+  {
+    "id":"roads","title_en":"Damaged roads and unsafe pedestrian access","title_hi":"टूटी सड़कें और असुरक्षित पैदल रास्ते","category":"Civic","priority":"High","area":"Entry road","icon":"🚧",
+    "summary_en":"Potholes, broken edges and unmanaged parking create avoidable risk, especially near the main entrance.","summary_hi":"गड्ढे, टूटी किनारी और अव्यवस्थित पार्किंग खासकर मुख्य प्रवेश पर अनावश्यक जोखिम पैदा करते हैं।",
+    "description_en":"Before demanding resurfacing, ownership and the cause of damage—especially leakage or drainage—should be established.","description_hi":"दोबारा सड़क बनाने की मांग से पहले स्वामित्व और नुकसान का कारण—विशेषकर लीकेज या जल निकासी—जाँचना चाहिए।",
+    "impact_en":"Vehicle damage, falls, dust, congestion and difficult access for ambulances and people with limited mobility.","impact_hi":"वाहन नुकसान, गिरना, धूल, जाम और एम्बुलेंस व सीमित गतिशीलता वाले लोगों के लिए कठिन पहुँच।",
+    "solution_en":"Measure damaged stretches, photograph with landmarks, fix underlying water leakage/drainage first and seek a written resurfacing schedule.","solution_hi":"क्षतिग्रस्त हिस्से मापें, पहचान-चिह्न सहित फोटो लें, पहले पानी रिसाव/निकासी सुधारें और लिखित सड़क निर्माण समय माँगें।",
+    "authority_en":"Road-owning municipal body, public works department or development authority. Confirm ownership before filing to avoid transfers between departments.","authority_hi":"सड़क स्वामी नगर निकाय, लोक निर्माण विभाग या विकास प्राधिकरण। विभागों में शिकायत घूमने से रोकने के लिए पहले स्वामित्व जाँचें।",
+    "lat":28.6658,"lng":77.456,"image":""
+  }
+]
