@@ -2,72 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ujma Admin — Inventory, Orders & Delivery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0C1F36" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Ujma Ops — Admin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/phone.css" />
   <link rel="stylesheet" href="../assets/css/admin.css" />
 </head>
-<body>
-  <div class="login" id="loginGate">
-    <form class="login-card" id="loginForm">
-      <div class="muted" style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:700">Ujma Uniform · Ops</div>
-      <h2>Admin console</h2>
-      <p class="muted" style="margin-bottom:1rem">Create items, upload stock, pack orders and manage delivery.</p>
-      <div class="field"><label>Username</label><input id="user" value="admin" autocomplete="username" /></div>
-      <div class="field"><label>Password</label><input id="pass" type="password" value="ujma123" autocomplete="current-password" /></div>
-      <button class="btn btn-navy" type="submit" style="width:100%">Sign in</button>
-      <p class="muted" style="margin-top:.7rem;font-size:.75rem">Demo login: <b>admin</b> / <b>ujma123</b></p>
-    </form>
-  </div>
+<body class="phone-page">
+  <nav class="app-switch">
+    <a href="../index.html">Shop app</a>
+    <a href="../shop/index.html">Store</a>
+    <a class="on" href="index.html">Ops admin</a>
+  </nav>
 
-  <div class="shell" id="app" hidden>
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="brand-mark">U</div>
-        <div><strong>Ujma Ops</strong><small>Ecommerce admin</small></div>
+  <div class="iphone">
+    <div class="iphone-screen">
+      <div class="island"></div>
+      <div class="status-bar" id="statusBar"><span id="clock">9:41</span><span>5G ●●●● 🔋</span></div>
+
+      <div class="login" id="loginGate">
+        <form class="login-card" id="loginForm">
+          <div class="muted" style="font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:700">Ujma Ops</div>
+          <h2>Admin</h2>
+          <p class="muted" style="margin-bottom:1rem">Items, stock, orders and delivery.</p>
+          <div class="field"><label>Username</label><input id="user" value="admin" autocomplete="username" /></div>
+          <div class="field"><label>Password</label><input id="pass" type="password" value="ujma123" autocomplete="current-password" /></div>
+          <button class="btn btn-navy" type="submit" style="width:100%">Sign in</button>
+          <p class="muted" style="margin-top:.7rem;font-size:.75rem">Demo: <b>admin</b> / <b>ujma123</b></p>
+        </form>
       </div>
-      <div class="nav-label">Overview</div>
-      <a class="nav-link on" data-view="dash">Dashboard</a>
-      <div class="nav-label">Catalog</div>
-      <a class="nav-link" data-view="products">Items / products</a>
-      <a class="nav-link" data-view="inventory">Inventory upload</a>
-      <div class="nav-label">Fulfilment</div>
-      <a class="nav-link" data-view="orders">Orders <span class="badge" id="navPending">0</span></a>
-      <a class="nav-link" data-view="delivery">Delivery</a>
-      <div class="nav-label">CRM</div>
-      <a class="nav-link" data-view="customers">Customers</a>
-      <a class="nav-link" data-view="quotes">B2B quotes</a>
-      <a class="nav-link" data-view="coupons">Coupons</a>
-      <a class="nav-link" data-view="settings">Settings</a>
-      <div class="side-foot">
-        <div>Signed in as Admin</div>
-        <a href="../shop/index.html">Open web store →</a><br />
-        <a href="../index.html">iPhone app demo →</a><br />
-        <button type="button" id="logout">Log out</button>
+
+      <div class="phone-app" id="app" hidden>
+        <header class="topbar">
+          <div>
+            <h1 id="pageTitle">Dashboard</h1>
+            <div class="muted" id="pageSub">Same catalog as the shop</div>
+          </div>
+          <button class="btn btn-teal btn-sm" id="quickAdd" type="button">+ Item</button>
+        </header>
+        <div class="content phone-scroll" id="view"></div>
       </div>
-    </aside>
-    <div class="main">
-      <header class="topbar">
-        <div>
-          <h1 id="pageTitle">Dashboard</h1>
-          <div class="muted" id="pageSub">Live demo data · same catalog as the shop</div>
-        </div>
-        <div class="links">
-          <a class="btn btn-ghost btn-sm" href="../shop/index.html" target="_blank">View store</a>
-          <button class="btn btn-teal btn-sm" data-view="products" id="quickAdd">+ New item</button>
-        </div>
-      </header>
-      <div class="content" id="view"></div>
+
+      <nav class="app-tabbar cols-5" id="adminTabs" hidden>
+        <button type="button" class="on" data-view="dash"><span class="ico"></span>Home</button>
+        <button type="button" data-view="products"><span class="ico"></span>Items</button>
+        <button type="button" data-view="inventory"><span class="ico"></span>Stock</button>
+        <button type="button" data-view="orders"><span class="ico"></span>Orders</button>
+        <button type="button" data-view="more"><span class="ico"></span>More</button>
+      </nav>
+
+      <div class="drawer-bg" id="drawerBg"></div>
+      <aside class="drawer" id="drawer"></aside>
+      <div class="toast" id="toast"></div>
+      <div class="home-bar"></div>
     </div>
   </div>
 
-  <div class="drawer-bg" id="drawerBg"></div>
-  <aside class="drawer" id="drawer"></aside>
-  <div class="toast" id="toast"></div>
-
   <script src="../assets/js/data.js"></script>
   <script src="../assets/js/store.js"></script>
+  <script src="../assets/js/phone.js"></script>
   <script src="../assets/js/admin.js"></script>
 </body>
 </html>

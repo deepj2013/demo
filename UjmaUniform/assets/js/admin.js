@@ -26,6 +26,10 @@ function go(name, extra) {
   if (extra && extra.product) productEdit = extra.product;
   if (name !== "products") productEdit = extra && extra.product ? extra.product : null;
   $$(".nav-link").forEach((a) => a.classList.toggle("on", a.dataset.view === name));
+  $$("#adminTabs [data-view]").forEach((a) => {
+    const tab = ["dash", "products", "inventory", "orders"].includes(name) ? name : "more";
+    a.classList.toggle("on", a.dataset.view === tab);
+  });
   const titles = {
     dash: ["Dashboard", "Orders, stock and delivery at a glance"],
     products: ["Items / products", "Create styles, colours, sizes and publish to the shop"],
@@ -35,7 +39,8 @@ function go(name, extra) {
     customers: ["Customers", "Retail + hospital / school accounts"],
     quotes: ["B2B quotes", "Bulk embroidery and institution requests"],
     coupons: ["Coupons", "Sitewide and B2B discount codes"],
-    settings: ["Settings", "Shipping, warehouse, GST"]
+    settings: ["Settings", "Shipping, warehouse, GST"],
+    more: ["More", "Delivery, customers, quotes, coupons"]
   };
   $("#pageTitle").textContent = titles[name][0];
   $("#pageSub").textContent = titles[name][1];
@@ -45,7 +50,8 @@ function go(name, extra) {
 
 function kpisBar() {
   const k = UjmaDB.kpis();
-  $("#navPending").textContent = k.pending;
+  const badge = $("#navPending");
+  if (badge) badge.textContent = k.pending;
   return `
     <div class="kpis">
       <div class="kpi"><span>Revenue</span><strong>${inr(k.revenue)}</strong><em>${k.orders} orders</em></div>
@@ -373,15 +379,29 @@ function viewSettings() {
       <div class="field"><label>Ops email</label><input name="email" value="${s.email}" /></div>
       <button class="btn btn-navy" type="submit">Save settings</button>
       <button class="btn btn-ghost" type="button" id="resetDb" style="margin-left:8px">Reset demo data</button>
+      <button class="btn btn-ghost" type="button" id="logout" style="margin-left:8px">Log out</button>
     </form>
   </div>`;
 }
 
-const VIEWS = { dash: viewDash, products: viewProducts, inventory: viewInventory, orders: viewOrders, delivery: viewDelivery, customers: viewCustomers, quotes: viewQuotes, coupons: viewCoupons, settings: viewSettings };
+function viewMore() {
+  return `
+    <div class="card" style="padding:0">
+      <button class="ios-row nav-link" data-view="delivery" style="width:100%;display:flex;justify-content:space-between;padding:14px 16px;border:0;border-bottom:1px solid var(--line);background:#fff;text-align:left">Delivery board <span>›</span></button>
+      <button class="nav-link" data-view="customers" style="width:100%;display:flex;justify-content:space-between;padding:14px 16px;border:0;border-bottom:1px solid var(--line);background:#fff;text-align:left">Customers <span>›</span></button>
+      <button class="nav-link" data-view="quotes" style="width:100%;display:flex;justify-content:space-between;padding:14px 16px;border:0;border-bottom:1px solid var(--line);background:#fff;text-align:left">B2B quotes <span>›</span></button>
+      <button class="nav-link" data-view="coupons" style="width:100%;display:flex;justify-content:space-between;padding:14px 16px;border:0;border-bottom:1px solid var(--line);background:#fff;text-align:left">Coupons <span>›</span></button>
+      <button class="nav-link" data-view="settings" style="width:100%;display:flex;justify-content:space-between;padding:14px 16px;border:0;background:#fff;text-align:left">Settings <span>›</span></button>
+    </div>
+    <p class="muted" style="padding:12px 4px;font-size:.8rem">Shop checkout and the iPhone app write into these same orders and stock.</p>`;
+}
+
+const VIEWS = { dash: viewDash, products: viewProducts, inventory: viewInventory, orders: viewOrders, delivery: viewDelivery, customers: viewCustomers, quotes: viewQuotes, coupons: viewCoupons, settings: viewSettings, more: viewMore };
 
 function render() {
   $("#view").innerHTML = (VIEWS[view] || viewDash)();
   bindView();
+  bindLogout();
 }
 
 function openDrawer(html) {
@@ -528,14 +548,18 @@ $("#loginForm").addEventListener("submit", (e) => {
     enter();
   } else toast("Use admin / ujma123");
 });
-$("#logout").addEventListener("click", () => { sessionStorage.removeItem(AUTH); location.reload(); });
 $("#drawerBg").addEventListener("click", closeDrawer);
-$$(".sidebar [data-view]").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); go(a.dataset.view); }));
+$$("#adminTabs [data-view]").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); go(a.dataset.view); }));
 $("#quickAdd").addEventListener("click", () => { productEdit = "new"; go("products"); });
+
+function bindLogout() {
+  $("#logout")?.addEventListener("click", () => { sessionStorage.removeItem(AUTH); location.reload(); });
+}
 
 function enter() {
   $("#loginGate").hidden = true;
   $("#app").hidden = false;
+  if ($("#adminTabs")) $("#adminTabs").hidden = false;
   const h = location.hash.slice(1);
   go(VIEWS[h] ? h : "dash");
 }

@@ -141,16 +141,35 @@ section { padding: 3.2rem 0; }
 }
 .toast.show { opacity: 1; transform: translateX(-50%); }
 
-@media (max-width: 900px) {
-  .nav, .menu-btn { }
-  .nav { display: none; }
-  .menu-btn { display: grid; place-items: center; }
-  .nav.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: #fff; padding: 1rem; border-bottom: 1px solid var(--line); }
-  .cats { grid-template-columns: repeat(2, 1fr); }
-  .grid, .trust, .footer-grid, .pdp-grid { grid-template-columns: 1fr 1fr; }
-  .pdp-img { height: 320px; }
-  .hero { min-height: 56vh; }
+/* Inside iPhone frame — always a mobile app */
+body.phone-page { background: transparent; color: var(--ink); }
+.phone-page .announce { font-size: 0.62rem; padding: 0.35rem 0.6rem; }
+.phone-page .header { position: relative; background: #fff; }
+.phone-page .header-inner { padding: 0.45rem 0.85rem; }
+.phone-page .logo { font-size: 1.25rem; }
+.phone-page .wrap { width: 100%; padding: 0 0.85rem; }
+.phone-page section { padding: 1.1rem 0; }
+.phone-page .hero { min-height: 210px; }
+.phone-page .hero-inner { padding: 1.2rem 0.85rem 1.3rem; }
+.phone-page .hero h1 { font-size: 1.65rem; }
+.phone-page .hero p { font-size: 0.8rem; margin-bottom: 0.8rem; }
+.phone-page .trust { grid-template-columns: 1fr 1fr; }
+.phone-page .trust div { padding: 0.55rem 0.4rem; }
+.phone-page .cats { grid-template-columns: 1fr 1fr; }
+.phone-page .cat { min-height: 78px; }
+.phone-page .grid { grid-template-columns: 1fr 1fr; gap: 0.55rem; }
+.phone-page .pcard .ph { height: 132px; }
+.phone-page .sec-h h2 { font-size: 1.2rem; }
+.phone-page .pdp-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+.phone-page .pdp-img { height: 240px; border-radius: 0; }
+.phone-page .checkout { padding: 0.8rem 0.85rem 1.5rem; }
+.phone-page .drawer-bg, .phone-page .cart, .phone-page .toast {
+  position: absolute;
 }
-@media (max-width: 560px) {
-  .grid, .trust { grid-template-columns: 1fr; }
+.phone-page .cart { width: 100%; }
+.phone-page .toast { bottom: 80px; }
+
+@media (max-width: 640px) {
+  body.phone-page { background: #000; }
 }
+

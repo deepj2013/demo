@@ -169,3 +169,34 @@ th { font-size: 0.72rem; color: var(--muted); font-weight: 700; }
   .kpis, .kanban, .grid-2, .grid-3 { grid-template-columns: 1fr; }
   table { font-size: 0.78rem; }
 }
+
+/* iPhone admin app */
+body.phone-page { background: transparent; }
+.phone-page .login {
+  position: absolute; inset: 0; z-index: 45; border-radius: 46px;
+  padding: 72px 18px 28px;
+}
+.phone-page .login-card { width: 100%; padding: 1.15rem; }
+.phone-page .topbar {
+  position: relative; padding: 0.45rem 0.85rem; background: #fff;
+  gap: 0.5rem;
+}
+.phone-page .topbar h1 { font-size: 1.05rem; }
+.phone-page .topbar .muted { display: none; }
+.phone-page .content { padding: 0.7rem 0.75rem 1rem; }
+.phone-page .kpis { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+.phone-page .kpi { padding: 0.7rem; }
+.phone-page .kpi strong { font-size: 1.2rem; }
+.phone-page .grid-2, .phone-page .grid-3, .phone-page .kanban { grid-template-columns: 1fr; }
+.phone-page .card { padding: 0.75rem; }
+.phone-page table { font-size: 0.72rem; }
+.phone-page th, .phone-page td { padding: 0.45rem 0.3rem; }
+.phone-page .drawer, .phone-page .drawer-bg, .phone-page .toast { position: absolute; }
+.phone-page .drawer { width: 100%; }
+.phone-page .toast { right: 12px; bottom: 80px; }
+.phone-page .preview { height: 100px; }
+
+@media (max-width: 640px) {
+  body.phone-page { background: #000; }
+  .phone-page .login { border-radius: 0; }
+}

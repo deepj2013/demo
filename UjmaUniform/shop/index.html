@@ -2,73 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ujma Uniform — Medical scrubs, lab coats & professional uniforms</title>
-  <meta name="description" content="Buy medical scrubs, lab coats, hospitality and school uniforms online. Free delivery, COD, EMI." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0C1F36" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Ujma Uniform — Shop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/phone.css" />
   <link rel="stylesheet" href="../assets/css/shop.css" />
 </head>
-<body>
-  <div class="announce">Free delivery over ₹999 <span>|</span> COD available <span>|</span> Easy EMI <span>|</span> 7-day exchange</div>
-  <header class="header">
-    <div class="wrap header-inner">
-      <a class="logo" href="#home">Ujma <em>Uniform</em></a>
-      <button class="icon-btn menu-btn" id="menuBtn" type="button">☰</button>
-      <nav class="nav" id="nav">
-        <a href="#shop" data-cat="women">Women</a>
-        <a href="#shop" data-cat="men">Men</a>
-        <a href="#shop" data-cat="lab">Lab coats</a>
-        <a href="#shop" data-cat="hospitality">Hospitality</a>
-        <a href="#shop" data-cat="school">School</a>
-        <a href="#bulk">Bulk / institutions</a>
+<body class="phone-page">
+  <nav class="app-switch">
+    <a href="../index.html">Shop app</a>
+    <a class="on" href="index.html">Store</a>
+    <a href="../admin/index.html">Ops admin</a>
+  </nav>
+
+  <div class="iphone">
+    <div class="iphone-screen">
+      <div class="island"></div>
+      <div class="status-bar"><span id="clock">9:41</span><span>5G ●●●● 🔋</span></div>
+
+      <div class="phone-app">
+        <div class="announce">Free delivery over ₹999 · COD · EMI</div>
+        <header class="header">
+          <div class="header-inner">
+            <a class="logo" href="#home" id="logoHome">Ujma</a>
+            <button class="icon-btn" id="openCart" type="button" aria-label="Bag">
+              👜<span class="cart-count" id="cartCount">0</span>
+            </button>
+          </div>
+        </header>
+        <div id="app" class="phone-scroll"></div>
+      </div>
+
+      <nav class="app-tabbar" id="shopTabs">
+        <button type="button" class="on" data-go="home"><span class="ico"></span>Home</button>
+        <button type="button" data-go="shop"><span class="ico"></span>Shop</button>
+        <button type="button" id="tabBag"><span class="ico"></span>Bag</button>
+        <button type="button" data-go="bulk"><span class="ico"></span>B2B</button>
       </nav>
-      <div class="header-actions">
-        <a class="btn btn-ghost" href="../admin/index.html" style="padding:.45rem .8rem;font-size:.78rem">Admin</a>
-        <button class="icon-btn" id="openCart" type="button" aria-label="Bag">
-          👜<span class="cart-count" id="cartCount">0</span>
-        </button>
-      </div>
+
+      <div class="drawer-bg" id="bg"></div>
+      <aside class="cart" id="cart"></aside>
+      <div class="toast" id="toast"></div>
+      <div class="home-bar"></div>
     </div>
-  </header>
-
-  <div id="app"></div>
-
-  <footer class="footer">
-    <div class="wrap footer-grid">
-      <div>
-        <div class="logo" style="color:#fff">Ujma <em>Uniform</em></div>
-        <p>Uniforms that work as hard as you do. Medical, hospitality, school and institutional wear — India-wide.</p>
-      </div>
-      <div>
-        <h4>Shop</h4>
-        <a href="#shop" data-cat="women">Women's scrubs</a>
-        <a href="#shop" data-cat="men">Men's scrubs</a>
-        <a href="#shop" data-cat="lab">Lab coats</a>
-        <a href="#shop" data-cat="accessories">Accessories</a>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <a href="../index.html">iPhone app demo</a>
-        <a href="../admin/index.html">Ops admin</a>
-        <a href="#bulk">Bulk orders</a>
-      </div>
-      <div>
-        <h4>Help</h4>
-        <p>+91 98765 44001</p>
-        <p>hello@ujmauniform.com</p>
-        <p>COD · UPI · Cards · EMI</p>
-      </div>
-    </div>
-    <div class="wrap copy">© 2026 Ujma Uniform. Demo storefront — orders appear in Admin → Orders.</div>
-  </footer>
-
-  <div class="drawer-bg" id="bg"></div>
-  <aside class="cart" id="cart"></aside>
-  <div class="toast" id="toast"></div>
+  </div>
 
   <script src="../assets/js/data.js"></script>
   <script src="../assets/js/store.js"></script>
+  <script src="../assets/js/phone.js"></script>
   <script src="../assets/js/shop.js"></script>
 </body>
 </html>

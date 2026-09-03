@@ -9,11 +9,13 @@ cd UjmaUniform
 python3 -m http.server 8765
 ```
 
+Every URL opens as an **iPhone app** (phone frame on desktop, full-screen on a real phone).
+
 | Surface | URL |
 |--------|-----|
-| iPhone app + feature pitch | [http://127.0.0.1:8765](http://127.0.0.1:8765) |
-| Web store | [http://127.0.0.1:8765/shop/](http://127.0.0.1:8765/shop/) |
-| Admin console | [http://127.0.0.1:8765/admin/](http://127.0.0.1:8765/admin/) |
+| Shop app | [http://127.0.0.1:8765](http://127.0.0.1:8765) |
+| Store app | [http://127.0.0.1:8765/shop/](http://127.0.0.1:8765/shop/) |
+| Ops admin app | [http://127.0.0.1:8765/admin/](http://127.0.0.1:8765/admin/) |
 
 **Admin login:** `admin` / `ujma123`
 
@@ -32,9 +34,9 @@ python3 -m http.server 8765
 
 ## Surfaces
 
-- **Web store** — Knya-like site: categories, colours, PDP with live warehouse qty, bag, checkout (UPI / COD / card / EMI), bulk quote.
-- **iPhone app** — native-looking shop on desktop (phone frame) and full-screen on a real phone.
-- **Admin** — dashboard KPIs, item master, inventory, orders, delivery board, customers, coupons, shipping settings.
+- **Shop app** — customer shopping (home, catalog, bag, account).
+- **Store app** — same catalog in a store tab bar (Home / Shop / Bag / B2B).
+- **Ops admin app** — items, stock, orders, delivery (Home / Items / Stock / Orders / More).
 
 Demo coupon on the app: `UJMA10`. App OTP: `1234`.
 
