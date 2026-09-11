@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brochure | YLK Infra</title>
+  <link rel="stylesheet" href="assets/css/site.css" />
+  <meta name="robots" content="noindex" />
+</head>
+<body data-page="brochure" data-asset-base="assets/img/">
+  <main class="brochure-page" id="bro"></main>
+  <script src="assets/js/vault.enc.js"></script>
+  <script src="assets/js/crypto.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script>
+    (async () => {
+      await YLKStore.init();
+      const id = new URLSearchParams(location.search).get("id");
+      const p = YLKStore.item(id);
+      const c = YLKStore.company();
+      const el = document.getElementById("bro");
+      if (!p) { el.innerHTML = "<p>Listing not found.</p>"; return; }
+      document.title = (p.title) + " · Brochure · YLK Infra";
+      el.innerHTML = `
+        <header>
+          <div>
+            <strong>YLK INFRA PRIVATE LIMITED</strong>
+            <div>${c.address}</div>
+            <div>${c.phone} · ${c.email}</div>
+          </div>
+          <img src="${YLKStore.img("ylk-logo.png")}" width="72" height="72" alt="YLK" />
+        </header>
+        <p class="eyebrow">${p.kicker || p.city} · ${p.status.toUpperCase()}</p>
+        <h1>${p.title}</h1>
+        <p><strong>${p.priceLabel || YLKStore.inr(p.price)}</strong> · ${p.area || ""} · ${p.rera || ""}</p>
+        <p>${p.description}</p>
+        <h2>Highlights</h2>
+        <ul>${(p.highlights || []).map(h => "<li>"+h+"</li>").join("")}</ul>
+        <h2>Amenities</h2>
+        <ul>${(p.amenities || []).map(h => "<li>"+h+"</li>").join("")}</ul>
+        <h2>Documents in this pack</h2>
+        <ul>${(p.documents || []).map(d => "<li>"+d.name+"</li>").join("")}</ul>
+        <p>Layout reference:</p>
+        <img src="${YLKStore.img(p.mapImage || "map-masterplan.png")}" alt="Map" />
+        <p style="margin-top:1.5rem">To book: WhatsApp ${c.phone} with your name, number and email, quoting <b>${p.id}</b>.</p>
+        <p><button class="btn btn-gold" onclick="window.print()">Print / Save PDF</button>
+        <a class="btn btn-sm" href="property.html?id=${encodeURIComponent(p.id)}">Back to listing</a></p>
+      `;
+    })();
+  </script>
+</body>
+</html>

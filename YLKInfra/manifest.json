@@ -1,0 +1,14 @@
+{
+  "name": "YLK Infra",
+  "short_name": "YLK Infra",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#07140F",
+  "theme_color": "#07140F",
+  "lang": "en",
+  "description": "YLK Infra Private Limited — plots, flats, villas, houses, offices and construction. Bareilly & Delhi NCR.",
+  "icons": [
+    { "src": "assets/img/app-icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

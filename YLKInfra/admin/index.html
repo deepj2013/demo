@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#07140F" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>YLK Infra Admin · Inventory & Bookings</title>
+  <link rel="icon" href="../assets/img/app-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+</head>
+<body data-asset-base="../assets/img/">
+  <div class="login-wrap" id="loginGate">
+    <form class="login-card" id="loginForm">
+      <p class="muted" style="letter-spacing:.14em;text-transform:uppercase;color:#c9a227;font-weight:800">YLK Infra · Ops</p>
+      <h1>Admin</h1>
+      <p>Manage inventory, sold-out flags and WhatsApp bookings. Changes appear on the public website.</p>
+      <label>Username<input id="user" value="admin" autocomplete="username" /></label>
+      <label>Password<input id="pass" type="password" autocomplete="current-password" /></label>
+      <p class="err" id="loginErr" hidden>Wrong username or password.</p>
+      <button class="btn btn-gold" type="submit">Sign in</button>
+      <p class="fine">Staff: <b>admin</b> / <b>YlkInfra@2030</b> — change before handing to the client.</p>
+    </form>
+  </div>
+
+  <div class="app" id="app" hidden>
+    <header class="topbar">
+      <div>
+        <h1 id="pageTitle">Dashboard</h1>
+        <div class="muted" style="color:#e0c36a">Bareilly · live public catalog</div>
+      </div>
+      <a class="btn-sm" href="../index.html">Public site</a>
+    </header>
+    <nav class="side">
+      <button type="button" class="on" data-view="dash">Dashboard</button>
+      <button type="button" data-view="inventory">Inventory</button>
+      <button type="button" data-view="bookings">Bookings</button>
+      <button type="button" data-view="more">Settings</button>
+    </nav>
+    <main class="view" id="view"></main>
+    <nav class="admin-tabs">
+      <button type="button" class="on" data-view="dash">Home</button>
+      <button type="button" data-view="inventory">Stock</button>
+      <button type="button" data-view="bookings">Leads</button>
+      <button type="button" data-view="more">More</button>
+    </nav>
+  </div>
+
+  <div class="drawer-bg" id="drawerBg"></div>
+  <aside class="drawer" id="drawer"></aside>
+  <div class="toast" id="toast"></div>
+
+  <script src="../assets/js/vault.enc.js"></script>
+  <script src="../assets/js/crypto.js"></script>
+  <script src="../assets/js/i18n.js"></script>
+  <script src="../assets/js/store.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>
