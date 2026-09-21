@@ -19,6 +19,7 @@ const pages = [
   { file: "ncr.html", page: "ncr", title: "Buy Plots, Offices & Land Anywhere in Delhi NCR | YLK Infra", desc: "YLK Infra helps you buy plots, offices and land in Noida, Greater Noida, Gurugram, Faridabad, Delhi and Jewar." },
   { file: "invest.html", page: "invest", title: "Why Land is a Secure Investment | YLK Infra Bareilly", desc: "Why titled land in North Indian growth corridors remains a durable family asset — and how YLK checks the paper." },
   { file: "about.html", page: "about", title: "About YLK Infra Private Limited | Bareilly", desc: "Privately owned builder, constructor and seller based in Civil Lines, Bareilly with a Delhi NCR desk." },
+  { file: "partners.html", page: "partners", title: "Channel Partners | Brokers & Loan Desks | YLK Infra Bareilly", desc: "Join the YLK Infra partner network. Live inventory, transparent slabs, WhatsApp desk +91 94125 02030. Bareilly and Delhi NCR." },
   { file: "contact.html", page: "contact", title: "Contact YLK Infra | WhatsApp +91 94125 02030 | Bareilly", desc: "Head office Civil Lines, Bareilly. Call or WhatsApp +91 94125 02030. Book a site visit with name, number and email." }
 ];
 

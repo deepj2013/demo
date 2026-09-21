@@ -36,6 +36,8 @@ const YLKUI = (() => {
       { href: "affordable.html", key: "affordable", label: n.affordable, desk: true },
       { href: "ncr.html", key: "ncr", label: n.ncr, desk: true },
       { href: "invest.html", key: "invest", label: n.invest, desk: true },
+      { href: "partners.html", key: "partners", label: n.partners, desk: true },
+      { href: "plan.html", key: "plan", label: n.plan, desk: true },
       { href: "about.html", key: "about", label: n.about },
       { href: "contact.html", key: "contact", label: n.contact, desk: true }
     ];
@@ -114,6 +116,8 @@ const YLKUI = (() => {
             <a href="affordable.html">${n.affordable}</a>
             <a href="ncr.html">${n.ncr}</a>
             <a href="invest.html">${n.invest}</a>
+            <a href="partners.html">${n.partners}</a>
+            <a href="plan.html">${n.plan}</a>
           </div>
           <div>
             <h4>${n.contact}</h4>
@@ -121,6 +125,7 @@ const YLKUI = (() => {
             <a href="contact.html">${n.contact}</a>
             <a href="inventory.html">${n.inventory}</a>
             <a href="admin/index.html">${n.admin}</a>
+            <a href="partners.html">${n.partners}</a>
             <button type="button" class="linkish" data-open-book>${n.book}</button>
           </div>
         </div>
@@ -131,7 +136,7 @@ const YLKUI = (() => {
       <nav class="app-tabbar" aria-label="App">
         <a href="index.html" class="${pageKey() === "home" ? "on" : ""}">${icon("home")}<span>${YLKStore.t("tabs.home")}</span></a>
         <a href="inventory.html" class="${pageKey() === "inventory" ? "on" : ""}">${icon("building")}<span>${YLKStore.t("tabs.stock")}</span></a>
-        <a href="invest.html" class="${pageKey() === "invest" ? "on" : ""}">${icon("chart")}<span>${YLKStore.t("tabs.invest")}</span></a>
+        <a href="partners.html" class="${pageKey() === "partners" ? "on" : ""}">${icon("ncr")}<span>${YLKStore.t("nav.partners")}</span></a>
         <button type="button" data-open-book>${icon("wa")}<span>${YLKStore.t("tabs.book")}</span></button>
         <a href="contact.html" class="${pageKey() === "contact" ? "on" : ""}">${icon("pin")}<span>${YLKStore.t("tabs.more")}</span></a>
       </nav>`;
@@ -169,6 +174,9 @@ const YLKUI = (() => {
               <option value="">—</option>
               ${inv.map((p) => `<option value="${p.id}" ${p.id === propertyId ? "selected" : ""}>${YLKStore.titleOf(p)} · ${p.city}</option>`).join("")}
             </select>
+          </label>
+          <label>${YLKStore.t("partnerCode")}
+            <input name="partnerCode" placeholder="YLK-AGA" maxlength="16" />
           </label>
           <label>${YLKStore.t("message")}
             <textarea name="message" rows="3"></textarea>
@@ -214,13 +222,14 @@ const YLKUI = (() => {
     return `<span class="badge b-${st}">${YLKStore.statusLabel(st)}</span>`;
   }
 
-  function card(p) {
+  function card(p, featured) {
     const img = YLKStore.img((p.images && p.images[0]) || "hero-estate.png");
     const sold = p.status !== "available";
     return `
-      <article class="prop-card ${sold ? "is-sold" : ""}">
+      <article class="prop-card ${sold ? "is-sold" : ""} ${featured ? "is-feature" : ""}">
         <a class="pc-media" href="property.html?id=${encodeURIComponent(p.id)}">
           <img src="${img}" alt="${YLKStore.titleOf(p)}" loading="lazy" />
+          <div class="pc-shade"></div>
           ${badge(p.status)}
           <span class="pc-type">${YLKStore.typeLabel(p.type)}</span>
         </a>
@@ -278,6 +287,8 @@ const YLKUI = (() => {
     err.hidden = true;
     const propertyId = String(fd.get("propertyId") || "");
     const prop = propertyId ? YLKStore.item(propertyId) : null;
+    const partnerCode = String(fd.get("partnerCode") || "").trim().toUpperCase();
+    const partner = YLKStore.partnerByCode(partnerCode);
     const rec = YLKStore.addBooking({
       name,
       phone,
@@ -285,6 +296,8 @@ const YLKUI = (() => {
       interest: String(fd.get("interest") || ""),
       propertyId,
       propertyTitle: prop ? prop.title : "",
+      partnerCode,
+      partnerName: partner ? partner.name : "",
       message: String(fd.get("message") || ""),
       page: location.pathname
     });
@@ -297,6 +310,7 @@ const YLKUI = (() => {
       "Email: " + email,
       "Interest: " + (fd.get("interest") || "—"),
       "Property: " + (prop ? prop.title + " (" + prop.city + ")" : "—"),
+      "Partner: " + (partner ? partner.name + " (" + partner.code + ")" : partnerCode || "—"),
       "Message: " + (fd.get("message") || "—"),
       "From: " + location.href
     ];

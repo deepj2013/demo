@@ -2,6 +2,7 @@
 const YLKStore = (() => {
   const LS_INV = "ylk_inv_overlay_v1";
   const LS_BOOK = "ylk_bookings_v1";
+  const LS_PART = "ylk_partners_v1";
   const LS_SESSION = "ylk_admin_session_v1";
   const LS_LANG = "ylk_lang";
   const LS_WISH = "ylk_wish";
@@ -89,6 +90,59 @@ const YLKStore = (() => {
   }
   function testimonials() {
     return catalog.testimonials || [];
+  }
+
+  function partnerOverlay() {
+    return loadJson(LS_PART, { upserts: [], deletes: [] });
+  }
+
+  function partners() {
+    const ov = partnerOverlay();
+    const deleted = new Set(ov.deletes || []);
+    const map = new Map();
+    (catalog.partners || []).forEach((p) => {
+      if (!deleted.has(p.id)) map.set(p.id, { ...p });
+    });
+    (ov.upserts || []).forEach((p) => {
+      if (!deleted.has(p.id)) map.set(p.id, { ...map.get(p.id), ...p });
+    });
+    return [...map.values()];
+  }
+
+  function publicPartners() {
+    return partners().filter((p) => p.status === "active");
+  }
+
+  function partnerByCode(code) {
+    const c = String(code || "").trim().toUpperCase();
+    if (!c) return null;
+    return partners().find((p) => String(p.code || "").toUpperCase() === c) || null;
+  }
+
+  function upsertPartner(partial) {
+    const ov = partnerOverlay();
+    const id = partial.id || "pt-" + Math.random().toString(36).slice(2, 8);
+    const prev = partners().find((p) => p.id === id) || {};
+    const rec = {
+      ...prev,
+      ...partial,
+      id,
+      code: (partial.code || prev.code || "YLK-" + id.slice(-4)).toUpperCase(),
+      status: partial.status || prev.status || "pending"
+    };
+    ov.upserts = (ov.upserts || []).filter((x) => x.id !== id).concat([rec]);
+    ov.deletes = (ov.deletes || []).filter((d) => d !== id);
+    localStorage.setItem(LS_PART, JSON.stringify(ov));
+    return rec;
+  }
+
+  function removePartner(id) {
+    const ov = partnerOverlay();
+    ov.upserts = (ov.upserts || []).filter((x) => x.id !== id);
+    if ((catalog.partners || []).some((p) => p.id === id)) {
+      ov.deletes = Array.from(new Set([...(ov.deletes || []), id]));
+    }
+    localStorage.setItem(LS_PART, JSON.stringify(ov));
   }
 
   function saveOverlay(next) {
@@ -216,7 +270,9 @@ const YLKStore = (() => {
       available: all.filter((p) => p.status === "available").length,
       booked: all.filter((p) => p.status === "booked").length,
       sold: all.filter((p) => p.status === "sold").length,
-      leads: bookings().length
+      leads: bookings().length,
+      partners: partners().filter((p) => p.status === "active").length,
+      partnerPending: partners().filter((p) => p.status === "pending").length
     };
   }
 
@@ -237,6 +293,11 @@ const YLKStore = (() => {
     cities,
     faqs,
     testimonials,
+    partners,
+    publicPartners,
+    partnerByCode,
+    upsertPartner,
+    removePartner,
     types,
     upsertItem,
     removeItem,

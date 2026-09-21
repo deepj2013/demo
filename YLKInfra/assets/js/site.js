@@ -5,7 +5,8 @@ const YLKSite = (() => {
   function hero(opts) {
     const img = YLKStore.img(opts.image || "hero-estate.png");
     return `
-      <section class="hero" style="--hero:url('${img}')">
+      <section class="hero">
+        <div class="hero-bg" style="background-image:url('${img}')"></div>
         <div class="hero-overlay"></div>
         <div class="hero-copy">
           <p class="eyebrow">${opts.eyebrow || YLKStore.t("heroEyebrow")}</p>
@@ -32,33 +33,32 @@ const YLKSite = (() => {
 
   function serviceGrid() {
     const items = [
-      ["plots", "plots.html", "land"],
-      ["flats", "flats.html", "building"],
-      ["villas", "villas.html", "villa"],
-      ["houses", "houses.html", "home"],
-      ["office", "office.html", "office"],
-      ["construction", "construction.html", "crane"],
-      ["renovation", "renovation.html", "renov"],
-      ["affordable", "affordable.html", "afford"],
-      ["ncr", "ncr.html", "ncr"],
-      ["invest", "invest.html", "chart"]
+      ["plots", "plots.html", "hero-plots.png"],
+      ["flats", "flats.html", "hero-flats.png"],
+      ["villas", "villas.html", "villa-prestige.png"],
+      ["houses", "houses.html", "house-civil.png"],
+      ["office", "office.html", "office-exterior.png"],
+      ["construction", "construction.html", "construction-new.png"],
+      ["renovation", "renovation.html", "renovate-living.png"],
+      ["affordable", "affordable.html", "affordable-homes.png"],
+      ["ncr", "ncr.html", "ncr-skyline.png"],
+      ["invest", "invest.html", "land-invest.png"]
     ];
     const n = YLKStore.t("nav");
     return `
-      <section class="pad">
-        <div class="sec-head">
+      <section class="pad dark-band">
+        <div class="sec-head light">
           <p class="eyebrow">${YLKStore.t("trusted")}</p>
           <h2>${YLKStore.t("sectionServices")}</h2>
           <p>${YLKStore.t("sectionServicesLead")}</p>
         </div>
-        <div class="svc-grid">
+        <div class="svc-tiles">
           ${items
             .map(
-              ([k, href, ic]) => `
-            <a class="svc-card" href="${href}">
-              <span class="svc-ico">${YLKUI.icon(ic)}</span>
+              ([k, href, img]) => `
+            <a class="svc-tile" href="${href}" style="background-image:url('${YLKStore.img(img)}')">
+              <span>${YLKStore.t("seeService")}</span>
               <h3>${n[k]}</h3>
-              <span>See more →</span>
             </a>`
             )
             .join("")}
@@ -68,7 +68,19 @@ const YLKSite = (() => {
 
   function inventoryGrid(list, empty) {
     if (!list.length) return `<p class="empty">${empty || YLKStore.t("noMatch")}</p>`;
-    return `<div class="prop-grid">${list.map(YLKUI.card).join("")}</div>`;
+    return `<div class="prop-grid">${list.map((p, i) => YLKUI.card(p, i === 0 && list.length > 2)).join("")}</div>`;
+  }
+
+  function partnerRail() {
+    const list = YLKStore.publicPartners();
+    if (!list.length) return "";
+    const names = list.map((p) => p.name).concat(list.map((p) => p.name));
+    return `
+      <section class="partner-rail">
+        <p class="eyebrow">${YLKStore.t("partnersTitle")}</p>
+        <div class="marquee">${names.map((n) => `<span>${n}</span>`).join("")}</div>
+        <a class="text-link" href="partners.html">${YLKStore.t("partnersCta")} →</a>
+      </section>`;
   }
 
   function faqs() {
@@ -168,13 +180,14 @@ const YLKSite = (() => {
       </section>` +
       stats() +
       serviceGrid() +
+      partnerRail() +
       `<section class="pad">
         <div class="sec-head row">
           <div>
             <h2>${YLKStore.t("featured")}</h2>
             <p>${YLKStore.t("featuredLead")}</p>
           </div>
-          <a class="btn btn-ghost" href="inventory.html">${YLKStore.t("viewAll")}</a>
+          <a class="btn btn-line" href="inventory.html">${YLKStore.t("viewAll")}</a>
         </div>
         ${inventoryGrid(feat)}
       </section>` +
@@ -192,6 +205,18 @@ const YLKSite = (() => {
         </a>
       </section>` +
       quotes() +
+      `<section class="dual-cta">
+        <a class="dual" href="partners.html" style="--bg:url('${YLKStore.img("office-suite.png")}')">
+          <h3>${YLKStore.t("partnersTitle")}</h3>
+          <p>${YLKStore.t("partnersLead")}</p>
+          <span>${YLKStore.t("partnersCta")} →</span>
+        </a>
+        <a class="dual" href="affordable.html" style="--bg:url('${YLKStore.img("affordable-homes.png")}')">
+          <h3>${YLKStore.t("affordableTeaser")}</h3>
+          <p>${YLKStore.t("affordableTeaserLead")}</p>
+          <span>${YLKStore.t("nav.affordable")} →</span>
+        </a>
+      </section>` +
       faqs() +
       ctaBand()
     );
@@ -497,6 +522,81 @@ const YLKSite = (() => {
     );
   }
 
+  function partnersPage() {
+    const hi = YLKStore.lang() === "hi";
+    const list = YLKStore.publicPartners();
+    const types = [
+      { id: "channel", label: hi ? "चैनल पार्टनर" : "Channel partner" },
+      { id: "broker", label: hi ? "ब्रोकर" : "Broker" },
+      { id: "bank", label: hi ? "लोन डेस्क" : "Loan desk" },
+      { id: "builder", label: hi ? "सह-डेवलपर" : "Co-developer" }
+    ];
+    return (
+      hero({
+        image: "office-suite.png",
+        title: YLKStore.t("partnersTitle"),
+        lead: YLKStore.t("partnersLead"),
+        ctaHref: "#apply",
+        cta: YLKStore.t("partnersCta")
+      }) +
+      `<section class="pad">
+        <div class="why-grid">
+          ${(hi
+            ? [
+                ["लाइव इन्वेंटरी", "उपलब्ध / बुक / सोल्ड — क्लाइंट को भूतिया यूनिट नहीं।"],
+                ["पारदर्शी स्लैब", "प्लॉट, फ्लैट, विला पर साफ कमीशन। कोड से लीड ट्रैक।"],
+                ["व्हाट्सएप डेस्क", "एक नंबर +91 94125 02030। साइट विजिट बरेली से।"],
+                ["ब्रोशर + मैप", "हर लिस्टिंग के साथ दस्तावेज़, आपके क्लाइंट के लिए।"]
+              ]
+            : [
+                ["Live inventory", "Available / booked / sold — never send a client a ghost unit."],
+                ["Clear slabs", "Transparent commission on plots, flats, villas. Leads tagged by your code."],
+                ["WhatsApp desk", "One number +91 94125 02030. Site visits from Bareilly."],
+                ["Brochures & maps", "Every listing ships documents your client can open today."]
+              ]
+          )
+            .map((x) => `<article><h3>${x[0]}</h3><p>${x[1]}</p></article>`)
+            .join("")}
+        </div>
+      </section>
+      <section class="pad">
+        <h2>${hi ? "सक्रिय पार्टनर" : "Active partners"}</h2>
+        <div class="partner-cards">
+          ${list
+            .map(
+              (p) => `<article class="partner-card">
+                <p class="pc-loc">${p.city} · ${p.type}</p>
+                <h3>${p.name}</h3>
+                <p>${p.focus || ""}</p>
+                <p class="code">Code ${p.code} · ${p.commission || ""}</p>
+              </article>`
+            )
+            .join("")}
+        </div>
+      </section>
+      <section class="pad" id="apply">
+        <div class="apply-box">
+          <h2>${YLKStore.t("partnersCta")}</h2>
+          <p class="muted">${hi ? "आवेदन व्हाट्सएप पर जाता है और एडमिन पेंडिंग लिस्ट में दिखता है।" : "Application goes to WhatsApp and lands in admin as pending."}</p>
+          <form id="partnerForm" class="book-form">
+            <label>${YLKStore.t("firm")} *<input name="firm" required /></label>
+            <label>${YLKStore.t("name")} *<input name="name" required /></label>
+            <label>${YLKStore.t("whatsapp")} *<input name="phone" required inputmode="numeric" maxlength="10" /></label>
+            <label>${YLKStore.t("email")} *<input name="email" type="email" required /></label>
+            <label>${YLKStore.t("city")} *<input name="city" required /></label>
+            <label>${YLKStore.t("partnerType")}
+              <select name="type">${types.map((t) => `<option value="${t.id}">${t.label}</option>`).join("")}</select>
+            </label>
+            <label>${YLKStore.t("message")}<textarea name="message" rows="3" placeholder="${hi ? "शहर, अनुभव, टीम साइज़" : "Cities, years, team size"}"></textarea></label>
+            <p class="form-err" id="partnerErr" hidden></p>
+            <button class="btn btn-gold" type="submit">${YLKStore.t("applyPartner")}</button>
+          </form>
+          <p style="margin-top:1rem"><a class="text-link" href="plan.html" style="color:var(--gold-2)">${YLKStore.t("nav.plan")} — calculators &amp; slabs →</a></p>
+        </div>
+      </section>`
+    );
+  }
+
   function contact() {
     const c = YLKStore.company();
     const osm = `https://www.openstreetmap.org/export/embed.html?bbox=${c.lng - 0.05}%2C${c.lat - 0.04}%2C${c.lng + 0.05}%2C${c.lat + 0.04}&layer=mapnik&marker=${c.lat}%2C${c.lng}`;
@@ -535,8 +635,65 @@ const YLKSite = (() => {
     ncr,
     invest,
     about,
-    contact
+    contact,
+    partners: partnersPage
   };
+
+  function bindPartnerForm() {
+    const form = $("#partnerForm");
+    if (!form) return;
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const name = String(fd.get("name") || "").trim();
+      const firm = String(fd.get("firm") || "").trim();
+      const phone = String(fd.get("phone") || "").replace(/\D/g, "");
+      const email = String(fd.get("email") || "").trim();
+      const err = $("#partnerErr");
+      const show = (m) => {
+        err.hidden = false;
+        err.textContent = m;
+      };
+      if (firm.length < 2 || name.length < 2) return show(YLKStore.t("invalidName"));
+      if (!/^[6-9]\d{9}$/.test(phone)) return show(YLKStore.t("invalid"));
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return show(YLKStore.t("invalidEmail"));
+      const rec = YLKStore.upsertPartner({
+        name: firm,
+        contact: name,
+        phone,
+        email,
+        city: String(fd.get("city") || ""),
+        type: String(fd.get("type") || "channel"),
+        focus: String(fd.get("message") || ""),
+        status: "pending",
+        commission: "TBD",
+        code: "YLK-" + phone.slice(-4)
+      });
+      YLKStore.addBooking({
+        name,
+        phone,
+        email,
+        interest: "partner",
+        propertyTitle: "Partner apply · " + firm,
+        message: fd.get("message") || "",
+        partnerCode: rec.code
+      });
+      const lines = [
+        "YLK Infra — Partner application",
+        "Firm: " + firm,
+        "Name: " + name,
+        "WhatsApp: +91 " + phone,
+        "Email: " + email,
+        "City: " + fd.get("city"),
+        "Type: " + fd.get("type"),
+        "Code issued: " + rec.code,
+        "Note: " + (fd.get("message") || "—")
+      ];
+      YLKUI.toast(YLKStore.t("thanks"));
+      window.open(YLKStore.waUrl(lines.join("\n")), "_blank");
+      form.reset();
+    });
+  }
 
   async function boot() {
     const root = $("#page-root");
@@ -547,6 +704,7 @@ const YLKSite = (() => {
       const page = document.body.dataset.page || "home";
       if (root && pages[page]) root.innerHTML = pages[page]();
       bindFilters();
+      bindPartnerForm();
       injectJsonLd();
     } catch (err) {
       console.error(err);

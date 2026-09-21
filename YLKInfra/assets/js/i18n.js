@@ -22,11 +22,13 @@ const YLKi18n = {
       about: "About",
       contact: "Contact",
       book: "Book / Enquire",
-      admin: "Admin"
+      admin: "Admin",
+      partners: "Partners",
+      plan: "Income Plan"
     },
     tabs: { home: "Home", stock: "Stock", invest: "Invest", book: "Book", more: "More" },
     heroEyebrow: "Builder · Constructor · Seller",
-    heroTitle: "Own land, homes and a quieter kind of wealth.",
+    heroTitle: "Own land, homes and a quieter kind of <em>wealth</em>.",
     heroLead:
       "YLK Infra Private Limited develops and sells plots, flats, villas and houses from Bareilly — and helps you buy land, offices and affordable homes across Delhi NCR.",
     ctaBook: "Enquire on WhatsApp",
@@ -106,7 +108,16 @@ const YLKi18n = {
     shareWa: "Share on WhatsApp",
     getDocs: "Get brochure on WhatsApp",
     adminHint: "Staff login",
-    lang: "Language"
+    lang: "Language",
+    partnersTitle: "Channel partners",
+    partnersLead: "Brokers, channel partners and loan desks who close with YLK — transparent slabs, live inventory, WhatsApp desk.",
+    partnersCta: "Become a partner",
+    partnerCode: "Partner code (optional)",
+    firm: "Firm name",
+    city: "City",
+    partnerType: "You are a",
+    applyPartner: "Apply on WhatsApp",
+    seeService: "See service"
   },
   hi: {
     langName: "हिन्दी",
@@ -130,11 +141,13 @@ const YLKi18n = {
       about: "हमारे बारे में",
       contact: "संपर्क",
       book: "बुक / पूछताछ",
-      admin: "एडमिन"
+      admin: "एडमिन",
+      partners: "पार्टनर",
+      plan: "इनकम प्लान"
     },
     tabs: { home: "होम", stock: "स्टॉक", invest: "निवेश", book: "बुक", more: "और" },
     heroEyebrow: "बिल्डर · कंस्ट्रक्टर · विक्रेता",
-    heroTitle: "ज़मीन, घर और शांत संपत्ति अपनाएँ।",
+    heroTitle: "ज़मीन, घर और शांत <em>संपत्ति</em> अपनाएँ।",
     heroLead:
       "YLK Infra Private Limited बरेली से प्लॉट, फ्लैट, विला और मकान विकसित व बेचती है — दिल्ली एनसीआर में ज़मीन, ऑफिस और अफोर्डेबल घर दिलाने में भी मदद करती है।",
     ctaBook: "व्हाट्सएप पर पूछताछ",
@@ -214,6 +227,15 @@ const YLKi18n = {
     shareWa: "व्हाट्सएप पर शेयर",
     getDocs: "व्हाट्सएप पर ब्रोशर",
     adminHint: "स्टाफ लॉगिन",
-    lang: "भाषा"
+    lang: "भाषा",
+    partnersTitle: "चैनल पार्टनर",
+    partnersLead: "ब्रोकर, चैनल पार्टनर और लोन डेस्क — पारदर्शी स्लैब, लाइव इन्वेंटरी, व्हाट्सएप डेस्क।",
+    partnersCta: "पार्टनर बनें",
+    partnerCode: "पार्टनर कोड (वैकल्पिक)",
+    firm: "फर्म का नाम",
+    city: "शहर",
+    partnerType: "आप हैं",
+    applyPartner: "व्हाट्सएप पर आवेदन",
+    seeService: "सेवा देखें"
   }
 };

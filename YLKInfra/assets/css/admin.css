@@ -78,7 +78,7 @@ img { max-width: 100%; display: block; }
 .b-sold { background: var(--danger); }
 .b-booked { background: var(--warn); }
 .admin-tabs {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(5, 1fr);
   background: var(--forest); color: rgba(246,241,232,.55); padding-bottom: env(safe-area-inset-bottom);
 }
 .admin-tabs button { text-align: center; font-size: 0.7rem; }
@@ -100,5 +100,5 @@ img { max-width: 100%; display: block; }
 .toast.show { opacity: 1; }
 .thumb { width: 52px; height: 40px; object-fit: cover; border-radius: 8px; }
 @media (min-width: 960px) {
-  .kpis { grid-template-columns: repeat(4, 1fr); }
+  .kpis { grid-template-columns: repeat(3, 1fr); }
 }

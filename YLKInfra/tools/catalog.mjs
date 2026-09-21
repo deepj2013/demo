@@ -79,6 +79,60 @@ export const catalog = {
       quoteHi: "30 साल पुराना घर बरेली में रहकर ही बनवाया। टाइमलाइन बनी रही। फिनिश मूडबोर्ड से बेहतर।"
     }
   ],
+  partners: [
+    {
+      id: "pt-agarwal",
+      name: "Agarwal Channel Associates",
+      city: "Bareilly",
+      type: "channel",
+      code: "YLK-AGA",
+      commission: "2%",
+      status: "active",
+      phone: "9837011101",
+      email: "agarwal.channel@email.com",
+      focus: "Plots, villas, Bareilly east",
+      since: "2022"
+    },
+    {
+      id: "pt-ncrdesk",
+      name: "NCR Desk Realty",
+      city: "Noida",
+      type: "broker",
+      code: "YLK-NCR",
+      commission: "1.5%",
+      status: "active",
+      phone: "9810011455",
+      email: "desk@ncrrealty.in",
+      focus: "Noida / Greater Noida flats & offices",
+      since: "2023"
+    },
+    {
+      id: "pt-lucknow",
+      name: "Gomti Advisory",
+      city: "Lucknow",
+      type: "channel",
+      code: "YLK-LKO",
+      commission: "2%",
+      status: "active",
+      phone: "9415011788",
+      email: "gomti.adv@email.com",
+      focus: "Affordable + independent houses",
+      since: "2024"
+    },
+    {
+      id: "pt-hdfc",
+      name: "Home-loan panel · HDFC",
+      city: "Bareilly",
+      type: "bank",
+      code: "YLK-BANK",
+      commission: "—",
+      status: "active",
+      phone: "9412502030",
+      email: "hello@ylkinfra.in",
+      focus: "Home loan facilitation",
+      since: "2021"
+    }
+  ],
   faqs: [
     {
       q: "What does YLK Infra actually do?",

@@ -35,6 +35,8 @@ const AdminApp = (() => {
         <article><strong>${c.booked}</strong><span class="muted">Booked</span></article>
         <article><strong>${c.sold}</strong><span class="muted">Sold out</span></article>
         <article><strong>${c.leads}</strong><span class="muted">Bookings</span></article>
+        <article><strong>${c.partners}</strong><span class="muted">Active partners</span></article>
+        <article><strong>${c.partnerPending}</strong><span class="muted">Partner pending</span></article>
       </div>
       <div class="panel">
         <h3>Latest WhatsApp bookings</h3>
@@ -133,7 +135,7 @@ const AdminApp = (() => {
           <div>
             <b>${b.name}</b> ${badge(b.status || "new")}
             <div class="muted">${b.phone} · ${b.email}</div>
-            <div class="muted">${b.propertyTitle || b.interest || "General"} · ${new Date(b.at).toLocaleString("en-IN")}</div>
+            <div class="muted">${b.propertyTitle || b.interest || "General"}${b.partnerName ? " · " + b.partnerName : ""} · ${new Date(b.at).toLocaleString("en-IN")}</div>
             ${b.message ? `<p>${b.message}</p>` : ""}
           </div>
         </div>
@@ -145,6 +147,62 @@ const AdminApp = (() => {
       </div>`
       )
       .join("");
+  }
+
+  function partners() {
+    const rows = YLKStore.partners();
+    return `
+      <div class="panel" style="display:flex;justify-content:space-between;align-items:center;gap:.6rem;flex-wrap:wrap">
+        <h3>Partners (${rows.length})</h3>
+        <button class="btn-sm" type="button" id="addPartner">+ Add partner</button>
+      </div>
+      ${rows
+        .map(
+          (p) => `<div class="panel">
+            <div class="row" style="border:0">
+              <div>
+                <b>${p.name}</b> ${badge(p.status)}
+                <div class="muted">${p.city || ""} · ${p.type || ""} · code ${p.code} · ${p.commission || ""}</div>
+                <div class="muted">${p.phone || ""} · ${p.email || ""} · ${p.focus || p.contact || ""}</div>
+              </div>
+            </div>
+            <div class="list-actions">
+              <button class="btn-sm" data-pedit="${p.id}">Edit</button>
+              <button class="btn-sm" data-pst="${p.id}|active">Approve / live</button>
+              <button class="btn-sm" data-pst="${p.id}|pending">Pending</button>
+              <button class="btn-ghost btn-sm" data-pdel="${p.id}">Remove</button>
+            </div>
+          </div>`
+        )
+        .join("")}`;
+  }
+
+  function partnerForm(p = {}) {
+    return `
+      <h2>${p.id ? "Edit partner" : "New partner"}</h2>
+      <form id="partForm">
+        <input type="hidden" name="id" value="${p.id || ""}" />
+        <label>Firm name<input name="name" required value="${p.name || ""}" /></label>
+        <label>Contact<input name="contact" value="${p.contact || ""}" /></label>
+        <label>City<input name="city" value="${p.city || "Bareilly"}" /></label>
+        <label>Type
+          <select name="type">
+            ${["channel", "broker", "bank", "builder"].map((t) => `<option ${p.type === t ? "selected" : ""}>${t}</option>`).join("")}
+          </select>
+        </label>
+        <label>Code<input name="code" value="${p.code || ""}" placeholder="YLK-XXX" /></label>
+        <label>Commission<input name="commission" value="${p.commission || "2%"}" /></label>
+        <label>Phone<input name="phone" value="${p.phone || ""}" /></label>
+        <label>Email<input name="email" value="${p.email || ""}" /></label>
+        <label>Focus / notes<textarea name="focus" rows="3">${p.focus || ""}</textarea></label>
+        <label>Status
+          <select name="status">
+            ${["active", "pending"].map((s) => `<option ${p.status === s ? "selected" : ""}>${s}</option>`).join("")}
+          </select>
+        </label>
+        <button class="btn btn-gold" type="submit">Save partner</button>
+        <button class="btn-ghost btn-sm" type="button" id="cancelDraw" style="margin-top:.6rem;width:100%">Cancel</button>
+      </form>`;
   }
 
   function more() {
@@ -163,9 +221,9 @@ const AdminApp = (() => {
   }
 
   function render() {
-    const titles = { dash: "Dashboard", inventory: "Inventory", bookings: "Bookings", more: "More" };
+    const titles = { dash: "Dashboard", inventory: "Inventory", bookings: "Bookings", partners: "Partners", more: "More" };
     $("#pageTitle").textContent = titles[view] || "Admin";
-    $("#view").innerHTML = { dash: dash, inventory, bookings, more }[view]();
+    $("#view").innerHTML = { dash: dash, inventory, bookings, partners, more }[view]();
     $$(".side button, .admin-tabs button").forEach((b) => b.classList.toggle("on", b.dataset.view === view));
   }
 
@@ -187,6 +245,32 @@ const AdminApp = (() => {
       if (e.target.id === "addInv") {
         editing = {};
         openDrawer(form({}));
+        return;
+      }
+      if (e.target.id === "addPartner") {
+        openDrawer(partnerForm({}));
+        return;
+      }
+      const ped = e.target.closest("[data-pedit]");
+      if (ped) {
+        const p = YLKStore.partners().find((x) => x.id === ped.dataset.pedit);
+        openDrawer(partnerForm(p || {}));
+        return;
+      }
+      const pst = e.target.closest("[data-pst]");
+      if (pst) {
+        const [id, status] = pst.dataset.pst.split("|");
+        const cur = YLKStore.partners().find((x) => x.id === id);
+        YLKStore.upsertPartner({ ...cur, status });
+        toast("Partner → " + status);
+        render();
+        return;
+      }
+      const pdel = e.target.closest("[data-pdel]");
+      if (pdel && confirm("Remove this partner from the public list?")) {
+        YLKStore.removePartner(pdel.dataset.pdel);
+        toast("Partner removed");
+        render();
         return;
       }
       const ed = e.target.closest("[data-edit]");
@@ -227,6 +311,28 @@ const AdminApp = (() => {
     });
 
     document.addEventListener("submit", (e) => {
+      if (e.target.id === "partForm") {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        YLKStore.upsertPartner({
+          id: fd.get("id") || undefined,
+          name: fd.get("name"),
+          contact: fd.get("contact"),
+          city: fd.get("city"),
+          type: fd.get("type"),
+          code: fd.get("code"),
+          commission: fd.get("commission"),
+          phone: fd.get("phone"),
+          email: fd.get("email"),
+          focus: fd.get("focus"),
+          status: fd.get("status")
+        });
+        closeDrawer();
+        toast("Partner saved — live if Active");
+        view = "partners";
+        render();
+        return;
+      }
       if (e.target.id !== "invForm") return;
       e.preventDefault();
       const fd = new FormData(e.target);
