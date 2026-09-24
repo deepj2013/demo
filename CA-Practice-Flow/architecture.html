@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Architecture & Schema — PraxisFlow</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="demo-banner"><a href="demo.html">Open Live Demo UI →</a></div>
+  <nav class="topnav">
+    <a class="brand" href="index.html"><div class="mark">CA</div>PraxisFlow <span>Architecture</span></a>
+    <div class="topnav-links">
+      <a href="index.html">Solution</a>
+      <a href="architecture.html" class="active">Architecture</a>
+      <a href="workflows.html">Workflows</a>
+      <a href="modules.html">Modules</a>
+      <a href="pilot.html">Pilot Plan</a>
+      <a href="demo.html" class="topnav-cta">Live Demo UI</a>
+    </div>
+    <button class="menu-btn" type="button">☰</button>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Technology Architecture</div>
+        <h2>API-first, modular, Tally-aware</h2>
+        <p>Preferred initial stack keeps velocity high (workflow + DB layer) while remaining replaceable. Every external system talks through the Integration API — so GST portals, payment gateways, or a future ERP can be added without rewriting cores.</p>
+      </div>
+
+      <div class="arch mb-16">
+        <div class="arch-layer l1"><span>TallyPrime (desktop / server)</span></div>
+        <div class="arch-arrow">↓ XML / ODBC / connector agent</div>
+        <div class="arch-layer l2"><span>Integration &amp; API Layer</span><span>Webhooks</span><span>Queue jobs</span></div>
+        <div class="arch-arrow">↓</div>
+        <div class="arch-layer l3"><span>Workflow Engine</span><span>PostgreSQL / Zoho Creator DB</span><span>Rules &amp; SLA</span></div>
+        <div class="arch-arrow">↓</div>
+        <div class="arch-layer l4"><span>Document Store (S3-compatible)</span><span>OCR / AI services</span><span>Search index</span></div>
+        <div class="arch-arrow">↓</div>
+        <div class="arch-layer l5"><span>WhatsApp Business API</span><span>Email (SES/Workspace)</span><span>Payment gateway</span></div>
+        <div class="arch-arrow">↓</div>
+        <div class="arch-layer l6"><span>Client Portal (web)</span><span>CA Dashboard</span><span>Staff App</span><span>Admin</span></div>
+      </div>
+
+      <div class="grid-2 mt-24">
+        <div class="card">
+          <h3>Option A — Rapid (recommended for pilot)</h3>
+          <p>Zoho Creator / similar low-code for workflows + custom JS widgets for dashboards. Tally connector as a small Windows service. Fastest path to 30–50 client pilot.</p>
+        </div>
+        <div class="card">
+          <h3>Option B — Custom (scale path)</h3>
+          <p>Node.js / NestJS + PostgreSQL + Redis queues + React dashboards. Same module boundaries. Migrate from Option A module-by-module if needed — API contracts stay stable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="schema">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Database Schema</div>
+        <h2>Core tables (logical model)</h2>
+        <p>Enough to implement all BRD modules. Physical types and indexes tuned during build.</p>
+      </div>
+      <div class="panel">
+        <table class="schema-table" id="schemaTable">
+          <thead><tr><th>Table</th><th>Key columns</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="grid-3 mt-24">
+        <div class="card">
+          <h3>Identity &amp; access</h3>
+          <p>users, roles, client_assignments, sessions, mfa_devices</p>
+        </div>
+        <div class="card">
+          <h3>Work</h3>
+          <p>workflows, tasks, exceptions, approvals, filings</p>
+        </div>
+        <div class="card">
+          <h3>Money &amp; proof</h3>
+          <p>invoices, payments, documents, audit_logs, messages</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">How data flows</div>
+        <h2>Example: Monthly GSTR-3B cycle</h2>
+      </div>
+      <div class="phases">
+        <div class="phase">
+          <div class="phase-num">1</div>
+          <div>
+            <h3>Trigger</h3>
+            <p>Calendar job (e.g. 5th of month) creates workflow instances for all GST-RET clients for period Sep.</p>
+            <ul><li>workflows row</li><li>checklist tasks</li><li>SLA clocks</li></ul>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">2</div>
+          <div>
+            <h3>Collect</h3>
+            <p>WhatsApp/email templates request missing docs. Client portal uploads land in DMS with FY/service tags. Tally sync pulls purchase/sales.</p>
+            <ul><li>messages</li><li>documents</li><li>tally_sync</li></ul>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">3</div>
+          <div>
+            <h3>Validate &amp; automate</h3>
+            <p>OCR extracts invoices. Recon engine matches Tally ↔ GSTR-2B. Green drafts GSTR-3B. Mismatches create Amber/Red exceptions.</p>
+            <ul><li>exceptions</li><li>draft filing payload</li></ul>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">4</div>
+          <div>
+            <h3>Human gates</h3>
+            <p>Staff clears Amber. CA clears Red + approves filing when gate requires. Action written to approvals + audit_logs.</p>
+            <ul><li>approvals</li><li>audit_logs</li></ul>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">5</div>
+          <div>
+            <h3>File · archive · bill · next</h3>
+            <p>Portal submit (assisted), ack PDF stored, invoice generated, payment link sent, next month workflow spawned.</p>
+            <ul><li>filings</li><li>invoices</li><li>new workflows</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Security architecture</div>
+        <h2>Controls mapped to BRD §7</h2>
+      </div>
+      <table class="cmp-table">
+        <thead><tr><th>Requirement</th><th>How we implement</th></tr></thead>
+        <tbody>
+          <tr><td>Role-based access</td><td>RBAC: Partner, Staff, Client, Admin — enforced at API</td></tr>
+          <tr><td>Client-level permissions</td><td>client_assignments; staff only see assigned clients</td></tr>
+          <tr><td>MFA</td><td>TOTP/SMS for internal; OTP for client portal</td></tr>
+          <tr><td>Encryption</td><td>TLS 1.2+; AES-256 at rest for docs &amp; DB</td></tr>
+          <tr><td>Audit logs</td><td>Immutable append-only audit_logs; retention policy</td></tr>
+          <tr><td>Backups</td><td>Daily encrypted snapshots + monthly restore drill</td></tr>
+          <tr><td>Document ACLs</td><td>Per-doc ACL + every view/download logged</td></tr>
+          <tr><td>CA approval gates</td><td>Workflow states cannot skip ca_gate steps</td></tr>
+          <tr><td>No uncontrolled AI filing</td><td>AI outputs = drafts only; filing API requires approval token</td></tr>
+        </tbody>
+      </table>
+      <div class="mt-24" style="text-align:center">
+        <a class="btn btn-primary" href="demo.html?role=admin">See Admin Security screen</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div><strong>PraxisFlow</strong> · Architecture</div>
+      <div><a href="workflows.html" style="color:#7ec8c8">Next: Workflows →</a></div>
+    </div>
+  </footer>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    (function () {
+      var tb = document.querySelector('#schemaTable tbody');
+      if (!tb || !window.CAData) return;
+      tb.innerHTML = CAData.schema.map(function (r) {
+        return '<tr><td><code>' + r.table + '</code></td><td>' + r.cols + '</td></tr>';
+      }).join('');
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modules — PraxisFlow</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="demo-banner"><a href="demo.html">Open Live Demo UI →</a></div>
+  <nav class="topnav">
+    <a class="brand" href="index.html"><div class="mark">CA</div>PraxisFlow <span>Modules</span></a>
+    <div class="topnav-links">
+      <a href="index.html">Solution</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="workflows.html">Workflows</a>
+      <a href="modules.html" class="active">Modules</a>
+      <a href="pilot.html">Pilot Plan</a>
+      <a href="demo.html" class="topnav-cta">Live Demo UI</a>
+    </div>
+    <button class="menu-btn" type="button">☰</button>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Core modules</div>
+        <h2>What each module does — and where to see it in the UI</h2>
+      </div>
+
+      <div data-tabs>
+        <div class="mod-tabs" id="modTabs"></div>
+        <div id="modPanels"></div>
+      </div>
+
+      <div class="mt-24 card">
+        <h3>Role × Module map</h3>
+        <table class="cmp-table mt-16">
+          <thead><tr><th>Module</th><th>CA</th><th>Staff</th><th>Client</th><th>Admin</th></tr></thead>
+          <tbody>
+            <tr><td>Client Master</td><td>View all</td><td>Assigned</td><td>Own profile</td><td>CRUD</td></tr>
+            <tr><td>Workflow / Exceptions</td><td>Red + gates</td><td>Amber + tasks</td><td>Status only</td><td>Config</td></tr>
+            <tr><td>Documents</td><td>View + audit</td><td>Process</td><td>Upload</td><td>Retention</td></tr>
+            <tr><td>Tally</td><td>Exceptions</td><td>Recon</td><td>—</td><td>Sync setup</td></tr>
+            <tr><td>Portal / Comms</td><td>Oversight</td><td>Send / respond</td><td>Primary UX</td><td>Templates</td></tr>
+            <tr><td>Billing</td><td>Write-offs</td><td>Follow-ups</td><td>Pay</td><td>Fee master</td></tr>
+            <tr><td>AI / OCR</td><td>Review drafts</td><td>Validate</td><td>—</td><td>Thresholds</td></tr>
+            <tr><td>Security / Audit</td><td>Partner access</td><td>Own activity</td><td>—</td><td>Full</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div><strong>PraxisFlow</strong> · Modules</div>
+      <div><a href="pilot.html" style="color:#7ec8c8">Next: Pilot Plan →</a></div>
+    </div>
+  </footer>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    (function () {
+      var tabs = document.getElementById('modTabs');
+      var panels = document.getElementById('modPanels');
+      if (!tabs || !window.CAData) return;
+      var demoLink = {
+        client: 'demo.html?role=ca',
+        service: 'demo.html?role=admin',
+        workflow: 'demo.html?role=staff',
+        dms: 'demo.html?role=staff',
+        tally: 'demo.html?role=admin',
+        exception: 'demo.html?role=ca',
+        portal: 'demo.html?role=client',
+        comms: 'demo.html?role=staff',
+        'dash-ca': 'demo.html?role=ca',
+        'dash-staff': 'demo.html?role=staff',
+        billing: 'demo.html?role=ca',
+        ai: 'demo.html?role=staff',
+        audit: 'demo.html?role=admin'
+      };
+      tabs.innerHTML = CAData.modules.map(function (m, i) {
+        return '<button type="button" class="mod-tab' + (i === 0 ? ' active' : '') + '" data-tab="' + m.id + '">' + m.name + '</button>';
+      }).join('');
+      panels.innerHTML = CAData.modules.map(function (m, i) {
+        return '<div class="mod-panel' + (i === 0 ? ' active' : '') + '" data-panel="' + m.id + '">' +
+          '<div class="card"><h3>' + m.name + '</h3><p class="mb-16">' + m.brief + '</p>' +
+          '<ul style="list-style:disc;margin-left:18px;color:var(--slate)">' +
+          m.points.map(function (p) { return '<li>' + p + '</li>'; }).join('') +
+          '</ul>' +
+          '<div class="how mt-16"><strong>See UI:</strong> <a href="' + (demoLink[m.id] || 'demo.html') + '">Open related demo screen →</a></div>' +
+          '</div></div>';
+      }).join('');
+    })();
+  </script>
+</body>
+</html>

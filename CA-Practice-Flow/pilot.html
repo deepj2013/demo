@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pilot Plan — PraxisFlow</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="demo-banner"><a href="demo.html">Open Live Demo UI →</a></div>
+  <nav class="topnav">
+    <a class="brand" href="index.html"><div class="mark">CA</div>PraxisFlow <span>Pilot</span></a>
+    <div class="topnav-links">
+      <a href="index.html">Solution</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="workflows.html">Workflows</a>
+      <a href="modules.html">Modules</a>
+      <a href="pilot.html" class="active">Pilot Plan</a>
+      <a href="demo.html" class="topnav-cta">Live Demo UI</a>
+    </div>
+    <button class="menu-btn" type="button">☰</button>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Pilot — do not migrate all 400 first</div>
+        <h2>30–50 clients. Prove the model. Then batch scale.</h2>
+        <p>Parallel run with Excel for one full cycle. Success is measured — not assumed.</p>
+      </div>
+
+      <div class="grid-2 mb-16">
+        <div class="card">
+          <h3>Recommended pilot mix</h3>
+          <ul style="list-style:disc;margin-left:18px;color:var(--slate);margin-top:10px">
+            <li><strong>~15</strong> GST + Bookkeeping</li>
+            <li><strong>~10</strong> GST + TDS</li>
+            <li><strong>~10</strong> ITR (individual / firm)</li>
+            <li><strong>~5–10</strong> Audit / Registration / DSC</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Selection criteria</h3>
+          <ul style="list-style:disc;margin-left:18px;color:var(--slate);margin-top:10px">
+            <li>WhatsApp-reachable primary contact</li>
+            <li>Tally data reasonably clean</li>
+            <li>Mix of simple + one complex each category</li>
+            <li>Client willing to try portal uploads</li>
+            <li>Not in active notice/litigation (initially)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phases">
+        <div class="phase">
+          <div class="phase-num">W1–2</div>
+          <div>
+            <h3>Foundation</h3>
+            <p>Environment, Client/Service master, RBAC, MFA, WhatsApp templates submitted for approval, Tally connector on pilot machines.</p>
+            <ul><li>Admin setup</li><li>Security</li><li>Template approval</li></ul>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">W3–4</div>
+          <div>
+            <h3>Workflows live</h3>
+            <p>GST Returns + Bookkeeping + TDS configured. Document checklists. Exception rules. Staff training (half day).</p>
+            <ul><li>GST</li><li>Books</li><li>TDS</li><li>Training</li></ul>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">W5–8</div>
+          <div>
+            <h3>Parallel run</h3>
+            <p>Pilot clients operate on PraxisFlow; Excel kept as shadow. Measure minutes, follow-ups, exceptions, errors weekly.</p>
+            <ul><li>Portal onboard</li><li>Weekly KPI</li><li>Tune thresholds</li></ul>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">W9–10</div>
+          <div>
+            <h3>Expand services</h3>
+            <p>Add ITR + DSC + light MCA/Audit workflows. CA dashboard refinement. Billing automation on.</p>
+            <ul><li>ITR</li><li>DSC</li><li>Billing</li></ul>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">W11–12</div>
+          <div>
+            <h3>Go / No-go</h3>
+            <p>Compare metrics to targets. If green → migrate remaining clients in batches of 50–75. If gaps → fix before scale.</p>
+            <ul><li>Review board</li><li>Batch plan</li><li>Support model</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Success metrics</div>
+        <h2>Before vs after (target direction)</h2>
+      </div>
+      <table class="cmp-table" id="metricsTable">
+        <thead><tr><th>Metric</th><th>Before</th><th>After (target)</th><th>Goal</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Post-launch support</div>
+        <h2>What continues after pilot</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="icon-box">1</div>
+          <h3>Hypercare (30 days)</h3>
+          <p>Daily standup with firm champion. Same-day fix for blocker bugs. Threshold tuning.</p>
+        </div>
+        <div class="card">
+          <div class="icon-box">2</div>
+          <h3>Batch migration</h3>
+          <p>50–75 clients / wave. Checklist: master data → Tally link → portal invite → first cycle.</p>
+        </div>
+        <div class="card">
+          <div class="icon-box">3</div>
+          <h3>Ongoing</h3>
+          <p>Monthly release, template updates for statutory changes, training refreshers, backup drills.</p>
+        </div>
+      </div>
+
+      <div class="mt-24 card" style="text-align:center;padding:36px">
+        <h3 style="margin-bottom:8px">Ready to walk the firm through screens?</h3>
+        <p class="text-muted mb-16">Use the Live Demo with role switcher — CA → Staff → Client → Admin.</p>
+        <a class="btn btn-primary" href="demo.html">Open Live Demo UI</a>
+        <a class="btn btn-outline" href="index.html">Back to full solution</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div><strong>PraxisFlow</strong> · Pilot Plan</div>
+      <div>Target: 600–800 clients · 3–4 effective staff · exception-driven</div>
+    </div>
+  </footer>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    (function () {
+      var tb = document.querySelector('#metricsTable tbody');
+      if (!tb || !window.CAData) return;
+      tb.innerHTML = CAData.pilotMetrics.map(function (m) {
+        return '<tr><td>' + m.metric + '</td><td>' + m.before + '</td><td>' + m.after + '</td><td><strong>' + m.target + '</strong></td></tr>';
+      }).join('');
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA Practice Automation Platform — Complete Solution</title>
+  <meta name="description" content="Complete solution plan, architecture, workflows and interactive UI demo for CA practice automation — GST, TDS, ITR, bookkeeping, billing and exception-driven operations." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="demo-banner">
+    Interactive client demo · Share this folder URL ·
+    <a href="demo.html">Open live UI screens →</a>
+  </div>
+
+  <nav class="topnav">
+    <a class="brand" href="index.html">
+      <div class="mark">CA</div>
+      PraxisFlow
+      <span>Solution Demo</span>
+    </a>
+    <div class="topnav-links">
+      <a href="index.html" class="active">Solution</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="workflows.html">Workflows</a>
+      <a href="modules.html">Modules</a>
+      <a href="pilot.html">Pilot Plan</a>
+      <a href="demo.html" class="topnav-cta">Live Demo UI</a>
+    </div>
+    <button class="menu-btn" type="button" aria-label="Menu">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-kicker">● CA Practice Automation &amp; Workflow Platform</div>
+        <h1>Staff stop chasing work.<br /><em>The system brings work to them.</em></h1>
+        <p class="lead">
+          A complete plan to replace Excel + WhatsApp tracking with event-driven workflows,
+          automated document collection, exception queues, client portal, Tally sync, and
+          CA-controlled approvals — built to scale from ~400 to 600–800 clients with lower staff dependency.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="demo.html">Launch interactive demo</a>
+          <a class="btn btn-ghost" href="#brd">Read full solution (BRD → How)</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>400→800</strong><span>Client capacity</span></div>
+          <div><strong>6→3–4</strong><span>Effective staff</span></div>
+          <div><strong>10</strong><span>Configurable workflows</span></div>
+          <div><strong>30–50</strong><span>Pilot clients first</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="mini-dash">
+          <div style="font-size:.75rem;opacity:.6;margin-bottom:4px;font-weight:600;letter-spacing:.06em;text-transform:uppercase">CA Dashboard · Attention only</div>
+          <div class="mini-row">
+            <div class="dot r"></div>
+            <div class="meta"><strong>ITC mismatch ₹1.24L</strong><span>Aarav Traders · GSTR-3B</span></div>
+            <div class="tag">CA Review</div>
+          </div>
+          <div class="mini-row">
+            <div class="dot r"></div>
+            <div class="meta"><strong>26Q challan shortfall</strong><span>Skyline · TDS Q2</span></div>
+            <div class="tag">Today</div>
+          </div>
+          <div class="mini-row">
+            <div class="dot a"></div>
+            <div class="meta"><strong>OCR confidence 62%</strong><span>NovaTech · Staff queue</span></div>
+            <div class="tag">Amber</div>
+          </div>
+          <div class="mini-row">
+            <div class="dot g"></div>
+            <div class="meta"><strong>GSTR-3B auto-drafted</strong><span>Metro Retail · Ready to approve</span></div>
+            <div class="tag">Green</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CORE PRINCIPLE -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Design principle</div>
+        <h2>The system tells staff what needs attention. Staff should not have to remember what needs to be done.</h2>
+        <p>Every module below is designed around one operating model: automate the repetitive path, surface only exceptions, keep professional judgment with the CA.</p>
+      </div>
+      <div class="pipeline">
+        <div class="step">Client Input</div><div class="arrow">→</div>
+        <div class="step">AI / OCR / API</div><div class="arrow">→</div>
+        <div class="step">Validation</div><div class="arrow">→</div>
+        <div class="step">Automation</div><div class="arrow">→</div>
+        <div class="step">Exception</div><div class="arrow">→</div>
+        <div class="step">Staff / CA</div><div class="arrow">→</div>
+        <div class="step">Filing</div><div class="arrow">→</div>
+        <div class="step">Archive</div><div class="arrow">→</div>
+        <div class="step">Billing</div>
+      </div>
+      <div class="grid-3 mt-24">
+        <div class="card">
+          <div class="icon-box" style="background:var(--green-bg);color:var(--green)">G</div>
+          <h3>Green — Automated</h3>
+          <p>Data validated, reconciled, draft prepared. No human touch unless sampled. Moves to approval or archive automatically.</p>
+        </div>
+        <div class="card">
+          <div class="icon-box" style="background:var(--amber-bg);color:var(--amber)">A</div>
+          <h3>Amber — Staff review</h3>
+          <p>OCR low confidence, missing docs, small mismatches. Appears in staff exception queue with context and suggested action.</p>
+        </div>
+        <div class="card">
+          <div class="icon-box" style="background:var(--red-bg);color:var(--red)">R</div>
+          <h3>Red — CA review</h3>
+          <p>Material risk, tax judgment, notices, large variances, final filing gates. Partner dashboard shows only these.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE / AFTER -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Current → Target</div>
+        <h2>From manual chase to exception-driven practice</h2>
+      </div>
+      <table class="cmp-table">
+        <thead>
+          <tr><th>Area</th><th>Today (Excel + WhatsApp)</th><th>With PraxisFlow</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Work discovery</td><td>Staff remember / hunt calendars</td><td>System creates tasks from deadlines &amp; events</td></tr>
+          <tr><td>Document chase</td><td>Manual WhatsApp follow-ups</td><td>Auto requests + scheduled reminders</td></tr>
+          <tr><td>Data entry</td><td>Re-type into Tally / Excel</td><td>OCR + Tally API sync; humans fix exceptions</td></tr>
+          <tr><td>Review model</td><td>Open every file</td><td>Only Amber/Red queues</td></tr>
+          <tr><td>CA time</td><td>Scattered across routine files</td><td>Judgment + high-risk + final approvals</td></tr>
+          <tr><td>Capacity</td><td>~400 clients / 6 staff</td><td>600–800 clients / 3–4 effective staff</td></tr>
+          <tr><td>Billing</td><td>Manual invoices &amp; chase</td><td>Auto invoice on cycle close + payment links</td></tr>
+          <tr><td>Auditability</td><td>Fragmented chats &amp; sheets</td><td>Immutable audit trail per action</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- BRD ANSWERS -->
+  <section class="section section-alt" id="brd">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Business Requirements → Solution</div>
+        <h2>Every BRD point answered: what we build &amp; how it works</h2>
+        <p>Expand each section for a brief + detailed delivery plan you can walk through with the firm.</p>
+      </div>
+
+      <div class="accordion">
+
+        <!-- 1 -->
+        <div class="acc-item open">
+          <button class="acc-trigger" type="button">1. Business Objective <span class="chev">▾</span></button>
+          <div class="acc-body">
+            <h4>Brief</h4>
+            <p>Replace Excel/WhatsApp tracking with a centralized, event-driven practice OS. Automate repetitive compliance work; keep professional judgment and final approvals under CA control.</p>
+            <h4>How we deliver it</h4>
+            <ul>
+              <li><strong>Single platform</strong> for clients, services, workflows, documents, comms, billing, and dashboards.</li>
+              <li><strong>Event + calendar engine</strong> that creates work automatically (due dates, uploads, Tally sync, notice ingest).</li>
+              <li><strong>Exception engine</strong> so humans only touch Amber/Red items.</li>
+              <li><strong>Hard CA gates</strong> on filing, notice replies, write-offs, and high-value judgments — AI never files unsupervised.</li>
+            </ul>
+            <div class="how"><strong>Operating model:</strong> Client Input → AI/OCR/API → Validation → Automation → Exception → Staff/CA Review → Filing → Archive → Billing → Next Cycle.</div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="acc-item">
+          <button class="acc-trigger" type="button">2. Existing Environment — Integration Plan <span class="chev">▾</span></button>
+          <div class="acc-body">
+            <h4>Brief</h4>
+            <p>We do not rip-and-replace overnight. We wrap TallyPrime, upgrade communication channels, and retire Excel trackers after the pilot proves metrics.</p>
+            <h4>How each tool maps</h4>
+            <ul>
+              <li><strong>TallyPrime</strong> → Integration layer (XML/ODBC/API bridge) for ledgers, vouchers, GST data import/export.</li>
+              <li><strong>Excel calendars</strong> → Workflow Engine Service Master + compliance calendar (Excel becomes export-only reporting).</li>
+              <li><strong>WhatsApp</strong> → WhatsApp Business API with approved templates (doc request, reminder, approval, filing, payment).</li>
+              <li><strong>Email</strong> → Inbound parse for notices + outbound branded notifications; attachments land in DMS.</li>
+              <li><strong>Manual GST/TDS/ITR/Audit/DSC/Billing</strong> → Configurable workflows with checklists, OCR, and exception queues.</li>
+            </ul>
+            <div class="how"><strong>Migration rule:</strong> Pilot 30–50 clients on parallel run; Excel remains fallback until automation % and error metrics clear thresholds.</div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="acc-item">
+          <button class="acc-trigger" type="button">3. Core Modules — What &amp; How <span class="chev">▾</span></button>
+          <div class="acc-body">
+            <h4>Brief</h4>
+            <p>Thirteen modules form the product. See <a href="modules.html">Modules</a> for screen-level detail. Summary:</p>
+            <ul>
+              <li><strong>Client &amp; Service Master</strong> — identity, KYC IDs, services, fees, SLAs.</li>
+              <li><strong>Workflow Engine</strong> — tasks, dependencies, deadlines, escalation.</li>
+              <li><strong>Document Management + AI</strong> — FY/service vault, OCR, classification, anomaly flags.</li>
+              <li><strong>Tally Integration</strong> — sync to cut re-entry and power reconciliation.</li>
+              <li><strong>Exception Engine</strong> — Green/Amber/Red routing.</li>
+              <li><strong>Client Portal + WhatsApp/Email</strong> — collection &amp; status without phone tag.</li>
+              <li><strong>CA &amp; Staff Dashboards</strong> — attention queues, not dumping grounds.</li>
+              <li><strong>Billing</strong> — invoice → pay link → reminder → receipt → outstanding.</li>
+              <li><strong>Audit Trail + Security</strong> — RBAC, MFA, encryption, immutable logs.</li>
+            </ul>
+            <div class="how"><strong>UI demo:</strong> Every module has a working screen in the <a href="demo.html">Live Demo UI</a> (switch roles: CA / Staff / Client / Admin).</div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="acc-item">
+          <button class="acc-trigger" type="button">4. Initial Workflows (10) <span class="chev">▾</span></button>
+          <div class="acc-body">
+            <h4>Brief</h4>
+            <p>All ten compliance lines share one lifecycle pattern, configured per service:</p>
+            <p class="mt-8"><em>Trigger → Documents → Tasks → Validation → Exceptions → Review → Approval → Filing → Acknowledgement → Archive → Billing → Next Cycle</em></p>
+            <ol>
+              <li>GST Registration</li>
+              <li>GST Returns &amp; Reconciliation</li>
+              <li>Bookkeeping</li>
+              <li>TDS Returns</li>
+              <li>Income Tax Returns</li>
+              <li>Tax / Statutory Audit</li>
+              <li>DSC Renewal</li>
+              <li>MCA / Other Registrations</li>
+              <li>Notices / Compliance</li>
+              <li>Billing &amp; Collections</li>
+            </ol>
+            <div class="how"><strong>Detail:</strong> Step-by-step automation, exceptions, and CA role for each workflow are on the <a href="workflows.html">Workflows</a> page — with UI screens in the demo.</div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="acc-item">
+          <button class="acc-trigger" type="button">5. Automation Requirements <span class="chev">▾</span></button>
+          <div class="acc-body">
+            <h4>Brief</h4>
+            <p>Automation is the default path. Staff work from queues; they do not monitor 400 clients manually.</p>
+            <h4>Automated behaviors (built-in)</h4>
+            <ul>
+              <li>Create tasks from events &amp; statutory deadlines</li>
+              <li>Request missing documents (portal + WhatsApp + email)</li>
+              <li>Send scheduled reminders (D−7, D−3, D−1, overdue ladder)</li>
+              <li>Flag incomplete / incorrect documents (checklist + AI validation)</li>
+              <li>Extract data via OCR/AI into structured fields</li>
+              <li>Reconcile Tally ↔ portal data where rules allow</li>
+              <li>Identify exceptions &amp; anomalies (thresholds configurable)</li>
+              <li>Escalate overdue items (Staff → Senior → CA)</li>
+              <li>Generate client notifications on status change</li>
+              <li>Store filing acknowledgements in DMS</li>
+              <li>Generate recurring invoices &amp; track payments</li>
+              <li>Spawn the next compliance cycle on archive</li>
+            </ul>
+            <div class="how"><strong>Staff day:</strong> Open Staff Dashboard → clear Amber queue → request CA only when Red. No spreadsheet hunting.</div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="acc-item">
+          <button class="acc-trigger" type="button">6. Technology Architecture <span class="chev">▾</span></button>
+          <div class="acc-body">
+            <h4>Brief</h4>
+            <p>API-first, modular stack. Preferred path starts with a rapid workflow/database layer (e.g. Zoho Creator or equivalent custom Node/Postgres) and grows integrations without rewriting cores.</p>
+            <div class="arch mt-16">
+              <div class="arch-layer l1"><span>TallyPrime</span></div>
+              <div class="arch-arrow">↓</div>
+              <div class="arch-layer l2"><span>Integration / API Layer</span></div>
+              <div class="arch-arrow">↓</div>
+              <div class="arch-layer l3"><span>Workflow + Database Layer</span></div>
+              <div class="arch-arrow">↓</div>
+              <div class="arch-layer l4"><span>Document Management + AI / OCR</span></div>
+              <div class="arch-arrow">↓</div>
+              <div class="arch-layer l5"><span>WhatsApp Business API + Email</span></div>
+              <div class="arch-arrow">↓</div>
+              <div class="arch-layer l6"><span>Client Portal + CA / Staff Dashboards</span></div>
+            </div>
+            <div class="how mt-16"><strong>Full schema, security, and sequence diagrams:</strong> <a href="architecture.html">Architecture page</a>.</div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="acc-item">
+          <button class="acc-trigger" type="button">7. Security &amp; Controls <span class="chev">▾</span></button>
+          <div class="acc-body">
+            <h4>Brief</h4>
+            <p>Mandatory controls from day one — not a phase-2 afterthought. AI assists; it never files or gives uncontrolled professional advice.</p>
+            <ul>
+              <li>Role-based access (CA Partner, Staff, Client, Admin)</li>
+              <li>Client-level permissions (staff assigned to client sets)</li>
+              <li>MFA for all internal users</li>
+              <li>Encryption in transit (TLS) &amp; at rest</li>
+              <li>Immutable audit logs</li>
+              <li>Automated encrypted backups + restore drills</li>
+              <li>Document ACLs (view/download logged)</li>
+              <li>User activity tracking</li>
+              <li>CA approval gates for high-risk actions (filing, notice reply, write-off, material exception clear)</li>
+              <li><strong>Policy:</strong> No uncontrolled AI-generated filing or advice</li>
+            </ul>
+            <div class="how"><strong>Demo:</strong> Admin → Security panel shows roles, MFA policy, and audit log viewer.</div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="acc-item">
+          <button class="acc-trigger" type="button">8. Pilot Implementation (30–50 clients) <span class="chev">▾</span></button>
+          <div class="acc-body">
+            <h4>Brief</h4>
+            <p>Do not migrate all 400 clients first. Prove the model on a controlled cohort, measure before/after, then batch-migrate.</p>
+            <h4>Recommended pilot mix</h4>
+            <ul>
+              <li>GST + Bookkeeping</li>
+              <li>GST + TDS</li>
+              <li>ITR</li>
+              <li>Audit / Registration (smaller slice)</li>
+            </ul>
+            <h4>Success metrics</h4>
+            <p>Human minutes/client · Manual entries · Follow-ups · Automation % · Exception % · Errors/rework · Turnaround · CA intervention</p>
+            <div class="how"><strong>Full timeline, roles, and KPI table:</strong> <a href="pilot.html">Pilot Plan</a>.</div>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="acc-item">
+          <button class="acc-trigger" type="button">9. Target Outcome <span class="chev">▾</span></button>
+          <div class="acc-body">
+            <h4>Brief</h4>
+            <p><strong>Current:</strong> 400 clients · 6 staff · high manual dependency<br />
+            <strong>Target:</strong> 600–800 client capacity · 3–4 effective staff · exception-driven operations</p>
+            <h4>CA spends time on</h4>
+            <ul>
+              <li>Professional judgment</li>
+              <li>High-risk exceptions (Red)</li>
+              <li>Final review &amp; filing approvals</li>
+              <li>Advisory / notices strategy</li>
+            </ul>
+            <div class="how"><strong>What disappears:</strong> Routine follow-ups, calendar babysitting, re-keying, and opening every file “just in case.”</div>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="acc-item">
+          <button class="acc-trigger" type="button">10. Developer Deliverables Checklist <span class="chev">▾</span></button>
+          <div class="acc-body">
+            <h4>What the vendor/developer ships</h4>
+            <ol>
+              <li>System architecture ✓ <a href="architecture.html">documented here</a></li>
+              <li>Database schema ✓ <a href="architecture.html#schema">schema</a></li>
+              <li>UI/UX wireframes → <strong>interactive screens</strong> in <a href="demo.html">Live Demo</a></li>
+              <li>Workflow engine ✓ designed + demoed</li>
+              <li>Client portal ✓ demo role</li>
+              <li>CA &amp; staff dashboards ✓ demo roles</li>
+              <li>Tally integration ✓ design + admin sync screen</li>
+              <li>WhatsApp/email integration ✓ templates + thread preview</li>
+              <li>Document management ✓ vault + checklist UI</li>
+              <li>AI/OCR integration ✓ exception + extraction screens</li>
+              <li>Billing/payment integration ✓ invoices &amp; collections</li>
+              <li>Security &amp; audit logging ✓ admin panel</li>
+              <li>Admin/configuration panel ✓ demo role</li>
+              <li>Pilot deployment plan ✓ <a href="pilot.html">Pilot</a></li>
+              <li>Documentation + training ✓ this site + role walkthroughs</li>
+              <li>Post-launch support model ✓ defined in pilot plan</li>
+            </ol>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ROLE MAP -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Users · Roles · Screens</div>
+        <h2>Four roles. One platform. Task-wise screens ready to demo.</h2>
+      </div>
+      <div class="grid-4">
+        <a class="card" href="demo.html?role=ca" style="color:inherit">
+          <div class="icon-box">CA</div>
+          <h3>CA / Partner</h3>
+          <p>Red exceptions, approvals, deadlines, risk, firm KPIs. Final filing gate.</p>
+        </a>
+        <a class="card" href="demo.html?role=staff" style="color:inherit">
+          <div class="icon-box" style="background:var(--amber-bg);color:var(--amber)">ST</div>
+          <h3>Staff</h3>
+          <p>Personal task queue, Amber exceptions, document follow-ups, workload.</p>
+        </a>
+        <a class="card" href="demo.html?role=client" style="color:inherit">
+          <div class="icon-box" style="background:var(--blue-bg);color:var(--blue)">CL</div>
+          <h3>Client</h3>
+          <p>Upload docs, status, approvals, filings, invoices, pending checklist.</p>
+        </a>
+        <a class="card" href="demo.html?role=admin" style="color:inherit">
+          <div class="icon-box" style="background:var(--gold-bg);color:var(--gold)">AD</div>
+          <h3>Admin</h3>
+          <p>Users, services, workflow config, Tally sync, security, audit logs.</p>
+        </a>
+      </div>
+      <div class="mt-24" style="text-align:center">
+        <a class="btn btn-primary" href="demo.html">Open complete UI demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS DAY -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Day in the life</div>
+        <h2>How the firm operates after go-live</h2>
+      </div>
+      <div class="phases">
+        <div class="phase">
+          <div class="phase-num">01</div>
+          <div>
+            <h3>Morning — System already worked overnight</h3>
+            <p>Deadlines created tasks. WhatsApp reminded clients. Tally sync ran. OCR classified uploads. Green items advanced. Amber/Red queued.</p>
+            <ul>
+              <li>Auto tasks</li><li>Reminders sent</li><li>Sync complete</li><li>Exceptions ranked</li>
+            </ul>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">02</div>
+          <div>
+            <h3>Staff — Clear exception queue</h3>
+            <p>Open Staff Dashboard. Fix OCR issues, map invoices, chase only what’s still missing. Mark resolved or escalate to CA with one click.</p>
+            <ul>
+              <li>Amber queue</li><li>Doc checklist</li><li>Recon tools</li><li>Escalate Red</li>
+            </ul>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">03</div>
+          <div>
+            <h3>CA — Judgment &amp; approvals only</h3>
+            <p>Partner sees Red exceptions, pending filing approvals, notice strategy, and overdue escalations — not 400 client folders.</p>
+            <ul>
+              <li>Approve filing</li><li>Clear Red</li><li>Notice reply</li><li>Advisory flag</li>
+            </ul>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">04</div>
+          <div>
+            <h3>Close — Archive, bill, next cycle</h3>
+            <p>Ack stored. Invoice auto-generated. Payment link sent. Next month/quarter workflow spawned. Audit log sealed.</p>
+            <ul>
+              <li>Ack vault</li><li>Invoice</li><li>Receipt</li><li>Next cycle</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="padding-bottom:96px">
+    <div class="container" style="text-align:center;max-width:640px">
+      <div class="eyebrow">Share with the firm</div>
+      <h2 style="margin-bottom:12px">Send one URL. Walk every screen.</h2>
+      <p class="text-muted mb-16">Host this folder on any static host (Netlify, Vercel, S3, shared drive with local server). Open <code>index.html</code> for the plan; open <code>demo.html</code> for the product UI.</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a class="btn btn-primary" href="demo.html">Interactive Demo</a>
+        <a class="btn btn-outline" href="architecture.html">Architecture</a>
+        <a class="btn btn-outline" href="workflows.html">All Workflows</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div><strong>PraxisFlow</strong> · CA Practice Automation Platform · Client Solution Demo</div>
+      <div>Confidential proposal material · HTML / CSS / JS prototype</div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

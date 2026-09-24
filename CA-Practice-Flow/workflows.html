@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Workflows — PraxisFlow</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="demo-banner"><a href="demo.html">Open Live Demo UI →</a></div>
+  <nav class="topnav">
+    <a class="brand" href="index.html"><div class="mark">CA</div>PraxisFlow <span>Workflows</span></a>
+    <div class="topnav-links">
+      <a href="index.html">Solution</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="workflows.html" class="active">Workflows</a>
+      <a href="modules.html">Modules</a>
+      <a href="pilot.html">Pilot Plan</a>
+      <a href="demo.html" class="topnav-cta">Live Demo UI</a>
+    </div>
+    <button class="menu-btn" type="button">☰</button>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">10 configurable workflows</div>
+        <h2>One lifecycle pattern. Ten compliance products.</h2>
+        <p>Every workflow supports: Trigger → Documents → Tasks → Validation → Exceptions → Review → Approval → Filing → Acknowledgement → Archive → Billing → Next Cycle</p>
+      </div>
+
+      <div class="wf-steps" style="background:#fff;border-radius:12px;border:1px solid var(--line);margin-bottom:32px">
+        <div class="wf-step done"><div class="circle">✓</div><div class="label">Trigger</div></div>
+        <div class="wf-step done"><div class="circle">✓</div><div class="label">Documents</div></div>
+        <div class="wf-step done"><div class="circle">✓</div><div class="label">Tasks</div></div>
+        <div class="wf-step active"><div class="circle">4</div><div class="label">Validate</div></div>
+        <div class="wf-step"><div class="circle">5</div><div class="label">Exception</div></div>
+        <div class="wf-step"><div class="circle">6</div><div class="label">Review</div></div>
+        <div class="wf-step"><div class="circle">7</div><div class="label">Approve</div></div>
+        <div class="wf-step"><div class="circle">8</div><div class="label">File</div></div>
+        <div class="wf-step"><div class="circle">9</div><div class="label">Ack</div></div>
+        <div class="wf-step"><div class="circle">10</div><div class="label">Bill</div></div>
+      </div>
+
+      <div id="wfList"></div>
+
+      <div class="mt-24" style="text-align:center">
+        <a class="btn btn-primary" href="demo.html?role=staff">See reconciliation screen (GST)</a>
+        <a class="btn btn-outline" href="demo.html?role=ca">See CA approval gate</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div><strong>PraxisFlow</strong> · Workflows</div>
+      <div><a href="modules.html" style="color:#7ec8c8">Next: Modules →</a></div>
+    </div>
+  </footer>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    (function () {
+      var root = document.getElementById('wfList');
+      if (!root || !window.CAData) return;
+      root.innerHTML = '<div class="accordion">' + CAData.workflows.map(function (w, i) {
+        return '<div class="acc-item' + (i === 1 ? ' open' : '') + '">' +
+          '<button class="acc-trigger" type="button">' + (i + 1) + '. ' + w.name + ' <span class="chev">▾</span></button>' +
+          '<div class="acc-body">' +
+          '<h4>Trigger</h4><p>' + w.trigger + '</p>' +
+          '<h4>Documents collected</h4><ul>' + w.docs.map(function (d) { return '<li>' + d + '</li>'; }).join('') + '</ul>' +
+          '<h4>What the system automates</h4><ul>' + w.auto.map(function (d) { return '<li>' + d + '</li>'; }).join('') + '</ul>' +
+          '<h4>Typical exceptions (Amber / Red)</h4><ul>' + w.exceptions.map(function (d) { return '<li>' + d + '</li>'; }).join('') + '</ul>' +
+          '<div class="how"><strong>CA role:</strong> ' + w.caRole + '</div>' +
+          '</div></div>';
+      }).join('') + '</div>';
+
+      root.querySelectorAll('.acc-trigger').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var item = btn.closest('.acc-item');
+          var open = item.classList.contains('open');
+          root.querySelectorAll('.acc-item').forEach(function (i) { i.classList.remove('open'); });
+          if (!open) item.classList.add('open');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

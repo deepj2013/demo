@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live Demo UI — PraxisFlow CA Platform</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="demo-banner">
+    Product UI · Each service is its own screen · Open any case for full workflow tabs (Docs → Recon → Exceptions → Filing → Billing) ·
+    <a href="index.html">Solution plan</a>
+  </div>
+
+  <nav class="topnav">
+    <a class="brand" href="index.html">
+      <div class="mark">CA</div>
+      PraxisFlow
+      <span>Live UI</span>
+    </a>
+    <div class="topnav-links">
+      <a href="index.html">Solution</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="workflows.html">Workflows</a>
+      <a href="modules.html">Modules</a>
+      <a href="pilot.html">Pilot Plan</a>
+      <a href="demo.html" class="topnav-cta">Live Demo UI</a>
+    </div>
+    <button class="menu-btn" type="button" aria-label="Menu">☰</button>
+  </nav>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-user">
+        <div class="avatar" id="userAvatar">RS</div>
+        <div class="info">
+          <strong id="userName">CA R. Sharma</strong>
+          <span id="userRole">Partner · Sharma &amp; Associates</span>
+        </div>
+      </div>
+      <div class="role-switch" id="roleSwitch">
+        <button type="button" data-role="ca" class="active">CA</button>
+        <button type="button" data-role="staff">Staff</button>
+        <button type="button" data-role="client">Client</button>
+        <button type="button" data-role="admin">Admin</button>
+      </div>
+      <p style="padding:0 14px 8px;font-size:.68rem;color:rgba(255,255,255,.4);line-height:1.35">Switch role, then open a <strong style="color:rgba(255,255,255,.75)">Service</strong> screen and a case workspace.</p>
+      <nav class="side-nav" id="sideNav"></nav>
+    </aside>
+
+    <main class="main" id="main"></main>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <aside class="drawer">
+      <div class="drawer-head">
+        <div>
+          <h2 id="drawerTitle">Details</h2>
+          <p class="text-sm text-muted" id="drawerSub"></p>
+        </div>
+        <button class="close-btn" type="button" data-close-drawer>×</button>
+      </div>
+      <div class="drawer-body" id="drawerBody"></div>
+      <div class="drawer-foot" id="drawerFoot"></div>
+    </aside>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/demo.js"></script>
+</body>
+</html>
