@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Astrology, Vastu Shastra and Numerology — every person’s path</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fraunces:opsz,wght@9..144,560;9..144,640&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f3eee6; --paper: #fffdf9; --ink: #1d1915; --muted: #5c554c; --line: #e3d8c8;
+    --accent: #241c46; --accent-2: #eeedf7; --clay: #9a4e28; --gold: #7d6230; --gold-2: #f8f1dc;
+    --shadow: 0 16px 40px rgba(48, 34, 14, 0.08);
+    --serif: Fraunces, Palatino, Georgia, serif;
+    --sans: "Atkinson Hyperlegible", "Avenir Next", "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.55; padding-bottom: 88px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 640; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 0.4em; }
+  h1 { font-size: clamp(2.2rem, 4.5vw, 3.8rem); }
+  h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); }
+  p { margin: 0 0 0.75em; }
+  a { color: var(--accent); }
+  .wrap { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
+  .top { position: sticky; top: 0; z-index: 20; background: rgba(243,238,230,.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .top-inner { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 10px 0; flex-wrap: wrap; }
+  .brand { display: flex; gap: 10px; align-items: center; text-decoration: none; color: inherit; }
+  .mark { width: 34px; height: 34px; }
+  .brand b { display: block; font-family: var(--serif); }
+  .brand small, .muted, .hint { color: var(--muted); }
+  .hint { font-size: 0.9rem; }
+  .btn { border: 0; background: var(--accent); color: #fff; border-radius: 999px; padding: 8px 14px; font: inherit; font-size: 0.9rem; cursor: pointer; text-decoration: none; display: inline-block; }
+  .btn.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+  .float-pdf { position: fixed; right: 16px; bottom: 16px; z-index: 30; box-shadow: var(--shadow); }
+  .kicker { letter-spacing: .14em; text-transform: uppercase; font-size: .75rem; color: var(--gold); font-weight: 700; }
+  .hero { padding: 36px 0 8px; }
+  .lede { font-size: 1.12rem; max-width: 44rem; }
+  .panel { background: var(--paper); border: 1px solid var(--line); border-radius: 20px; padding: 18px; box-shadow: var(--shadow); }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .people { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .people a { display: block; text-decoration: none; color: inherit; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 14px; border-top: 4px solid var(--accent); }
+  .people span { display: block; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  section { padding: 22px 0; }
+  .ease { display: inline-block; background: var(--accent-2); color: var(--accent); font-weight: 700; border-radius: 999px; padding: 6px 12px; margin-bottom: 10px; }
+  .ease.wait { background: var(--gold-2); color: var(--gold); }
+  .flow { list-style: none; margin: 8px 0 0; padding: 0; }
+  .flow li { display: grid; grid-template-columns: 148px 1fr; gap: 12px; padding: 11px 0; border-top: 1px solid var(--line); }
+  .flow strong { display: block; }
+  .tag { font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+  .tag.them { color: var(--clay); }
+  .tag.auto { color: var(--accent); }
+  .tag.you { color: var(--gold); }
+  .never { background: var(--bg); border-radius: 12px; padding: 10px 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+  .phone { width: min(100%, 320px); background: #efeae2; border: 8px solid #1b1b1b; border-radius: 28px; overflow: hidden; }
+  .wa-top { background: #075e54; color: #fff; padding: 10px 12px; }
+  .wa-top small { display: block; opacity: .85; font-size: .72rem; }
+  .wa-body { padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+  .bubble { max-width: 92%; padding: 8px 10px; border-radius: 12px; font-size: .86rem; line-height: 1.4; white-space: pre-line; border: 1px solid rgba(0,0,0,.06); }
+  .me { align-self: flex-end; background: #d9fdd3; }
+  .them { align-self: flex-start; background: #fff; }
+  .jump { display: flex; gap: 8px 14px; flex-wrap: wrap; padding: 8px 0 0; }
+  .jump a { color: var(--muted); text-decoration: none; }
+  .sheet { break-before: page; }
+  .banner { background: var(--gold-2); border-radius: 12px; padding: 10px 12px; }
+  @media (max-width: 800px) {
+    .grid-2, .people { grid-template-columns: 1fr; }
+    .flow li { grid-template-columns: 1fr; gap: 2px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  @page { size: A4; margin: 12mm; }
+  @media print {
+    body { background: #fff; padding: 0; font-size: 11pt; }
+    .no-print, .float-pdf { display: none !important; }
+    .top { position: static; }
+    .wrap { width: 100%; }
+    .panel, .people a, .phone { box-shadow: none; }
+    a { color: inherit; text-decoration: none; }
+    .grid-2, .people { grid-template-columns: 1fr 1fr !important; }
+    .flow li { grid-template-columns: 130px 1fr !important; }
+    .sheet { break-before: page; }
+    .flow, .panel, .phone { break-inside: avoid; }
+    .wa-top, .me { color: #1d1915 !important; background: #f4efe6 !important; }
+    .wa-top { border-bottom: 2px solid var(--accent); }
+  }
+</style>
+</head>
+<body>
+<header class="top no-print">
+  <div class="wrap top-inner">
+    <a class="brand" href="../index.html">
+      <svg class="mark" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="10" fill="#241c46"/><circle cx="18" cy="14" r="3" fill="#e7c98a"/><path d="M10 26c3-5 13-5 16 0" stroke="#f4efe6" stroke-width="1.6" fill="none"/></svg>
+      <span><b>Astrology, Vastu, Numerology</b><small>Every person’s path</small></span>
+    </a>
+    <div>
+      <a class="btn ghost" href="../herbal-clinic/index.html">Herbal clinic</a>
+      <button class="btn" type="button" id="pdfTop">Download PDF</button>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="wrap hero">
+    <p class="kicker">Astrology · Vastu Shastra · Numerology · October 2026</p>
+    <h1>Three sciences. One system. A short path for every person.</h1>
+    <p class="lede">This is the full IT solution for an expert who works in astrology, Vastu Shastra, and numerology. A public website with three doors. A web application for charts, homes, and names. Booking and payment on the website and on WhatsApp. SEO and a Google listing so more people can find you. WhatsApp marketing for people who agreed. The session itself stays yours.</p>
+    <div class="grid-2">
+      <article class="panel"><h3>What we build</h3><p>Astrology: birth details, chart workspace, a draft you edit, one report. Vastu Shastra: address, facing, rooms, photos, a written note. Numerology: date, spelling, options you tick. Around that: website, web application, WhatsApp, payment, SEO, Google listing, and marketing.</p></article>
+      <article class="panel"><h3>What the business gives us</h3><p>Which of the three you offer, fees, hours, city, a photo, a sample report you like, the WhatsApp number, a Google account, and a payment account in your name. You approve every public line, and you press send on every report.</p></article>
+    </div>
+    <div class="grid-2">
+      <article class="panel">
+        <h3>How to read “easy”</h3>
+        <p><span class="tag them">They do this</span> is a tap or a reply by a person.</p>
+        <p><span class="tag auto">The system does this</span> happens with no extra work.</p>
+        <p><span class="tag you">You approve</span> is the moment the client is allowed to see the report. Before that, they only see “being prepared”.</p>
+        <p class="hint">No new app. One WhatsApp number. A password is only for you and your assistant, not for a client who is just booking.</p>
+      </article>
+      <article class="panel">
+        <h3>The only menu they need to learn</h3>
+        <p>They send <strong>Hi</strong>. The reply is five choices:</p>
+        <p>1 Book a session<br>2 Send birth details<br>3 My report<br>4 Services and fees<br>5 Talk to the consultant</p>
+        <p class="hint">Fees are one reply. A person is one reply. The same menu can be in Hindi.</p>
+      </article>
+    </div>
+    <nav class="jump no-print" aria-label="People">
+      <a href="#site">New client, website</a>
+      <a href="#wa">New client, WhatsApp</a>
+      <a href="#details">Birth details</a>
+      <a href="#return">Returning client</a>
+      <a href="#match">Two people</a>
+      <a href="#night">At night</a>
+      <a href="#assistant">Assistant</a>
+      <a href="#you">Consultant</a>
+      <a href="#easy">How easy each task is</a>
+    </nav>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2>The people</h2>
+      <div class="people">
+        <a href="#site"><span>Client</span><strong>First session from the website</strong><p class="muted">Pick a service, a real gap in the day, and the details.</p></a>
+        <a href="#wa"><span>Client</span><strong>First session from WhatsApp</strong><p class="muted">A short chat. No form if they dislike forms.</p></a>
+        <a href="#details"><span>Client</span><strong>Send birth details</strong><p class="muted">The chat asks one item at a time.</p></a>
+        <a href="#return"><span>Returning client</span><strong>Use the old details</strong><p class="muted">One YES. They do not send the date again.</p></a>
+        <a href="#match"><span>Two people</span><strong>A match or a family question</strong><p class="muted">Two sets of details. One report.</p></a>
+        <a href="#night"><span>Anyone</span><strong>Write after hours</strong><p class="muted">They can book or leave details. You see a complete file in the morning.</p></a>
+        <a href="#assistant"><span>Assistant</span><strong>Calendar and payments</strong><p class="muted">Can book and mark paid. Sending the report stays with you.</p></a>
+        <a href="#you"><span>Consultant</span><strong>Edit the draft and send</strong><p class="muted">The guidance is yours. The paperwork is a few taps.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="site">
+    <div class="wrap panel">
+      <p class="kicker">Client · website</p>
+      <h2>A new client books from the website</h2>
+      <p class="ease">Easy · a few minutes · only because birth details take longer than a name</p>
+      <ol class="flow">
+        <li><span class="tag them">They do this</span><div><strong>Open the practice page</strong><p>They see the services you switched on, what a session includes, and what they will receive. A chart, numerology, a match, vastu, or a service you named.</p></div></li>
+        <li><span class="tag them">They do this</span><div><strong>Tap the service, then a free time</strong><p>The length follows the service. A 30-minute numerology slot and a 60-minute match do not look the same. Taken times are hidden.</p></div></li>
+        <li><span class="tag them">They do this</span><div><strong>Type the details, or choose “I will send them on WhatsApp”</strong><p>Date, time, place, and the question. If the birth time is unknown, they say so. They are not blocked.</p></div></li>
+        <li><span class="tag them">They do this</span><div><strong>Tap Confirm</strong><p>If you take a fee before the session, a payment link can appear here. The payment company’s fee is extra, in your account.</p></div></li>
+        <li><span class="tag auto">The system does this</span><div><strong>Confirms on WhatsApp and opens the file</strong><p>You see the question before the session. A reminder goes out before the hour. From day one you can write the report yourself and send it, even before a calculation service is connected.</p></div></li>
+      </ol>
+      <p class="never">They do not call to ask what they will get. That is written on the service. They do not sit in the session while someone hunts for the birth place, if they already sent it.</p>
+    </div>
+  </section>
+
+  <section id="wa">
+    <div class="wrap grid-2">
+      <article class="panel">
+        <p class="kicker">Client · WhatsApp</p>
+        <h2>A new client books from the chat</h2>
+        <p class="ease">Easy · replies, one question at a time · no website required</p>
+        <ol class="flow">
+          <li><span class="tag them">They do this</span><div><strong>Send Hi, then 1</strong><p>The chat asks which guidance: chart, numerology, match, vastu, or the other names you turned on.</p></div></li>
+          <li><span class="tag them">They do this</span><div><strong>Pick a number for the service, then a number for the time</strong><p>Only free gaps are offered.</p></div></li>
+          <li><span class="tag auto">The system does this</span><div><strong>Asks the details in small steps</strong><p>Name, date, time, place, question. They can skip the birth time. The file fills in as they answer. Confirmation stays in the same chat.</p></div></li>
+          <li><span class="tag them">They do this</span><div><strong>Or they only wanted the fees</strong><p>Hi, then 4. One reply shows services and fees in your words. They can stop there.</p></div></li>
+        </ol>
+        <p class="never">Reply 5 reaches you or your assistant. The menu never ends in a dead end.</p>
+      </article>
+      <div>
+        <div class="phone" aria-label="Sample WhatsApp booking">
+          <div class="wa-top"><strong>आपका मार्गदर्शन</strong><small>sample chat</small></div>
+          <div class="wa-body">
+            <div class="bubble me">Hi</div>
+            <div class="bubble them">एक नंबर भेजें:
+1 सलाह बुक करें
+2 जन्म विवरण
+3 मेरी रिपोर्ट
+4 सेवा और शुल्क
+5 सलाहकार से बात करें</div>
+            <div class="bubble me">1</div>
+            <div class="bubble them">1 जन्म कुंडली
+2 अंक
+3 मिलान
+खाली समय उसके बाद।</div>
+            <div class="bubble me">2</div>
+            <div class="bubble them">नाम, जन्म तिथि, समय, स्थान, और आपका प्रश्न भेजें। समय न पता हो तो “पता नहीं” लिखें।</div>
+          </div>
+        </div>
+        <p class="hint">Sample chat. The same steps can run in English. Details can arrive one line at a time.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="details" class="sheet">
+    <div class="wrap panel">
+      <p class="kicker">Client · then you</p>
+      <h2>Birth details become a report, only after you send it</h2>
+      <p class="ease">Client: answer the questions once. You: read, change any line, press send.</p>
+      <ol class="flow">
+        <li><span class="tag them">Client</span><div><strong>Sends details on the site or by replying 2</strong><p>If they already booked, reply 2 adds the missing pieces to that same file.</p></div></li>
+        <li><span class="tag auto">The system does this</span><div><strong>Marks the file “details in”</strong><p>Your day list shows who is ready and who is still missing a place or a question. If a calculation service is connected, chart figures and number totals can fill in. That service’s fee is extra. If it is not connected yet, you type those figures in the same boxes.</p></div></li>
+        <li><span class="tag auto">The system does this</span><div><strong>Prepares a draft in your sections</strong><p>Chart points, numbers, timing notes, talking points. It is marked “not sent”. The client cannot open it. This draft can wait until you are ready. On day one, with no draft tool yet, you paste your own note into the same screen.</p></div></li>
+        <li><span class="tag you">You approve</span><div><strong>Edit, then tap Approve and send</strong><p>You rewrite anything you do not want. Name options stay as choices you tick. Nothing leaves until this tap.</p></div></li>
+        <li><span class="tag auto">The system does this</span><div><strong>Delivers one finished note</strong><p>WhatsApp, and the client’s own page. They can ask for it again with Hi, then 3. They receive the note you approved, not the draft.</p></div></li>
+      </ol>
+      <p class="banner">The session itself is still a conversation. Easy here means the file, the formatting, and the delivery. The judgement in the note is yours.</p>
+    </div>
+  </section>
+
+  <section id="return">
+    <div class="wrap grid-2">
+      <article class="panel">
+        <p class="kicker">Returning client</p>
+        <h2>The second session starts from the file</h2>
+        <p class="ease">Very easy · one YES to reuse birth details</p>
+        <ol class="flow">
+          <li><span class="tag them">They do this</span><div><strong>Hi, then 1</strong><p>The chat recognises the number.</p></div></li>
+          <li><span class="tag auto">The system does this</span><div><strong>Offers the details already on file</strong><p>“We have your birth details from last time. Reply YES to use them.” They send only the new question, and a time.</p></div></li>
+          <li><span class="tag them">They do this</span><div><strong>Later, Hi then 3</strong><p>The last report you already sent opens again. They do not ask you to resend it by hand.</p></div></li>
+          <li><span class="tag auto">The system does this</span><div><strong>Can remind them months later</strong><p>If you set a return month on the file. One date. The message goes out when that month comes.</p></div></li>
+        </ol>
+      </article>
+      <article class="panel" id="match">
+        <p class="kicker">Two people · match or family</p>
+        <h2>One booking, two sets of details, one note</h2>
+        <p class="ease">A little longer than one person · still one thread</p>
+        <ol class="flow">
+          <li><span class="tag them">First person</span><div><strong>Books Match and sends their own details</strong><p>Same website or WhatsApp path. The service length is the longer one you set.</p></div></li>
+          <li><span class="tag them">First or second person</span><div><strong>Sends the second name, date, time, and place</strong><p>On the same chat, or the second person messages the clinic number and quotes the first person’s phone. The assistant can also type the second set in about a minute.</p></div></li>
+          <li><span class="tag auto">The system does this</span><div><strong>Keeps both on one file</strong><p>A comparison draft can be prepared for you to edit. You add the final guidance. One send. Both can receive it if you choose both numbers.</p></div></li>
+        </ol>
+        <p class="never">You are not keeping a second notebook for the same house.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="night">
+    <div class="wrap panel">
+      <p class="kicker">Anyone after hours</p>
+      <h2>A message at night becomes a ready file by morning</h2>
+      <p class="ease">Your effort at night: none</p>
+      <ol class="flow">
+        <li><span class="tag them">They do this</span><div><strong>Send Hi after closing</strong><p>They can book, send details, or ask fees.</p></div></li>
+        <li><span class="tag auto">The system does this</span><div><strong>Shares hours and still accepts a free slot or the details</strong><p>You are not expected to reply. Reply 5 waits as a normal note for the morning.</p></div></li>
+        <li><span class="tag them">You, next day</span><div><strong>Open a file that is already filled</strong><p>Question, time, and details are there before you speak.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="assistant" class="sheet">
+    <div class="wrap grid-2">
+      <article class="panel">
+        <p class="kicker">Assistant</p>
+        <h2>The assistant runs the calendar, not the reading</h2>
+        <p class="ease">One tap for paid, arrived, or a manual booking</p>
+        <ol class="flow">
+          <li><span class="tag auto">The system does this</span><div><strong>Shows today, with who has paid and whose details are in</strong><p>The list is the job. There is no second diary.</p></div></li>
+          <li><span class="tag them">Assistant</span><div><strong>Books someone who called</strong><p>Service, free time, phone. About a minute. The confirmation still goes on WhatsApp.</p></div></li>
+          <li><span class="tag them">Assistant</span><div><strong>Marks the fee paid when the money arrives</strong><p>The day list drops the “fee open” mark. A receipt can go on WhatsApp.</p></div></li>
+          <li><span class="tag them">Assistant</span><div><strong>Answers a chat that asked for a person</strong><p>Reply 5 lands here. They can answer timings, fees, and “please send the birth place”. They do not press Approve and send.</p></div></li>
+        </ol>
+        <p class="never">The finished report stays on your button, unless you later choose to allow an assistant to send. The default is that only you send it.</p>
+      </article>
+      <article class="panel" id="you">
+        <p class="kicker">Consultant</p>
+        <h2>Your path on a session day</h2>
+        <p class="ease">Admin around one session: open, edit, send. The talking is the real work.</p>
+        <ol class="flow">
+          <li><span class="tag auto">The system does this</span><div><strong>Morning list, and a note 30 minutes before</strong><p>Name, service, question. “Draft waiting” or “details missing”.</p></div></li>
+          <li><span class="tag you">You</span><div><strong>Open the draft and change any line</strong><p>If there is no draft yet, you write or paste the note on that same screen. The client still cannot see it.</p></div></li>
+          <li><span class="tag them">You</span><div><strong>Speak, with the question and old reports on the screen</strong><p>A repeat client’s last note is already there.</p></div></li>
+          <li><span class="tag you">You approve</span><div><strong>Tap Approve and send</strong><p>One finished document goes on WhatsApp. You can also keep it as a draft and send after the session.</p></div></li>
+          <li><span class="tag them">You or the assistant</span><div><strong>Glance at fees still open</strong><p>A short list in the evening. A payment link, if you use one, is sent from that row.</p></div></li>
+        </ol>
+      </article>
+    </div>
+  </section>
+
+  <section id="easy" class="sheet">
+    <div class="wrap">
+      <p class="kicker">All the tasks</p>
+      <h2>How easy each task is</h2>
+      <p>A full reading is still your time and your words. The tasks below are the office work around it.</p>
+      <div class="panel" style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr><th>Task</th><th>Who</th><th>Their effort</th><th>The system does the rest</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Understand a service</td><td>New client</td><td>Read one page</td><td>Duration, what to send, and what they receive are in your words</td></tr>
+            <tr><td>Book on the website</td><td>New client</td><td>A few minutes, mostly the birth details</td><td>Holds a real gap, confirms, reminds</td></tr>
+            <tr><td>Book on WhatsApp</td><td>New client</td><td>A short series of replies</td><td>Asks one item at a time and writes the calendar</td></tr>
+            <tr><td>Ask fees</td><td>Anyone</td><td>Hi, then 4</td><td>Sends the list you wrote</td></tr>
+            <tr><td>Reach a person</td><td>Anyone</td><td>Hi, then 5</td><td>Puts the chat with you or the assistant</td></tr>
+            <tr><td>Send birth details</td><td>Client</td><td>Reply 2, then the lines the chat asks</td><td>Attaches them to the right file</td></tr>
+            <tr><td>Unknown birth time</td><td>Client</td><td>One line: “not known”</td><td>The booking still stands</td></tr>
+            <tr><td>Reuse old details</td><td>Returning client</td><td>One YES</td><td>Copies date, time, and place onto the new session</td></tr>
+            <tr><td>See the old report</td><td>Client</td><td>Hi, then 3</td><td>Shows the note you already sent</td></tr>
+            <tr><td>Book a match</td><td>Two people</td><td>One booking plus a second set of details</td><td>One file, one draft, one send</td></tr>
+            <tr><td>Message at night</td><td>Client</td><td>Same as daytime</td><td>Saves the file. Does not call you</td></tr>
+            <tr><td>Book a caller</td><td>Assistant</td><td>About 1 minute</td><td>Confirmation goes on WhatsApp</td></tr>
+            <tr><td>Mark the fee paid</td><td>Assistant</td><td>1 tap</td><td>Receipt can go out. The day list updates</td></tr>
+            <tr><td>Fill chart figures by hand</td><td>You</td><td>Type into the boxes, until a calculation service is connected</td><td>The report screen stays the same either way</td></tr>
+            <tr><td>Prepare the draft</td><td>The system, when that module is on</td><td>You do not format it</td><td>Sections you chose, marked “not sent”</td></tr>
+            <tr><td>Send the report</td><td>You</td><td>Edit, then 1 tap</td><td>Client gets one finished note on WhatsApp</td></tr>
+            <tr><td>Remind them months later</td><td>Nobody that day</td><td>You set one return month</td><td>The message goes out when the month comes</td></tr>
+            <tr><td>Pay before the session</td><td>Client</td><td>Open the link on the site or in WhatsApp</td><td>The seat shows as paid. Receipt returns on the chat</td></tr>
+            <tr><td>Find you on Google</td><td>A new person</td><td>Search astrology, vastu, or numerology in your city</td><td>The right page and the Google listing lead to booking</td></tr>
+            <tr><td>Send a festival or camp note</td><td>You</td><td>Approve one message</td><td>Only people who agreed receive it. Message fees are extra</td></tr>
+            <tr><td>See the month</td><td>You</td><td>Open one page</td><td>Sessions, reports sent, drafts still with you, and which of the three services people booked</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2" style="margin-top:14px">
+        <article class="panel">
+          <h3>What the assistant memorizes</h3>
+          <p>Open Today. Book a caller into a free gap. Mark paid. Answer chats that asked for a person. Leave Approve and send for the consultant.</p>
+        </article>
+        <article class="panel">
+          <h3>What you memorize</h3>
+          <p>Open the next file. Change any line you do not want. Press send when the note is yours. The menu, the night replies, and the reminders do not need you.</p>
+        </article>
+      </div>
+      <p class="hint" style="margin-top:14px">This page is astrology, Vastu Shastra, and numerology. The herbal clinic has its own folder. The full module table is in the main proposal. A calculation service, domain, server, WhatsApp message fees, SMS, email, and payment-gateway fees are extra. Development is a project charge. Maintenance is not priced here. The software prepares a complete document. The judgement inside it is yours.</p>
+    </div>
+  </section>
+</main>
+<button class="btn float-pdf no-print" type="button" id="pdfFloat">Download PDF</button>
+<script>
+document.getElementById("pdfTop").addEventListener("click", function () { window.print(); });
+document.getElementById("pdfFloat").addEventListener("click", function () { window.print(); });
+</script>
+</body>
+</html>

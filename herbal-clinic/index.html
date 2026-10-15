@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Herbal clinic — full solution and every person’s path</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fraunces:opsz,wght@9..144,560;9..144,640&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f3eee6; --paper: #fffdf9; --ink: #1d1915; --muted: #5c554c; --line: #e3d8c8;
+    --accent: #1c4a36; --accent-2: #e7f3ec; --clay: #9a4e28; --gold: #7d6230; --gold-2: #f8f1dc;
+    --shadow: 0 16px 40px rgba(48, 34, 14, 0.08);
+    --serif: Fraunces, Palatino, Georgia, serif;
+    --sans: "Atkinson Hyperlegible", "Avenir Next", "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.55; padding-bottom: 88px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 640; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 0.4em; }
+  h1 { font-size: clamp(2.2rem, 4.5vw, 3.8rem); }
+  h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); }
+  p { margin: 0 0 0.75em; }
+  a { color: var(--accent); }
+  .wrap { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
+  .top { position: sticky; top: 0; z-index: 20; background: rgba(243,238,230,.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .top-inner { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 10px 0; flex-wrap: wrap; }
+  .brand { display: flex; gap: 10px; align-items: center; text-decoration: none; color: inherit; }
+  .mark { width: 34px; height: 34px; }
+  .brand b { display: block; font-family: var(--serif); }
+  .brand small, .muted, .hint { color: var(--muted); }
+  .hint { font-size: 0.9rem; }
+  .btn { border: 0; background: var(--accent); color: #fff; border-radius: 999px; padding: 8px 14px; font: inherit; font-size: 0.9rem; cursor: pointer; text-decoration: none; display: inline-block; }
+  .btn.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+  .float-pdf { position: fixed; right: 16px; bottom: 16px; z-index: 30; box-shadow: var(--shadow); }
+  .kicker { letter-spacing: .14em; text-transform: uppercase; font-size: .75rem; color: var(--gold); font-weight: 700; }
+  .hero { padding: 36px 0 8px; }
+  .lede { font-size: 1.12rem; max-width: 44rem; }
+  .panel { background: var(--paper); border: 1px solid var(--line); border-radius: 20px; padding: 18px; box-shadow: var(--shadow); }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .people { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .people a { display: block; text-decoration: none; color: inherit; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 14px; border-top: 4px solid var(--accent); }
+  .people span { display: block; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  section { padding: 22px 0; }
+  .ease { display: inline-block; background: var(--accent-2); color: var(--accent); font-weight: 700; border-radius: 999px; padding: 6px 12px; margin-bottom: 10px; }
+  .ease.wait { background: var(--gold-2); color: var(--gold); }
+  .flow { list-style: none; margin: 8px 0 0; padding: 0; }
+  .flow li { display: grid; grid-template-columns: 132px 1fr; gap: 12px; padding: 11px 0; border-top: 1px solid var(--line); }
+  .flow strong { display: block; }
+  .tag { font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+  .tag.them { color: var(--clay); }
+  .tag.auto { color: var(--accent); }
+  .tag.you { color: var(--gold); }
+  .never { background: var(--bg); border-radius: 12px; padding: 10px 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+  .phone { width: min(100%, 320px); background: #efeae2; border: 8px solid #1b1b1b; border-radius: 28px; overflow: hidden; }
+  .wa-top { background: #075e54; color: #fff; padding: 10px 12px; }
+  .wa-top small { display: block; opacity: .85; font-size: .72rem; }
+  .wa-body { padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+  .bubble { max-width: 92%; padding: 8px 10px; border-radius: 12px; font-size: .86rem; line-height: 1.4; white-space: pre-line; border: 1px solid rgba(0,0,0,.06); }
+  .me { align-self: flex-end; background: #d9fdd3; }
+  .them { align-self: flex-start; background: #fff; }
+  .jump { display: flex; gap: 8px 14px; flex-wrap: wrap; padding: 8px 0 0; }
+  .jump a { color: var(--muted); text-decoration: none; }
+  .sheet { break-before: page; }
+  .print-only { display: none; }
+  @media (max-width: 800px) {
+    .grid-2, .people { grid-template-columns: 1fr; }
+    .flow li { grid-template-columns: 1fr; gap: 2px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  @page { size: A4; margin: 12mm; }
+  @media print {
+    body { background: #fff; padding: 0; font-size: 11pt; }
+    .no-print, .float-pdf { display: none !important; }
+    .print-only { display: block; }
+    .top { position: static; }
+    .wrap { width: 100%; }
+    .panel, .people a, .phone { box-shadow: none; }
+    a { color: inherit; text-decoration: none; }
+    .grid-2, .people { grid-template-columns: 1fr 1fr !important; }
+    .flow li { grid-template-columns: 120px 1fr !important; }
+    .sheet { break-before: page; }
+    .flow, .panel, .phone { break-inside: avoid; }
+    .wa-top, .me { color: #1d1915 !important; background: #f4efe6 !important; }
+    .wa-top { border-bottom: 2px solid var(--accent); }
+  }
+</style>
+</head>
+<body>
+<header class="top no-print">
+  <div class="wrap top-inner">
+    <a class="brand" href="../index.html">
+      <svg class="mark" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="10" fill="#1c4a36"/><path d="M18 7c2 5 2 8 0 12-2-4-2-7 0-12z" fill="#f4efe6"/></svg>
+      <span><b>Herbal clinic</b><small>Every person’s path</small></span>
+    </a>
+    <div>
+      <a class="btn ghost" href="../guidance-practice/index.html">Astrology, Vastu, Numerology</a>
+      <button class="btn" type="button" id="pdfTop">Download PDF</button>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="wrap hero">
+    <p class="kicker">Herbal clinic · user flows · October 2026</p>
+    <h1>Who does what, and how little each person has to do.</h1>
+    <p class="lede">This is the herbal half of the full IT solution: a public website, a private web application, booking and payment on WhatsApp and online, SEO, a Google listing, and WhatsApp marketing. Below is every person who uses it, and how small each task is. The medical judgement stays with the doctor.</p>
+    <div class="grid-2">
+      <article class="panel"><h3>What we build</h3><p>Website so families can find you. Web application so every patient and plan is in one office. WhatsApp so they book, refill, and pay from the chat. SEO and Google listing so nearby search can reach the clinic. Marketing only to people who agreed.</p></article>
+      <article class="panel"><h3>What the clinic gives us</h3><p>Photo, true bio, hours, address, fees, medicine names, a WhatsApp number, a Google account, and a payment account in the clinic’s name if people will pay online. You approve every public line.</p></article>
+    </div>
+    <div class="grid-2">
+      <article class="panel">
+        <h3>How to read “easy”</h3>
+        <p><span class="tag them">They do this</span> is a tap or a reply by a person.</p>
+        <p><span class="tag auto">The system does this</span> happens with no extra work.</p>
+        <p><span class="tag you">The doctor says yes</span> is one reply. Medicine is not prepared before that.</p>
+        <p class="hint">No one installs an app. Booking does not need a password. The phone they already use for WhatsApp is enough.</p>
+      </article>
+      <article class="panel">
+        <h3>The only menu they need to learn</h3>
+        <p>They send <strong>Hi</strong> to the clinic number. The reply is five choices:</p>
+        <p>1 Book a visit<br>2 Refill my medicine<br>3 My next visit<br>4 Time and address<br>5 Talk to a person</p>
+        <p class="hint">Choice 4 is one reply. Choice 5 always reaches a human. The same menu can be in Hindi.</p>
+      </article>
+    </div>
+    <nav class="jump no-print" aria-label="People">
+      <a href="#site">New patient, website</a>
+      <a href="#wa">New patient, WhatsApp</a>
+      <a href="#refill">Refill</a>
+      <a href="#follow">Follow-up</a>
+      <a href="#family">Family member</a>
+      <a href="#night">At night</a>
+      <a href="#desk">Front desk</a>
+      <a href="#doctor">Doctor</a>
+      <a href="#easy">How easy each task is</a>
+    </nav>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2>The people</h2>
+      <div class="people">
+        <a href="#site"><span>Patient</span><strong>First visit from the website</strong><p class="muted">About one minute. Five taps.</p></a>
+        <a href="#wa"><span>Patient</span><strong>First visit from WhatsApp</strong><p class="muted">Four or five replies. No form.</p></a>
+        <a href="#refill"><span>Returning patient</span><strong>Ask for the same medicine</strong><p class="muted">Three replies, then they wait for your yes.</p></a>
+        <a href="#follow"><span>Returning patient</span><strong>Come back on the right day</strong><p class="muted">The reminder arrives. One reply can keep the time.</p></a>
+        <a href="#family"><span>Family</span><strong>Book for a parent</strong><p class="muted">When that module is on. The file stays in the patient’s name.</p></a>
+        <a href="#night"><span>Anyone</span><strong>Message after closing</strong><p class="muted">They can still book. The doctor is not called.</p></a>
+        <a href="#desk"><span>Helper</span><strong>Run the door</strong><p class="muted">One tap when someone arrives, pays, or collects.</p></a>
+        <a href="#doctor"><span>Doctor</span><strong>Write the plan and approve</strong><p class="muted">The talk is yours. Sending the plan is about a minute.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="site">
+    <div class="wrap panel">
+      <p class="kicker">Patient · website</p>
+      <h2>A new patient books from the website</h2>
+      <p class="ease">Very easy · about 1 minute · 5 taps · no account needed</p>
+      <ol class="flow">
+        <li><span class="tag them">They do this</span><div><strong>Open the clinic page</strong><p>From a search, a share, or your card. The page says what a visit is, why the plan is written, and how to start.</p></div></li>
+        <li><span class="tag them">They do this</span><div><strong>Tap Book a visit</strong><p>They choose new visit. Follow-up is the other choice, for people who already came.</p></div></li>
+        <li><span class="tag them">They do this</span><div><strong>Tap a free time</strong><p>Only open chairs are shown. Two people cannot take the same time.</p></div></li>
+        <li><span class="tag them">They do this</span><div><strong>Type name and phone</strong><p>That is the whole form for a first booking.</p></div></li>
+        <li><span class="tag them">They do this</span><div><strong>Tap Confirm</strong><p>The screen says the visit is held.</p></div></li>
+        <li><span class="tag auto">The system does this</span><div><strong>Sends a WhatsApp confirmation</strong><p>Time, address, and what to bring. A reminder goes out again before the day. The front desk sees the name on today’s list.</p></div></li>
+      </ol>
+      <p class="never">They do not call to ask which hour is free. They do not make a password before the visit.</p>
+    </div>
+  </section>
+
+  <section id="wa">
+    <div class="wrap grid-2">
+      <article class="panel">
+        <p class="kicker">Patient · WhatsApp</p>
+        <h2>A new patient books from the chat</h2>
+        <p class="ease">Very easy · 4 or 5 replies · the chat they already know</p>
+        <ol class="flow">
+          <li><span class="tag them">They do this</span><div><strong>Send Hi</strong><p>The menu arrives: 1 book, 2 refill, 3 next visit, 4 address, 5 a person.</p></div></li>
+          <li><span class="tag them">They do this</span><div><strong>Reply 1</strong><p>Then new visit or follow-up.</p></div></li>
+          <li><span class="tag auto">The system does this</span><div><strong>Offers real free times</strong><p>They reply with the number of the time they want, then send their name.</p></div></li>
+          <li><span class="tag auto">The system does this</span><div><strong>Confirms in the same chat</strong><p>The slot is now on the desk. A reminder follows before the day.</p></div></li>
+        </ol>
+        <p class="never">If they only wanted the address, they reply 4 and stop. One reply. If they are confused, they reply 5 and your helper answers.</p>
+      </article>
+      <div>
+        <div class="phone" aria-label="Sample WhatsApp booking">
+          <div class="wa-top"><strong>आपका क्लिनिक</strong><small>sample chat</small></div>
+          <div class="wa-body">
+            <div class="bubble me">नमस्ते</div>
+            <div class="bubble them">एक नंबर भेजें:
+1 मुलाकात बुक करें
+2 दवा दोबारा
+3 अगली मुलाकात
+4 समय और पता
+5 क्लिनिक से बात करें</div>
+            <div class="bubble me">1</div>
+            <div class="bubble them">नई मुलाकात। खाली समय:
+1 आज 4:00
+2 कल 10:30
+नाम भेजें।</div>
+            <div class="bubble me">2
+रीना</div>
+            <div class="bubble them">बुक हो गया। कल 10:30। पता और याददिलानी संदेश आएगा।</div>
+          </div>
+        </div>
+        <p class="hint">Sample chat. Imaginary name. The same steps can run in English.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="refill" class="sheet">
+    <div class="wrap">
+      <p class="kicker">Returning patient · helper · doctor</p>
+      <h2>A refill, from the first message to collection</h2>
+      <p class="ease">Patient: 3 replies. Doctor: 1 reply. Helper: 2 taps.</p>
+      <p>The patient does not retell the whole history. The WhatsApp number matches the file, so the last plan is already known. Nothing is prepared until the doctor agrees.</p>
+      <div class="panel">
+        <ol class="flow">
+          <li><span class="tag them">Patient</span><div><strong>Hi, then 2, then हाँ</strong><p>The chat shows the last plan in plain words, for example “Tulsi blend, 30 days”. हाँ means “send the same request”. They can say no and stop.</p></div></li>
+          <li><span class="tag auto">The system does this</span><div><strong>Parks the request</strong><p>Status becomes “asked”. The patient is told to wait. The morning note to the doctor includes “refill waiting”.</p></div></li>
+          <li><span class="tag you">Doctor says yes</span><div><strong>Reply YES 1, or tap Approve</strong><p>One reply on WhatsApp, or one tap on the desk. The doctor can change the plan or refuse. A refusal tells the patient to book a visit instead.</p></div></li>
+          <li><span class="tag auto">The system does this</span><div><strong>Tells both sides</strong><p>The helper sees “approved”. The patient gets a short message. They are not asked to call.</p></div></li>
+          <li><span class="tag them">Helper</span><div><strong>Tap Ready, later tap Collected</strong><p>Ready sends “you can collect”. Collected closes the request. If a payment link is on, they can pay before they come. That link is an extra service.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="follow">
+    <div class="wrap panel">
+      <p class="kicker">Returning patient</p>
+      <h2>The follow-up comes to them</h2>
+      <p class="ease">Patient effort on the reminder day: one reply, if the suggested time is fine</p>
+      <ol class="flow">
+        <li><span class="tag you">Doctor, at the visit</span><div><strong>Sets the next date before sending the plan</strong><p>One date field. It rides along with the medicine message.</p></div></li>
+        <li><span class="tag auto">The system does this</span><div><strong>Sends a reminder before that date</strong><p>The message offers a free time and the choice to pick another. If they miss it, one second note can go out, only if you want that rule.</p></div></li>
+        <li><span class="tag them">Patient</span><div><strong>Replies yes, or picks another time</strong><p>Yes puts them on the roster. They can also reply 3 any day to ask “when is my next visit?”</p></div></li>
+        <li><span class="tag them">Helper, that morning</span><div><strong>Sees them on today’s list</strong><p>No separate follow-up notebook.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="family">
+    <div class="wrap grid-2">
+      <article class="panel">
+        <p class="kicker">Family member · later module</p>
+        <h2>A son or daughter books for a parent</h2>
+        <p class="ease wait">Easy once this module is on · a few extra words in the same booking</p>
+        <ol class="flow">
+          <li><span class="tag them">They do this</span><div><strong>Book as usual, on the site or on WhatsApp</strong><p>They add the patient’s name and phone, and their own phone as the contact.</p></div></li>
+          <li><span class="tag auto">The system does this</span><div><strong>Keeps the medical file on the patient</strong><p>Reminders can go to the family number they gave. The parent’s old visits stay on one file, found by the patient’s phone.</p></div></li>
+        </ol>
+        <p class="never">Until you add this module, the helper can still book the parent from the desk in under a minute. The family member’s self-serve path is the later piece.</p>
+      </article>
+      <article class="panel" id="night">
+        <p class="kicker">Anyone after hours</p>
+        <h2>A message at night</h2>
+        <p class="ease">The doctor’s effort: none until morning</p>
+        <ol class="flow">
+          <li><span class="tag them">They do this</span><div><strong>Send Hi after closing</strong><p>Same word as in the daytime.</p></div></li>
+          <li><span class="tag auto">The system does this</span><div><strong>Sends hours, address, and free morning times</strong><p>They can still finish a booking. The chat does not ring the doctor.</p></div></li>
+          <li><span class="tag them">Helper, next morning</span><div><strong>Sees the new name already on the list</strong><p>If they replied 5, that note is waiting as “a person asked”. It is a normal chat, not an alarm.</p></div></li>
+        </ol>
+      </article>
+    </div>
+  </section>
+
+  <section id="desk" class="sheet">
+    <div class="wrap">
+      <p class="kicker">Front desk</p>
+      <h2>The helper’s whole job is one list</h2>
+      <p class="ease">Most actions are one tap. The list is open when the day starts.</p>
+      <div class="grid-2">
+        <article class="panel">
+          <h3>A person at the door</h3>
+          <ol class="flow">
+            <li><span class="tag auto">The system does this</span><div><strong>Today’s list is already there</strong><p>Also on the morning WhatsApp to the clinic. New, follow-up, and report look different.</p></div></li>
+            <li><span class="tag them">Helper</span><div><strong>Tap Arrived</strong><p>The doctor can see who is in the room.</p></div></li>
+            <li><span class="tag them">Helper</span><div><strong>Tap Done, or Did not come</strong><p>A no-show stays visible. The chair story is clear at the end of the day.</p></div></li>
+            <li><span class="tag them">Helper</span><div><strong>Enter the fee and tap Send receipt</strong><p>Visit fee, medicine fee, or both. The patient gets the receipt on WhatsApp.</p></div></li>
+          </ol>
+        </article>
+        <article class="panel">
+          <h3>Between visitors</h3>
+          <ol class="flow">
+            <li><span class="tag them">Helper</span><div><strong>Book a phone call the old way, if someone insists</strong><p>Pick the person, pick a free time. Same list. About a minute.</p></div></li>
+            <li><span class="tag them">Helper</span><div><strong>Tap Ready or Collected on a refill</strong><p>Only after the doctor has approved it. The button is not there before that.</p></div></li>
+            <li><span class="tag them">Helper</span><div><strong>Close a holiday in one step</strong><p>That day drops off the public booking page.</p></div></li>
+          </ol>
+          <p class="never">The helper does not delete a patient file, does not change a medicine, and does not approve a refill. Those stay with the doctor. If someone is upset or confused, the chat is already on the desk because they replied 5.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="doctor">
+    <div class="wrap panel">
+      <p class="kicker">Doctor</p>
+      <h2>The visit stays a conversation. The paperwork is short.</h2>
+      <p class="ease">About one minute to send a plan, once your common plans are saved. A refill approval is one reply.</p>
+      <ol class="flow">
+        <li><span class="tag auto">The system does this</span><div><strong>Morning note</strong><p>How many visits, the first few names, and any refill waiting. You can ignore it and use the desk.</p></div></li>
+        <li><span class="tag them">Doctor</span><div><strong>Open the person marked Arrived</strong><p>Last visit, the old plan, and any “do not give” note are on top. You are not searching a notebook.</p></div></li>
+        <li><span class="tag them">Doctor</span><div><strong>Pick a saved plan, or type this person’s plan</strong><p>Name, morning or night, with food or without, number of days, food note, next date. The first time you save a common plan it takes a few minutes. After that you reuse it and still change a line for this person.</p></div></li>
+        <li><span class="tag them">Doctor</span><div><strong>Tap Send</strong><p>The patient receives those exact words on WhatsApp. The helper sees the same list to prepare. You do not dictate it a second time.</p></div></li>
+        <li><span class="tag you">Doctor says yes</span><div><strong>Refills: YES, change, or no</strong><p>From the phone or the desk. No is allowed. The patient is told either way.</p></div></li>
+      </ol>
+      <p class="never">You do not promise a cure on the website. You approve the public words once. After that, the page does not invent new claims. You do not have to answer the chat at night.</p>
+    </div>
+  </section>
+
+  <section id="easy" class="sheet">
+    <div class="wrap">
+      <p class="kicker">All the tasks</p>
+      <h2>How easy each task is</h2>
+      <p>The talk with the patient is still your work. Everything around that talk is meant to be this small.</p>
+      <div class="panel" style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr><th>Task</th><th>Who</th><th>Their effort</th><th>The system does the rest</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>See what the clinic does</td><td>New patient</td><td>Read one page</td><td>What, why, and how are already written in your approved words</td></tr>
+            <tr><td>Book on the website</td><td>New patient</td><td>About 1 minute, 5 taps</td><td>Holds the chair, confirms on WhatsApp, reminds later</td></tr>
+            <tr><td>Book on WhatsApp</td><td>New patient</td><td>4 or 5 replies</td><td>Offers only free times and writes the roster</td></tr>
+            <tr><td>Ask the address</td><td>Anyone</td><td>Hi, then 4</td><td>Sends time and address</td></tr>
+            <tr><td>Reach a person</td><td>Anyone</td><td>Hi, then 5</td><td>Puts the chat on the desk</td></tr>
+            <tr><td>Change a time</td><td>Patient</td><td>1 or 2 replies</td><td>Frees the old chair if your rule allows the change</td></tr>
+            <tr><td>Message at night</td><td>Patient</td><td>Same as a daytime booking</td><td>Answers with hours. Does not wake the doctor</td></tr>
+            <tr><td>Mark arrived</td><td>Helper</td><td>1 tap</td><td>Doctor sees who is in the room</td></tr>
+            <tr><td>Mark done or did not come</td><td>Helper</td><td>1 tap</td><td>The day stays honest for the month page</td></tr>
+            <tr><td>Send a receipt</td><td>Helper</td><td>Type the amount, 1 tap</td><td>Patient gets it on WhatsApp</td></tr>
+            <tr><td>Write and send the plan</td><td>Doctor</td><td>About 1 minute with a saved plan</td><td>Same words go to the patient and the helper</td></tr>
+            <tr><td>Ask a refill</td><td>Patient</td><td>Hi, 2, हाँ</td><td>Finds the last plan from their number</td></tr>
+            <tr><td>Approve a refill</td><td>Doctor</td><td>1 reply or 1 tap</td><td>Helper and patient are told. No approval, no preparation</td></tr>
+            <tr><td>Ready and collected</td><td>Helper</td><td>1 tap each</td><td>Patient is told when to come</td></tr>
+            <tr><td>Follow-up reminder</td><td>Nobody that day</td><td>The date was set at the visit</td><td>Message goes out on its own</td></tr>
+            <tr><td>Accept the follow-up time</td><td>Patient</td><td>1 reply</td><td>Adds them to the roster</td></tr>
+            <tr><td>Book for a parent</td><td>Family</td><td>A few extra words, when that module is on</td><td>File stays on the patient</td></tr>
+            <tr><td>Close a holiday</td><td>Doctor or helper</td><td>1 step</td><td>The day vanishes from public booking</td></tr>
+            <tr><td>Pay on the website or WhatsApp</td><td>Patient</td><td>Open the link and pay</td><td>Receipt returns on WhatsApp. Money goes to the clinic account</td></tr>
+            <tr><td>Be found on Google</td><td>A new family</td><td>Search, then open the site or the map pin</td><td>SEO pages and the Google listing point to booking</td></tr>
+            <tr><td>Send a camp note</td><td>Doctor</td><td>Approve one message</td><td>It goes only to people who agreed. Message fees are extra</td></tr>
+            <tr><td>See the month</td><td>Doctor</td><td>Open one page</td><td>New people, return visits, refills, and no-shows are already counted</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2" style="margin-top:14px">
+        <article class="panel">
+          <h3>What the helper memorizes</h3>
+          <p>Open Today. Tap Arrived. Tap Done or Did not come. Send the receipt. On refills, tap Ready only after approval, then Collected.</p>
+        </article>
+        <article class="panel">
+          <h3>What the doctor memorizes</h3>
+          <p>Open the person in the room. Send the plan with the next date. For a refill, reply YES or no. The public site and the night chat do not need you.</p>
+        </article>
+      </div>
+      <p class="hint" style="margin-top:14px">This page is the herbal clinic only. Astrology, Vastu Shastra, and numerology have their own folder. The full module table is in the main proposal. Development is a project charge. Domain, server, WhatsApp message fees, SMS, email, and payment-gateway fees are extra. Maintenance is not priced here.</p>
+    </div>
+  </section>
+</main>
+<button class="btn float-pdf no-print" type="button" id="pdfFloat">Download PDF</button>
+<script>
+document.getElementById("pdfTop").addEventListener("click", function () { window.print(); });
+document.getElementById("pdfFloat").addEventListener("click", function () { window.print(); });
+</script>
+</body>
+</html>
