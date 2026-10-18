@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14233a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Clay Ecosystem — workshop operating system</title>
+  <meta name="description" content="A self-explanatory presentation of the system for a handmade ware workshop: problem, bare minimum, roadmap, WhatsApp, ecommerce, manufacturing ERP, SOPs, reports, and AI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,640&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body class="lang-en">
+  <div class="device">
+  <header class="topbar">
+    <div class="brand">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect width="48" height="48" rx="14" fill="#14233a"/>
+        <path d="M16 18h16c1 6 2 10 2 14a10 10 0 0 1-20 0c0-4 1-8 2-14z" fill="#f4efe6"/>
+        <path d="M18 16h12v3H18z" fill="#e35d32"/>
+      </svg>
+      <div class="brand-name">Clay Ecosystem<span class="en">Workshop system</span><span class="hi">वर्कशॉप सिस्टम</span></div>
+    </div>
+    <div class="top-actions">
+      <span class="step-count" id="step-count">Part 1 of 10</span>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="is-on">EN</button>
+        <button type="button" data-lang="hi">हिं</button>
+      </div>
+    </div>
+  </header>
+  <nav class="laptop-tabs" aria-label="Sections">
+    <button type="button" data-tab="overview"><span class="en">Overview</span><span class="hi">शुरू</span></button>
+    <button type="button" data-tab="problem"><span class="en">Problem</span><span class="hi">समस्या</span></button>
+    <button type="button" data-tab="priority"><span class="en">Priority</span><span class="hi">प्राथमिकता</span></button>
+    <button type="button" data-tab="roadmap"><span class="en">Roadmap</span><span class="hi">रोडमैप</span></button>
+    <button type="button" data-tab="deliver"><span class="en">Deliverables</span><span class="hi">डिलीवरी</span></button>
+    <button type="button" data-tab="sops"><span class="en">SOPs</span><span class="hi">नियम</span></button>
+    <button type="button" data-tab="data"><span class="en">Reports</span><span class="hi">रिपोर्ट</span></button>
+    <button type="button" data-tab="flows"><span class="en">Flows</span><span class="hi">प्रक्रिया</span></button>
+    <button type="button" data-tab="ai"><span class="en">AI & team</span><span class="hi">एआई और टीम</span></button>
+    <button type="button" data-tab="begin"><span class="en">First month</span><span class="hi">पहला महीना</span></button>
+  </nav>
+  <nav class="dock" aria-label="App sections">
+    <button type="button" data-tab="overview" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5z"/></svg><span class="en">Home</span><span class="hi">होम</span></button>
+    <button type="button" data-tab="problem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20L12 3zm0 6 1 5h-2l1-5zm0 8.2a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg><span class="en">Problem</span><span class="hi">समस्या</span></button>
+    <button type="button" data-tab="roadmap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h10v3H4V6zm6 9h10v3H10v-3zM4 11h4v2H4v-2zm12 0h4v2h-4v-2z"/></svg><span class="en">Roadmap</span><span class="hi">रास्ता</span></button>
+    <button type="button" data-tab="deliver"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h13v10H3V7zm13 2 5-2v10l-5-2V9z"/></svg><span class="en">Build</span><span class="hi">बनेगा</span></button>
+    <button type="button" id="more-btn" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h4v4H5v-4zm5 0h4v4h-4v-4zm5 0h4v4h-4v-4z"/></svg><span class="en">More</span><span class="hi">और</span></button>
+  </nav>
+  <div class="sheet" id="more-sheet" hidden>
+    <p class="kicker"><span class="en">More sections</span><span class="hi">और भाग</span></p>
+    <button type="button" data-tab="priority"><span class="en">Priority — minimum and full</span><span class="hi">प्राथमिकता — न्यूनतम और पूरा</span></button>
+    <button type="button" data-tab="sops"><span class="en">SOPs — written rules</span><span class="hi">नियम — लिखे हुए एसओपी</span></button>
+    <button type="button" data-tab="data"><span class="en">Data and investor reports</span><span class="hi">डेटा और निवेशक रिपोर्ट</span></button>
+    <button type="button" data-tab="flows"><span class="en">Flows and the week plan</span><span class="hi">प्रक्रिया और हफ्ता योजना</span></button>
+    <button type="button" data-tab="ai"><span class="en">AI, language, and team</span><span class="hi">एआई, भाषा और टीम</span></button>
+    <button type="button" data-tab="begin"><span class="en">First month checklist</span><span class="hi">पहले महीने की सूची</span></button>
+  </div>
+
+  <section class="panel is-on" id="panel-overview">
+    <div class="wrap">
+      <div class="hero">
+        <figure class="banner">
+          <img src="img/making.jpg" alt="Hands forming a clay jar on a potter’s wheel">
+          <figcaption><span class="en">Forming a jar. Supporting photo, not your workshop. Vitaly Gariev, Unsplash.</span><span class="hi">जार बन रहा है। सहायक फोटो है, आपकी वर्कशॉप नहीं। विटाली गारिएव, अनस्प्लैश।</span></figcaption>
+        </figure>
+        <div class="hero-grid">
+          <div>
+            <p class="kicker"><span class="en">For the owner, to read on her own</span><span class="hi">मालकिन के लिए, अकेले पढ़ने योग्य</span></p>
+            <h1><span class="en">Run the workshop without holding it in your head.</span><span class="hi">वर्कशॉप को याद पर नहीं, रिकॉर्ड पर चलाएँ।</span></h1>
+            <p class="lede"><span class="en">You make handmade food-storage ware with artists and workers, and sell it through dealers, shops, and later your own site. This page is the full picture of the system: why it is needed, what is bare minimum while selling continues, what gets delivered, the written rules, the reports, and where AI helps a small team.</span><span class="hi">आप कारीगरों और वर्करों के साथ हाथ से बरतन और स्टोरेज बनाती हैं, और डीलरों, दुकानों, और बाद में अपनी साइट से बेचती हैं। यह पेज पूरा चित्र है: ज़रूरत क्यों है, बेचते हुए न्यूनतम क्या बने, अंत में क्या मिलेगा, लिखे नियम, रिपोर्ट, और छोटी टीम के साथ एआई कहाँ मदद करता है।</span></p>
+          </div>
+          <div class="stats">
+            <div class="stat"><b><span class="en">One loop</span><span class="hi">एक चक्र</span></b><span class="en">Promise, make, dispatch, collect, see the cost</span><span class="hi">वादा, बनाना, भेजना, वसूली, लागत देखना</span></div>
+            <div class="stat"><b><span class="en">Business stays open</span><span class="hi">काम नहीं रुकता</span></b><span class="en">Each piece is added beside today’s WhatsApp selling</span><span class="hi">हर हिस्सा आज की व्हाट्सऐप बिक्री के साथ जुड़ता है</span></div>
+            <div class="stat"><b><span class="en">EN or Hindi</span><span class="hi">अंग्रेज़ी या हिन्दी</span></b><span class="en">Switch language any time. Workers will use Hindi first.</span><span class="hi">भाषा कभी भी बदलें। वर्कर पहले हिन्दी में काम करेंगे।</span></div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="mt"><span class="en">How to read this</span><span class="hi">इसे कैसे पढ़ें</span></h2>
+      <p class="lede"><span class="en">On a phone, the sections sit on the bottom bar. More holds rules, reports, flows, and AI. On a laptop, every section is in the bar under the name. Sample numbers are the Ramesh Stores story, not your accounts.</span><span class="hi">फोन पर भाग नीचे की पट्टी में हैं। “और” में नियम, रिपोर्ट, प्रक्रिया और एआई है। लैपटॉप पर हर भाग नाम के नीचे वाली पट्टी में है। नमूना आँकड़े रमेश स्टोर्स की कहानी हैं, आपके खाते नहीं।</span></p>
+      <div class="grid-2">
+        <button class="card" type="button" data-jump="problem" style="text-align:left"><span class="tag imp">01</span><h3><span class="en">The problem, in detail</span><span class="hi">समस्या, विस्तार से</span></h3><p><span class="en">Where orders, cash, making, and workers break today.</span><span class="hi">आज ऑर्डर, पैसा, बनाना और वर्कर कहाँ टूटते हैं।</span></p></button>
+        <button class="card" type="button" data-jump="priority" style="text-align:left"><span class="tag min">02</span><h3><span class="en">Bare minimum and what matters most</span><span class="hi">न्यूनतम और सबसे ज़रूरी</span></h3><p><span class="en">What can be built while dispatch continues.</span><span class="hi">डिस्पैच चलते हुए क्या बन सकता है।</span></p></button>
+        <button class="card" type="button" data-jump="roadmap" style="text-align:left"><span class="tag full">03</span><h3><span class="en">Roadmap</span><span class="hi">रोडमैप</span></h3><p><span class="en">Sequence, and what “done” means for each phase.</span><span class="hi">क्रम, और हर चरण में “हो गया” का मतलब।</span></p></button>
+        <button class="card" type="button" data-jump="deliver" style="text-align:left"><span class="tag full">04</span><h3><span class="en">What we deliver</span><span class="hi">क्या डिलीवर होगा</span></h3><p><span class="en">WhatsApp API, ecommerce, manufacturing ERP, SOPs, reports.</span><span class="hi">व्हाट्सऐप एपीआई, ई-कॉमर्स, मैन्युफैक्चरिंग ईआरपी, नियम, रिपोर्ट।</span></p></button>
+      </div>
+      <div class="callout navy mt">
+        <h3><span class="en">Why you need it</span><span class="hi">आपको इसकी ज़रूरत क्यों है</span></h3>
+        <p><span class="en">Dealers, designs, hands, and materials already exist. What does not exist is one record that connects them. Without that record a bigger dealer makes the workshop heavier, a good worker can leave over unclear pay, and a future meeting with a bank or an investor has only chat screenshots to show. The system is that record, with a door for you, a door for dealers, and a door for workers.</span><span class="hi">डीलर, डिज़ाइन, हाथ और माल पहले से हैं। जो नहीं है, वह एक रिकॉर्ड है जो इन्हें जोड़ता है। बिना उसके बड़ा डीलर वर्कशॉप को भारी बनाता है, अच्छा वर्कर अस्पष्ट पैसे पर जा सकता है, और बैंक या निवेशक के सामने सिर्फ चैट के स्क्रीनशॉट रहते हैं। सिस्टम वही रिकॉर्ड है: आपके लिए एक दरवाज़ा, डीलर के लिए एक, वर्कर के लिए एक।</span></p>
+      </div>
+      <div class="nextbar"><span></span><button class="solid" type="button" data-jump="problem"><span class="en">Next: the problem</span><span class="hi">आगे: समस्या</span></button></div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-problem">
+    <div class="wrap">
+      <figure class="banner">
+        <img src="img/pack.jpg" alt="A maker packing handmade bowls while reading an order on a phone">
+        <figcaption><span class="en">Packing with the order still on the phone. MART PRODUCTION, Pexels.</span><span class="hi">पैकिंग, और ऑर्डर अभी फोन पर। मार्ट प्रोडक्शन, पेक्सेल्स।</span></figcaption>
+      </figure>
+      <p class="kicker"><span class="en">Problem statement</span><span class="hi">समस्या</span></p>
+      <h2><span class="en">The workshop sells. The record does not.</span><span class="hi">बिक्री होती है। रिकॉर्ड नहीं होता।</span></h2>
+      <p class="lede"><span class="en">Money is committed when a worker starts a piece. Money returns when a dealer pays, often days after dispatch, sometimes after a breakage argument. Between those two moments the business is a set of voice notes, memory, and cash. That gap is the problem. It shows up in ten concrete ways.</span><span class="hi">पैसा तब लग जाता है जब वर्कर पीस शुरू करता है। पैसा तब लौटता है जब डीलर भुगतान करता है, अक्सर भेजने के कई दिन बाद, कभी टूटे माल के झगड़े के बाद। इन दोनों के बीच कारोबार वॉइस नोट, याद और नकदी है। यही समस्या है। यह दस साफ रूपों में दिखती है।</span></p>
+
+      <h3><span class="en">How an order moves today</span><span class="hi">आज ऑर्डर कैसे चलता है</span></h3>
+      <ol class="process">
+        <li><div class="pn">1</div><div class="pbody"><h3><span class="en">Enquiry on WhatsApp</span><span class="hi">व्हाट्सऐप पर पूछताछ</span></h3><p><span class="en">A dealer sends a voice note: quantity, maybe a photo of last year’s jar, maybe “same as last time”.</span><span class="hi">डीलर वॉइस नोट भेजता है: संख्या, कभी पिछले साल के जार की फोटो, कभी “पिछली बार जैसा”।</span></p><p class="fail"><span class="en">Failure: there is no agreed list. Two weeks later the boxes were “part of the same order”.</span><span class="hi">कमी: कोई मंज़ूर सूची नहीं। दो हफ्ते बाद डिब्बे “उसी ऑर्डर का हिस्सा” बन जाते हैं।</span></p></div></li>
+        <li><div class="pn">2</div><div class="pbody"><h3><span class="en">A date and a price are spoken</span><span class="hi">तारीख और दाम बोल दिए जाते हैं</span></h3><p><span class="en">You promise a festival date and a price that depends on the call.</span><span class="hi">आप त्योहार की तारीख और कॉल के हिसाब से दाम बोल देती हैं।</span></p><p class="fail"><span class="en">Failure: drying, firing, and transport were not counted. Another dealer has a different price for the same jar.</span><span class="hi">कमी: सुखाने, भट्ठी और ढुलाई गिने नहीं गए। दूसरे डीलर का उसी जार का दाम अलग है।</span></p></div></li>
+        <li><div class="pn">3</div><div class="pbody"><h3><span class="en">Hands start from memory</span><span class="hi">हाथ याद से शुरू होते हैं</span></h3><p><span class="en">Whoever is free starts the loudest order. Clay is bought when the sack feels light.</span><span class="hi">जो खाली है वह सबसे ज़ोर वाले ऑर्डर पर लग जाता है। मिट्टी तब खरीदी जाती है जब बोरी हल्की लगे।</span></p><p class="fail"><span class="en">Failure: a quieter written order waits. Material runs out in the middle of a promise.</span><span class="hi">कमी: धीमे वाले लिखे ऑर्डर को इंतज़ार है। वादे के बीच में माल खत्म हो जाता है।</span></p></div></li>
+        <li><div class="pn">4</div><div class="pbody"><h3><span class="en">Dispatch and a loose bill</span><span class="hi">भेजना और ढीला बिल</span></h3><p><span class="en">Cartons leave by transport. Payment is “I sent something on UPI”.</span><span class="hi">कार्टन ट्रांसपोर्ट से जाते हैं। भुगतान है “यूपीआई पर कुछ भेज दिया”।</span></p><p class="fail"><span class="en">Failure: you cannot say who owes what, or which batch cracked.</span><span class="hi">कमी: कौन कितना बकाया है, या कौन सा बैच टूटा, यह नहीं कह सकते।</span></p></div></li>
+        <li><div class="pn">5</div><div class="pbody"><h3><span class="en">The month feels busy</span><span class="hi">महीना व्यस्त लगता है</span></h3><p><span class="en">Workers are paid in cash on a remembered Saturday. You still cannot say what one jar kept.</span><span class="hi">वर्करों को याद किए शनिवार को नकद मिलता है। फिर भी एक जार ने क्या बचाया, यह नहीं कह सकते।</span></p><p class="fail"><span class="en">Failure: effort is treated as earning. A bank or investor cannot be shown a year of this.</span><span class="hi">कमी: मेहनत को कमाई मान लिया जाता है। बैंक या निवेशक को ऐसा साल नहीं दिखाया जा सकता।</span></p></div></li>
+      </ol>
+
+      <h3 class="mt"><span class="en">Problem register</span><span class="hi">समस्या रजिस्टर</span></h3>
+      <div class="table-wrap">
+        <table class="ledger">
+          <thead><tr>
+            <th>ID</th>
+            <th><span class="en">What happens</span><span class="hi">क्या होता है</span></th>
+            <th><span class="en">Who is hurt</span><span class="hi">किसे नुकसान</span></th>
+            <th><span class="en">Business effect</span><span class="hi">कारोबार पर असर</span></th>
+            <th><span class="en">What will change</span><span class="hi">क्या बदलेगा</span></th>
+          </tr></thead>
+          <tbody>
+            <tr><td class="id">P1</td><td><span class="en">Orders live in voice notes.</span><span class="hi">ऑर्डर वॉइस नोट में रहते हैं।</span></td><td><span class="en">You and the dealer</span><span class="hi">आप और डीलर</span></td><td><span class="en">You buy material for work that was never confirmed.</span><span class="hi">बिना पक्के काम के लिए माल खरीदती हैं।</span></td><td><span class="en">An order exists only with a number, items, price, and date.</span><span class="hi">ऑर्डर तभी है जब नंबर, सामान, दाम और तारीख हो।</span></td></tr>
+            <tr><td class="id">P2</td><td><span class="en">Each dealer hears a different price.</span><span class="hi">हर डीलर को अलग दाम सुनाई देता है।</span></td><td><span class="en">You</span><span class="hi">आप</span></td><td><span class="en">A large order can pay less per piece than a small one.</span><span class="hi">बड़ा ऑर्डर छोटे से कम दाम पर बिक सकता है।</span></td><td><span class="en">A price list by client type. A discount is typed, not spoken away.</span><span class="hi">क्लाइंट के प्रकार के हिसाब से रेट लिस्ट। छूट लिखी जाएगी।</span></td></tr>
+            <tr><td class="id">P3</td><td><span class="en">The date is a guess.</span><span class="hi">तारीख अंदाज़ है।</span></td><td><span class="en">Dealer’s shelf, your night</span><span class="hi">डीलर की शेल्फ, आपकी रात</span></td><td><span class="en">Trust drops when the kiln is late.</span><span class="hi">भट्ठी लेट हो तो भरोसा गिरता है।</span></td><td><span class="en">Each product has days from start to packed. The date is checked before confirm.</span><span class="hi">हर प्रोडक्ट के शुरू से पैक तक के दिन लिखे होंगे। पक्का करने से पहले तारीख जाँची जाएगी।</span></td></tr>
+            <tr><td class="id">P4</td><td><span class="en">UPI, cash, and “I sent some” are mixed.</span><span class="hi">यूपीआई, नकद और “कुछ भेज दिया” मिला है।</span></td><td><span class="en">Cash for clay and wages</span><span class="hi">मिट्टी और मज़दूरी का पैसा</span></td><td><span class="en">One dealer uses you as a bank.</span><span class="hi">एक डीलर आपको बैंक की तरह इस्तेमाल करता है।</span></td><td><span class="en">Every dispatch has a bill. Payments sit on that bill. A limit blocks the next order.</span><span class="hi">हर डिस्पैच का बिल। भुगतान उसी बिल पर। सीमा पार हो तो अगला ऑर्डर रुकेगा।</span></td></tr>
+            <tr><td class="id">P5</td><td><span class="en">A crack has no batch.</span><span class="hi">टूटन का कोई बैच नहीं।</span></td><td><span class="en">You pay the replacement</span><span class="hi">बदलाव आप देती हैं</span></td><td><span class="en">The jar still looks profitable.</span><span class="hi">जार फिर भी फायदेमंद दिखता है।</span></td><td><span class="en">Batch holds maker, signer, kiln, carton. Replacement reduces that order’s earning.</span><span class="hi">बैच में बनाने वाला, साइन करने वाला, भट्ठी, कार्टन। बदला माल उसी ऑर्डर की कमाई घटाएगा।</span></td></tr>
+            <tr><td class="id">P6</td><td><span class="en">The loudest order gets the hands.</span><span class="hi">सबसे ज़ोर वाला ऑर्डर हाथ ले जाता है।</span></td><td><span class="en">Other dealers, stock</span><span class="hi">बाकी डीलर, स्टॉक</span></td><td><span class="en">Slow designs pile up. Promised designs slip.</span><span class="hi">धीमे डिज़ाइन जमा होते हैं। वादा किए डिज़ाइन फिसलते हैं।</span></td><td><span class="en">Week plan = need − free stock − work in progress + spoilage.</span><span class="hi">हफ्ते की योजना = ज़रूरत − खाली स्टॉक − चल रहा काम + खराबी।</span></td></tr>
+            <tr><td class="id">P7</td><td><span class="en">Workers are paid from memory.</span><span class="hi">वर्करों की मज़दूरी याद से होती है।</span></td><td><span class="en">Piece-rate karigar, home worker, trainee</span><span class="hi">पीस-रेट कारीगर, घर से काम करने वाली, ट्रेनी</span></td><td><span class="en">Good hands leave. Quality at the dealer drops.</span><span class="hi">अच्छे हाथ चले जाते हैं। डीलर के पास क्वालिटी गिरती है।</span></td><td><span class="en">Accepted pieces × rate, visible on the worker’s phone in Hindi.</span><span class="hi">स्वीकृत पीस × रेट, वर्कर के फोन पर हिन्दी में दिखेगा।</span></td></tr>
+            <tr><td class="id">P8</td><td><span class="en">Training is “watch me once”.</span><span class="hi">ट्रेनिंग “एक बार देख लो” है।</span></td><td><span class="en">New woman artisan, migrant worker</span><span class="hi">नई कारीगर, बाहर से आए वर्कर</span></td><td><span class="en">Packing fails in another city. You are the only standard.</span><span class="hi">पैकिंग दूसरे शहर में फेल होती है। मानक सिर्फ आप हैं।</span></td><td><span class="en">A short SOP and a senior’s signature before that person may make the product.</span><span class="hi">छोटा नियम और सीनियर का साइन, तभी वह प्रोडक्ट बना सकता है।</span></td></tr>
+            <tr><td class="id">P9</td><td><span class="en">Designs have no dated file.</span><span class="hi">डिज़ाइन की कोई दिनांकित फाइल नहीं।</span></td><td><span class="en">Your catalogue, a future buyer</span><span class="hi">आपका कैटलॉग, भविष्य का खरीदार</span></td><td><span class="en">Names drift. Another workshop can copy and you cannot show what existed when.</span><span class="hi">नाम बदलते रहते हैं। नकल हो तो आप दिखा नहीं सकतीं कि यह कब से आपका था।</span></td><td><span class="en">A design register: photo, date, maker, who is allowed to sell it.</span><span class="hi">डिज़ाइन रजिस्टर: फोटो, तारीख, बनाने वाला, कौन बेच सकता है।</span></td></tr>
+            <tr><td class="id">P10</td><td><span class="en">If you are at the kiln, nobody can answer.</span><span class="hi">आप भट्ठी पर हों तो कोई जवाब नहीं दे सकता।</span></td><td><span class="en">Every dealer</span><span class="hi">हर डीलर</span></td><td><span class="en">The business pauses because the business is your memory.</span><span class="hi">कारोबार रुकता है क्योंकि कारोबार आपकी याद है।</span></td><td><span class="en">A second person, or later AI, can read the order and reply from the record.</span><span class="hi">दूसरा व्यक्ति, या बाद में एआई, रिकॉर्ड पढ़कर जवाब दे सकता है।</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mt"><span class="en">What one messy month can hide</span><span class="hi">एक बिखरा महीना क्या छुपा सकता है</span></h3>
+      <p><span class="tag sample">Sample</span> <span class="en">Change the numbers to your month. This is an illustration, not a claim about your accounts.</span><span class="hi">अपने महीने के आँकड़े डालें। यह उदाहरण है, आपके खातों का दावा नहीं।</span></p>
+      <div class="tool" id="leak-tool">
+        <div class="two">
+          <div class="fields">
+            <label class="field"><span class="en">Hours a week on chase calls</span><span class="hi">हफ्ते में पीछा करने के घंटे</span><input id="l-hours" type="number" min="0" value="10"></label>
+            <label class="field"><span class="en">Value of your hour ₹</span><span class="hi">आपके एक घंटे का मूल्य ₹</span><input id="l-rate" type="number" min="0" value="400"></label>
+            <label class="field"><span class="en">Dealer money overdue ₹</span><span class="hi">डीलर का बकाया ₹</span><input id="l-overdue" type="number" min="0" value="80000"></label>
+            <label class="field"><span class="en">What stuck cash costs you % / month</span><span class="hi">फँसे पैसे की आपकी दर % / महीना</span><input id="l-cash" type="number" min="0" step="0.1" value="2"></label>
+            <label class="field"><span class="en">Billed in the month ₹</span><span class="hi">महीने की बिलिंग ₹</span><input id="l-billed" type="number" min="0" value="150000"></label>
+            <label class="field"><span class="en">Unrecorded discount %</span><span class="hi">बिना रिकॉर्ड छूट %</span><input id="l-disc" type="number" min="0" value="8"></label>
+            <label class="field"><span class="en">Replacements you absorbed ₹</span><span class="hi">जो टूटा आपने बदला ₹</span><input id="l-replace" type="number" min="0" value="6000"></label>
+            <label class="field"><span class="en">Pieces started</span><span class="hi">शुरू किए पीस</span><input id="l-pieces" type="number" min="0" value="200"></label>
+            <label class="field"><span class="en">Extra spoilage you did not write %</span><span class="hi">जो खराबी लिखी नहीं %</span><input id="l-spoil" type="number" min="0" value="10"></label>
+            <label class="field"><span class="en">Cost of one spoiled piece ₹</span><span class="hi">एक खराब पीस की लागत ₹</span><input id="l-cost" type="number" min="0" value="243"></label>
+          </div>
+          <div>
+            <table class="ledger"><tbody id="leak-out"></tbody></table>
+            <p class="sentence" id="leak-sentence"></p>
+          </div>
+        </div>
+      </div>
+      <div class="nextbar">
+        <button class="ghost" type="button" data-jump="overview"><span class="en">Back</span><span class="hi">पीछे</span></button>
+        <button class="solid" type="button" data-jump="priority"><span class="en">Next: what matters first</span><span class="hi">आगे: पहले क्या ज़रूरी है</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-priority">
+    <div class="wrap">
+      <figure class="banner">
+        <img src="img/tableware.jpg" alt="Finished handmade cups and a jar on a shelf">
+        <figcaption><span class="en">Finished pieces a catalogue can name. Supporting photo.</span><span class="hi">तैयार पीस जिन्हें कैटलॉग नाम दे सकता है। सहायक फोटो।</span></figcaption>
+      </figure>
+      <p class="kicker"><span class="en">Priority</span><span class="hi">प्राथमिकता</span></p>
+      <h2><span class="en">Bare minimum, most important, full system.</span><span class="hi">न्यूनतम, सबसे ज़रूरी, पूरा सिस्टम।</span></h2>
+      <p class="lede"><span class="en">You do not stop dispatch to install software. The bare minimum is what can sit beside WhatsApp this month. The most important work is the control loop. The full delivery is WhatsApp API, the ecommerce portal, the manufacturing ERP, SOPs, and reports. AI comes after the record is real.</span><span class="hi">सॉफ्टवेयर लगाने के लिए डिस्पैच नहीं रुकता। न्यूनतम वह है जो इस महीने व्हाट्सऐप के साथ चल सकता है। सबसे ज़रूरी काम नियंत्रण का चक्र है। पूरी डिलीवरी व्हाट्सऐप एपीआई, ई-कॉमर्स, मैन्युफैक्चरिंग ईआरपी, नियम और रिपोर्ट है। एआई तब आएगा जब रिकॉर्ड सच हो।</span></p>
+      <div class="grid-3">
+        <article class="card lane min">
+          <span class="tag min"><span class="en">Bare minimum</span><span class="hi">न्यूनतम</span></span>
+          <h3><span class="en">Keep selling. Start one record.</span><span class="hi">बेचती रहें। एक रिकॉर्ड शुरू करें।</span></h3>
+          <ul class="list">
+            <li><span class="en">At most 15 product names, with a photo and a dealer price.</span><span class="hi">ज़्यादा से ज़्यादा 15 प्रोडक्ट, फोटो और डीलर दाम के साथ।</span></li>
+            <li><span class="en">Every new dealer order gets a number the same day, even if it arrived on WhatsApp.</span><span class="hi">हर नया डीलर ऑर्डर उसी दिन नंबर पाए, चाहे व्हाट्सऐप से आया हो।</span></li>
+            <li><span class="en">A bill and a balance for each dispatch.</span><span class="hi">हर डिस्पैच का बिल और बकाया।</span></li>
+            <li><span class="en">One list of workers: name, what they can make, rate.</span><span class="hi">वर्करों की एक सूची: नाम, क्या बना सकते हैं, रेट।</span></li>
+          </ul>
+          <p><span class="en">Until software is live, this can be a strict sheet. The rule is the same: if it is not on the record, it is not an order.</span><span class="hi">सॉफ्टवेयर आने तक यह सख्त शीट हो सकती है। नियम वही है: जो रिकॉर्ड पर नहीं, वह ऑर्डर नहीं।</span></p>
+        </article>
+        <article class="card lane imp">
+          <span class="tag imp"><span class="en">Most important</span><span class="hi">सबसे ज़रूरी</span></span>
+          <h3><span class="en">The control loop.</span><span class="hi">नियंत्रण का चक्र।</span></h3>
+          <ul class="list">
+            <li><span class="en">Confirm only when price, date, and advance rule pass.</span><span class="hi">तभी पक्का करें जब दाम, तारीख और एडवांस का नियम पास हो।</span></li>
+            <li><span class="en">Make only what the plan says, not what the last call shouted.</span><span class="hi">वही बनाएँ जो योजना कहे, जो आखिरी कॉल चिल्लाए वह नहीं।</span></li>
+            <li><span class="en">See what one piece keeps before you give a discount.</span><span class="hi">छूट देने से पहले देखें कि एक पीस क्या बचाता है।</span></li>
+            <li><span class="en">A worker sees accepted pieces and pay in Hindi.</span><span class="hi">वर्कर स्वीकृत पीस और पैसे हिन्दी में देखे।</span></li>
+          </ul>
+          <p><span class="en">If only this exists, the workshop can grow without you becoming the notebook.</span><span class="hi">सिर्फ यही हो तो वर्कशॉप बढ़ सकती है, बिना आपके नोटबुक बने।</span></p>
+        </article>
+        <article class="card lane full">
+          <span class="tag full"><span class="en">Full delivery</span><span class="hi">पूरी डिलीवरी</span></span>
+          <h3><span class="en">Doors, rules, and reports.</span><span class="hi">दरवाज़े, नियम और रिपोर्ट।</span></h3>
+          <ul class="list">
+            <li><span class="en">WhatsApp API drafts and reminds. A person sends.</span><span class="hi">व्हाट्सऐप एपीआई ड्राफ्ट और याद दिलाए। इंसान भेजे।</span></li>
+            <li><span class="en">Ecommerce for dealers and, later, direct buyers.</span><span class="hi">डीलरों के लिए ई-कॉमर्स, बाद में सीधे खरीदारों के लिए।</span></li>
+            <li><span class="en">Manufacturing ERP: stock, plan, batch, cost.</span><span class="hi">मैन्युफैक्चरिंग ईआरपी: स्टॉक, योजना, बैच, लागत।</span></li>
+            <li><span class="en">SOPs on the phone. Reports you can also show a lender or investor.</span><span class="hi">फोन पर नियम। रिपोर्ट जो ऋणदाता या निवेशक को भी दिखा सकें।</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <h3 class="mt"><span class="en">Same capability, three depths</span><span class="hi">एक ही काम, तीन गहराई</span></h3>
+      <div class="table-wrap">
+        <table class="ledger">
+          <thead><tr>
+            <th><span class="en">Capability</span><span class="hi">क्षमता</span></th>
+            <th><span class="en">Bare minimum, business open</span><span class="hi">न्यूनतम, काम चालू</span></th>
+            <th><span class="en">Most important</span><span class="hi">सबसे ज़रूरी</span></th>
+            <th><span class="en">Full delivery</span><span class="hi">पूरी डिलीवरी</span></th>
+          </tr></thead>
+          <tbody>
+            <tr><td><span class="en">Products</span><span class="hi">प्रोडक्ट</span></td><td><span class="en">15 names and photos</span><span class="hi">15 नाम और फोटो</span></td><td><span class="en">Days, price, who may make it</span><span class="hi">दिन, दाम, कौन बनाए</span></td><td><span class="en">Catalogue in Hindi and English</span><span class="hi">हिन्दी और अंग्रेज़ी कैटलॉग</span></td></tr>
+            <tr><td><span class="en">Orders</span><span class="hi">ऑर्डर</span></td><td><span class="en">Number the same day</span><span class="hi">उसी दिन नंबर</span></td><td><span class="en">Rules before confirm</span><span class="hi">पक्का करने से पहले नियम</span></td><td><span class="en">Dealer portal and WhatsApp draft</span><span class="hi">डीलर पोर्टल और व्हाट्सऐप ड्राफ्ट</span></td></tr>
+            <tr><td><span class="en">Money</span><span class="hi">पैसा</span></td><td><span class="en">Bill and balance</span><span class="hi">बिल और बकाया</span></td><td><span class="en">Credit limit and ageing</span><span class="hi">उधार सीमा और उम्र</span></td><td><span class="en">UPI advance, reminder, month pack</span><span class="hi">यूपीआई एडवांस, रिमाइंडर, मासिक पैक</span></td></tr>
+            <tr><td><span class="en">Making</span><span class="hi">बनाना</span></td><td><span class="en">One physical count</span><span class="hi">एक बार गिनती</span></td><td><span class="en">Week plan and material to buy</span><span class="hi">हफ्ता योजना और खरीद</span></td><td><span class="en">ERP stock, batch, yield</span><span class="hi">ईआरपी स्टॉक, बैच, यील्ड</span></td></tr>
+            <tr><td><span class="en">People</span><span class="hi">लोग</span></td><td><span class="en">Names, skill, rate</span><span class="hi">नाम, हुनर, रेट</span></td><td><span class="en">Pay from accepted pieces</span><span class="hi">स्वीकृत पीस से पैसे</span></td><td><span class="en">Hindi phone, lessons, levels</span><span class="hi">हिन्दी फोन, पाठ, स्तर</span></td></tr>
+            <tr><td><span class="en">Rules</span><span class="hi">नियम</span></td><td><span class="en">You say them aloud</span><span class="hi">आप बोलकर बताती हैं</span></td><td><span class="en">Written SOP for confirm, pack, pay</span><span class="hi">पक्का करना, पैक, पे के लिखे नियम</span></td><td><span class="en">SOP opens on the step, in the worker’s language</span><span class="hi">नियम उसी कदम पर, वर्कर की भाषा में</span></td></tr>
+            <tr><td><span class="en">Reports</span><span class="hi">रिपोर्ट</span></td><td><span class="en">Friday note of what is due</span><span class="hi">शुक्रवार को बकाया की नोट</span></td><td><span class="en">Weekly screen</span><span class="hi">साप्ताहिक स्क्रीन</span></td><td><span class="en">Monthly pack and investor representation</span><span class="hi">मासिक पैक और निवेशक प्रतिनिधित्व</span></td></tr>
+            <tr><td><span class="en">AI</span><span class="hi">एआई</span></td><td><span class="en">Not required</span><span class="hi">ज़रूरी नहीं</span></td><td><span class="en">Not required</span><span class="hi">ज़रूरी नहीं</span></td><td><span class="en">Drafts and reminders. A person confirms.</span><span class="hi">ड्राफ्ट और याद। इंसान पक्का करे।</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="nextbar">
+        <button class="ghost" type="button" data-jump="problem"><span class="en">Back</span><span class="hi">पीछे</span></button>
+        <button class="solid" type="button" data-jump="roadmap"><span class="en">Next: roadmap</span><span class="hi">आगे: रोडमैप</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-roadmap">
+    <div class="wrap">
+      <figure class="banner">
+        <img src="img/shelves.jpg" alt="Unfinished clay bowls drying on wooden workshop racks">
+        <figcaption><span class="en">Pieces drying on racks. This is stock in making, easy to lose count of. Lei Qian, Unsplash.</span><span class="hi">रैक पर सूखते पीस। यह बनता हुआ स्टॉक है, जिसकी गिनती खो जाती है। लेई चियान, अनस्प्लैश।</span></figcaption>
+      </figure>
+      <p class="kicker"><span class="en">Roadmap while the business keeps running</span><span class="hi">रोडमैप, कारोबार चलता रहे</span></p>
+      <h2><span class="en">Add one control at a time. Do not close the floor.</span><span class="hi">एक-एक नियंत्रण जोड़ें। फर्श बंद न करें।</span></h2>
+      <p class="lede"><span class="en">Durations below are a planning guide, not a contract. Each phase ends only when the “done when” line is true in real orders. Old dealers can stay on the phone until they are moved. New promises from a chosen Monday go into the record.</span><span class="hi">नीचे की अवधि योजना की गाइड है, अनुबंध नहीं। चरण तभी पूरा है जब “हो गया जब” असली ऑर्डर में सच हो। पुराने डीलर फोन पर रह सकते हैं जब तक उन्हें लाया न जाए। एक चुने सोमवार से नए वादे रिकॉर्ड में जाएँ।</span></p>
+      <div class="timeline">
+        <article class="phase">
+          <div class="when"><span class="en">Now</span><span class="hi">अभी</span></div>
+          <div>
+            <h3><span class="en">Phase 0 — Fact pack, selling continues</span><span class="hi">चरण 0 — तथ्य, बिक्री जारी</span></h3>
+            <p><span class="en">About one week beside normal dispatch.</span><span class="hi">सामान्य डिस्पैच के साथ लगभग एक हफ्ता।</span></p>
+          </div>
+          <div class="cols">
+            <div><b><span class="en">You keep doing</span><span class="hi">आप करती रहें</span></b><span class="en">Take dealer calls. Ship what is already promised.</span><span class="hi">डीलर कॉल लें। जो वादा हो चुका है उसे भेजें।</span></div>
+            <div><b><span class="en">We prepare</span><span class="hi">हम तैयार करते हैं</span></b><span class="en">Product list, dealer list, worker list, one stock count, one costed jar, payment rule.</span><span class="hi">प्रोडक्ट सूची, डीलर सूची, वर्कर सूची, एक स्टॉक गिनती, एक जार की लागत, भुगतान नियम।</span></div>
+            <div><b><span class="en">Done when</span><span class="hi">हो गया जब</span></b><span class="en">Fifteen or fewer products have names you will not change next week.</span><span class="hi">पंद्रह या कम प्रोडक्ट के नाम हैं जो अगले हफ्ते नहीं बदलेंगे।</span></div>
+          </div>
+        </article>
+        <article class="phase">
+          <div class="when">A</div>
+          <div><h3><span class="en">Phase A — Order, bill, balance</span><span class="hi">चरण A — ऑर्डर, बिल, बकाया</span></h3><p><span class="en">Guide: 3 to 5 weeks of build and first use.</span><span class="hi">गाइड: बनाने और पहले इस्तेमाल के 3 से 5 हफ्ते।</span></p></div>
+          <div class="cols">
+            <div><b><span class="en">Still by hand</span><span class="hi">अभी हाथ से</span></b><span class="en">WhatsApp stays the conversation. Someone types the confirmed order the same day.</span><span class="hi">बात व्हाट्सऐप पर रहे। कोई उसी दिन पक्का ऑर्डर लिखे।</span></div>
+            <div><b><span class="en">Delivered</span><span class="hi">मिलेगा</span></b><span class="en">Order numbers, dealer tiers, advance rule, dispatch bill, balance ageing, a second login.</span><span class="hi">ऑर्डर नंबर, डीलर स्तर, एडवांस नियम, डिस्पैच बिल, बकाया की उम्र, दूसरा लॉगिन।</span></div>
+            <div><b><span class="en">Done when</span><span class="hi">हो गया जब</span></b><span class="en">You can answer “where is my order and what is due?” without opening chat.</span><span class="hi">चैट खोले बिना “ऑर्डर कहाँ है और कितना बाकी है?” का जवाब दे सकें।</span></div>
+          </div>
+        </article>
+        <article class="phase">
+          <div class="when">B</div>
+          <div><h3><span class="en">Phase B — WhatsApp API</span><span class="hi">चरण B — व्हाट्सऐप एपीआई</span></h3><p><span class="en">Starts after A is in daily use. Template approval takes its own time.</span><span class="hi">A रोज़ इस्तेमाल में आने के बाद। टेम्पलेट मंज़ूरी का अपना समय है।</span></p></div>
+          <div class="cols">
+            <div><b><span class="en">Alternate till then</span><span class="hi">तब तक विकल्प</span></b><span class="en">WhatsApp Business app. Copy the confirmed message into the order.</span><span class="hi">व्हाट्सऐप बिज़नेस ऐप। पक्का संदेश ऑर्डर में लिखें।</span></div>
+            <div><b><span class="en">Delivered</span><span class="hi">मिलेगा</span></b><span class="en">Utility templates in Hindi and English: confirm, dispatch, payment reminder, worker task. Inbound message creates a draft, not an order.</span><span class="hi">हिन्दी और अंग्रेज़ी टेम्पलेट: पक्का, डिस्पैच, भुगतान याद, वर्कर काम। आने वाला संदेश ड्राफ्ट बनाए, ऑर्डर नहीं।</span></div>
+            <div><b><span class="en">Done when</span><span class="hi">हो गया जब</span></b><span class="en">A real dealer receives confirm and balance from the system, and you only tap send.</span><span class="hi">असली डीलर को सिस्टम से पक्का संदेश और बकाया मिले, और आप सिर्फ भेजें दबाएँ।</span></div>
+          </div>
+        </article>
+        <article class="phase">
+          <div class="when">C</div>
+          <div><h3><span class="en">Phase C — Ecommerce portal</span><span class="hi">चरण C — ई-कॉमर्स पोर्टल</span></h3><p><span class="en">B2B first. Direct customers after dealer prices are stable.</span><span class="hi">पहले बी2बी। डीलर दाम स्थिर होने के बाद सीधे ग्राहक।</span></p></div>
+          <div class="cols">
+            <div><b><span class="en">Alternate till then</span><span class="hi">तब तक विकल्प</span></b><span class="en">You or a coordinator enters the dealer’s reorder.</span><span class="hi">आप या कोऑर्डिनेटर डीलर का दोबारा ऑर्डर लिखें।</span></div>
+            <div><b><span class="en">Delivered</span><span class="hi">मिलेगा</span></b><span class="en">Catalogue, dealer login, their price only, cart, UPI advance, tracking, reorder. Later a public shop at MRP.</span><span class="hi">कैटलॉग, डीलर लॉगिन, सिर्फ उनका दाम, कार्ट, यूपीआई एडवांस, ट्रैकिंग, दोबारा ऑर्डर। बाद में एमआरपी पर पब्लिक दुकान।</span></div>
+            <div><b><span class="en">Done when</span><span class="hi">हो गया जब</span></b><span class="en">One dealer places and tracks an order without a voice note.</span><span class="hi">एक डीलर वॉइस नोट के बिना ऑर्डर लगाए और ट्रैक करे।</span></div>
+          </div>
+        </article>
+        <article class="phase">
+          <div class="when">D</div>
+          <div><h3><span class="en">Phase D — Manufacturing ERP</span><span class="hi">चरण D — मैन्युफैक्चरिंग ईआरपी</span></h3><p><span class="en">The planning brain: stock, capacity, material, batch, cost.</span><span class="hi">योजना का दिमाग: स्टॉक, क्षमता, माल, बैच, लागत।</span></p></div>
+          <div class="cols">
+            <div><b><span class="en">Alternate till then</span><span class="hi">तब तक विकल्प</span></b><span class="en">Friday plan on the same formula, written by hand from the order list.</span><span class="hi">उसी सूत्र पर शुक्रवार की योजना, ऑर्डर सूची से हाथ से।</span></div>
+            <div><b><span class="en">Delivered</span><span class="hi">मिलेगा</span></b><span class="en">Item, recipe, stages, raw / in making / free / promised, week plan, purchase need, batch, yield, piece cost.</span><span class="hi">आइटम, रेसिपी, चरण, कच्चा / बन रहा / खाली / वादा किया, हफ्ता योजना, खरीद, बैच, यील्ड, पीस लागत।</span></div>
+            <div><b><span class="en">Done when</span><span class="hi">हो गया जब</span></b><span class="en">A date that cannot be kept is visible before clay is booked.</span><span class="hi">जो तारीख नहीं निभ सकती वह मिट्टी बुक होने से पहले दिखे।</span></div>
+          </div>
+        </article>
+        <article class="phase">
+          <div class="when">E</div>
+          <div><h3><span class="en">Phase E — People, training, SOP library</span><span class="hi">चरण E — लोग, ट्रेनिंग, नियम</span></h3><p><span class="en">Hindi-first phone for workers. English remains for dealers who want it.</span><span class="hi">वर्करों के लिए पहले हिन्दी। डीलर चाहें तो अंग्रेज़ी रहे।</span></p></div>
+          <div class="cols">
+            <div><b><span class="en">Alternate till then</span><span class="hi">तब तक विकल्प</span></b><span class="en">Printed SOP on the bench. Pay still calculated from the accepted count.</span><span class="hi">बेंच पर छपा नियम। पैसे फिर भी स्वीकृत गिनती से।</span></div>
+            <div><b><span class="en">Delivered</span><span class="hi">मिलेगा</span></b><span class="en">Worker profile, lessons, signature, queue, pay line, levels. SOP attached to the step.</span><span class="hi">वर्कर प्रोफाइल, पाठ, साइन, काम की सूची, पे लाइन, स्तर। नियम उसी कदम पर।</span></div>
+            <div><b><span class="en">Done when</span><span class="hi">हो गया जब</span></b><span class="en">A new hand can pack only after the packing SOP is signed by a senior.</span><span class="hi">नया हाथ तभी पैक करे जब सीनियर पैकिंग नियम साइन कर दे।</span></div>
+          </div>
+        </article>
+        <article class="phase">
+          <div class="when">F</div>
+          <div><h3><span class="en">Phase F — Reports and investor representation</span><span class="hi">चरण F — रिपोर्ट और निवेशक प्रतिनिधित्व</span></h3><p><span class="en">Useful to you monthly. Honest in front of an outsider only after clean months.</span><span class="hi">आपके लिए हर महीने उपयोगी। बाहर वाले के सामने ईमानदार तभी जब कुछ साफ महीने हों।</span></p></div>
+          <div class="cols">
+            <div><b><span class="en">Alternate till then</span><span class="hi">तब तक विकल्प</span></b><span class="en">Export the order and payment lists. Your accountant reads those.</span><span class="hi">ऑर्डर और भुगतान की सूची निकालें। अकाउंटेंट वही पढ़े।</span></div>
+            <div><b><span class="en">Delivered</span><span class="hi">मिलेगा</span></b><span class="en">Weekly control, monthly margin, dealer ageing, yield, capacity, design register, one investor pack.</span><span class="hi">साप्ताहिक नियंत्रण, मासिक मार्जिन, डीलर बकाया, यील्ड, क्षमता, डिज़ाइन रजिस्टर, एक निवेशक पैक।</span></div>
+            <div><b><span class="en">Done when</span><span class="hi">हो गया जब</span></b><span class="en">You can open last month by dealer, product, and batch without rebuilding it.</span><span class="hi">पिछला महीना डीलर, प्रोडक्ट और बैच से खोल सकें, बिना दोबारा बनाने के।</span></div>
+          </div>
+        </article>
+        <article class="phase">
+          <div class="when">G</div>
+          <div><h3><span class="en">Phase G — AI on top of the record</span><span class="hi">चरण G — रिकॉर्ड के ऊपर एआई</span></h3><p><span class="en">Not at the start. AI with empty data only sounds confident.</span><span class="hi">शुरू में नहीं। खाली डेटा पर एआई सिर्फ आत्मविश्वास दिखाता है।</span></p></div>
+          <div class="cols">
+            <div><b><span class="en">People still decide</span><span class="hi">फैसला फिर भी लोग</span></b><span class="en">Price exception, date exception, quality release, claim settlement.</span><span class="hi">दाम का अपवाद, तारीख का अपवाद, क्वालिटी, दावे का निपटारा।</span></div>
+            <div><b><span class="en">Delivered</span><span class="hi">मिलेगा</span></b><span class="en">Draft order from a chat, Hindi reply, plan suggestion, discount warning, payment reminder, SOP read-aloud.</span><span class="hi">चैट से ड्राफ्ट ऑर्डर, हिन्दी जवाब, योजना सुझाव, छूट की चेतावनी, भुगतान याद, नियम पढ़कर सुनाना।</span></div>
+            <div><b><span class="en">Done when</span><span class="hi">हो गया जब</span></b><span class="en">Chase hours fall, and makers are not reduced. Office work shrinks. Making does not.</span><span class="hi">पीछा करने के घंटे घटें, कारीगर न घटें। दफ्तर का काम घटे। बनाने का काम नहीं।</span></div>
+          </div>
+        </article>
+      </div>
+      <div class="nextbar">
+        <button class="ghost" type="button" data-jump="priority"><span class="en">Back</span><span class="hi">पीछे</span></button>
+        <button class="solid" type="button" data-jump="deliver"><span class="en">Next: what is delivered</span><span class="hi">आगे: क्या मिलेगा</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-deliver">
+    <div class="wrap">
+      <figure class="banner">
+        <img src="img/jars.jpg" alt="Hands trimming the rim of a handmade clay vessel">
+        <figcaption><span class="en">Finishing a vessel before it can be sold. Courtney Cook, Unsplash.</span><span class="hi">बेचने से पहले बरतन की फिनिश। कोर्टनी कुक, अनस्प्लैश।</span></figcaption>
+      </figure>
+      <p class="kicker"><span class="en">Deliverables</span><span class="hi">डिलीवरी</span></p>
+      <h2><span class="en">Five products. One record underneath.</span><span class="hi">पाँच उत्पाद। नीचे एक ही रिकॉर्ड।</span></h2>
+      <p class="lede"><span class="en">When the roadmap is complete you have WhatsApp API, an ecommerce portal, a manufacturing ERP, an SOP library, and a report studio. They are not five separate apps that disagree. A dealer balance in WhatsApp is the same balance as on the portal and in the month report.</span><span class="hi">रोडमैप पूरा होने पर आपके पास व्हाट्सऐप एपीआई, ई-कॉमर्स पोर्टल, मैन्युफैक्चरिंग ईआरपी, नियमों की लाइब्रेरी और रिपोर्ट स्टूडियो होगा। ये पाँच अलग ऐप नहीं जो आपस में झगड़ें। व्हाट्सऐप पर डीलर का बकाया वही है जो पोर्टल और मासिक रिपोर्ट पर है।</span></p>
+
+      <article class="card mt">
+        <span class="tag full">1 · WhatsApp API</span>
+        <h3><span class="en">The channel India already uses, tied to the record.</span><span class="hi">भारत पहले से जिस चैनल पर है, उसे रिकॉर्ड से जोड़ना।</span></h3>
+        <div class="grid-2">
+          <div>
+            <p><span class="en">This uses the WhatsApp Business Platform on your verified business number. Meta charges per conversation. The live rate is confirmed before go-live, not guessed here. Templates for business messages must be approved. A worker or dealer is messaged only after they have opted in.</span><span class="hi">यह आपके वेरिफाइड बिज़नेस नंबर पर व्हाट्सऐप बिज़नेस प्लेटफॉर्म है। मेटा प्रति बातचीत शुल्क लेता है। लाइव दर गो-लाइव से पहले पक्की होगी, यहाँ अंदाज़ नहीं। बिज़नेस संदेशों के टेम्पलेट मंज़ूर होने चाहिए। वर्कर या डीलर को तभी संदेश जब उन्होंने सहमति दी हो।</span></p>
+            <ul class="list">
+              <li><span class="en">Inbound voice or text becomes a draft order: dealer, product hints, quantity. A person confirms it. The draft is not a promise.</span><span class="hi">आने वाला वॉइस या टेक्स्ट ड्राफ्ट ऑर्डर बनता है। एक व्यक्ति उसे पक्का करता है। ड्राफ्ट वादा नहीं है।</span></li>
+              <li><span class="en">Outbound templates: order confirmed, dispatch with transport, balance reminder, worker task.</span><span class="hi">बाहर जाने वाले टेम्पलेट: ऑर्डर पक्का, ढुलाई के साथ डिस्पैच, बकाया याद, वर्कर का काम।</span></li>
+              <li><span class="en">Hindi and English templates carry the same order number and the same rupees.</span><span class="hi">हिन्दी और अंग्रेज़ी टेम्पलेट में वही ऑर्डर नंबर और वही रुपये।</span></li>
+            </ul>
+          </div>
+          <div class="phone">
+            <header><span>WhatsApp · Sample</span><span>RM-1042</span></header>
+            <div class="bubble"><span class="en">Order RM-1042 confirmed. 80 jars. Dispatch by 12 Nov. Advance received ₹10,000. Balance ₹26,800.</span><span class="hi">ऑर्डर RM-1042 पक्का हुआ। 80 जार। भेजने की तारीख 12 नवम्बर। एडवांस ₹10,000 मिला। बाकी ₹26,800।</span></div>
+            <div class="bubble"><span class="en">Asha, batch J-18: form 25 jars this week. Packing lesson is not signed yet.</span><span class="hi">आशा, बैच J-18: इस हफ्ते 25 जार बनाएँ। पैकिंग का पाठ अभी साइन नहीं हुआ।</span></div>
+          </div>
+        </div>
+        <div class="trio mt">
+          <article class="person"><b><span class="en">Person</span><span class="hi">व्यक्ति</span></b><p><span class="en">Confirms the draft and taps send on anything about money or a date.</span><span class="hi">ड्राफ्ट पक्का करे और पैसे या तारीख वाला संदेश खुद भेजे।</span></p></article>
+          <article class="ai"><b><span class="en">AI later</span><span class="hi">बाद में एआई</span></b><p><span class="en">Turns a Hindi voice note into a draft and suggests the reply.</span><span class="hi">हिन्दी वॉइस नोट को ड्राफ्ट बनाए और जवाब सुझाए।</span></p></article>
+          <article class="alt"><b><span class="en">Until API is approved</span><span class="hi">जब तक एपीआई मंज़ूर न हो</span></b><p><span class="en">WhatsApp Business app. The order is still typed into the system the same day.</span><span class="hi">व्हाट्सऐप बिज़नेस ऐप। ऑर्डर उसी दिन सिस्टम में लिखा जाए।</span></p></article>
+        </div>
+      </article>
+
+      <article class="card mt">
+        <span class="tag full">2 · <span class="en">Ecommerce portal</span><span class="hi">ई-कॉमर्स पोर्टल</span></span>
+        <h3><span class="en">A shop built for many kinds of buyers, not one public price.</span><span class="hi">कई तरह के खरीदारों के लिए दुकान, एक सार्वजनिक दाम नहीं।</span></h3>
+        <div class="table-wrap">
+          <table class="ledger">
+            <thead><tr><th><span class="en">Client type</span><span class="hi">क्लाइंट</span></th><th><span class="en">How they buy</span><span class="hi">कैसे खरीदते हैं</span></th><th><span class="en">Price and payment</span><span class="hi">दाम और भुगतान</span></th><th><span class="en">Language</span><span class="hi">भाषा</span></th></tr></thead>
+            <tbody>
+              <tr><td><span class="en">New dealer</span><span class="hi">नया डीलर</span></td><td><span class="en">B2B login, first order</span><span class="hi">बी2बी लॉगिन, पहला ऑर्डर</span></td><td><span class="en">List price, full advance</span><span class="hi">लिस्ट दाम, पूरा एडवांस</span></td><td><span class="en">Hindi or English</span><span class="hi">हिन्दी या अंग्रेज़ी</span></td></tr>
+              <tr><td><span class="en">Regular dealer</span><span class="hi">नियमित डीलर</span></td><td><span class="en">Reorder last order</span><span class="hi">पिछला ऑर्डर दोहराएँ</span></td><td><span class="en">Tier price, part advance, balance in agreed days, credit limit</span><span class="hi">स्तर का दाम, कुछ एडवांस, बाकी तय दिनों में, उधार सीमा</span></td><td><span class="en">Their choice</span><span class="hi">उनकी पसंद</span></td></tr>
+              <tr><td><span class="en">Town retail shop</span><span class="hi">कस्बे की दुकान</span></td><td><span class="en">Small quantity, simple screen</span><span class="hi">छोटी संख्या, आसान स्क्रीन</span></td><td><span class="en">Small-qty price, UPI</span><span class="hi">छोटी संख्या का दाम, यूपीआई</span></td><td><span class="en">Hindi first</span><span class="hi">पहले हिन्दी</span></td></tr>
+              <tr><td><span class="en">Corporate or wedding gift</span><span class="hi">कॉर्पोरेट या शादी का गिफ्ट</span></td><td><span class="en">Quote, not a cart</span><span class="hi">कोट, कार्ट नहीं</span></td><td><span class="en">Quoted price, advance then balance</span><span class="hi">कोट दाम, एडवांस फिर बाकी</span></td><td><span class="en">English or Hindi</span><span class="hi">अंग्रेज़ी या हिन्दी</span></td></tr>
+              <tr><td><span class="en">Hotel, cafe, institution</span><span class="hi">होटल, कैफे, संस्था</span></td><td><span class="en">Contract line</span><span class="hi">कॉन्ट्रैक्ट लाइन</span></td><td><span class="en">Contract price and days</span><span class="hi">कॉन्ट्रैक्ट दाम और दिन</span></td><td><span class="en">As the contract</span><span class="hi">कॉन्ट्रैक्ट के अनुसार</span></td></tr>
+              <tr><td><span class="en">Direct customer</span><span class="hi">सीधा ग्राहक</span></td><td><span class="en">Public shop, later phase</span><span class="hi">पब्लिक दुकान, बाद का चरण</span></td><td><span class="en">MRP, full UPI payment</span><span class="hi">एमआरपी, पूरा यूपीआई</span></td><td><span class="en">Hindi and English</span><span class="hi">हिन्दी और अंग्रेज़ी</span></td></tr>
+              <tr><td><span class="en">Export buyer, later</span><span class="hi">निर्यात, बाद में</span></td><td><span class="en">Separate price book</span><span class="hi">अलग दाम पुस्तिका</span></td><td><span class="en">Advance before production</span><span class="hi">उत्पादन से पहले एडवांस</span></td><td><span class="en">English</span><span class="hi">अंग्रेज़ी</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="list">
+          <li><span class="en">Dealer A never sees dealer B’s price. GSTIN is stored on the dealer. HSN is stored on the product. Your accountant files returns. The portal keeps the invoice data.</span><span class="hi">डीलर A, डीलर B का दाम नहीं देखता। डीलर पर जीएसटीआईएन रहेगा। प्रोडक्ट पर एचएसएन रहेगा। रिटर्न अकाउंटेंट भरेगा। पोर्टल इनवॉइस का डेटा रखेगा।</span></li>
+          <li><span class="en">Mobile first. A shop assistant at the dealer can reorder while you are at the kiln.</span><span class="hi">पहले मोबाइल। डीलर का सहायक तब भी दोबारा ऑर्डर कर सकता है जब आप भट्ठी पर हों।</span></li>
+          <li><span class="en">Catalogue names stay stable. Photos and a short making story can show. The design register date sits behind the product.</span><span class="hi">कैटलॉग के नाम स्थिर रहेंगे। फोटो और बनाने की छोटी कहानी दिख सकती है। डिज़ाइन रजिस्टर की तारीख प्रोडक्ट के पीछे रहेगी।</span></li>
+        </ul>
+      </article>
+
+      <article class="card mt">
+        <span class="tag full">3 · <span class="en">Manufacturing ERP</span><span class="hi">मैन्युफैक्चरिंग ईआरपी</span></span>
+        <h3><span class="en">Plan the floor from orders, stock, skill, and yield.</span><span class="hi">ऑर्डर, स्टॉक, हुनर और यील्ड से फर्श की योजना।</span></h3>
+        <div class="grid-3">
+          <article class="card" style="box-shadow:none"><h3><span class="en">Item and recipe</span><span class="hi">आइटम और रेसिपी</span></h3><p><span class="en">Photo, size, use, days to packed, clay or other material, surface, hours, kiln or fuel share, packing, spoilage %, dealer price, MRP.</span><span class="hi">फोटो, आकार, उपयोग, पैक तक दिन, मिट्टी या अन्य माल, सतह, घंटे, भट्ठी या ईंधन, पैकिंग, खराबी %, डीलर दाम, एमआरपी।</span></p></article>
+          <article class="card" style="box-shadow:none"><h3><span class="en">Stages you can rename</span><span class="hi">चरण जिनके नाम बदल सकते हैं</span></h3><p><span class="en">Form, dry or cure, fire or finish, quality, pack. A product with no kiln skips firing. The states stay: started, in process, accepted, packed.</span><span class="hi">बनाना, सुखाना, भट्ठी या फिनिश, क्वालिटी, पैक। जिस प्रोडक्ट में भट्ठी न हो वह चरण हट सकता है। स्थितियाँ वही: शुरू, प्रक्रिया में, स्वीकृत, पैक।</span></p></article>
+          <article class="card" style="box-shadow:none"><h3><span class="en">Stock places</span><span class="hi">स्टॉक की जगह</span></h3><p><span class="en">Raw store, on the floor, packed and free, packed and promised to an order, dispatched. Free stock may be promised. Promised stock may not be given to the next caller.</span><span class="hi">कच्चा स्टोर, फर्श पर, पैक और खाली, पैक और ऑर्डर को वादा, भेजा हुआ। खाली स्टॉक वादा हो सकता है। वादा किया स्टॉक अगले कॉलर को नहीं दिया जाएगा।</span></p></article>
+          <article class="card" style="box-shadow:none"><h3><span class="en">Week plan</span><span class="hi">हफ्ता योजना</span></h3><p><span class="en">Need minus free minus usable work in progress, then gross-up for spoilage. Check skill capacity, material, and days left. If the date fails, the order asks you to call.</span><span class="hi">ज़रूरत में से खाली और चल रहा काम घटाएँ, फिर खराबी जोड़ें। हुनर, माल और बचे दिन जाँचें। तारीख फेल हो तो सिस्टम कॉल करने को कहे।</span></p></article>
+          <article class="card" style="box-shadow:none"><h3><span class="en">Batch and quality</span><span class="hi">बैच और क्वालिटी</span></h3><p><span class="en">Maker, senior, start count, accept, reject, kiln load, carton. A complaint lands on the batch. Pay uses the accepted count.</span><span class="hi">बनाने वाला, सीनियर, शुरू संख्या, स्वीकृत, अस्वीकृत, भट्ठी, कार्टन। शिकायत बैच पर आए। पैसे स्वीकृत संख्या से।</span></p></article>
+          <article class="card" style="box-shadow:none"><h3><span class="en">Cost</span><span class="hi">लागत</span></h3><p><span class="en">Recipe cost, then actual batch cost when spoilage and fuel differ. Discount and replacement sit on the order so the month can show what remained.</span><span class="hi">रेसिपी लागत, फिर असली बैच लागत जब खराबी और ईंधन अलग हों। छूट और बदला माल ऑर्डर पर, ताकि महीना बताए क्या बचा।</span></p></article>
+        </div>
+      </article>
+
+      <article class="card mt">
+        <span class="tag full">4 · SOP</span>
+        <h3><span class="en">The same rules, written, and later opened on the step.</span><span class="hi">वही नियम, लिखे हुए, और बाद में उसी कदम पर खुलेंगे।</span></h3>
+        <p><span class="en">Twelve SOPs are in the next tab. In the finished system each SOP has an owner, a language, a version date, and the screen it belongs to. A worker in Hindi and a coordinator in English read the same rule. When the rule changes, the old version stays so a past batch still shows which rule was live.</span><span class="hi">बारह नियम अगले टैब में हैं। पूरे सिस्टम में हर नियम का मालिक, भाषा, संस्करण तारीख और स्क्रीन होगी। हिन्दी में वर्कर और अंग्रेज़ी में कोऑर्डिनेटर वही नियम पढ़ेंगे। नियम बदले तो पुराना संस्करण रहेगा, ताकि पुराना बैच बताए तब कौन सा नियम चला था।</span></p>
+      </article>
+
+      <article class="card mt">
+        <span class="tag full">5 · <span class="en">Reports</span><span class="hi">रिपोर्ट</span></span>
+        <h3><span class="en">First for you. Later, the same pages can sit in front of an investor.</span><span class="hi">पहले आपके लिए। बाद में वही पेज निवेशक के सामने रखे जा सकते हैं।</span></h3>
+        <p><span class="en">Detail is on the Data and reports tab: how a fact becomes a report, which reports exist, and what an investor pack may claim only after real months.</span><span class="hi">विवरण डेटा और रिपोर्ट टैब पर है: तथ्य रिपोर्ट कैसे बनता है, कौन सी रिपोर्ट हैं, और निवेशक पैक असली महीनों के बाद ही क्या दावा कर सकता है।</span></p>
+      </article>
+      <div class="nextbar">
+        <button class="ghost" type="button" data-jump="roadmap"><span class="en">Back</span><span class="hi">पीछे</span></button>
+        <button class="solid" type="button" data-jump="sops"><span class="en">Next: the SOPs</span><span class="hi">आगे: नियम</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-sops">
+    <div class="wrap">
+      <figure class="banner">
+        <img src="img/jars.jpg" alt="A maker checking the rim of a clay pot with a tool">
+        <figcaption><span class="en">Quality is a named step, not a feeling. Same photo as the making standard.</span><span class="hi">क्वालिटी एक नाम वाला कदम है, एहसास नहीं।</span></figcaption>
+      </figure>
+      <p class="kicker">SOP</p>
+      <h2><span class="en">Written rules for every repeating job.</span><span class="hi">हर दोहराए जाने वाले काम का लिखा नियम।</span></h2>
+      <p class="lede"><span class="en">These are the operating rules the software will enforce or remind. Until a screen exists, follow the same steps on paper. Each rule says who acts, what AI may draft later, and what to do when that piece is not live yet.</span><span class="hi">ये वे चलने के नियम हैं जिन्हें सॉफ्टवेयर याद दिलाएगा या लागू करेगा। स्क्रीन आने तक यही कदम कागज़ पर चलें। हर नियम बताता है कौन करे, एआई बाद में क्या ड्राफ्ट करे, और जब तक वह हिस्सा न चले तब क्या करें।</span></p>
+      <div class="legend"><span class="lg-person"><span class="en">Person decides</span><span class="hi">व्यक्ति तय करे</span></span><span class="lg-ai"><span class="en">AI may draft later</span><span class="hi">एआई बाद में ड्राफ्ट करे</span></span><span class="lg-alt"><span class="en">Until this is live</span><span class="hi">जब तक यह चालू न हो</span></span></div>
+
+      <details class="sop" open>
+        <summary><span class="sid">SOP-01</span><span class="en">Enquiry to draft order</span><span class="hi">पूछताछ से ड्राफ्ट ऑर्डर</span></summary>
+        <div class="sop-body">
+          <p><span class="en">When a dealer, shop, gift buyer, or hotel asks for pieces. Purpose: capture the ask without starting clay.</span><span class="hi">जब डीलर, दुकान, गिफ्ट खरीदार या होटल पीस माँगे। उद्देश्य: मिट्टी शुरू किए बिना माँग लिखना।</span></p>
+          <ol class="list"><li><span class="en">Take name, city, client type, product, quantity, requested date.</span><span class="hi">नाम, शहर, क्लाइंट प्रकार, प्रोडक्ट, संख्या, माँगी तारीख लें।</span></li><li><span class="en">If the product is not in the 15, do not promise it. Offer a listed product or a quote path.</span><span class="hi">प्रोडक्ट उन 15 में नहीं है तो वादा न करें। सूची वाला प्रोडक्ट या कोट का रास्ता दें।</span></li><li><span class="en">Save as draft. Status is not confirmed.</span><span class="hi">ड्राफ्ट बचाएँ। स्थिति पक्की नहीं है।</span></li></ol>
+          <div class="mini"><div class="ai"><span class="en">Later, AI can structure a Hindi voice note into this draft.</span><span class="hi">बाद में एआई हिन्दी वॉइस नोट को इस ड्राफ्ट में सजा सकता है।</span></div><div class="person"><span class="en">A person checks quantity and product name.</span><span class="hi">एक व्यक्ति संख्या और प्रोडक्ट नाम जाँचे।</span></div><div class="alt"><span class="en">Write the same five fields in a notebook the same day.</span><span class="hi">वही पाँच बातें उसी दिन नोटबुक में लिखें।</span></div></div>
+        </div>
+      </details>
+      <details class="sop">
+        <summary><span class="sid">SOP-02</span><span class="en">Confirm price, date, and advance</span><span class="hi">दाम, तारीख और एडवांस पक्का करें</span></summary>
+        <div class="sop-body">
+          <ol class="list">
+            <li><span class="en">Load the client’s tier: new, regular, trusted, retail, corporate, hospitality.</span><span class="hi">क्लाइंट का स्तर खोलें: नया, नियमित, भरोसेमंद, रिटेल, कॉर्पोरेट, हॉस्पिटैलिटी।</span></li>
+            <li><span class="en">Show their price. Any extra discount is a field, with a reason.</span><span class="hi">उनका दाम दिखाएँ। अतिरिक्त छूट एक फील्ड है, कारण के साथ।</span></li>
+            <li><span class="en">Check credit limit and days from start to packed against the requested date.</span><span class="hi">उधार सीमा जाँचें और शुरू से पैक तक के दिन माँगी तारीख से मिलाएँ।</span></li>
+            <li><span class="en">If a rule fails, call before confirm. Record the exception if you override.</span><span class="hi">नियम फेल हो तो पक्का करने से पहले कॉल करें। ओवरराइड करें तो अपवाद लिखें।</span></li>
+            <li><span class="en">Advance lands on this order number. Only then may making start.</span><span class="hi">एडवांस इसी ऑर्डर नंबर पर आए। तभी बनाना शुरू हो।</span></li>
+          </ol>
+          <div class="mini"><div class="ai"><span class="en">AI warns when the discount wipes the piece’s kept money.</span><span class="hi">एआई चेताए जब छूट पीस की बची रकम मिटा दे।</span></div><div class="person"><span class="en">You approve every exception.</span><span class="hi">हर अपवाद आप मंज़ूर करें।</span></div><div class="alt"><span class="en">Use a written tier card beside the phone.</span><span class="hi">फोन के पास लिखा स्तर कार्ड रखें।</span></div></div>
+        </div>
+      </details>
+      <details class="sop">
+        <summary><span class="sid">SOP-03</span><span class="en">Weekly make plan</span><span class="hi">साप्ताहिक बनाने की योजना</span></summary>
+        <div class="sop-body">
+          <ol class="list">
+            <li><span class="en">Freeze confirmed orders only. Drafts do not consume clay.</span><span class="hi">सिर्फ पक्के ऑर्डर लें। ड्राफ्ट मिट्टी नहीं खाते।</span></li>
+            <li><span class="en">Subtract packed-free and in-making that will finish in time.</span><span class="hi">पैक-खाली और समय पर खत्म होने वाला चल रहा काम घटाएँ।</span></li>
+            <li><span class="en">Add spoilage. Check maker capacity and material on hand.</span><span class="hi">खराबी जोड़ें। कारीगर की क्षमता और मौजूद माल जाँचें।</span></li>
+            <li><span class="en">If two products need the same hands, move a date before you start both.</span><span class="hi">दो प्रोडक्ट को एक ही हाथ चाहिए तो दोनों शुरू करने से पहले एक तारीख हटाएँ।</span></li>
+            <li><span class="en">Publish the list: product, start quantity, maker, buy list.</span><span class="hi">सूची जारी करें: प्रोडक्ट, शुरू संख्या, कारीगर, खरीद सूची।</span></li>
+          </ol>
+          <div class="mini"><div class="ai"><span class="en">AI fills the subtraction and highlights a late date.</span><span class="hi">एआई घटाव भरे और लेट तारीख चिह्नित करे।</span></div><div class="person"><span class="en">You release the list.</span><span class="hi">सूची आप जारी करें।</span></div><div class="alt"><span class="en">Do the same sum on paper every Friday. The formula is on the Flows tab.</span><span class="hi">हर शुक्रवार वही जोड़ कागज़ पर करें। सूत्र प्रक्रिया टैब पर है।</span></div></div>
+        </div>
+      </details>
+      <details class="sop">
+        <summary><span class="sid">SOP-04</span><span class="en">Issue a batch to a worker</span><span class="hi">वर्कर को बैच दें</span></summary>
+        <div class="sop-body">
+          <ol class="list">
+            <li><span class="en">Only a person allowed on that product receives the batch.</span><span class="hi">बैच उसे ही मिले जिसे उस प्रोडक्ट की अनुमति है।</span></li>
+            <li><span class="en">Tell them count, stage, and due day in Hindi on the phone or on paper.</span><span class="hi">संख्या, चरण और दिन हिन्दी में फोन या कागज़ पर बताएँ।</span></li>
+            <li><span class="en">Home-based workers get a pickup day. Daily-wage workers also get attendance. Piece-rate workers see the rate.</span><span class="hi">घर से काम करने वालों को लेने का दिन। दिहाड़ी वालों को हाजिरी भी। पीस-रेट वालों को रेट दिखे।</span></li>
+            <li><span class="en">Do not assign above their weekly capacity without your override.</span><span class="hi">उनकी साप्ताहिक क्षमता से ऊपर बिना आपकी मंज़ूरी के काम न दें।</span></li>
+          </ol>
+          <div class="mini"><div class="ai"><span class="en">AI suggests who is free and already signed for this product.</span><span class="hi">एआई सुझाए कौन खाली है और इस प्रोडक्ट पर साइन है।</span></div><div class="person"><span class="en">Senior or you issue the batch.</span><span class="hi">सीनियर या आप बैच जारी करें।</span></div><div class="alt"><span class="en">A bench slip with batch number, name, and count.</span><span class="hi">बेंच पर्ची: बैच नंबर, नाम और संख्या।</span></div></div>
+        </div>
+      </details>
+      <details class="sop">
+        <summary><span class="sid">SOP-05</span><span class="en">Update the stage</span><span class="hi">चरण अपडेट करें</span></summary>
+        <div class="sop-body">
+          <p><span class="en">Stages: formed, drying, fired or finished, ready for quality. The worker taps the stage. They do not see dealer price.</span><span class="hi">चरण: बना, सूख रहा, पका या फिनिश, क्वालिटी के लिए तैयार। वर्कर चरण दबाए। डीलर का दाम उन्हें नहीं दिखे।</span></p>
+          <div class="mini"><div class="ai"><span class="en">AI reminds a batch that has sat too long in drying.</span><span class="hi">एआई याद दिलाए अगर बैच सुखाने में ज्यादा रुका हो।</span></div><div class="person"><span class="en">Worker tells the truth of the stage. False “done” breaks every later number.</span><span class="hi">वर्कर चरण का सच बताए। झूठा “हो गया” बाद के हर आँकड़े को तोड़ता है।</span></div><div class="alt"><span class="en">Evening count on a wall chart with the same stage names.</span><span class="hi">शाम को दीवार चार्ट पर उन्हीं चरण नामों से गिनती।</span></div></div>
+        </div>
+      </details>
+      <details class="sop">
+        <summary><span class="sid">SOP-06</span><span class="en">Quality release</span><span class="hi">क्वालिटी पास</span></summary>
+        <div class="sop-body">
+          <ol class="list">
+            <li><span class="en">Check cracks, lid fit, food-safe surface, foot, packing strength.</span><span class="hi">दरार, ढक्कन, खाने योग्य सतह, तला, पैकिंग की मजबूती जाँचें।</span></li>
+            <li><span class="en">Reject stays on the batch with a reason the worker can read.</span><span class="hi">अस्वीकृति बैच पर रहे, कारण के साथ जिसे वर्कर पढ़ सके।</span></li>
+            <li><span class="en">Only the named signer may release a carton. In the first months that signer is you.</span><span class="hi">कार्टन वही छोड़े जिसका नाम साइनर है। पहले महीनों में वह आप हैं।</span></li>
+          </ol>
+          <div class="mini"><div class="ai"><span class="en">AI does not pass a piece. A later photo can sit on the batch for the signer.</span><span class="hi">एआई पीस पास नहीं करता। बाद में फोटो बैच पर साइनर के लिए रह सकती है।</span></div><div class="person"><span class="en">Senior signs.</span><span class="hi">सीनियर साइन करे।</span></div><div class="alt"><span class="en">A stamp or initials on the pack slip.</span><span class="hi">पैक पर्ची पर मुहर या हस्ताक्षर।</span></div></div>
+        </div>
+      </details>
+      <details class="sop">
+        <summary><span class="sid">SOP-07</span><span class="en">Pack and dispatch</span><span class="hi">पैक और भेजना</span></summary>
+        <div class="sop-body">
+          <ol class="list">
+            <li><span class="en">Carton count, product, quantity, order number on the box and in the record.</span><span class="hi">कार्टन संख्या, प्रोडक्ट, मात्रा, ऑर्डर नंबर डिब्बे पर और रिकॉर्ड में।</span></li>
+            <li><span class="en">Transport name and date of handover.</span><span class="hi">ट्रांसपोर्ट का नाम और सौंपने की तारीख।</span></li>
+            <li><span class="en">Invoice data stored: party, GSTIN if any, HSN, taxable value, advance already in.</span><span class="hi">इनवॉइस डेटा: पार्टी, जीएसटीआईएन अगर हो, एचएसएन, मूल्य, जो एडवांस आ चुका।</span></li>
+            <li><span class="en">Dealer sees “sent” and the balance. WhatsApp template can carry the same text.</span><span class="hi">डीलर “भेजा” और बकाया देखे। व्हाट्सऐप टेम्पलेट वही पाठ ले जा सकता है।</span></li>
+          </ol>
+          <div class="mini"><div class="alt"><span class="en">Until the portal, send the same four lines on WhatsApp and file the bill.</span><span class="hi">पोर्टल तक वही चार पंक्तियाँ व्हाट्सऐप पर भेजें और बिल रखें।</span></div></div>
+        </div>
+      </details>
+      <details class="sop">
+        <summary><span class="sid">SOP-08</span><span class="en">Collect payment</span><span class="hi">भुगतान वसूलें</span></summary>
+        <div class="sop-body">
+          <ol class="list">
+            <li><span class="en">UPI, bank, or cash is entered against the bill the same day.</span><span class="hi">यूपीआई, बैंक या नकद उसी दिन बिल के सामने लिखें।</span></li>
+            <li><span class="en">On the credit-day morning, overdue dealers are listed.</span><span class="hi">उधार के दिन की सुबह बकाया डीलरों की सूची बने।</span></li>
+            <li><span class="en">A new order waits if the limit is full, unless you record an exception.</span><span class="hi">सीमा पूरी हो तो नया ऑर्डर रुके, जब तक आप अपवाद न लिखें।</span></li>
+          </ol>
+          <div class="mini"><div class="ai"><span class="en">AI drafts the reminder in the dealer’s language. You send it.</span><span class="hi">एआई डीलर की भाषा में याद का ड्राफ्ट बनाए। आप भेजें।</span></div><div class="alt"><span class="en">A Friday call list from the balance column.</span><span class="hi">बकाया कॉलम से शुक्रवार की कॉल सूची।</span></div></div>
+        </div>
+      </details>
+      <details class="sop">
+        <summary><span class="sid">SOP-09</span><span class="en">Breakage or shortage claim</span><span class="hi">टूटन या कमी का दावा</span></summary>
+        <div class="sop-body">
+          <ol class="list">
+            <li><span class="en">Claim within the agreed window, with photo and carton number.</span><span class="hi">तय समय में दावा, फोटो और कार्टन नंबर के साथ।</span></li>
+            <li><span class="en">Open the batch: maker, signer, kiln, transport.</span><span class="hi">बैच खोलें: बनाने वाला, साइनर, भट्ठी, ट्रांसपोर्ट।</span></li>
+            <li><span class="en">If you replace or credit, the value reduces what that order kept.</span><span class="hi">अगर बदलें या क्रेडिट दें तो वह रकम उसी ऑर्डर की बची कमाई घटाए।</span></li>
+          </ol>
+          <div class="mini"><div class="person"><span class="en">You decide the claim. The system stores the decision.</span><span class="hi">दावा आप तय करें। सिस्टम फैसला रखे।</span></div><div class="alt"><span class="en">Photo in a folder named with the order number.</span><span class="hi">फोटो उस फोल्डर में जिसका नाम ऑर्डर नंबर हो।</span></div></div>
+        </div>
+      </details>
+      <details class="sop">
+        <summary><span class="sid">SOP-10</span><span class="en">Cost a product and approve a discount</span><span class="hi">प्रोडक्ट की लागत और छूट की मंज़ूरी</span></summary>
+        <div class="sop-body">
+          <p><span class="en">Include material, hours, fuel, packing, transport, and usual spoilage. Overhead such as rent can sit outside the piece and show on the month. Do not approve a spoken discount until the kept-money line is visible. The calculator is on the Data tab.</span><span class="hi">माल, घंटे, ईंधन, पैकिंग, ढुलाई और सामान्य खराबी शामिल करें। किराया जैसे खर्च पीस के बाहर रहकर महीने पर दिख सकते हैं। बोली गई छूट तब तक मंज़ूर न करें जब तक बची रकम की लाइन न दिखे। कैलकुलेटर डेटा टैब पर है।</span></p>
+        </div>
+      </details>
+      <details class="sop">
+        <summary><span class="sid">SOP-11</span><span class="en">Induct a worker</span><span class="hi">वर्कर को जोड़ना</span></summary>
+        <div class="sop-body">
+          <ol class="list">
+            <li><span class="en">Record type: piece-rate karigar, daily wage, home-based, trainee, senior, or family helper.</span><span class="hi">प्रकार लिखें: पीस-रेट कारीगर, दिहाड़ी, घर-आधारित, ट्रेनी, सीनियर, या परिवार का सहायक।</span></li>
+            <li><span class="en">Language of the phone: Hindi by default. Add a regional language when the workshop needs it.</span><span class="hi">फोन की भाषा: डिफ़ॉल्ट हिन्दी। ज़रूरत हो तो क्षेत्रीय भाषा जोड़ें।</span></li>
+            <li><span class="en">Train one product: moisture, forming, drying, surface, lid, packing. A senior signs each.</span><span class="hi">एक प्रोडक्ट सिखाएँ: नमी, बनाना, सुखाना, सतह, ढक्कन, पैकिंग। हर एक पर सीनियर साइन करे।</span></li>
+            <li><span class="en">Levels: trainee, maker, senior, lead. A level is a permission, not a speech.</span><span class="hi">स्तर: ट्रेनी, मेकर, सीनियर, लीड। स्तर अनुमति है, भाषण नहीं।</span></li>
+            <li><span class="en">Family helpers are recorded so their hours are not an invisible cost.</span><span class="hi">परिवार के सहायकों को लिखें ताकि उनके घंटे छुपी लागत न रहें।</span></li>
+          </ol>
+        </div>
+      </details>
+      <details class="sop">
+        <summary><span class="sid">SOP-12</span><span class="en">Month close and the management pack</span><span class="hi">महीना बंद और प्रबंधन पैक</span></summary>
+        <div class="sop-body">
+          <ol class="list">
+            <li><span class="en">Lock bills and payments for the month. Late entries are dated as late.</span><span class="hi">महीने के बिल और भुगतान लॉक करें। देर से आई प्रविष्टि देर की तारीख से रहे।</span></li>
+            <li><span class="en">Read: billed, collected, overdue, contribution by product, contribution by dealer, yield, on-time dispatch, open training.</span><span class="hi">पढ़ें: बिल, वसूली, बकाया, प्रोडक्ट पर योगदान, डीलर पर योगदान, यील्ड, समय पर डिस्पैच, खुली ट्रेनिंग।</span></li>
+            <li><span class="en">Decide one thing to stop: a dealer, a discount habit, or a product that only creates work.</span><span class="hi">एक चीज़ रोकने का फैसला: एक डीलर, छूट की आदत, या एक प्रोडक्ट जो सिर्फ काम बढ़ाता है।</span></li>
+            <li><span class="en">The investor pack is this month pack plus the design register and the order book, after at least three clean months.</span><span class="hi">निवेशक पैक यही मासिक पैक है, डिज़ाइन रजिस्टर और ऑर्डर बुक के साथ, कम से कम तीन साफ महीनों के बाद।</span></li>
+          </ol>
+        </div>
+      </details>
+      <div class="nextbar">
+        <button class="ghost" type="button" data-jump="deliver"><span class="en">Back</span><span class="hi">पीछे</span></button>
+        <button class="solid" type="button" data-jump="data"><span class="en">Next: data and reports</span><span class="hi">आगे: डेटा और रिपोर्ट</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-data">
+    <div class="wrap">
+      <p class="kicker"><span class="en">Data process and reports</span><span class="hi">डेटा प्रक्रिया और रिपोर्ट</span></p>
+      <h2><span class="en">From one true event to a page you can show.</span><span class="hi">एक सच्चे घटना से उस पेज तक जिसे आप दिखा सकें।</span></h2>
+      <p class="lede"><span class="en">Reports are not typed at the end of the month. They are the result of steps you already take: confirm, start, accept, dispatch, pay. If a step is skipped, the report goes blank instead of inventing a story. That is what makes the same pages safe to show a dealer, a bank, or an investor.</span><span class="hi">रिपोर्ट महीने के अंत में टाइप नहीं होतीं। वे उन कदमों का नतीजा हैं जो आप पहले ही उठाती हैं: पक्का करना, शुरू करना, स्वीकारना, भेजना, भुगतान। कदम छूटे तो रिपोर्ट कहानी नहीं गढ़ती, खाली रहती है। इसी से वही पेज डीलर, बैंक या निवेशक को दिखाना सुरक्षित होता है।</span></p>
+
+      <h3><span class="en">Data process</span><span class="hi">डेटा की प्रक्रिया</span></h3>
+      <div class="mapline mb">
+        <span class="chip"><span class="en">1 Capture</span><span class="hi">1 पकड़ना</span></span><i>→</i>
+        <span class="chip"><span class="en">2 A person checks</span><span class="hi">2 व्यक्ति जाँचे</span></span><i>→</i>
+        <span class="chip"><span class="en">3 Record</span><span class="hi">3 रिकॉर्ड</span></span><i>→</i>
+        <span class="chip"><span class="en">4 Use this week</span><span class="hi">4 इस हफ्ते उपयोग</span></span><i>→</i>
+        <span class="chip"><span class="en">5 Report</span><span class="hi">5 रिपोर्ट</span></span>
+      </div>
+      <div class="table-wrap">
+        <table class="ledger">
+          <thead><tr><th><span class="en">Event</span><span class="hi">घटना</span></th><th><span class="en">Data captured</span><span class="hi">जो डेटा लिखा जाता है</span></th><th><span class="en">Feeds</span><span class="hi">किस रिपोर्ट में जाता है</span></th></tr></thead>
+          <tbody>
+            <tr><td><span class="en">Enquiry</span><span class="hi">पूछताछ</span></td><td><span class="en">Who, client type, product, qty, wanted date</span><span class="hi">कौन, प्रकार, प्रोडक्ट, संख्या, माँगी तारीख</span></td><td><span class="en">Pipeline, not yet sales</span><span class="hi">पाइपलाइन, अभी बिक्री नहीं</span></td></tr>
+            <tr><td><span class="en">Confirm</span><span class="hi">पक्का</span></td><td><span class="en">Tier price, discount, advance, promised date, credit check</span><span class="hi">स्तर का दाम, छूट, एडवांस, वादा तारीख, उधार जाँच</span></td><td><span class="en">Order book, commitment</span><span class="hi">ऑर्डर बुक, वचन</span></td></tr>
+            <tr><td><span class="en">Start batch</span><span class="hi">बैच शुरू</span></td><td><span class="en">Maker, qty started, material issued</span><span class="hi">कारीगर, शुरू संख्या, जारी माल</span></td><td><span class="en">WIP, material, capacity</span><span class="hi">डब्ल्यूआईपी, माल, क्षमता</span></td></tr>
+            <tr><td><span class="en">Quality</span><span class="hi">क्वालिटी</span></td><td><span class="en">Accepted, rejected, reason, signer</span><span class="hi">स्वीकृत, अस्वीकृत, कारण, साइनर</span></td><td><span class="en">Yield, pay, true cost</span><span class="hi">यील्ड, पैसे, सच्ची लागत</span></td></tr>
+            <tr><td><span class="en">Dispatch</span><span class="hi">डिस्पैच</span></td><td><span class="en">Cartons, transport, invoice fields, date</span><span class="hi">कार्टन, ट्रांसपोर्ट, इनवॉइस फील्ड, तारीख</span></td><td><span class="en">On-time, ageing, GST support file</span><span class="hi">समय पर, बकाया उम्र, जीएसटी सहयोग फाइल</span></td></tr>
+            <tr><td><span class="en">Payment</span><span class="hi">भुगतान</span></td><td><span class="en">Amount, UPI or bank or cash, which bill</span><span class="hi">रकम, यूपीआई या बैंक या नकद, कौन सा बिल</span></td><td><span class="en">Collected, overdue</span><span class="hi">वसूली, बकाया</span></td></tr>
+            <tr><td><span class="en">Claim</span><span class="hi">दावा</span></td><td><span class="en">Batch, photo, decision, value absorbed</span><span class="hi">बैच, फोटो, फैसला, जो रकम आपने सँभाली</span></td><td><span class="en">Margin, quality by maker</span><span class="hi">मार्जिन, कारीगर की क्वालिटी</span></td></tr>
+            <tr><td><span class="en">Lesson signed</span><span class="hi">पाठ साइन</span></td><td><span class="en">Worker, SOP, senior, date</span><span class="hi">वर्कर, नियम, सीनियर, तारीख</span></td><td><span class="en">Skill matrix</span><span class="hi">हुनर मैट्रिक्स</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mt"><span class="en">Reports you will use</span><span class="hi">रिपोर्ट जो आप चलाएँगी</span></h3>
+      <div class="grid-3">
+        <article class="card"><h3><span class="en">Today</span><span class="hi">आज</span></h3><p><span class="en">Late balances, dates at risk, material short, unsigned lessons.</span><span class="hi">लेट बकाया, जोखिम वाली तारीख, कम माल, बिना साइन पाठ।</span></p></article>
+        <article class="card"><h3><span class="en">Order book</span><span class="hi">ऑर्डर बुक</span></h3><p><span class="en">Confirmed work by week, by client type, by product.</span><span class="hi">हफ्ते, क्लाइंट प्रकार और प्रोडक्ट के हिसाब से पक्का काम।</span></p></article>
+        <article class="card"><h3><span class="en">Ageing</span><span class="hi">बकाया की उम्र</span></h3><p><span class="en">Who owes, for how many days, against which bill.</span><span class="hi">कौन देनदार है, कितने दिन से, किस बिल पर।</span></p></article>
+        <article class="card"><h3><span class="en">Yield</span><span class="hi">यील्ड</span></h3><p><span class="en">Accepted divided by started, by product and by maker.</span><span class="hi">स्वीकृत ÷ शुरू, प्रोडक्ट और कारीगर के हिसाब से।</span></p></article>
+        <article class="card"><h3><span class="en">Stock</span><span class="hi">स्टॉक</span></h3><p><span class="en">Raw, in making, free, promised.</span><span class="hi">कच्चा, बन रहा, खाली, वादा किया।</span></p></article>
+        <article class="card"><h3><span class="en">Contribution</span><span class="hi">योगदान</span></h3><p><span class="en">What remained after cost, by product and by dealer.</span><span class="hi">लागत के बाद क्या बचा, प्रोडक्ट और डीलर पर।</span></p></article>
+        <article class="card"><h3><span class="en">Capacity, 4 weeks</span><span class="hi">क्षमता, 4 हफ्ते</span></h3><p><span class="en">Load versus people who are allowed to make each product.</span><span class="hi">हर प्रोडक्ट बनाने की अनुमति वाले लोगों के मुकाबले भार।</span></p></article>
+        <article class="card"><h3><span class="en">Skill matrix</span><span class="hi">हुनर मैट्रिक्स</span></h3><p><span class="en">Who is signed, who is the only person who knows a product.</span><span class="hi">कौन साइन है, किस प्रोडक्ट को सिर्फ एक व्यक्ति जानता है।</span></p></article>
+        <article class="card"><h3><span class="en">Design register</span><span class="hi">डिज़ाइन रजिस्टर</span></h3><p><span class="en">Photo, date, maker, who may sell. Your own dated catalogue.</span><span class="hi">फोटो, तारीख, बनाने वाला, कौन बेच सकता है। आपकी दिनांकित सूची।</span></p></article>
+      </div>
+
+      <h3 class="mt"><span class="en">Investor representation pack</span><span class="hi">निवेशक के सामने रखने का पैक</span></h3>
+      <p><span class="en">This pack is an export of the operating reports, not a separate story. Show it after at least three months where orders, yields, and payments were entered as they happened. Before that, say the record has just started. A serious reader trusts a short true pack more than a long reconstructed one.</span><span class="hi">यह पैक चल रही रिपोर्टों का निर्यात है, अलग कहानी नहीं। इसे कम से कम तीन ऐसे महीनों के बाद दिखाएँ जहाँ ऑर्डर, यील्ड और भुगतान होते समय लिखे गए। उससे पहले कहें कि रिकॉर्ड अभी शुरू हुआ है। गंभीर पाठक छोटी सच्ची पैक पर लंबी बनाई कहानी से ज्यादा भरोसा करता है।</span></p>
+      <div class="table-wrap">
+        <table class="ledger">
+          <thead><tr><th><span class="en">Page in the pack</span><span class="hi">पैक का पेज</span></th><th><span class="en">What it shows</span><span class="hi">क्या दिखाता है</span></th><th><span class="en">What it must not pretend</span><span class="hi">जो नाटक नहीं करना</span></th></tr></thead>
+          <tbody>
+            <tr><td><span class="en">Months of clean data</span><span class="hi">साफ डेटा के महीने</span></td><td><span class="en">From which Monday the record is complete</span><span class="hi">किस सोमवार से रिकॉर्ड पूरा है</span></td><td><span class="en">A full prior year rebuilt from chat</span><span class="hi">चैट से बनाया पूरा पिछला साल</span></td></tr>
+            <tr><td><span class="en">Demand</span><span class="hi">माँग</span></td><td><span class="en">Billed by client type, repeat dealers, top dealer share</span><span class="hi">क्लाइंट प्रकार से बिल, दोहराते डीलर, सबसे बड़े डीलर का हिस्सा</span></td><td><span class="en">That one festival month is a normal month</span><span class="hi">कि एक त्योहार महीना सामान्य महीना है</span></td></tr>
+            <tr><td><span class="en">Cash</span><span class="hi">नकद चक्र</span></td><td><span class="en">Collected versus billed, ageing buckets</span><span class="hi">वसूली बनाम बिल, बकाया की बाल्टियाँ</span></td><td><span class="en">That overdue cash is as good as collected</span><span class="hi">कि बकाया पैसा वसूले हुए पैसा है</span></td></tr>
+            <tr><td><span class="en">Unit economics</span><span class="hi">प्रति पीस अर्थशास्त्र</span></td><td><span class="en">Contribution after spoilage, discount, and claims</span><span class="hi">खराबी, छूट और दावों के बाद योगदान</span></td><td><span class="en">A recipe that ignores cracked pieces</span><span class="hi">ऐसी रेसिपी जो टूटे पीस को न गिने</span></td></tr>
+            <tr><td><span class="en">Delivery</span><span class="hi">डिलीवरी</span></td><td><span class="en">On-time dispatch, claim rate</span><span class="hi">समय पर भेजना, दावों की दर</span></td><td><span class="en">Promises that were only spoken</span><span class="hi">वादे जो सिर्फ बोले गए थे</span></td></tr>
+            <tr><td><span class="en">Capacity</span><span class="hi">क्षमता</span></td><td><span class="en">Makers, signed backups, order book versus weekly capacity</span><span class="hi">कारीगर, साइन बैकअप, ऑर्डर बुक बनाम साप्ताहिक क्षमता</span></td><td><span class="en">Unlimited growth with the same hands</span><span class="hi">उन्हीं हाथों से असीम वृद्धि</span></td></tr>
+            <tr><td><span class="en">IP record</span><span class="hi">आईपी रिकॉर्ड</span></td><td><span class="en">Dated designs and who was allowed to sell them</span><span class="hi">दिनांकित डिज़ाइन और किसे बेचने की अनुमति थी</span></td><td><span class="en">That a register replaces a lawyer’s filing</span><span class="hi">कि रजिस्टर वकील की फाइलिंग की जगह है</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mt"><span class="en">Piece contribution, sample jar</span><span class="hi">एक पीस का योगदान, नमूना जार</span></h3>
+      <div class="tool" id="money-tool">
+        <div class="tool-head">
+          <span class="tag sample">Sample</span>
+          <div class="presets">
+            <button class="ghost" type="button" data-preset="steady"><span class="en">Steady week</span><span class="hi">सामान्य हफ्ता</span></button>
+            <button class="ghost" type="button" data-preset="hard"><span class="en">Hard week</span><span class="hi">कठिन हफ्ता</span></button>
+          </div>
+        </div>
+        <div class="two">
+          <div class="fields">
+            <label class="field"><span class="en">Clay ₹</span><span class="hi">मिट्टी ₹</span><input id="m-clay" type="number" value="28"></label>
+            <label class="field"><span class="en">Surface ₹</span><span class="hi">सतह ₹</span><input id="m-glaze" type="number" value="12"></label>
+            <label class="field"><span class="en">Hours</span><span class="hi">घंटे</span><input id="m-hours" type="number" step="0.1" value="1.5"></label>
+            <label class="field"><span class="en">₹ / hour</span><span class="hi">₹ / घंटा</span><input id="m-rate" type="number" value="80"></label>
+            <label class="field"><span class="en">Fuel share ₹</span><span class="hi">ईंधन हिस्सा ₹</span><input id="m-kiln" type="number" value="25"></label>
+            <label class="field"><span class="en">Packing ₹</span><span class="hi">पैकिंग ₹</span><input id="m-pack" type="number" value="18"></label>
+            <label class="field"><span class="en">Transport ₹</span><span class="hi">ढुलाई ₹</span><input id="m-transport" type="number" value="22"></label>
+            <label class="field"><span class="en">Spoilage %</span><span class="hi">खराबी %</span><input id="m-reject" type="number" value="8"></label>
+            <label class="field"><span class="en">Dealer price ₹</span><span class="hi">डीलर दाम ₹</span><input id="m-price" type="number" value="280"></label>
+            <label class="field"><span class="en">Extra discount %</span><span class="hi">अतिरिक्त छूट %</span><input id="m-discount" type="number" value="0"></label>
+          </div>
+          <div>
+            <table class="ledger"><tbody id="money-out"></tbody></table>
+            <p class="sentence" id="money-sentence"></p>
+          </div>
+        </div>
+      </div>
+      <div class="nextbar">
+        <button class="ghost" type="button" data-jump="sops"><span class="en">Back</span><span class="hi">पीछे</span></button>
+        <button class="solid" type="button" data-jump="flows"><span class="en">Next: flows</span><span class="hi">आगे: प्रक्रिया</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-flows">
+    <div class="wrap">
+      <p class="kicker"><span class="en">Process flows</span><span class="hi">प्रक्रिया</span></p>
+      <h2><span class="en">Four flows the whole system follows.</span><span class="hi">चार प्रक्रियाएँ जिन पर पूरा सिस्टम चलता है।</span></h2>
+      <div class="legend"><span class="lg-person"><span class="en">Person</span><span class="hi">व्यक्ति</span></span><span class="lg-ai"><span class="en">AI later</span><span class="hi">बाद में एआई</span></span><span class="lg-alt"><span class="en">Alternate until live</span><span class="hi">चालू होने तक विकल्प</span></span></div>
+
+      <h3><span class="en">1. Order to cash</span><span class="hi">1. ऑर्डर से नकदी</span></h3>
+      <ol class="process">
+        <li><div class="pn">1</div><div class="pbody"><h3><span class="en">Draft</span><span class="hi">ड्राफ्ट</span></h3><p><span class="en">WhatsApp, portal, or phone. Not a promise.</span><span class="hi">व्हाट्सऐप, पोर्टल या फोन। वादा नहीं।</span></p></div></li>
+        <li><div class="pn">2</div><div class="pbody"><h3><span class="en">Rules</span><span class="hi">नियम</span></h3><p><span class="en">Tier price, credit, days, material, hands.</span><span class="hi">स्तर का दाम, उधार, दिन, माल, हाथ।</span></p></div></li>
+        <li><div class="pn">3</div><div class="pbody"><h3><span class="en">Advance</span><span class="hi">एडवांस</span></h3><p><span class="en">Money on this order number. Then the order is confirmed.</span><span class="hi">पैसा इसी ऑर्डर नंबर पर। तभी ऑर्डर पक्का।</span></p></div></li>
+        <li><div class="pn">4</div><div class="pbody"><h3><span class="en">Make, release, dispatch</span><span class="hi">बनाएँ, छोड़ें, भेजें</span></h3><p><span class="en">Batch, quality sign, carton, bill.</span><span class="hi">बैच, क्वालिटी साइन, कार्टन, बिल।</span></p></div></li>
+        <li><div class="pn">5</div><div class="pbody"><h3><span class="en">Balance and close</span><span class="hi">बकाया और बंद</span></h3><p><span class="en">Payments and claims hit this order. Closed orders stay openable.</span><span class="hi">भुगतान और दावे इसी ऑर्डर पर। बंद ऑर्डर फिर खोले जा सकते हैं।</span></p></div></li>
+      </ol>
+
+      <h3><span class="en">2. Plan to make</span><span class="hi">2. योजना से बनाना</span></h3>
+      <div class="tool" id="plan-tool">
+        <p><span class="tag sample">Sample · Ramesh · 1 litre jar</span></p>
+        <div class="two">
+          <div class="fields">
+            <label class="field"><span class="en">Dealer still needs</span><span class="hi">डीलर को अभी चाहिए</span><input id="p-need" type="number" value="80"></label>
+            <label class="field"><span class="en">Packed and free</span><span class="hi">पैक और खाली</span><input id="p-finished" type="number" value="12"></label>
+            <label class="field"><span class="en">Already in making</span><span class="hi">बन रहा है</span><input id="p-wip" type="number" value="20"></label>
+            <label class="field"><span class="en">Spoilage %</span><span class="hi">खराबी %</span><input id="p-spoil" type="number" value="8"></label>
+            <label class="field"><span class="en">Days start to packed</span><span class="hi">शुरू से पैक तक दिन</span><input id="p-days" type="number" value="18"></label>
+            <label class="field"><span class="en">Days left</span><span class="hi">बचे दिन</span><input id="p-left" type="number" value="25"></label>
+            <label class="field"><span class="en">Kg per start</span><span class="hi">प्रति शुरू किलो</span><input id="p-clay" type="number" step="0.1" value="0.9"></label>
+            <label class="field"><span class="en">Kg on hand</span><span class="hi">मौजूद किलो</span><input id="p-have" type="number" step="0.1" value="24"></label>
+            <label class="field"><span class="en">Pieces makers can start this week</span><span class="hi">कारीगर इस हफ्ते कितने शुरू कर सकते हैं</span><input id="p-capacity" type="number" value="55"></label>
+          </div>
+          <div>
+            <table class="ledger"><tbody id="plan-math"></tbody></table>
+            <p class="sentence" id="plan-sentence"></p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="mt"><span class="en">3. Worker path</span><span class="hi">3. वर्कर का रास्ता</span></h3>
+      <div class="mapline">
+        <span class="chip"><span class="en">Named</span><span class="hi">नाम</span></span><i>→</i>
+        <span class="chip"><span class="en">Lessons in Hindi</span><span class="hi">हिन्दी में पाठ</span></span><i>→</i>
+        <span class="chip"><span class="en">Practice batch</span><span class="hi">अभ्यास बैच</span></span><i>→</i>
+        <span class="chip"><span class="en">Allowed products</span><span class="hi">अनुमत प्रोडक्ट</span></span><i>→</i>
+        <span class="chip"><span class="en">Weekly queue</span><span class="hi">हफ्ते की सूची</span></span><i>→</i>
+        <span class="chip"><span class="en">Accepted pay</span><span class="hi">स्वीकृत पैसे</span></span><i>→</i>
+        <span class="chip"><span class="en">May sign others</span><span class="hi">दूसरों को साइन कर सकते हैं</span></span>
+      </div>
+      <p class="mt"><span class="en">A trainee does not receive a dealer batch. A maker receives only signed products. A senior signs. A lead may prepare the week list with you. Daily wage, piece rate, and home-based pickup all use this path. The pay rule changes. The permission rule does not.</span><span class="hi">ट्रेनी को डीलर बैच नहीं मिलता। मेकर को सिर्फ साइन किए प्रोडक्ट मिलते हैं। सीनियर साइन करता है। लीड आपके साथ हफ्ता सूची बना सकता है। दिहाड़ी, पीस रेट और घर से लेने का काम इसी रास्ते पर है। पैसे का नियम बदलता है। अनुमति का नियम नहीं।</span></p>
+
+      <h3><span class="en">4. Claim back to the batch</span><span class="hi">4. दावा वापस बैच तक</span></h3>
+      <div class="mapline">
+        <span class="chip"><span class="en">Dealer message</span><span class="hi">डीलर संदेश</span></span><i>→</i>
+        <span class="chip"><span class="en">Carton number</span><span class="hi">कार्टन नंबर</span></span><i>→</i>
+        <span class="chip"><span class="en">Batch</span><span class="hi">बैच</span></span><i>→</i>
+        <span class="chip"><span class="en">Maker and signer</span><span class="hi">कारीगर और साइनर</span></span><i>→</i>
+        <span class="chip"><span class="en">Your decision</span><span class="hi">आपका फैसला</span></span><i>→</i>
+        <span class="chip"><span class="en">Order earning drops</span><span class="hi">ऑर्डर की कमाई घटे</span></span>
+      </div>
+      <div class="nextbar">
+        <button class="ghost" type="button" data-jump="data"><span class="en">Back</span><span class="hi">पीछे</span></button>
+        <button class="solid" type="button" data-jump="ai"><span class="en">Next: AI and the team</span><span class="hi">आगे: एआई और टीम</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-ai">
+    <div class="wrap">
+      <p class="kicker"><span class="en">AI, languages, and a smaller office</span><span class="hi">एआई, भाषाएँ, और छोटा दफ्तर</span></p>
+      <h2><span class="en">Fewer people in the office. The same hands on the floor.</span><span class="hi">दफ्तर में कम लोग। फर्श पर वही हाथ।</span></h2>
+      <p class="lede"><span class="en">AI is introduced only after orders, stock, and payments are real. It drafts, translates, reminds, and warns. It does not confirm a price, release a carton, or replace a karigar. The aim is that you and one senior can serve more dealers than you can today, because chasing and retyping leave the day.</span><span class="hi">एआई तभी आएगा जब ऑर्डर, स्टॉक और भुगतान सच हों। वह ड्राफ्ट, अनुवाद, याद और चेतावनी करता है। वह दाम पक्का नहीं करता, कार्टन नहीं छोड़ता, और कारीगर की जगह नहीं लेता। लक्ष्य यह है कि आप और एक सीनियर आज से ज्यादा डीलर सँभाल सकें, क्योंकि पीछा और दोबारा टाइप करना दिन से हट जाएगा।</span></p>
+      <div class="table-wrap">
+        <table class="ledger">
+          <thead><tr>
+            <th><span class="en">Step</span><span class="hi">कदम</span></th>
+            <th><span class="en">Person</span><span class="hi">व्यक्ति</span></th>
+            <th><span class="en">AI help</span><span class="hi">एआई मदद</span></th>
+            <th><span class="en">If AI or that module is off</span><span class="hi">अगर एआई या वह मॉड्यूल बंद हो</span></th>
+          </tr></thead>
+          <tbody>
+            <tr><td><span class="en">Read a dealer message</span><span class="hi">डीलर संदेश पढ़ना</span></td><td><span class="en">Checks the draft</span><span class="hi">ड्राफ्ट जाँचे</span></td><td><span class="en">Hindi or English voice to a draft order</span><span class="hi">हिन्दी या अंग्रेज़ी आवाज़ से ड्राफ्ट ऑर्डर</span></td><td><span class="en">Type five fields the same day</span><span class="hi">उसी दिन पाँच बातें लिखें</span></td></tr>
+            <tr><td><span class="en">Reply</span><span class="hi">जवाब</span></td><td><span class="en">Sends anything about money or date</span><span class="hi">पैसे या तारीख वाला संदेश भेजे</span></td><td><span class="en">Drafts Hindi and English from the order</span><span class="hi">ऑर्डर से हिन्दी और अंग्रेज़ी ड्राफ्ट</span></td><td><span class="en">Copy the order screen into WhatsApp</span><span class="hi">ऑर्डर स्क्रीन व्हाट्सऐप में नकल करें</span></td></tr>
+            <tr><td><span class="en">Promise a date</span><span class="hi">तारीख का वादा</span></td><td><span class="en">Overrides only with a reason</span><span class="hi">ओवरराइड सिर्फ कारण से</span></td><td><span class="en">Flags when days are short</span><span class="hi">दिन कम हों तो झंडा दिखाए</span></td><td><span class="en">Count days on the product card</span><span class="hi">प्रोडक्ट कार्ड पर दिन गिनें</span></td></tr>
+            <tr><td><span class="en">Week plan</span><span class="hi">हफ्ता योजना</span></td><td><span class="en">Releases the list</span><span class="hi">सूची जारी करे</span></td><td><span class="en">Fills the subtraction and the buy list</span><span class="hi">घटाव और खरीद सूची भरे</span></td><td><span class="en">Friday paper plan, same formula</span><span class="hi">शुक्रवार का कागज़, वही सूत्र</span></td></tr>
+            <tr><td><span class="en">Discount</span><span class="hi">छूट</span></td><td><span class="en">Approves</span><span class="hi">मंज़ूरी</span></td><td><span class="en">Shows kept money before you say yes</span><span class="hi">हाँ से पहले बची रकम दिखाए</span></td><td><span class="en">Use the piece calculator</span><span class="hi">पीस कैलकुलेटर चलाएँ</span></td></tr>
+            <tr><td><span class="en">Worker instruction</span><span class="hi">वर्कर निर्देश</span></td><td><span class="en">Senior assigns</span><span class="hi">सीनियर काम दे</span></td><td><span class="en">Reads the SOP aloud in Hindi or the regional language</span><span class="hi">नियम हिन्दी या क्षेत्रीय भाषा में सुनाए</span></td><td><span class="en">Printed SOP on the bench</span><span class="hi">बेंच पर छपा नियम</span></td></tr>
+            <tr><td><span class="en">Quality</span><span class="hi">क्वालिटी</span></td><td><span class="en">Signer decides</span><span class="hi">साइनर तय करे</span></td><td><span class="en">Stores a photo. Does not pass the piece.</span><span class="hi">फोटो रखे। पीस पास न करे।</span></td><td><span class="en">Initials on the pack slip</span><span class="hi">पैक पर्ची पर हस्ताक्षर</span></td></tr>
+            <tr><td><span class="en">Payment chase</span><span class="hi">भुगतान का पीछा</span></td><td><span class="en">Chooses whom to call</span><span class="hi">किसे कॉल करना है चुनें</span></td><td><span class="en">Drafts the reminder from the ageing report</span><span class="hi">बकाया रिपोर्ट से याद का ड्राफ्ट</span></td><td><span class="en">Friday call list</span><span class="hi">शुक्रवार की कॉल सूची</span></td></tr>
+            <tr><td><span class="en">Month pack</span><span class="hi">मासिक पैक</span></td><td><span class="en">Decides what to stop</span><span class="hi">क्या रोकना है तय करे</span></td><td><span class="en">Narrates the tables in plain Hindi</span><span class="hi">तालिकाओं को सरल हिन्दी में कहे</span></td><td><span class="en">Read the five numbers yourself</span><span class="hi">पाँच आँकड़े खुद पढ़ें</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mt"><span class="en">Languages</span><span class="hi">भाषाएँ</span></h3>
+      <div class="grid-3">
+        <article class="card"><h3><span class="en">This presentation</span><span class="hi">यह प्रस्तुति</span></h3><p><span class="en">English and Hindi, from the switch at the top.</span><span class="hi">अंग्रेज़ी और हिन्दी, ऊपर वाले स्विच से।</span></p></article>
+        <article class="card"><h3><span class="en">Dealer and shop screens</span><span class="hi">डीलर और दुकान स्क्रीन</span></h3><p><span class="en">Hindi and English on catalogue, order, and WhatsApp templates. Numbers never change with language.</span><span class="hi">कैटलॉग, ऑर्डर और व्हाट्सऐप टेम्पलेट पर हिन्दी और अंग्रेज़ी। भाषा बदलने पर आँकड़े नहीं बदलते।</span></p></article>
+        <article class="card"><h3><span class="en">Worker phone</span><span class="hi">वर्कर का फोन</span></h3><p><span class="en">Hindi first. One more regional language you name, such as Marathi, Gujarati, Bengali, Tamil, or Telugu. AI may read the SOP. The signed meaning stays the version you approved.</span><span class="hi">पहले हिन्दी। एक और क्षेत्रीय भाषा जो आप बताएँ, जैसे मराठी, गुजराती, बंगाली, तमिल या तेलुगु। एआई नियम सुना सकता है। साइन वाला अर्थ वही संस्करण रहेगा जिसे आपने मंज़ूर किया।</span></p></article>
+      </div>
+
+      <h3 class="mt"><span class="en">Who the people side must fit</span><span class="hi">लोगों वाला हिस्सा किसे सँभाले</span></h3>
+      <div class="table-wrap">
+        <table class="ledger">
+          <thead><tr><th><span class="en">Person</span><span class="hi">व्यक्ति</span></th><th><span class="en">What the system owes them</span><span class="hi">सिस्टम उन्हें क्या दे</span></th></tr></thead>
+          <tbody>
+            <tr><td><span class="en">Piece-rate karigar</span><span class="hi">पीस-रेट कारीगर</span></td><td><span class="en">Accepted count, reason for reject, rupees this week, in Hindi, on a simple phone.</span><span class="hi">स्वीकृत गिनती, अस्वीकृति का कारण, इस हफ्ते के रुपये, हिन्दी में, आसान फोन पर।</span></td></tr>
+            <tr><td><span class="en">Daily wage</span><span class="hi">दिहाड़ी</span></td><td><span class="en">Attendance plus what they finished, so a day rate is not a fog.</span><span class="hi">हाजिरी और क्या खत्म किया, ताकि दिहाड़ी कोहरा न रहे।</span></td></tr>
+            <tr><td><span class="en">Home-based woman artisan</span><span class="hi">घर से काम करने वाली कारीगर</span></td><td><span class="en">Big steps, pickup day, piece rate, no dealer prices.</span><span class="hi">बड़े कदम, लेने का दिन, पीस रेट, डीलर के दाम नहीं।</span></td></tr>
+            <tr><td><span class="en">Trainee</span><span class="hi">ट्रेनी</span></td><td><span class="en">Lessons and a senior. No dealer promise on their practice.</span><span class="hi">पाठ और एक सीनियर। उनके अभ्यास पर डीलर का वादा नहीं।</span></td></tr>
+            <tr><td><span class="en">Senior / mistri</span><span class="hi">सीनियर / मिस्त्री</span></td><td><span class="en">Permission to sign, and a record of what they signed.</span><span class="hi">साइन की अनुमति, और उन्होंने क्या साइन किया उसका रिकॉर्ड।</span></td></tr>
+            <tr><td><span class="en">Family helper</span><span class="hi">परिवार का सहायक</span></td><td><span class="en">Hours recorded so the jar’s cost is not pretending that help was free.</span><span class="hi">घंटे लिखे जाएँ ताकि जार की लागत यह नाटक न करे कि मदद मुफ्त थी।</span></td></tr>
+            <tr><td><span class="en">Migrant worker</span><span class="hi">दूसरे राज्य का वर्कर</span></td><td><span class="en">Hindi or their language, picture-led steps, pay visible without asking you.</span><span class="hi">हिन्दी या उनकी भाषा, चित्र वाले कदम, पैसे आपसे पूछे बिना दिखें।</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout mt">
+        <h3><span class="en">The team shape this is aiming at</span><span class="hi">टीम का वह आकार जिसका लक्ष्य है</span></h3>
+        <p><span class="en">Today you are the planner, the memory of money, the quality lead, and the person who answers every dealer. With the record and then AI: you keep dealers, design, and exceptions. One senior signs quality. Making stays with karigars. A full-time coordinator is optional until the dealer count outgrows reminders and drafts. The system does not ask you to hire an office before the workshop can feed it.</span><span class="hi">आज आप योजनाकार, पैसे की याद, क्वालिटी प्रमुख, और हर डीलर का जवाब हैं। रिकॉर्ड और फिर एआई के साथ: डीलर, डिज़ाइन और अपवाद आपके पास रहें। एक सीनियर क्वालिटी साइन करे। बनाना कारीगरों के पास रहे। पूरा समय कोऑर्डिनेटर तब तक वैकल्पिक है जब तक डीलरों की संख्या याद और ड्राफ्ट से बड़ी न हो जाए। सिस्टम आपसे दफ्तर भरने को नहीं कहता इससे पहले कि वर्कशॉप उसे खिला सके।</span></p>
+      </div>
+      <div class="nextbar">
+        <button class="ghost" type="button" data-jump="flows"><span class="en">Back</span><span class="hi">पीछे</span></button>
+        <button class="solid" type="button" data-jump="begin"><span class="en">Next: your first month</span><span class="hi">आगे: आपका पहला महीना</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-begin">
+    <div class="wrap">
+      <p class="kicker"><span class="en">First month, business open</span><span class="hi">पहला महीना, काम चालू</span></p>
+      <h2><span class="en">What you do before any large build.</span><span class="hi">बड़े निर्माण से पहले आप क्या करती हैं।</span></h2>
+      <p class="lede"><span class="en">Dispatch does not stop. From one Monday, every new promise is written the same day. The list below is the bare minimum fact pack. It stays in this browser on this phone or computer.</span><span class="hi">डिस्पैच नहीं रुकता। एक सोमवार से हर नया वादा उसी दिन लिखा जाता है। नीचे की सूची न्यूनतम तथ्य पैक है। यह इसी फोन या कंप्यूटर के ब्राउज़र में रहेगी।</span></p>
+      <p id="wb-label">0 of 8 ready</p>
+      <div class="progress-bar" aria-hidden="true"><span id="wb-bar"></span></div>
+      <div class="grid-2">
+        <div class="checks">
+          <label class="check"><input type="checkbox" data-check="products"><span><span class="en">At most 15 products: photo, dealer price, days to packed.</span><span class="hi">ज़्यादा से ज़्यादा 15 प्रोडक्ट: फोटो, डीलर दाम, पैक तक दिन।</span></span></label>
+          <label class="check"><input type="checkbox" data-check="dealers"><span><span class="en">Dealers and other buyers: city, type, how they pay.</span><span class="hi">डीलर और अन्य खरीदार: शहर, प्रकार, भुगतान का तरीका।</span></span></label>
+          <label class="check"><input type="checkbox" data-check="workers"><span><span class="en">Workers: type, language, skill, rate, weekly capacity.</span><span class="hi">वर्कर: प्रकार, भाषा, हुनर, रेट, साप्ताहिक क्षमता।</span></span></label>
+          <label class="check"><input type="checkbox" data-check="stock"><span><span class="en">One count of packed-free pieces and raw material.</span><span class="hi">पैक-खाली पीस और कच्चे माल की एक गिनती।</span></span></label>
+          <label class="check"><input type="checkbox" data-check="rule"><span><span class="en">Payment rule: advance for a new buyer, days and limit for a regular dealer.</span><span class="hi">भुगतान नियम: नए खरीदार का एडवांस, नियमित डीलर के दिन और सीमा।</span></span></label>
+          <label class="check"><input type="checkbox" data-check="signer"><span><span class="en">The person who may release a carton is named.</span><span class="hi">कार्टन छोड़ने वाले व्यक्ति का नाम तय है।</span></span></label>
+          <label class="check"><input type="checkbox" data-check="hour"><span><span class="en">A weekly hour is chosen for orders, plan, and balances.</span><span class="hi">ऑर्डर, योजना और बकाया के लिए एक साप्ताहिक घंटा चुना गया।</span></span></label>
+          <label class="check"><input type="checkbox" data-check="second"><span><span class="en">One other person can type an order when you are on the floor.</span><span class="hi">एक और व्यक्ति ऑर्डर लिख सकता है जब आप फर्श पर हों।</span></span></label>
+        </div>
+        <div class="tool">
+          <h3><span class="en">Write the first names here</span><span class="hi">पहले नाम यहाँ लिखें</span></h3>
+          <div class="fields" style="grid-template-columns:1fr">
+            <label class="field"><span class="en">First product</span><span class="hi">पहला प्रोडक्ट</span><input data-field="product" type="text" placeholder="1 litre jar"></label>
+            <label class="field"><span class="en">First dealer or shop</span><span class="hi">पहला डीलर या दुकान</span><input data-field="dealer" type="text"></label>
+            <label class="field"><span class="en">First worker</span><span class="hi">पहला वर्कर</span><input data-field="worker" type="text"></label>
+            <label class="field"><span class="en">Advance percent for a new buyer</span><span class="hi">नए खरीदार का एडवांस प्रतिशत</span><input data-field="advance" type="text" placeholder="100"></label>
+            <label class="field"><span class="en">Weekly hour</span><span class="hi">साप्ताहिक घंटा</span><input data-field="hour" type="text" placeholder="Friday 4 to 5"></label>
+          </div>
+          <p><button class="ghost" type="button" id="wb-reset"><span class="en">Clear this browser’s notes</span><span class="hi">इस ब्राउज़र के नोट मिटाएँ</span></button></p>
+        </div>
+      </div>
+      <div class="callout navy mt">
+        <h3><span class="en">What “yes” means</span><span class="hi">“हाँ” का मतलब</span></h3>
+        <p><span class="en">Yes means Phase 0 and Phase A: a real product list and a live order, bill, and balance, while WhatsApp selling continues. It does not mean the public shop, the full ERP, and AI on day one. Those arrive when the “done when” line of the previous phase is true. The SOPs already tell the floor how to behave on the days the software is still being built.</span><span class="hi">हाँ का मतलब चरण 0 और चरण A है: असली प्रोडक्ट सूची और जीवित ऑर्डर, बिल और बकाया, जबकि व्हाट्सऐप बिक्री चलती रहे। इसका मतलब पहले दिन पब्लिक दुकान, पूरा ईआरपी और एआई नहीं है। वे तब आते हैं जब पिछले चरण की “हो गया जब” लाइन सच हो। नियम फर्श को उन दिनों भी बताते हैं जब सॉफ्टवेयर अभी बन रहा हो।</span></p>
+      </div>
+      <footer class="foot">
+        <p><span class="en">Clay Ecosystem is the operating picture for a handmade ware workshop in India. Sample figures are a teaching story. Switch EN / हिं at any time. Upload this folder to a domain and open index.html.</span><span class="hi">क्ले इकोसिस्टम भारत की हस्तनिर्मित बरतन वर्कशॉप के लिए चलने का चित्र है। नमूना आँकड़े एक शिक्षण कहानी हैं। EN / हिं कभी भी बदलें। इस फोल्डर को डोमेन पर डालें और index.html खोलें।</span></p>
+      </footer>
+      <div class="nextbar">
+        <button class="ghost" type="button" data-jump="ai"><span class="en">Back</span><span class="hi">पीछे</span></button>
+        <button class="solid" type="button" data-jump="overview"><span class="en">Back to the start</span><span class="hi">शुरू पर जाएँ</span></button>
+      </div>
+    </div>
+  </section>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
