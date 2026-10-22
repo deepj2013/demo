@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0c1222" />
+  <title>TM Profile Demo Hub — Interactive client solutions</title>
+  <meta name="description" content="Explore live demos: school websites, CA practice automation, fitness, real estate, ecommerce, publishing, wellness, and more — built for Indian businesses." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,500&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0f1a;
+      --bg-soft: #111827;
+      --bg-card: #151d2e;
+      --line: rgba(255, 255, 255, 0.08);
+      --accent: #3b82f6;
+      --accent-2: #22d3ee;
+      --gold: #e8c468;
+      --mint: #34d399;
+      --radius: 18px;
+      --shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
+      --font: "DM Sans", system-ui, sans-serif;
+      --display: Fraunces, Georgia, serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: var(--bg);
+      color: #e8ecf4;
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 1.35rem; }
+    .sec-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent-2); margin-bottom: 0.65rem;
+    }
+    .sec-title {
+      font-family: var(--display);
+      font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+      margin: 0 0 0.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .sec-lead { color: #94a3b8; max-width: 58ch; margin: 0 0 2rem; font-size: 1.02rem; }
+
+    /* Ambient background */
+    .bg-glow {
+      position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+    }
+    .bg-glow::before {
+      content: "";
+      position: absolute; width: 140%; height: 60%; top: -20%; left: -20%;
+      background:
+        radial-gradient(ellipse 45% 40% at 30% 0%, rgba(59, 130, 246, 0.18), transparent),
+        radial-gradient(ellipse 35% 30% at 85% 15%, rgba(34, 211, 238, 0.1), transparent),
+        radial-gradient(ellipse 30% 25% at 50% 100%, rgba(232, 196, 104, 0.06), transparent);
+    }
+    .bg-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(180deg, black 0%, transparent 70%);
+    }
+
+    .top {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(10, 15, 26, 0.9);
+      border-bottom: 1px solid var(--line);
+    }
+    .top-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; padding: 0.9rem 0;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 0.65rem;
+      font-weight: 700; font-size: 1.05rem;
+    }
+    .logo-mark {
+      width: 38px; height: 38px; border-radius: 11px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid; place-items: center; font-size: 0.72rem; font-weight: 800; color: #fff;
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+    }
+    .top nav { display: flex; gap: 1.35rem; font-size: 0.88rem; color: #9ca3af; }
+    .top nav a:hover { color: #fff; }
+
+    .hero { position: relative; padding: 3.25rem 0 2rem; }
+    .hero-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2.75rem; align-items: start;
+    }
+    @media (max-width: 920px) {
+      .hero-layout { grid-template-columns: 1fr; }
+      .top nav { display: none; }
+    }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent-2); margin-bottom: 1rem;
+      padding: 0.35rem 0.85rem; border-radius: 999px;
+      background: rgba(34, 211, 238, 0.08); border: 1px solid rgba(34, 211, 238, 0.2);
+    }
+    .kicker .dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--mint);
+      box-shadow: 0 0 10px var(--mint); animation: pulse 2s ease infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+    h1 {
+      font-family: var(--display);
+      font-size: clamp(2.35rem, 5.5vw, 3.6rem);
+      line-height: 1.05; font-weight: 600; margin: 0 0 1rem;
+      letter-spacing: -0.03em;
+    }
+    h1 em { font-style: italic; color: var(--gold); }
+    .hi {
+      font-family: "Noto Sans Devanagari", sans-serif;
+      font-size: 1.08rem; color: #a8b4c8; margin: 0 0 1.1rem; line-height: 1.65;
+    }
+    .lead { font-size: 1.1rem; color: #b6c0d4; max-width: 54ch; margin: 0 0 1.75rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.25rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.8rem 1.35rem; border-radius: 999px; font-weight: 600; font-size: 0.92rem;
+      border: 1px solid transparent; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #2563eb);
+      color: #fff; box-shadow: 0 10px 32px rgba(59, 130, 246, 0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-ghost {
+      border-color: var(--line); color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .btn-ghost:hover { border-color: rgba(255, 255, 255, 0.22); color: #fff; }
+
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .chip {
+      font-size: 0.78rem; padding: 0.4rem 0.75rem; border-radius: 8px;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--line); color: #94a3b8;
+    }
+
+    /* Ticker */
+    .ticker-wrap {
+      margin: 2rem 0 0; border-block: 1px solid var(--line);
+      background: rgba(0,0,0,0.25); overflow: hidden;
+    }
+    .ticker {
+      display: flex; gap: 2.5rem; padding: 0.85rem 0;
+      animation: scroll 40s linear infinite; width: max-content;
+    }
+    .ticker span {
+      white-space: nowrap; font-size: 0.82rem; font-weight: 600; color: #64748b;
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .ticker span::before { content: "◆ "; color: var(--gold); font-size: 0.6rem; }
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* About mosaic */
+    .about-mosaic {
+      display: grid; gap: 0.85rem;
+    }
+    .about-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.35rem;
+    }
+    .about-card h2 {
+      font-family: var(--display); font-size: 1.2rem; margin: 0 0 0.65rem;
+    }
+    .about-card p { margin: 0; font-size: 0.92rem; color: #9ca3af; }
+    .stats-row {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.65rem;
+    }
+    @media (max-width: 520px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+    .stat-box {
+      text-align: center; padding: 1rem 0.5rem;
+      background: linear-gradient(160deg, rgba(59,130,246,0.12), rgba(0,0,0,0.2));
+      border: 1px solid var(--line); border-radius: 14px;
+    }
+    .stat-box strong {
+      display: block; font-family: var(--display); font-size: 1.75rem; color: var(--gold);
+      line-height: 1.1;
+    }
+    .stat-box span { font-size: 0.68rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.07em; }
+
+    /* Capabilities */
+    .capabilities { padding: 3.5rem 0; }
+    .cap-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem;
+    }
+    .cap {
+      padding: 1.35rem; border-radius: var(--radius);
+      background: var(--bg-soft); border: 1px solid var(--line);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .cap:hover { border-color: rgba(59,130,246,0.35); transform: translateY(-3px); }
+    .cap-icon { font-size: 1.65rem; margin-bottom: 0.65rem; }
+    .cap h3 { margin: 0 0 0.35rem; font-size: 1rem; }
+    .cap p { margin: 0; font-size: 0.86rem; color: #94a3b8; }
+
+    /* Journey */
+    .journey { padding: 0 0 3.5rem; }
+    .steps {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+      counter-reset: step;
+    }
+    @media (max-width: 800px) { .steps { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
+    .step {
+      position: relative; padding: 1.25rem 1.15rem 1.15rem;
+      background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
+    }
+    .step::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      font-family: var(--display); font-size: 1.5rem; color: rgba(232,196,104,0.35);
+      display: block; margin-bottom: 0.35rem;
+    }
+    .step h3 { margin: 0 0 0.35rem; font-size: 0.95rem; }
+    .step p { margin: 0; font-size: 0.84rem; color: #94a3b8; }
+
+    /* Featured */
+    .featured { padding: 0 0 2.5rem; }
+    .featured-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.15rem;
+    }
+    @media (max-width: 900px) { .featured-grid { grid-template-columns: 1fr; } }
+    .feat {
+      position: relative; border-radius: calc(var(--radius) + 2px); overflow: hidden;
+      border: 1px solid var(--line); min-height: 280px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .feat:hover { transform: scale(1.02); box-shadow: var(--shadow); }
+    .feat-bg {
+      position: absolute; inset: 0;
+      background: var(--grad, #333);
+    }
+    .feat-bg::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 20%, rgba(10,15,26,0.95) 75%);
+    }
+    .feat-body { position: relative; z-index: 1; padding: 1.5rem; }
+    .feat-badge {
+      display: inline-block; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.3rem 0.55rem; border-radius: 6px;
+      background: rgba(255,255,255,0.15); margin-bottom: 0.65rem;
+    }
+    .feat h3 { font-family: var(--display); font-size: 1.45rem; margin: 0 0 0.45rem; }
+    .feat p { margin: 0 0 1rem; font-size: 0.88rem; color: #cbd5e1; opacity: 0.95; }
+    .feat-meta { font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.85rem; }
+    .feat-link {
+      display: inline-flex; font-weight: 700; font-size: 0.9rem; color: var(--accent-2);
+    }
+    .feat-link:hover { text-decoration: underline; }
+
+    /* Catalog */
+    .catalog { padding: 1rem 0 4rem; }
+    .catalog-bar {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 1rem; margin-bottom: 1rem;
+    }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 0.65rem; align-items: center; }
+    .search {
+      padding: 0.7rem 1rem 0.7rem 2.4rem;
+      border-radius: 999px; border: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.35); color: #fff; font: inherit; min-width: 240px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242 1.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: 0.9rem center;
+    }
+    .search::placeholder { color: #64748b; }
+    .filters { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.25rem; }
+    .pill {
+      padding: 0.48rem 0.9rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;
+      border: 1px solid var(--line); background: transparent; color: #94a3b8; cursor: pointer;
+      font-family: inherit; transition: 0.2s;
+    }
+    .pill:hover { color: #fff; border-color: rgba(255, 255, 255, 0.2); }
+    .pill.active {
+      background: rgba(59, 130, 246, 0.22); border-color: rgba(59, 130, 246, 0.55); color: #93c5fd;
+    }
+    .result-count { font-size: 0.85rem; color: #64748b; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.15rem;
+    }
+    .card {
+      display: flex; flex-direction: column;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: var(--shadow);
+    }
+    .card-top {
+      height: 100px; display: flex; align-items: flex-end; justify-content: space-between;
+      padding: 1rem 1.2rem; position: relative;
+    }
+    .card-top::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 25%, rgba(10, 15, 26, 0.9));
+    }
+    .card-icon { position: relative; z-index: 1; font-size: 2rem; }
+    .card-scale {
+      position: relative; z-index: 1; font-size: 0.72rem; font-weight: 700;
+      padding: 0.25rem 0.55rem; border-radius: 6px;
+      background: rgba(0,0,0,0.35); color: #e2e8f0;
+    }
+    .card-body { padding: 1.2rem 1.2rem 1.3rem; flex: 1; display: flex; flex-direction: column; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.55rem; }
+    .tag {
+      font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+      padding: 0.25rem 0.5rem; border-radius: 6px; background: rgba(255, 255, 255, 0.06); color: #94a3b8;
+    }
+    .tag.php { background: rgba(168, 85, 247, 0.18); color: #c4b5fd; }
+    .tag.feat { background: rgba(232, 196, 104, 0.15); color: var(--gold); }
+    .card h3 { margin: 0 0 0.25rem; font-size: 1.15rem; font-weight: 700; }
+    .card-client { font-size: 0.8rem; color: #64748b; margin-bottom: 0.55rem; }
+    .card p.desc { margin: 0 0 0.75rem; font-size: 0.88rem; color: #9ca3af; }
+    .highlights {
+      margin: 0; padding: 0; list-style: none; flex: 1;
+    }
+    .highlights li {
+      font-size: 0.8rem; color: #b0bccf; padding: 0.28rem 0 0.28rem 1.1rem;
+      position: relative;
+    }
+    .highlights li::before {
+      content: ""; position: absolute; left: 0; top: 0.65rem;
+      width: 5px; height: 5px; border-radius: 50%; background: var(--accent-2);
+    }
+    .card-foot {
+      margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;
+    }
+    .card-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .card-links a {
+      font-size: 0.88rem; font-weight: 600; color: var(--accent-2);
+    }
+    .card-links a.secondary { color: #94a3b8; font-weight: 500; }
+    .card-links a:hover { text-decoration: underline; }
+    .empty {
+      grid-column: 1 / -1; text-align: center; padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* CTA band */
+    .cta-band {
+      margin: 0 0 3rem;
+      padding: 2.5rem 2rem;
+      border-radius: calc(var(--radius) + 4px);
+      background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(34,211,238,0.08));
+      border: 1px solid rgba(59,130,246,0.25);
+      text-align: center;
+    }
+    .cta-band h2 { font-family: var(--display); margin: 0 0 0.5rem; font-size: 1.65rem; }
+    .cta-band p { margin: 0 0 1.25rem; color: #94a3b8; max-width: 50ch; margin-inline: auto; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 2rem 0 2.75rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+    footer a { color: var(--gold); }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+  <div class="bg-glow" aria-hidden="true"><div class="bg-grid"></div></div>
+
+  <header class="top">
+    <div class="wrap top-inner">
+      <a class="logo" href="./">
+        <span class="logo-mark">TM</span>
+        TM Profile · Demo Hub
+      </a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#capabilities">What we build</a>
+        <a href="#featured">Highlights</a>
+        <a href="#catalog">All demos</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-layout">
+      <div>
+        <div class="kicker"><span class="dot" aria-hidden="true"></span> demo.tmprofile.com · live now</div>
+        <h1>Your business, <em>on screen</em> — before a single rupee of build.</h1>
+        <p class="hi">स्कूल, CA ऑफिस, क्लिनिक, दुकान या बिल्डर — पहले देखें, फिर निर्णय लें। हर डेमो असली ब्रांड नाम, रंग और स्क्रीन के साथ।</p>
+        <p class="lead">
+          TM Profile is a showcase of end-to-end digital work for Indian small and mid-size businesses.
+          Walk through public websites, staff dashboards, customer apps, pitch decks, and automation stories —
+          the same assets we use in client meetings on WhatsApp and Zoom.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#featured">See highlighted demos →</a>
+          <a class="btn btn-ghost" href="#catalog">Full catalog</a>
+        </div>
+        <div class="hero-chips">
+          <span class="chip">Mobile-first UI</span>
+          <span class="chip">Hindi + English</span>
+          <span class="chip">WhatsApp-ready flows</span>
+          <span class="chip">No login to browse</span>
+        </div>
+      </div>
+      <div class="about-mosaic" id="about">
+        <div class="about-card reveal">
+          <h2>Who TM Profile is for</h2>
+          <p>
+            Owners and decision-makers who want proof, not slides. Each project here started as a real brief:
+            a school in Delhi, a CA scaling to 800 clients, a Bareilly builder, a uniform brand, a fitness studio in MP.
+          </p>
+        </div>
+        <div class="stats-row reveal">
+          <div class="stat-box"><strong>14</strong><span>Demo suites</span></div>
+          <div class="stat-box"><strong>30+</strong><span>Themes & apps</span></div>
+          <div class="stat-box"><strong>8</strong><span>Verticals</span></div>
+          <div class="stat-box"><strong>100%</strong><span>Clickable</span></div>
+        </div>
+        <div class="about-card reveal">
+          <h2>What “demo” means here</h2>
+          <p>
+            Static and interactive HTML experiences you can host today, plus PHP portals where noted.
+            They are not mockups in Figma — they are navigable products with sample data, ready to swap in your logo and go live.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker">
+      <span>School websites & ERP tours</span><span>CA workflow automation</span><span>Real estate catalogs</span>
+      <span>E-commerce & uniform shops</span><span>Publishing platforms</span><span>Astrology & clinic IT pitches</span>
+      <span>Workshop & manufacturing OS</span><span>Civic resident portals</span><span>Multi-tenant boutique host</span>
+      <span>School websites & ERP tours</span><span>CA workflow automation</span><span>Real estate catalogs</span>
+      <span>E-commerce & uniform shops</span><span>Publishing platforms</span><span>Astrology & clinic IT pitches</span>
+      <span>Workshop & manufacturing OS</span><span>Civic resident portals</span><span>Multi-tenant boutique host</span>
+    </div>
+  </div>
+
+  <section class="capabilities" id="capabilities">
+    <div class="wrap reveal">
+      <p class="sec-label">What we build</p>
+      <h2 class="sec-title">One partner from Google search to daily operations</h2>
+      <p class="sec-lead">Every demo below mixes some of these layers. Production projects connect them with your domain, payments, and staff training.</p>
+      <div class="cap-grid">
+        <article class="cap"><div class="cap-icon">🌐</div><h3>Public presence</h3><p>SEO-friendly sites, Google Business alignment, enquiry forms, and trust content in English and Hindi.</p></article>
+        <article class="cap"><div class="cap-icon">📱</div><h3>Customer-facing apps</h3><p>Shop flows, member portals, booking, UPI-ready checkout UI, and mobile layouts that feel native.</p></article>
+        <article class="cap"><div class="cap-icon">⚙️</div><h3>Back-office & admin</h3><p>Dashboards for staff: inventory, fees, cases, leads, documents, and role-based screens (CA, teacher, ops).</p></article>
+        <article class="cap"><div class="cap-icon">💬</div><h3>WhatsApp & comms</h3><p>Templates, booking handoffs, and marketing journeys — designed so humans stay in control of sends.</p></article>
+        <article class="cap"><div class="cap-icon">📋</div><h3>Pitch & solution docs</h3><p>Scrollable BRD-style pages for stakeholders who need the full story before the UI demo.</p></article>
+        <article class="cap"><div class="cap-icon">🔗</div><h3>Integrations (roadmap)</h3><p>Tally, Amazon, social, AI assistants — shown where the demo includes an architecture or phase plan.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="journey">
+    <div class="wrap reveal">
+      <p class="sec-label">How to use this site</p>
+      <h2 class="sec-title">Four steps in a client meeting</h2>
+      <div class="steps">
+        <div class="step"><h3>Pick a vertical</h3><p>Filter by Education, Business, Retail, or open a featured demo similar to your client.</p></div>
+        <div class="step"><h3>Open on their phone</h3><p>Every demo is responsive — let them scroll the public site like a real visitor.</p></div>
+        <div class="step"><h3>Switch to “back office”</h3><p>Many suites include admin, ERP, or role demos (CA staff, school ops, shop backend).</p></div>
+        <div class="step"><h3>Discuss go-live</h3><p>Same codebase path to production: your domain, content, payments, and hosting.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured" id="featured">
+    <div class="wrap reveal">
+      <p class="sec-label">Start here</p>
+      <h2 class="sec-title">Highlighted demos</h2>
+      <p class="sec-lead">Our most complete walkthroughs — best first impression for schools, professional services, and commerce.</p>
+      <div class="featured-grid" id="featuredGrid"></div>
+    </div>
+  </section>
+
+  <section class="catalog" id="catalog">
+    <div class="wrap">
+      <p class="sec-label reveal">Full library</p>
+      <h2 class="sec-title reveal">Complete demo catalog</h2>
+      <div class="catalog-bar reveal">
+        <p class="result-count" id="resultCount"></p>
+        <div class="toolbar">
+          <input type="search" class="search" id="search" placeholder="Search by name, city, feature…" autocomplete="off" />
+        </div>
+      </div>
+      <div class="filters reveal" id="filters" role="tablist" aria-label="Filter by category"></div>
+      <div class="grid reveal" id="grid"></div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2>Sharing with a client?</h2>
+      <p>Send <strong>demo.tmprofile.com</strong> — they land on this hub, pick their industry, and explore without installing anything.</p>
+      <a class="btn btn-primary" href="#catalog">Open full catalog →</a>
+    </div>
+  </div>
+
+  <footer class="wrap">
+    © <span id="year"></span> TM Profile · Interactive demo hosting<br />
+    Engineering &amp; implementation by <a href="https://savoka.in" target="_blank" rel="noopener noreferrer">Savoka</a>
+  </footer>
+
+  <script>
+    var DEMOS = [
+      {
+        id: "schools",
+        title: "School Website Portal",
+        client: "Keshav Vidya Mandir & Sunrise India Public School · Delhi",
+        desc: "Theme showroom for Indian schools — pick a school, pick one of 15 designs, open a full multi-page site.",
+        highlights: ["15 themes × 2 real schools", "Home, About, Courses, Gallery, Contact", "School ERP feature tour linked"],
+        href: "Schools/index.html",
+        extra: { label: "ERP tour", href: "Schools/erp/index.html" },
+        category: "education",
+        catLabel: "Education",
+        icon: "🏫",
+        grad: "linear-gradient(135deg,#4f46e5,#7c3aed)",
+        scale: "30+ sites",
+        featured: true,
+        featBlurb: "The fastest way to show a principal fifteen different looks without leaving the browser."
+      },
+      {
+        id: "keshav",
+        title: "Keshav Vidya Mandir",
+        client: "CBSE · Mandawali, East Delhi",
+        desc: "Single-school marketing site with admissions story, facilities, and contact tuned to KVM branding.",
+        highlights: ["Nursery to Class XII positioning", "Social links & enquiry CTAs", "Kid-friendly visual design"],
+        href: "keshav-vidya-mandir/index.html",
+        category: "education",
+        catLabel: "Education",
+        icon: "📚",
+        grad: "linear-gradient(135deg,#059669,#10b981)",
+        scale: "Full website"
+      },
+      {
+        id: "sunrise",
+        title: "Sunrise India Public School",
+        client: "General education · West Vinod Nagar, Delhi",
+        desc: "Bright, welcoming school website demo with programs, events feel, and map-ready contact block.",
+        highlights: ["Top bar with phone & email", "Program highlights & testimonials style", "Admission-focused hero"],
+        href: "Sunrise/index.html",
+        category: "education",
+        catLabel: "Education",
+        icon: "🌅",
+        grad: "linear-gradient(135deg,#f59e0b,#ef4444)",
+        scale: "Full website"
+      },
+      {
+        id: "ca",
+        title: "CA Practice Automation",
+        client: "PraxisFlow · mid-size CA firm narrative",
+        desc: "Complete solution story plus clickable UI for CA, staff, client, and admin — GST, TDS, ITR, exceptions.",
+        highlights: ["BRD, architecture, workflows, pilot plan", "Live demo.html with role switcher", "Exception queues & client portal"],
+        href: "CA-Practice-Flow/index.html",
+        extra: { label: "Live UI only", href: "CA-Practice-Flow/demo.html" },
+        category: "business",
+        catLabel: "Business",
+        icon: "📊",
+        grad: "linear-gradient(135deg,#0ea5e9,#0369a1)",
+        scale: "10+ screens",
+        featured: true,
+        featBlurb: "Show how 400 clients scale without doubling headcount — story plus working screens."
+      },
+      {
+        id: "gym",
+        title: "Adiyogi Fitness Studio",
+        client: "Khargone, Madhya Pradesh",
+        desc: "Four-product hub: public website, gym management, member fitness app, and nutrition e-commerce.",
+        highlights: ["Real address & phone in copy", "Fee tracking & workout log UI", "Supplement shop with cart"],
+        href: "gym/index.html",
+        category: "retail",
+        catLabel: "Fitness",
+        icon: "💪",
+        grad: "linear-gradient(135deg,#dc2626,#991b1b)",
+        scale: "4 systems",
+        featured: true,
+        featBlurb: "One brand, four revenue surfaces — ideal for fitness owners who want the full picture."
+      },
+      {
+        id: "ylk",
+        title: "YLK Infra",
+        client: "Bareilly & Delhi NCR · plots & construction",
+        desc: "Premium real-estate catalog with inventory storytelling, filters, and WhatsApp-led booking UX.",
+        highlights: ["Plots, flats, villas, affordable housing", "Admin updates public catalog locally", "PWA-ready public site"],
+        href: "YLKInfra/index.html",
+        extra: { label: "Admin", href: "YLKInfra/admin/index.html" },
+        category: "realestate",
+        catLabel: "Real estate",
+        icon: "🏡",
+        grad: "linear-gradient(135deg,#065f46,#047857)",
+        scale: "Site + admin"
+      },
+      {
+        id: "ujma",
+        title: "Ujma Uniform",
+        client: "Medical scrubs & institutional uniforms",
+        desc: "iPhone-style shop demo plus separate store and ops apps for catalog, orders, and back office.",
+        highlights: ["App-like product browsing", "Shop vs admin split", "Category-led uniform merchandising"],
+        href: "UjmaUniform/index.html",
+        extra: { label: "Ops app", href: "UjmaUniform/admin/index.html" },
+        category: "retail",
+        catLabel: "E-commerce",
+        icon: "👔",
+        grad: "linear-gradient(135deg,#0c1f36,#1e3a5f)",
+        scale: "3 apps"
+      },
+      {
+        id: "books",
+        title: "Book Publishing Platform",
+        client: "Bookspot-style publisher demo",
+        desc: "Publisher command center, author onboarding, public book catalog, and fullscreen pitch deck.",
+        highlights: ["Publisher & author portals", "WhatsApp / social / automation story", "Public reader-facing catalog"],
+        href: "book-publisher/index.html",
+        extra: { label: "Pitch slides", href: "book-publisher/pitch/index.html" },
+        category: "media",
+        catLabel: "Publishing",
+        icon: "📖",
+        grad: "linear-gradient(135deg,#7c2d12,#c9a227)",
+        scale: "5+ surfaces"
+      },
+      {
+        id: "astro",
+        title: "Jyoti Mandir Astrology",
+        client: "Vedic astrology brand demo",
+        desc: "Split entry: polished public jyotish site and a separate app experience for charts and dashboard.",
+        highlights: ["Devanagari branding", "Website vs logged-in app paths", "Service-led public pages"],
+        href: "Astrology/index.html",
+        extra: { label: "Jyotish app", href: "Astrology/app/index.html" },
+        category: "wellness",
+        catLabel: "Wellness",
+        icon: "✨",
+        grad: "linear-gradient(135deg,#4c1d95,#7e22ce)",
+        scale: "Site + app"
+      },
+      {
+        id: "guidance",
+        title: "Guidance Practice IT Solution",
+        client: "Astrology · Vastu · Numerology",
+        desc: "Long-form solution page: every role, every channel — website, app, booking, SEO, WhatsApp marketing.",
+        highlights: ["Three-door public website concept", "Booking & payment flows explained", "Stakeholder-readable scope"],
+        href: "guidance-practice/index.html",
+        extra: { label: "Needs checklist", href: "guidance-practice/needs.html" },
+        category: "wellness",
+        catLabel: "Wellness",
+        icon: "🔮",
+        grad: "linear-gradient(135deg,#241c46,#5b4b8a)",
+        scale: "Solution doc"
+      },
+      {
+        id: "herbal",
+        title: "Herbal Clinic IT Solution",
+        client: "Ayurvedic / herbal practice",
+        desc: "Clinic-grade IT narrative: public site, doctor app, helper tasks, WhatsApp, without overpromising medically.",
+        highlights: ["Role-by-role task lists", "Holiday & booking behaviour", "Marketing with consent"],
+        href: "herbal-clinic/index.html",
+        category: "wellness",
+        catLabel: "Wellness",
+        icon: "🌿",
+        grad: "linear-gradient(135deg,#1c4a36,#2d6a4f)",
+        scale: "Solution doc"
+      },
+      {
+        id: "clay",
+        title: "Clay Ecosystem",
+        client: "Handmade ware workshop",
+        desc: "Bilingual scroll presentation: design register, dealer catalog, WhatsApp commerce, ERP phases, SOPs.",
+        highlights: ["English + Hindi toggle", "Manufacturing & dealer pricing story", "10-part guided narrative"],
+        href: "clayecosystem/index.html",
+        category: "business",
+        catLabel: "Manufacturing",
+        icon: "🏺",
+        grad: "linear-gradient(135deg,#14233a,#e35d32)",
+        scale: "10 chapters"
+      },
+      {
+        id: "boutique",
+        title: "Savoka Boutique Host",
+        client: "Multi-tenant SaaS for boutiques",
+        desc: "Enroll each client on their subdomain — shop, admin, platform console (requires PHP hosting).",
+        highlights: ["Isolated DB per tenant", "Platform enroll flow", "Production deploy guide in repo"],
+        href: "boutique/index.php",
+        category: "retail",
+        catLabel: "E-commerce",
+        icon: "👗",
+        grad: "linear-gradient(135deg,#be185d,#831843)",
+        scale: "PHP platform",
+        php: true
+      },
+      {
+        id: "jrwa",
+        title: "Saath Resident Portal",
+        client: "Civic participation · bilingual",
+        desc: "Residents report issues, take surveys, volunteer — admin manages JSON-backed records (PHP).",
+        highlights: ["Public problem tracking", "Survey & volunteer capture", "Admin with evidence uploads"],
+        href: "JRWA/index.php",
+        extra: { label: "Admin", href: "JRWA/admin.php" },
+        category: "civic",
+        catLabel: "Civic",
+        icon: "🤝",
+        grad: "linear-gradient(135deg,#1d4ed8,#312e81)",
+        scale: "PHP portal",
+        php: true
+      }
+    ];
+
+    var CATEGORIES = [
+      { id: "all", label: "All demos" },
+      { id: "education", label: "Education" },
+      { id: "business", label: "Business & ops" },
+      { id: "retail", label: "Retail & fitness" },
+      { id: "realestate", label: "Real estate" },
+      { id: "wellness", label: "Wellness & guidance" },
+      { id: "media", label: "Publishing" },
+      { id: "civic", label: "Civic" }
+    ];
+
+    var activeCat = "all";
+    var query = "";
+
+    function demoHaystack(d) {
+      return [
+        d.title, d.client, d.desc, d.catLabel, d.scale,
+        (d.highlights || []).join(" ")
+      ].join(" ").toLowerCase();
+    }
+
+    function renderFeatured() {
+      var featured = DEMOS.filter(function (d) { return d.featured; });
+      document.getElementById("featuredGrid").innerHTML = featured.map(function (d) {
+        return (
+          '<a class="feat" href="' + d.href + '" style="--grad:' + d.grad + '">' +
+            '<div class="feat-bg" style="background:' + d.grad + '"></div>' +
+            '<div class="feat-body">' +
+              '<span class="feat-badge">' + d.catLabel + "</span>" +
+              "<h3>" + d.title + "</h3>" +
+              '<p class="feat-meta">' + d.client + " · " + d.scale + "</p>" +
+              "<p>" + (d.featBlurb || d.desc) + "</p>" +
+              '<span class="feat-link">Open demo →</span>' +
+            "</div>" +
+          "</a>"
+        );
+      }).join("");
+    }
+
+    function renderFilters() {
+      var el = document.getElementById("filters");
+      el.innerHTML = CATEGORIES.map(function (c) {
+        return '<button type="button" class="pill' + (c.id === activeCat ? " active" : "") + '" data-cat="' + c.id + '">' + c.label + "</button>";
+      }).join("");
+      el.querySelectorAll(".pill").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          activeCat = btn.getAttribute("data-cat");
+          renderFilters();
+          renderGrid();
+        });
+      });
+    }
+
+    function matches(d) {
+      if (activeCat !== "all" && d.category !== activeCat) return false;
+      if (!query) return true;
+      return demoHaystack(d).indexOf(query) !== -1;
+    }
+
+    function renderGrid() {
+      var list = DEMOS.filter(matches);
+      var grid = document.getElementById("grid");
+      document.getElementById("resultCount").textContent =
+        list.length + " demo" + (list.length === 1 ? "" : "s") + (activeCat !== "all" ? " in this category" : " available");
+
+      if (!list.length) {
+        grid.innerHTML = '<p class="empty">No demos match your search. Try “school”, “CA”, “shop”, or clear filters.</p>';
+        return;
+      }
+      grid.innerHTML = list.map(function (d) {
+        var phpTag = d.php ? '<span class="tag php">PHP host</span>' : "";
+        var featTag = d.featured ? '<span class="tag feat">Popular</span>' : "";
+        var bullets = (d.highlights || []).map(function (h) { return "<li>" + h + "</li>"; }).join("");
+        var extra = d.extra
+          ? '<a class="secondary" href="' + d.extra.href + '">' + d.extra.label + " →</a>"
+          : "";
+        return (
+          '<article class="card">' +
+            '<div class="card-top" style="background:' + d.grad + '">' +
+              '<span class="card-icon" aria-hidden="true">' + d.icon + "</span>" +
+              '<span class="card-scale">' + d.scale + "</span>" +
+            "</div>" +
+            '<div class="card-body">' +
+              '<div class="tags"><span class="tag">' + d.catLabel + "</span>" + featTag + phpTag + "</div>" +
+              "<h3>" + d.title + "</h3>" +
+              '<p class="card-client">' + d.client + "</p>" +
+              '<p class="desc">' + d.desc + "</p>" +
+              '<ul class="highlights">' + bullets + "</ul>" +
+              '<div class="card-foot">' +
+                '<div class="card-links"><a href="' + d.href + '">Open main demo →</a>' + extra + "</div>" +
+              "</div>" +
+            "</div>" +
+          "</article>"
+        );
+      }).join("");
+    }
+
+    document.getElementById("search").addEventListener("input", function (e) {
+      query = e.target.value.trim().toLowerCase();
+      renderGrid();
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    var reveals = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            en.target.classList.add("visible");
+            io.unobserve(en.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      reveals.forEach(function (el) { io.observe(el); });
+    } else {
+      reveals.forEach(function (el) { el.classList.add("visible"); });
+    }
+
+    renderFeatured();
+    renderFilters();
+    renderGrid();
+  </script>
+</body>
+</html>
