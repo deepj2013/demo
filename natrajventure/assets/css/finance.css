@@ -17,9 +17,11 @@ body.finance {
 }
 
 .fin-nav {
-  position: sticky; top: 0; z-index: 50;
-  background: rgba(7,24,51,.94); color: #fff;
-  backdrop-filter: blur(10px);
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  background: rgba(7,24,51,.55); color: #fff;
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,.12);
 }
 .fin-nav .inner {
   display: flex; align-items: center; justify-content: space-between;
@@ -37,29 +39,39 @@ body.finance {
 }
 
 .fin-hero {
-  position: relative; min-height: 90vh; color: #fff;
-  display: grid; align-items: center; overflow: hidden;
+  color: #fff;
 }
 .fin-hero .bg {
   position: absolute; inset: 0;
   background:
-    linear-gradient(115deg, rgba(7,24,51,.92) 0%, rgba(7,24,51,.72) 45%, rgba(7,24,51,.35) 100%),
+    linear-gradient(115deg, rgba(7,24,51,.55) 0%, rgba(7,24,51,.28) 50%, rgba(7,24,51,.4) 100%),
     url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1800&q=80') center/cover;
+  animation: kenZoom 20s ease-in-out infinite alternate;
 }
-.fin-hero .container { position: relative; z-index: 1; padding: 4.5rem 0; }
+.fin-hero .hero-copy {
+  position: relative; z-index: 1;
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  padding: calc(5.8rem + env(safe-area-inset-top, 0px)) 0 3.2rem;
+}
 .fin-hero .badge {
   display: inline-flex; align-items: center; gap: .4rem;
   border: 1px solid rgba(212,160,23,.55); color: #f0d78c;
   padding: .35rem .8rem; border-radius: 999px; font-size: .78rem;
   letter-spacing: .08em; text-transform: uppercase; margin-bottom: 1rem;
+  background: rgba(255,255,255,.08);
 }
 .fin-hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-size: clamp(2.2rem, 6vw, 4rem);
   line-height: 1.05; max-width: 16ch; margin: 0 0 1rem;
+  text-shadow: 0 2px 18px rgba(0,0,0,.28);
 }
-.fin-hero p { max-width: 34rem; opacity: .9; margin: 0 0 1.6rem; font-size: 1.05rem; }
+.fin-hero .glass-panel p { max-width: 34rem; margin: 0 0 1.4rem; font-size: clamp(.98rem, 2.3vw, 1.08rem); }
 .fin-hero .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.fin-features .card { transition: transform .3s ease, box-shadow .3s ease; }
+.fin-features .card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(7,24,51,.14); }
+.fin-features { margin-top: -2.2rem; }
 .btn-fin { background: var(--fin-red); color: #fff; border-radius: 10px; padding: .95rem 1.35rem; font-weight: 700; border: 0; cursor: pointer; }
 .btn-fin-outline { background: transparent; border: 1.5px solid rgba(255,255,255,.7); color: #fff; border-radius: 10px; padding: .95rem 1.35rem; font-weight: 700; }
 

@@ -39,15 +39,17 @@ $partners = ['Star Health', 'Niva Bupa', 'Care Health', 'HDFC ERGO', 'ICICI Lomb
   </div>
 </header>
 
-<section class="fin-hero">
-  <div class="bg"></div>
-  <div class="container">
-    <div class="badge reveal">Best plans · Best care</div>
-    <h1 class="reveal">Life more relaxed with smart insurance</h1>
-    <p class="reveal">सभी प्रमुख Health Insurance Plans एक जगह — cashless hospitalization, tax benefits u/s 80D, family & senior citizen covers, plus personal and business loan guidance.</p>
-    <div class="actions reveal">
-      <a class="btn-fin" href="#quote">Get free quote</a>
-      <a class="btn-fin-outline" href="<?= nv_e(nv_whatsapp_link('Hello Natraj Finance, I need insurance / loan advice.')) ?>" target="_blank" rel="noopener">WhatsApp expert</a>
+<section class="fin-hero full-bleed-hero">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="container hero-copy">
+    <div class="glass-panel dark reveal">
+      <div class="badge">Best plans · Best care</div>
+      <h1>Life more relaxed with smart insurance</h1>
+      <p>सभी प्रमुख Health Insurance Plans एक जगह — cashless hospitalization, tax benefits u/s 80D, family & senior citizen covers, plus personal and business loan guidance.</p>
+      <div class="actions">
+        <a class="btn-fin anim-pulse" href="#quote">Get free quote</a>
+        <a class="btn-fin-outline" href="<?= nv_e(nv_whatsapp_link('Hello Natraj Finance, I need insurance / loan advice.')) ?>" target="_blank" rel="noopener">WhatsApp expert</a>
+      </div>
     </div>
   </div>
 </section>

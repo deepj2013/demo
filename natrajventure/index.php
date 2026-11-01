@@ -39,14 +39,17 @@ global $NV_COMPANY, $NV_VERTICALS;
   </div>
 </header>
 
-<section class="hub-hero">
-  <div class="container">
-    <span class="eyebrow reveal">Gurugram · Ideas to Impact</span>
-    <h1 class="reveal">Natraj <em>Ventures</em></h1>
-    <p class="reveal">One venture. Three craft-led businesses — signature masala chai, trusted insurance & loans, and smart motorized curtains for modern homes.</p>
-    <div class="hero-cta reveal">
-      <a class="btn btn-gold" href="#verticals">Explore verticals</a>
-      <a class="btn btn-outline" href="<?= nv_e(nv_whatsapp_link('Hello Natraj Ventures, I want to connect.')) ?>" target="_blank" rel="noopener">WhatsApp</a>
+<section class="hub-hero full-bleed-hero">
+  <div class="hub-hero-bg" aria-hidden="true"></div>
+  <div class="container hero-copy">
+    <div class="glass-panel light reveal">
+      <span class="eyebrow">Gurugram · Ideas to Impact</span>
+      <h1>Natraj <em>Ventures</em></h1>
+      <p>One venture. Three craft-led businesses — signature masala chai, trusted insurance & loans, and smart motorized curtains for modern homes.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold anim-pulse" href="#verticals">Explore verticals</a>
+        <a class="btn btn-navy" href="<?= nv_e(nv_whatsapp_link('Hello Natraj Ventures, I want to connect.')) ?>" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
     </div>
   </div>
 </section>
@@ -58,7 +61,7 @@ global $NV_COMPANY, $NV_VERTICALS;
       <p>Each vertical has its own experience — open the shop that fits your need.</p>
     </div>
     <div class="v-grid">
-      <a class="v-card reveal" href="<?= nv_e($NV_VERTICALS['chai']['url']) ?>">
+      <a class="v-card reveal delay-1" href="<?= nv_e($NV_VERTICALS['chai']['url']) ?>">
         <div class="bg" style="background-image:url('<?= nv_e(NV_ASSETS) ?>/img/chai/chai-classic-masala.jpg')"></div>
         <div class="content">
           <span class="tag">Tea & packaging</span>
@@ -67,7 +70,7 @@ global $NV_COMPANY, $NV_VERTICALS;
           <span class="btn btn-gold">Shop chai →</span>
         </div>
       </a>
-      <a class="v-card reveal" href="<?= nv_e($NV_VERTICALS['finance']['url']) ?>">
+      <a class="v-card reveal delay-2" href="<?= nv_e($NV_VERTICALS['finance']['url']) ?>">
         <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1556745753-b2904692b3cd?auto=format&fit=crop&w=1200&q=80')"></div>
         <div class="content">
           <span class="tag">Insurance & loans</span>
@@ -76,7 +79,7 @@ global $NV_COMPANY, $NV_VERTICALS;
           <span class="btn btn-gold">Get cover →</span>
         </div>
       </a>
-      <a class="v-card reveal" href="<?= nv_e($NV_VERTICALS['curtains']['url']) ?>">
+      <a class="v-card reveal delay-3" href="<?= nv_e($NV_VERTICALS['curtains']['url']) ?>">
         <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80')"></div>
         <div class="content">
           <span class="tag">Smart interiors</span>

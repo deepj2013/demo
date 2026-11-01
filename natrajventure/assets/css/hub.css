@@ -12,10 +12,11 @@ body.hub {
 }
 
 .hub-nav {
-  position: sticky; top: 0; z-index: 40;
-  backdrop-filter: blur(14px);
-  background: rgba(251,248,241,.82);
-  border-bottom: 1px solid rgba(11,31,58,.08);
+  position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  background: rgba(251,248,241,.55);
+  border-bottom: 1px solid rgba(255,255,255,.45);
 }
 .hub-nav .inner {
   display: flex; align-items: center; justify-content: space-between;
@@ -39,37 +40,41 @@ body.hub {
 .hub-nav nav a:hover { opacity: 1; color: var(--nv-navy); }
 
 .hub-hero {
-  min-height: min(92vh, 860px);
-  display: grid; align-items: end;
-  padding: 4rem 0 3.5rem;
-  position: relative;
-  overflow: hidden;
+  align-items: center;
+  color: var(--nv-ink);
 }
-.hub-hero::before {
-  content: "";
-  position: absolute; inset: 0;
+.hub-hero-bg {
+  position: absolute; inset: 0; z-index: 0;
   background:
-    linear-gradient(120deg, rgba(251,248,241,.92) 28%, rgba(251,248,241,.35) 58%, transparent 75%),
+    linear-gradient(115deg, rgba(251,248,241,.28) 0%, rgba(20,30,45,.18) 55%, rgba(20,30,45,.35) 100%),
     url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
-  z-index: 0;
+  animation: kenZoom 22s ease-in-out infinite alternate;
 }
-.hub-hero .container { position: relative; z-index: 1; max-width: 720px; }
+.hub-hero .hero-copy {
+  position: relative; z-index: 1;
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  padding: calc(5.8rem + env(safe-area-inset-top, 0px)) 0 3.2rem;
+}
 .hub-hero .eyebrow {
-  display: inline-block; margin-bottom: 1rem;
+  display: inline-block; margin-bottom: .85rem;
   letter-spacing: .28em; text-transform: uppercase;
   font-size: .75rem; color: #8a7040; font-weight: 600;
 }
 .hub-hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 7vw, 5.2rem);
-  line-height: .95; margin: 0 0 1rem;
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  line-height: .95; margin: 0 0 .9rem;
   color: var(--nv-navy);
 }
 .hub-hero h1 em { font-style: italic; color: #9a7b2f; }
-.hub-hero p {
-  font-size: 1.1rem; max-width: 34rem; color: var(--nv-muted); margin: 0 0 1.75rem;
+.hub-hero .glass-panel p {
+  font-size: clamp(1rem, 2.4vw, 1.12rem); max-width: 34rem; color: var(--nv-muted); margin: 0 0 1.4rem;
 }
 .hero-cta { display: flex; flex-wrap: wrap; gap: .75rem; }
+.v-card { transition: transform .35s ease, box-shadow .35s ease; }
+.v-card:hover { transform: translateY(-8px); box-shadow: 0 24px 50px rgba(11,31,58,.18); }
+.v-card .tag { animation: floaty 4.8s ease-in-out infinite; }
 
 .verticals { padding: 4.5rem 0 2rem; }
 .section-head { text-align: center; margin-bottom: 2.5rem; }

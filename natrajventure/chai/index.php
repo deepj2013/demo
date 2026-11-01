@@ -42,11 +42,13 @@ $products = array_values(array_filter(nv_products(), fn($p) => ($p['service'] ??
     </video>
     <div class="hero-scrim"></div>
   </div>
-  <div class="container">
-    <div class="eyebrow reveal">Ideas to Impact · Tea vertical</div>
-    <h1 class="reveal">Brew warmth.<br><em>Share spice.</em></h1>
-    <p class="reveal">Five carefully packed masala chai variants — gift-ready pouches for homes, offices and festive hampers across Gurugram.</p>
-    <a class="btn btn-gold reveal" href="#shop">Browse blends</a>
+  <div class="hero-copy">
+    <div class="glass-panel dark reveal">
+      <div class="eyebrow">Ideas to Impact · Tea vertical</div>
+      <h1>Brew warmth.<br><em>Share spice.</em></h1>
+      <p>Five carefully packed masala chai variants — gift-ready pouches for homes, offices and festive hampers across Gurugram.</p>
+      <a class="btn btn-gold anim-pulse" href="#shop">Browse blends</a>
+    </div>
   </div>
 </section>
 

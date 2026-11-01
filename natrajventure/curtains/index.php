@@ -35,15 +35,17 @@ global $NV_COMPANY;
   </div>
 </header>
 
-<section class="cur-hero">
-  <div class="bg"></div>
-  <div class="container">
-    <div class="trust reveal">Trusted smart homes · Gurugram install team</div>
-    <h1 class="reveal">Fresh, effortless curtains for a better home</h1>
-    <p class="reveal">मोटर से कर्टन चलाओ — सुविधा भी, स्टाइल भी. One-button remote, silent motors, timer function, premium fabrics & on-site installation.</p>
-    <div class="actions reveal">
-      <a class="btn-cur" href="#quote">Get instant quote</a>
-      <a class="btn-cur-ghost" href="<?= nv_e(nv_whatsapp_link('Hello Natraj Curtains, I want motorized curtain installation.')) ?>" target="_blank" rel="noopener">WhatsApp us</a>
+<section class="cur-hero full-bleed-hero">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="container hero-copy">
+    <div class="glass-panel dark reveal">
+      <div class="trust">Trusted smart homes · Gurugram install team</div>
+      <h1>Fresh, effortless curtains for a better home</h1>
+      <p>मोटर से कर्टन चलाओ — सुविधा भी, स्टाइल भी. One-button remote, silent motors, timer function, premium fabrics & on-site installation.</p>
+      <div class="actions">
+        <a class="btn-cur anim-pulse" href="#quote">Get instant quote</a>
+        <a class="btn-cur-ghost" href="<?= nv_e(nv_whatsapp_link('Hello Natraj Curtains, I want motorized curtain installation.')) ?>" target="_blank" rel="noopener">WhatsApp us</a>
+      </div>
     </div>
   </div>
 </section>
