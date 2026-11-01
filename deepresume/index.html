@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Deepak Jha — Engineering Manager / Staff Engineering Manager / AI Engineer. 11+ years building healthcare platforms, AI products, HCAF, Operator Console, MERN, cloud, and enterprise integrations." />
+  <meta name="keywords" content="Engineering Manager, Staff Engineering Manager, AI Engineer, Tech Lead, HCAF, Operator Console, SpinSci, Emoneeds, LLM, Generative AI, RAG, LangChain, EHR, Epic, Athena, Cerner, Five9, WxCC, NiceCX, MERN, AWS, System Design, Healthcare Interoperability" />
+  <title>Deepak Jha — Curriculum Vitae</title>
+  <style>
+    :root {
+      --ink: #141414;
+      --muted: #3d3d3d;
+      --line: #c8c8c8;
+      --accent: #0b3d91;
+      --bg: #fff;
+      --soft: #f4f7fb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 10.75pt;
+      line-height: 1.4;
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 1rem;
+      background: #e8eef7;
+      border-bottom: 1px solid var(--line);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      font-size: 13px;
+    }
+
+    .toolbar button {
+      cursor: pointer;
+      border: 1px solid #90a4ae;
+      background: #fff;
+      padding: 0.45rem 0.85rem;
+      border-radius: 4px;
+      font: inherit;
+    }
+
+    .toolbar button.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: #082d6b;
+    }
+
+    .toolbar button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.1rem 1.4rem 2rem;
+    }
+
+    header.doc-header {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 0.55rem;
+      margin-bottom: 0.75rem;
+    }
+
+    header.doc-header h1 {
+      margin: 0 0 0.15rem;
+      font-size: 20pt;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .headline {
+      font-size: 10.75pt;
+      color: var(--muted);
+      margin: 0 0 0.35rem;
+      font-style: italic;
+    }
+
+    .contact {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      font-size: 9.5pt;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    section { margin-top: 0.85rem; }
+
+    section > h2 {
+      margin: 0 0 0.35rem;
+      font-size: 11pt;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.15rem;
+    }
+
+    .summary p {
+      margin: 0;
+      text-align: justify;
+    }
+
+    .skills-compact {
+      margin: 0.25rem 0 0;
+      padding-left: 1.05rem;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      font-size: 9.1pt;
+      line-height: 1.32;
+      color: var(--muted);
+    }
+
+    .skills-compact li { margin-bottom: 0.15rem; }
+    .skills-compact strong { color: var(--ink); font-weight: 600; }
+
+    article.job {
+      margin-bottom: 0.75rem;
+      page-break-inside: avoid;
+    }
+
+    article.job h3 {
+      margin: 0;
+      font-size: 11pt;
+    }
+
+    .job-meta {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      font-size: 9.25pt;
+      color: var(--muted);
+      margin: 0.1rem 0 0.3rem;
+    }
+
+    ul.tight {
+      margin: 0.15rem 0 0;
+      padding-left: 1.1rem;
+    }
+
+    ul.tight li { margin-bottom: 0.18rem; }
+
+    .case-block {
+      margin-bottom: 0.55rem;
+      page-break-inside: avoid;
+    }
+
+    .case-block h3 {
+      margin: 0 0 0.15rem;
+      font-size: 10.5pt;
+    }
+
+    .case-block p { margin: 0 0 0.2rem; }
+
+    .case-meta {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      font-size: 8.75pt;
+      color: var(--muted);
+      margin: 0 0 0.15rem;
+    }
+
+    .edu-row { margin-bottom: 0.2rem; }
+
+    .cv-print-sheet2 { display: block; }
+
+    .edu-ach-wrap {
+      display: block;
+      margin-bottom: 0.65rem;
+    }
+
+    .achievements ul {
+      margin: 0.2rem 0 0;
+      padding-left: 1.1rem;
+    }
+
+    .note-ats {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      font-size: 9.25pt;
+      color: var(--muted);
+      margin-top: 1.1rem;
+      padding: 0.55rem 0.7rem;
+      border-left: 4px solid var(--accent);
+      background: var(--soft);
+    }
+
+    @media print {
+      .toolbar,
+      .no-print { display: none !important; }
+
+      @page {
+        size: A4;
+        margin: 7mm 8mm;
+      }
+
+      body {
+        font-size: 8.85pt;
+        line-height: 1.26;
+      }
+
+      .wrap { max-width: none; padding: 0; }
+
+      header.doc-header {
+        margin-bottom: 0.35rem;
+        padding-bottom: 0.35rem;
+      }
+
+      header.doc-header h1 {
+        font-size: 15pt;
+        margin-bottom: 0.05rem;
+      }
+
+      .headline {
+        font-size: 8.9pt;
+        margin-bottom: 0.15rem;
+      }
+
+      .contact {
+        font-size: 8pt;
+        line-height: 1.28;
+      }
+
+      section { margin-top: 0.35rem; }
+
+      section > h2 {
+        font-size: 9.5pt;
+        margin-bottom: 0.12rem;
+        padding-bottom: 0.05rem;
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .skills-compact {
+        font-size: 7.7pt;
+        line-height: 1.24;
+        margin-top: 0.12rem;
+      }
+
+      .skills-compact li { margin-bottom: 0.05rem; }
+
+      article.job {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 0.35rem;
+      }
+
+      .case-block {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 0.28rem;
+      }
+
+      .cv-print-sheet2 {
+        break-before: page;
+        page-break-before: always;
+        padding-top: 0.4rem;
+        border-top: 0.75pt solid #999;
+        font-size: 8.5pt;
+        line-height: 1.24;
+      }
+
+      article.job h3 { font-size: 9.75pt; }
+
+      .job-meta {
+        font-size: 8.25pt;
+        margin-bottom: 0.12rem;
+      }
+
+      ul.tight { margin-top: 0.08rem; }
+      ul.tight li { margin-bottom: 0.08rem; }
+
+      .case-block h3 { font-size: 9.1pt; }
+      .case-meta { font-size: 7.6pt; }
+
+      .edu-ach-wrap {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 0 0.75rem;
+        align-items: start;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 0.25rem;
+        padding-bottom: 0.25rem;
+      }
+
+      .edu-ach-wrap section { margin-top: 0; }
+      .edu-row { margin-bottom: 0.12rem; }
+      .achievements ul { margin-top: 0.08rem; }
+      .achievements li { margin-bottom: 0.06rem; }
+
+      a {
+        color: var(--ink);
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar no-print" role="region" aria-label="CV actions">
+    <span style="opacity:0.85">Deepak Jha — CV (AI Engineer · EM / Staff EM)</span>
+    <span style="display:flex;gap:0.5rem;flex-wrap:wrap">
+      <button type="button" class="primary" id="btnPrint">Save as PDF (Print)</button>
+      <button type="button" id="btnCopy">Copy plain text</button>
+    </span>
+  </div>
+
+  <main class="wrap" id="cv-main">
+    <header class="doc-header">
+      <h1>Deepak Jha</h1>
+      <p class="headline">Engineering Manager / Staff Engineering Manager | AI Engineer | Healthcare Platforms &amp; Product Ownership</p>
+      <div class="contact">
+        Greater Noida, Uttar Pradesh, India
+        <span aria-hidden="true"> | </span>
+        Phone: <a href="tel:+919654868012">+91-9654868012</a>
+        <span aria-hidden="true"> | </span>
+        Email: <a href="mailto:Deepmca2014@gmail.com">Deepmca2014@gmail.com</a>
+        <span aria-hidden="true"> | </span>
+        LinkedIn: <a href="https://www.linkedin.com/in/deepak-jha-755a89155">linkedin.com/in/deepak-jha-755a89155</a>
+      </div>
+    </header>
+
+    <section class="summary" aria-labelledby="h-summary">
+      <h2 id="h-summary">Professional summary</h2>
+      <p>
+        Engineering leader and hands-on AI / platform builder with <strong>11+ years</strong> across healthcare, wellbeing SaaS, compliance, and government systems.
+        Currently at SpinSci owning <strong>Operator Console</strong> and the <strong>HCAF</strong> framework—an AI-assisted composition of EHR + CCaaS + custom development that compresses healthcare delivery from <strong>8–9 months to 3–4 weeks</strong>.
+        Previously Tech Lead / product owner at Emoneeds: ERP/CRM automation with AI patient monitoring (Terra API), ScanPsy (assessment in minutes), corporate wellbeing portals, and architecture mentorship for YC-backed <strong>Koyal.ai</strong> (generative video).
+        Strong fit for <strong>Engineering Manager / Staff Engineering Manager</strong> and <strong>AI Engineer</strong> roles: system design, multi-vendor integrations, team leadership (tech + non-tech), and shipping AI features into regulated production.
+      </p>
+    </section>
+
+    <section aria-labelledby="h-skills">
+      <h2 id="h-skills">Core competencies</h2>
+      <ul class="skills-compact">
+        <li><strong>Engineering leadership:</strong> people &amp; delivery ownership, hiring/mentoring, roadmap &amp; architecture guardrails, Agile/Scrum, stakeholder alignment, 12–22 person cross-functional teams.</li>
+        <li><strong>AI engineering:</strong> LLM apps, RAG, prompt / tool orchestration, generative media pipelines, AI-assisted clinical/ops workflows, evaluation &amp; production observability; Python, Node.js; OpenAI / multimodal model APIs; Modal; embeddings &amp; vector search patterns; Terra health-data APIs.</li>
+        <li><strong>Healthcare &amp; contact platforms:</strong> HCAF; Operator Console; EHR (Epic, Athena, Cerner, NextGen); CCaaS/CTI (Five9, WxCC, 8x8, Zoom, NiceCX); Mirth / HL7 / FHIR; Everbridge, American Messaging, WCTP, QGenda, AmTelco, Kyruus, Workday.</li>
+        <li><strong>Full-stack &amp; data:</strong> MERN (MongoDB, Express, React, Node.js), PostgreSQL, MySQL, REST/microservices, Lerna monorepos, event-driven patterns (WebSockets / queues).</li>
+        <li><strong>Cloud &amp; quality:</strong> AWS (ECS, EC2, EKS, S3, Route&nbsp;53, Code* / CI-CD), Docker, NGINX, Jenkins/GitHub Actions, TDD, Jest/Cypress/Sonar, security (OAuth2/JWT, OWASP, HIPAA-minded delivery).</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="h-exp">
+      <h2 id="h-exp">Professional experience</h2>
+
+      <article class="job">
+        <h3>Lead Software Engineer — Operator Console &amp; HCAF</h3>
+        <p class="job-meta">SpinSci Health-Tech Pvt. Ltd. — Hyderabad (remote) — 27 May 2025 to Present</p>
+        <ul class="tight">
+          <li>Own <strong>Operator Console</strong> and drive <strong>HCAF</strong> (Healthcare Composition &amp; AI Framework): reusable EHR + CCaaS + custom modules with AI-assisted deployment/development for hospital contact-center and clinical ops use cases.</li>
+          <li>Cut typical healthcare integration / delivery cycles from <strong>8–9 months to 3–4 weeks</strong> by packaging connectors, workflows, and AI-guided configuration instead of greenfield builds per client.</li>
+          <li>Integrate EHRs (Epic, Athena, Cerner, NextGen) with CCaaS platforms (Five9, WxCC, 8x8, Zoom, NiceCX) plus third-party clinical/ops systems (Everbridge, American Messaging, WCTP, QGenda, AmTelco, Kyruus, Workday).</li>
+          <li>Ship secure Node.js / React / PostgreSQL services in Lerna monorepos; Mirth Connect for HL7/FHIR where required; harden real-time operator workflows for regulated environments.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <h3>Tech Lead / Product Owner — Emoneeds Platform</h3>
+        <p class="job-meta">Emoneeds (RNR Emotional Wellbeing Technology LLP) — Gurugram — 10 Apr 2023 to 26 May 2025</p>
+        <ul class="tight">
+          <li>Owned the Emoneeds product end-to-end and led a <strong>12-person</strong> tech + non-tech team: architecture, delivery, AI features, ERP/CRM rollout, and org-wide process automation.</li>
+          <li>Introduced enterprise ERP + CRM with AI-assisted patient monitoring and <strong>Terra API</strong> integrations so clinicians could track wellbeing signals in near real time.</li>
+          <li>Built <strong>ScanPsy</strong> digital psychological assessment—compressed reporting from ~5 days to ~3 minutes; launched <strong>Wellbeing Plus</strong> corporate mental-wellbeing portal for enterprise clients.</li>
+          <li>Mentored and architected <strong>Koyal.ai</strong> (Y Combinator–funded): full solution design for an AI generative-video portal using model APIs, Modal, AWS, and multi-tool orchestration; coached founders/engineers through production architecture.</li>
+          <li>Re-architected Emoneeds EHR toward secure MERN microservices; improved load performance (~48%), therapist scale (5 → 120+), CI/CD on AWS, and cloud cost (~38% reduction).</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <h3>Senior Software Developer / Tech Lead</h3>
+        <p class="job-meta">TechMusk Pvt. Ltd. — Noida — 16 Nov 2020 to 31 Mar 2023</p>
+        <ul class="tight">
+          <li>Led a team of ~4 engineers while delivering government and enterprise products: <strong>napix.gov.in</strong> (NIC National API Exchange), Smebuze.com, Sagarfinance.com, and related portals.</li>
+          <li>Partnered with <strong>IBM Connect</strong> and <strong>SISL</strong> on government programs; enforced NIC/KPMG security and audit expectations; improved critical API latency (~70% on key paths).</li>
+          <li>Established GitFlow, peer review, and automated testing culture across MERN / PostgreSQL / AWS delivery.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <h3>Junior → Senior Software Developer</h3>
+        <p class="job-meta">Webtel Electrosoft Pvt. Ltd. — Delhi — 16 Jun 2016 to 15 Nov 2020</p>
+        <ul class="tight">
+          <li>Product company building compliance software (TDS filing); when GST launched in India, delivered GST filing products and client automation from manual to digitized workflows.</li>
+          <li>Gained deep exposure to SAP customization and ERP ecosystems (Tally, Busy, Marg, FinServ/Finesse) plus .NET/MVC, SQL Server, and progressive modern web stacks; 3× Best Employee of the Year.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <h3>Founder — Full-cycle IT delivery (college years)</h3>
+        <p class="job-meta">Ameera IT Corporate Services — Delhi — during BCA/MCA (approx. 2011–2016)</p>
+        <ul class="tight">
+          <li>Ran own IT practice while studying: sales, marketing, client discovery, development, and delivery for schools, colleges, and hospitals—websites plus management systems—end-to-end ownership that shaped later EM skills.</li>
+        </ul>
+      </article>
+    </section>
+
+    <div class="cv-print-sheet2">
+    <section aria-labelledby="h-cases">
+      <h2 id="h-cases">Selected system-design case studies</h2>
+
+      <div class="case-block">
+        <h3>1. HCAF — Healthcare Composition &amp; AI Framework (SpinSci)</h3>
+        <p class="case-meta">Problem → multi-vendor EHR/CCaaS projects took 8–9 months per client · Approach → modular connector + workflow + AI config layer · Result → 3–4 week delivery</p>
+        <p>
+          <strong>Design:</strong> Treat each EHR (Epic/Athena/Cerner) and CCaaS (Five9/WxCC/8x8/Zoom/NiceCX) as swappable adapters behind a common domain API; compose custom clinical/ops flows (scheduling, paging, workforce) via Everbridge, WCTP, QGenda, Kyruus, Workday, etc.
+          AI assists mapping, scaffolding, and deployment checks so teams reuse 70%+ of a proven composition instead of rebuilding. Operator Console sits as the human control plane over live patient/call context with secure service boundaries and auditability.
+        </p>
+      </div>
+
+      <div class="case-block">
+        <h3>2. Emoneeds AI ops + ScanPsy + Wellbeing Plus</h3>
+        <p class="case-meta">Problem → fragmented care ops &amp; slow psych assessments · Approach → ERP/CRM + AI monitoring + Terra · Result → minutes-level assessment; enterprise wellbeing adoption</p>
+        <p>
+          <strong>Design:</strong> Event-oriented patient timeline (clinical notes, appointments, wearable/health signals via Terra) feeding AI monitors for professionals; ScanPsy as a bounded assessment microservice with scoring pipelines and report generation; Wellbeing Plus as multi-tenant B2B portal with RBAC, SSO-ready patterns, and AWS CI/CD for weekly releases.
+        </p>
+      </div>
+
+      <div class="case-block">
+        <h3>3. Koyal.ai — Generative video platform (YC-backed; architecture mentorship)</h3>
+        <p class="case-meta">Problem → end-to-end AI video product needed production architecture · Approach → model orchestration + Modal + AWS · Result → complete AI video portal design &amp; delivery guidance</p>
+        <p>
+          <strong>Design:</strong> Async job pipeline (script → assets → model inference → render/compose → CDN), Modal for elastic GPU/CPU workers, AWS for storage/auth/API edge, tool-chaining across multimodal models with retry/idempotency, cost controls, and human-in-the-loop review—mentored founders and engineering on scalable AI product architecture.
+        </p>
+      </div>
+
+      <div class="case-block">
+        <h3>4. NAPIX.gov.in — National API Exchange (NIC / TechMusk)</h3>
+        <p class="case-meta">Problem → secure government API discovery &amp; onboarding · Approach → sandbox→prod lifecycle + IBM Connect · Result → audit-ready national platform</p>
+        <p>
+          <strong>Design:</strong> Developer portal + admin governance, API catalog, sandbox promotion gates, IBM Connect integration paths, PostgreSQL-backed services, NGINX edge, and hardening against NIC/KPMG audit findings—latency and security treated as first-class constraints.
+        </p>
+      </div>
+    </section>
+
+    <div class="edu-ach-wrap">
+    <section class="achievements" aria-labelledby="h-ach">
+      <h2 id="h-ach">Recognition &amp; impact</h2>
+      <ul class="tight">
+        <li>HCAF: healthcare delivery cycle 8–9 months → 3–4 weeks.</li>
+        <li>ScanPsy: psychological assessment turnaround ~5 days → ~3 minutes.</li>
+        <li>Architecture mentor for YC-funded Koyal.ai generative-video product.</li>
+        <li>Best Employee of the Year — three consecutive years (Webtel).</li>
+        <li>NIC appreciation for government project delivery (NAPIX).</li>
+        <li>Emoneeds EHR: therapists 5 → 120+; AWS cost −38%; Lighthouse ~62 → 92.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="h-edu">
+      <h2 id="h-edu">Education</h2>
+      <div class="edu-row"><strong>MCA</strong>, AKTU, Lucknow — 2014–2016 — 74.07%</div>
+      <div class="edu-row"><strong>BCA</strong>, CCSU, Meerut — 2011–2014 — 64.91%</div>
+      <div class="edu-row"><strong>Class XII</strong>, ARSD Sr. Sec. School, Delhi</div>
+      <div class="edu-row"><strong>Class X</strong>, RK Inter College, UP Board</div>
+    </section>
+    </div>
+
+    <section aria-labelledby="h-projects">
+      <h2 id="h-projects">Selected products</h2>
+      <ul class="tight">
+        <li><strong>SpinSci:</strong> Operator Console, HCAF, Patient Assist — EHR ↔ CCaaS real-time operator and patient engagement.</li>
+        <li><strong>Emoneeds / RNR:</strong> Emoneeds EHR, ScanPsy, Wellbeing Plus; mentorship on Koyal.ai.</li>
+        <li><strong>TechMusk / NIC:</strong> napix.gov.in, Smebuze.com, Sagarfinance.com; IBM Connect &amp; SISL programs.</li>
+        <li><strong>Webtel:</strong> TDS / GST compliance products; ERP-linked client digitization.</li>
+        <li><strong>Ameera IT:</strong> school / college / hospital websites and management systems.</li>
+      </ul>
+    </section>
+    </div>
+
+    <p class="note-ats no-print">
+      <strong>PDF tip:</strong> Use <strong>Save as PDF (Print)</strong>, A4, margins ~7–8&nbsp;mm, and turn off browser headers/footers.
+      Page&nbsp;1 = summary, skills, experience; Page&nbsp;2 = system-design case studies, recognition, education, products.
+      If anything clips, try print scale <strong>95–98%</strong>. Tailor the headline to the role (AI Engineer vs Engineering Manager) before each application.
+    </p>
+  </main>
+
+  <textarea id="plain-buffer" aria-hidden="true" style="position:fixed;left:-9999px;top:0" readonly></textarea>
+
+  <script>
+    (function () {
+      function buildPlainText() {
+        var main = document.getElementById("cv-main");
+        if (!main) return "";
+        var clone = main.cloneNode(true);
+        var links = clone.querySelectorAll("a");
+        for (var i = 0; i < links.length; i++) {
+          var a = links[i];
+          var href = a.getAttribute("href");
+          var t = (a.textContent || "").trim();
+          if (href && href.indexOf("mailto:") === 0) {
+            a.textContent = href.replace(/^mailto:/i, "");
+          } else if (href && href.indexOf("tel:") === 0) {
+            a.textContent = href.replace(/^tel:/i, "");
+          } else if (href && t) {
+            a.textContent = t + " (" + href + ")";
+          }
+        }
+        return clone.innerText.replace(/\n{3,}/g, "\n\n").trim();
+      }
+
+      document.getElementById("btnPrint").addEventListener("click", function () {
+        window.print();
+      });
+
+      document.getElementById("btnCopy").addEventListener("click", function () {
+        var text = buildPlainText();
+        var ta = document.getElementById("plain-buffer");
+        ta.value = text;
+        ta.select();
+        ta.setSelectionRange(0, text.length);
+        try {
+          document.execCommand("copy");
+          alert("Plain text copied. Paste into a job board or .txt resume field if needed.");
+        } catch (e) {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function () {
+              alert("Plain text copied to clipboard.");
+            }).catch(function () {
+              alert("Copy failed. Select text manually from the page.");
+            });
+          } else {
+            alert("Copy not supported in this browser.");
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
