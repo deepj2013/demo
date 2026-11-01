@@ -1,0 +1,8 @@
+Options -Indexes
+DirectoryIndex index.php index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Protect data directory even if Alias bypasses folder .htaccess
+  RewriteRule ^data/ - [F,L]
+</IfModule>

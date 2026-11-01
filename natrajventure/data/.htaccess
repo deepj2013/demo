@@ -1,0 +1,2 @@
+# Block direct web access to order/lead storage
+Require all denied

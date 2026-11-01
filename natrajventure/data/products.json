@@ -1,0 +1,72 @@
+[
+  {
+    "id": "chai-classic-masala",
+    "service": "chai",
+    "name": "Classic Masala Chai",
+    "subtitle": "Signature spice blend",
+    "price": 349,
+    "mrp": 429,
+    "weight": "250g",
+    "stock": 120,
+    "active": true,
+    "image": "chai-classic-masala.jpg",
+    "tags": ["bestseller", "everyday"],
+    "description": "A balanced everyday masala with cardamom, cinnamon, cloves and Assam CTC — warm, aromatic, and ready for milk chai."
+  },
+  {
+    "id": "chai-ginger-fire",
+    "service": "chai",
+    "name": "Ginger Fire Chai",
+    "subtitle": "Bold & warming",
+    "price": 379,
+    "mrp": 449,
+    "weight": "250g",
+    "stock": 90,
+    "active": true,
+    "image": "chai-ginger-fire.jpg",
+    "tags": ["spicy"],
+    "description": "Fresh dried ginger punch with black pepper and cinnamon — perfect for monsoon evenings and digestion."
+  },
+  {
+    "id": "chai-cardamom-gold",
+    "service": "chai",
+    "name": "Cardamom Gold",
+    "subtitle": "Fragrance first",
+    "price": 399,
+    "mrp": 479,
+    "weight": "250g",
+    "stock": 80,
+    "active": true,
+    "image": "chai-cardamom-gold.jpg",
+    "tags": ["premium"],
+    "description": "Green cardamom-forward blend with a soft floral finish — gift-ready premium packaging."
+  },
+  {
+    "id": "chai-tulsi-calm",
+    "service": "chai",
+    "name": "Tulsi Calm Chai",
+    "subtitle": "Herbal comfort",
+    "price": 369,
+    "mrp": 439,
+    "weight": "200g",
+    "stock": 70,
+    "active": true,
+    "image": "chai-tulsi-calm.jpg",
+    "tags": ["herbal"],
+    "description": "Holy basil with gentle spices for a soothing cup — lighter body, calming aroma."
+  },
+  {
+    "id": "chai-kadak-blend",
+    "service": "chai",
+    "name": "Kadak Assam Blend",
+    "subtitle": "Strong cutting chai",
+    "price": 329,
+    "mrp": 399,
+    "weight": "250g",
+    "stock": 150,
+    "active": true,
+    "image": "chai-kadak-blend.jpg",
+    "tags": ["strong", "office"],
+    "description": "Deep Assam body for cutting chai — holds milk and sugar beautifully for office & roadside-style kadak."
+  }
+]

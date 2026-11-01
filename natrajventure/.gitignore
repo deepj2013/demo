@@ -1,0 +1,5 @@
+_preview/
+data/*.csv
+data/*.tmp
+data/*.json.tmp
+.DS_Store
