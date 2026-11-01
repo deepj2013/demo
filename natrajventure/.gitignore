@@ -3,3 +3,6 @@ data/*.csv
 data/*.tmp
 data/*.json.tmp
 .DS_Store
+assets/img/_client-reference/
+WhatsApp Image *.jpeg
+WhatsApp Image *.jpg

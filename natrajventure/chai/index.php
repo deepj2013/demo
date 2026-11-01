@@ -36,7 +36,12 @@ $products = array_values(array_filter(nv_products(), fn($p) => ($p['service'] ??
 </header>
 
 <section class="chai-hero">
-  <div class="bg"></div>
+  <div class="bg" aria-hidden="true">
+    <video class="hero-video" autoplay muted loop playsinline poster="<?= nv_e(NV_ASSETS) ?>/img/chai/chai-classic-masala.jpg">
+      <source src="<?= nv_e(NV_ASSETS) ?>/video/chai-hero-loop.mp4" type="video/mp4">
+    </video>
+    <div class="hero-scrim"></div>
+  </div>
   <div class="container">
     <div class="eyebrow reveal">Ideas to Impact · Tea vertical</div>
     <h1 class="reveal">Brew warmth.<br><em>Share spice.</em></h1>

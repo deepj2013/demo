@@ -65,11 +65,11 @@ $partners = ['Star Health', 'Niva Bupa', 'Care Health', 'HDFC ERGO', 'ICICI Lomb
   <div class="container">
     <div class="head reveal">
       <h2>We’re covering insurance & lending</h2>
-      <p>Same trust as our posters — now as a clean one-page experience for families and founders.</p>
+      <p>Natraj-branded guidance for families and founders — compare, consult, and cover with confidence.</p>
     </div>
     <div class="services-grid">
       <article class="service-card reveal">
-        <div class="top" style="background-image:url('<?= nv_e(NV_ASSETS) ?>/img/finance/poster-health-1.jpeg')"></div>
+        <div class="top" style="background-image:url('<?= nv_e(NV_ASSETS) ?>/img/finance/nv-family-cover.jpg')"></div>
         <div class="body">
           <h3>Health Insurance</h3>
           <ul>
@@ -80,7 +80,7 @@ $partners = ['Star Health', 'Niva Bupa', 'Care Health', 'HDFC ERGO', 'ICICI Lomb
         </div>
       </article>
       <article class="service-card reveal">
-        <div class="top" style="background-image:url('<?= nv_e(NV_ASSETS) ?>/img/finance/poster-health-2.jpeg')"></div>
+        <div class="top" style="background-image:url('<?= nv_e(NV_ASSETS) ?>/img/finance/nv-family-banner.jpg')"></div>
         <div class="body">
           <h3>Family & Senior Plans</h3>
           <ul>
@@ -118,6 +118,24 @@ $partners = ['Star Health', 'Niva Bupa', 'Care Health', 'HDFC ERGO', 'ICICI Lomb
   </div>
 </section>
 
+<section class="fin-section" id="contact-poster">
+  <div class="container">
+    <div class="head reveal">
+      <h2>Visit &amp; connect</h2>
+      <p>Natraj Ventures finance desk — Sector 29, Gurugram.</p>
+    </div>
+    <div class="nv-poster-frame reveal">
+      <img src="<?= nv_e(NV_ASSETS) ?>/img/finance/nv-contact-poster.jpg" alt="Natraj Ventures insurance contact poster" loading="lazy">
+      <div class="nv-poster-meta">
+        <strong>Natraj Ventures</strong>
+        <p><?= nv_e($NV_COMPANY['address']) ?></p>
+        <p><a href="tel:<?= nv_e($NV_COMPANY['phone_raw']) ?>"><?= nv_e($NV_COMPANY['phone']) ?></a> · <a href="mailto:<?= nv_e($NV_COMPANY['email']) ?>"><?= nv_e($NV_COMPANY['email']) ?></a></p>
+        <a class="btn-fin" href="<?= nv_e(nv_whatsapp_link('Hello Natraj Finance, I saw your contact poster.')) ?>" target="_blank" rel="noopener">WhatsApp from poster</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="fin-section" id="quote">
   <div class="container">
     <div class="head reveal">
@@ -125,7 +143,7 @@ $partners = ['Star Health', 'Niva Bupa', 'Care Health', 'HDFC ERGO', 'ICICI Lomb
       <p>Share your details — our advisor will call you. Leads sync to the Natraj admin panel instantly.</p>
     </div>
     <div class="quote-wrap">
-      <div class="quote-visual reveal" style="background-image:url('<?= nv_e(NV_ASSETS) ?>/img/finance/poster-health-5.jpeg')"></div>
+      <div class="quote-visual reveal" style="background-image:url('<?= nv_e(NV_ASSETS) ?>/img/finance/nv-contact-poster.jpg')"></div>
       <form class="quote-form reveal" id="finance-form">
         <h3>Free consultation & policy advice</h3>
         <div class="row two">

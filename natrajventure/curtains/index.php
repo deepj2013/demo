@@ -92,10 +92,28 @@ global $NV_COMPANY;
   </div>
 </section>
 
+<section class="cur-section" id="contact-poster">
+  <div class="container">
+    <div class="head reveal">
+      <h2>Visit &amp; connect</h2>
+      <p>Natraj Curtains showroom desk — Sector 29, Gurugram.</p>
+    </div>
+    <div class="nv-poster-frame reveal">
+      <img src="<?= nv_e(NV_ASSETS) ?>/img/curtains/nv-contact-poster.jpg" alt="Natraj Ventures curtains contact poster" loading="lazy">
+      <div class="nv-poster-meta">
+        <strong>Natraj Curtains</strong>
+        <p><?= nv_e($NV_COMPANY['address']) ?></p>
+        <p><a href="tel:<?= nv_e($NV_COMPANY['phone_raw']) ?>"><?= nv_e($NV_COMPANY['phone']) ?></a> · <a href="mailto:<?= nv_e($NV_COMPANY['email']) ?>"><?= nv_e($NV_COMPANY['email']) ?></a></p>
+        <a class="btn-cur" href="<?= nv_e(nv_whatsapp_link('Hello Natraj Curtains, I saw your contact poster.')) ?>" target="_blank" rel="noopener">WhatsApp from poster</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="cur-section" id="quote">
   <div class="container">
     <div class="quote-panel reveal">
-      <div class="visual" style="background-image:url('<?= nv_e(NV_ASSETS) ?>/img/curtains/poster-motor-1.jpeg')"></div>
+      <div class="visual" style="background-image:url('<?= nv_e(NV_ASSETS) ?>/img/curtains/nv-contact-poster.jpg')"></div>
       <div class="form">
         <h3>Fast quote for motorized curtains</h3>
         <form id="curtain-form">
